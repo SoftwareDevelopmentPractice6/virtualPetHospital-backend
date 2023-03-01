@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-01 23:19:09
+ * @LastEditTime: 2023-03-01 23:28:49
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -30,7 +30,7 @@
 
 ## Tips
 
-为了注册子模块到eureka，请完成以下事项：
-
-- 在`pom.xml`内添加依赖：Spring Discovery Client与Spring Boot Starter Actuator
-- 在启动类上添加注解`@EnableDiscoveryClient`
+1. 为了注册子模块到eureka，请完成以下事项：
+    - 在`pom.xml`内添加依赖：Spring Discovery Client与Spring Boot Starter Actuator
+    - 在启动类上添加注解`@EnableDiscoveryClient`
+2. 以`master`分支为主分支。如果要进行开发等改动，请创建新分支进行修改，完成后提交pr。
