@@ -66,3 +66,4 @@
     - 在`pom.xml`内添加依赖：Spring Discovery Client与Spring Boot Starter Actuator
     - 在启动类上添加注解`@EnableDiscoveryClient`
 2. 以`master`分支为主分支。如果要进行开发等改动，请创建新分支进行修改，完成后提交pr。
+3. 本文件只作为整个后端的文档，各个模块的细致说明（如接口等）等文档放在各个子模块的目录下即可。
