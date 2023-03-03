@@ -1,8 +1,8 @@
 <!--
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
- * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-01 23:28:49
+ * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-03 11:42:05
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -28,13 +28,6 @@
 
 以上均可以随意改动，只作参考
 
-## Tips
-
-1. 为了注册子模块到eureka，请完成以下事项：
-    - 在`pom.xml`内添加依赖：Spring Discovery Client与Spring Boot Starter Actuator
-    - 在启动类上添加注解`@EnableDiscoveryClient`
-2. 以`master`分支为主分支。如果要进行开发等改动，请创建新分支进行修改，完成后提交pr。
-
 ## 需求
 
 1. 鉴权模块
@@ -48,3 +41,28 @@
     - 需要每个科室与角色相关的权限信息
 4. 职能学习模块
     - 三类角色（兽医师、前台、医助）只限定在模块内部，不参与鉴权
+
+## 规范
+
+### Commit Message
+
+- feat: 新功能、特性
+- fix: 修bug
+- docs: 文档修改
+- test: 测试
+- style: 代码格式等修改
+- refactor: 重构
+
+### 代码规范
+
+- **命名要能清楚表达变量/函数等作用**，驼峰法，变量类型不用在变量名内提醒
+- 复杂函数勤写注释
+- 其他函数可以考虑简单写点参数与返回值之类的注释
+- 尽量不要过长或过短的函数。能复用的部分尽可能复用
+
+## Tips
+
+1. 为了注册子模块到eureka，请完成以下事项：
+    - 在`pom.xml`内添加依赖：Spring Discovery Client与Spring Boot Starter Actuator
+    - 在启动类上添加注解`@EnableDiscoveryClient`
+2. 以`master`分支为主分支。如果要进行开发等改动，请创建新分支进行修改，完成后提交pr。
