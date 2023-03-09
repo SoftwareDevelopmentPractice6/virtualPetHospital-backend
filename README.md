@@ -1,8 +1,8 @@
 <!--
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
- * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-08 15:52:07
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-09 15:39:26
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -75,7 +75,7 @@
 1. 为了注册子模块到eureka，请完成以下事项：
     - 在`pom.xml`内添加依赖：Spring Discovery Client与Spring Boot Starter Actuator
     - 在启动类上添加注解`@EnableDiscoveryClient`
-    - `resources/appilication.yml`按如下配置
+    - `resources/application.yml`按如下配置
         ```
         server:
             port: # 端口号自己配新的，不要重复
