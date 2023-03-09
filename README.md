@@ -75,7 +75,7 @@
 1. 为了注册子模块到eureka，请完成以下事项：
     - 在`pom.xml`内添加依赖：Spring Discovery Client与Spring Boot Starter Actuator
     - 在启动类上添加注解`@EnableDiscoveryClient`
-    - `resources/application.yml`按如下配置
+    - `resources/application.yml`按如下配置，文件后缀名记得修改为`yml`文件
         ```
         server:
             port: # 端口号自己配新的，不要重复
