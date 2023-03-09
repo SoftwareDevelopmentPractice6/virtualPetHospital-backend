@@ -81,19 +81,19 @@
         server:
             port: # 端口号自己配新的，不要重复
         spring:
-        application:
-            name: # 名称自己选新的，需要能说明模块大致内容，不要重复
+            application:
+                name: # 名称自己选新的，需要能说明模块大致内容，不要重复
         
         eureka:
-        instance:
-            lease-renewal-interval-in-seconds: 30      # 心跳时间，即服务续约间隔时间（缺省为30s）
-            lease-expiration-duration-in-seconds: 90  # 发呆时间，即服务续约到期时间（缺省为90s）
-        client:
-            registry-fetch-interval-seconds: 30 # 拉取服务注册信息间隔（缺省为30s）
-            service-url:
-            defaultZone: http://localhost:5272/eureka/
-            healthcheck:
-            enabled: true # 开启健康检查（依赖spring-boot-starter-actuator）
+            instance:
+                lease-renewal-interval-in-seconds: 30      # 心跳时间，即服务续约间隔时间（缺省为30s）
+                lease-expiration-duration-in-seconds: 90  # 发呆时间，即服务续约到期时间（缺省为90s）
+            client:
+                registry-fetch-interval-seconds: 30 # 拉取服务注册信息间隔（缺省为30s）
+                service-url:
+                    defaultZone: http://localhost:5272/eureka/
+                healthcheck:
+                    enabled: true # 开启健康检查（依赖spring-boot-starter-actuator）
         ```
 
 2. 以`master`分支为主分支。如果要进行开发等改动，请创建新分支进行修改，完成后提交pr。
