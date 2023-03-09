@@ -1,8 +1,8 @@
 <!--
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
- * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-08 15:52:07
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-09 15:39:26
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -75,25 +75,27 @@
 1. 为了注册子模块到eureka，请完成以下事项：
     - 在`pom.xml`内添加依赖：Spring Discovery Client与Spring Boot Starter Actuator
     - 在启动类上添加注解`@EnableDiscoveryClient`
-    - `resources/appilication.yml`按如下配置
-        ```
+    - `resources/application.yml`按如下配置，文件后缀名记得修改为`yml`文件
+
+        ``` yml
         server:
             port: # 端口号自己配新的，不要重复
         spring:
-        application:
-            name: # 名称自己选新的，需要能说明模块大致内容，不要重复
+            application:
+                name: # 名称自己选新的，需要能说明模块大致内容，不要重复
         
         eureka:
-        instance:
-            lease-renewal-interval-in-seconds: 30      # 心跳时间，即服务续约间隔时间（缺省为30s）
-            lease-expiration-duration-in-seconds: 90  # 发呆时间，即服务续约到期时间（缺省为90s）
-        client:
-            registry-fetch-interval-seconds: 30 # 拉取服务注册信息间隔（缺省为30s）
-            service-url:
-            defaultZone: http://localhost:5272/eureka/
-            healthcheck:
-            enabled: true # 开启健康检查（依赖spring-boot-starter-actuator）
+            instance:
+                lease-renewal-interval-in-seconds: 30      # 心跳时间，即服务续约间隔时间（缺省为30s）
+                lease-expiration-duration-in-seconds: 90  # 发呆时间，即服务续约到期时间（缺省为90s）
+            client:
+                registry-fetch-interval-seconds: 30 # 拉取服务注册信息间隔（缺省为30s）
+                service-url:
+                    defaultZone: http://localhost:5272/eureka/
+                healthcheck:
+                    enabled: true # 开启健康检查（依赖spring-boot-starter-actuator）
         ```
+
 2. 以`master`分支为主分支。如果要进行开发等改动，请创建新分支进行修改，完成后提交pr。
 3. 本文件只作为整个后端的文档，各个模块的细致说明（如接口等）等文档放在各个子模块的目录下即可。
 4. 先按需求内模块划分数据库数据，提供包含耦合较大的信息族的大接口，后续根据前段需求从大接口细分小接口
