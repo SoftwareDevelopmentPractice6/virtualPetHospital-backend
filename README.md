@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-09 15:39:26
+ * @LastEditTime: 2023-03-09 16:00:15
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -62,6 +62,7 @@
 - test: 测试
 - style: 代码格式等修改
 - refactor: 重构
+- config: 项目配置
 
 ### 代码规范
 
