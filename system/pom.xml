@@ -12,7 +12,7 @@
     <artifactId>system</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>system</name>
-    <description>system</description>
+    <description>系统管理包括基本结构与功能管理、功能模式管理、病例管理等功能。</description>
     <properties>
         <java.version>17</java.version>
         <spring-cloud.version>2022.0.1</spring-cloud.version>
