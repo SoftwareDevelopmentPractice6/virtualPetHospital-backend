@@ -1,6 +1,6 @@
 # 系统管理模块
 
-## 需求
+## 数据库设计ER图
 ```mermaid
 erDiagram
     USER
