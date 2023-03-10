@@ -2,7 +2,7 @@ server:
   port: 8777
 spring:
   application:
-    name: medicalrecordmanagement
+    name: medicalRecordManagement
 
 eureka:
   instance:

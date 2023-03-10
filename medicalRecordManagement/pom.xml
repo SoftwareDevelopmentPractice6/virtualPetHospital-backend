@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>pet.hospital.backend</groupId>
-    <artifactId>medicalrecordmanagement</artifactId>
+    <artifactId>medicalRecordManagement</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>medicalrecordmanagement</name>
+    <name>medicalRecordManagement</name>
     <description>manage medical record</description>
     <properties>
         <java.version>17</java.version>
