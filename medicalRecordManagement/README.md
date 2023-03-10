@@ -67,6 +67,81 @@ erDiagram
     }
 ```
 
+
+``` mermaid
+erDiagram
+          +--------+              +--------+
+          |  Exam  |              |  Paper |
+          +--------+              +--------+
+              |                      |
+              |                      |
+              |                      |
+              |                      |
+              |                      |
++-------------+------------+ +------+------+
+|          Question         | | Exam Session |
++-------------+------------+ +------+------+
+              |                      |
+              |                      |
+              |                      |
+              |                      |
+              |                      |
+        +-----+------+        +------+--------+
+        |  Category  |        | Student Result |
+        +------------+        +---------------+
+
+Exam {
+  exam_id PK
+  exam_name
+}
+
+Paper {
+  paper_id PK
+  paper_name
+  exam_id FK
+  duration
+  total_score
+}
+
+Question {
+  question_id PK
+  question_content
+  question_type
+  category_id FK
+}
+
+Category {
+  category_id PK
+  category_name
+}
+
+ExamSession {
+  session_id PK
+  paper_id FK
+  start_time
+  end_time
+}
+
+StudentResult {
+  result_id PK
+  session_id FK
+  student_id
+  score
+}
+```
+解释：
+
+Exam 表存储考试信息，包括考试 ID 和考试名称等。
+Paper 表存储试卷信息，包括试卷 ID、试卷名称、所属考试 ID、考试时间、每题分数、总分等。
+Question 表存储考题信息，包括考题 ID、考题内容、考题类型、所属类别 ID 等。
+Category 表存储考题类别信息，包括类别 ID 和类别名称等。
+ExamSession 表存储每次考试信息，包括考试 ID、试卷 ID、开始时间、结束时间等。
+StudentResult 表存储学生考试成绩信息，包括成绩 ID、考试 ID、学生 ID、考试得分等。
+在这个设计中，考试信息、试卷信息、考题信息、考题类别信息、每次考试信息和学生考试成绩信息都被存储在不同的表中，各自独立。这样做的好处是可以方便地进行增删改查操作，同时也可以方便地进行数据分析和统计。
+
+
+
+
 ## 技术选型
 
 - JAVA 11
