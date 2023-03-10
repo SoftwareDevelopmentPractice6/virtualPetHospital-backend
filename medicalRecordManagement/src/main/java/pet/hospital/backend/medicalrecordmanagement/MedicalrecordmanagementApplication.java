@@ -1,4 +1,4 @@
-package pet.hospital.backend.medicalrecordmanagement;
+package pet.hospital.backend.medicalRecordManagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class MedicalrecordmanagementApplication {
+public class MedicalRecordManagementApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MedicalrecordmanagementApplication.class, args);
+        SpringApplication.run(MedicalRecordManagementApplication.class, args);
     }
 
 }
