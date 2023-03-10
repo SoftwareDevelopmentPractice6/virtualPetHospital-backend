@@ -1,8 +1,8 @@
 <!--
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
- * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-10 00:12:49
+ * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-10 11:15:48
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -74,6 +74,12 @@ flowchart LR
 
     controlleri --> frontend
 ```
+
+## 数据库设计
+
+[病例管理与测试模块数据库设计](./medicalRecordManagement/README.md#数据库设计)
+[导览与系统管理、职能学习部分数据库设计](./system/README.md#er图)
+[鉴权模块数据库设计](./login/README.md#数据库设计er图)
 
 ## 技术选型
 
