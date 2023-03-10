@@ -21,36 +21,47 @@
 
 ``` mermaid
 erDiagram
-    MedicalRecord {
-        string id PK,FK
+   
+    Case {
+        string CaseID PK
+        string DiseaseNameID FK
+        string DiagnosticResultID FK
+        string AdmissionID FK
+        string CasecheckID FK
+        string TreatmentProgramID FK
     }
-    MedicalRecord ||--|{ DiseaseName : contains
-    MedicalRecord ||--|{ Admissions : contains
-    MedicalRecord ||--|{ Casecheck : contains
-    MedicalRecord ||--|{ DiagnosticResult : contains
-    MedicalRecord ||--|{ TreatmentPrograms : contains
+    Case ||--|{ DiseaseName : contains
+    Case ||--|{ Admission : contains
+    Case ||--|{ Casecheck : contains
+    Case ||--|{ DiagnosticResult : contains
+    Case ||--|{ TreatmentProgram : contains
     DiseaseName {
-        string id PK,FK
+        string DiseaseNameID PK
+        string content
         string photo
         string video
     }
     DiagnosticResult {
-        string id PK,FK
+        string DiagnosticResultID PK
+        string content
         string photo
         string video
     }
-    Admissions {
-        string id PK,FK
+    Admission {
+        string AdmissionID PK
+        string content
         string photo
         string video
     }
     Casecheck { 
-        string id PK,FK
+        string CasecheckID PK
+        string content
         string photo
         string video
     }
-    TreatmentPrograms {
-        string id PK,FK
+    TreatmentProgram {
+        string TreatmentProgramID PK
+        string content
         string photo
         string video
     }
