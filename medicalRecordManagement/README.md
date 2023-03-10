@@ -17,7 +17,7 @@
 - eureka：该文件夹内为Spring cloud所需的Eureka组件，**请勿改动**。其用于项目内各个子模块的注册。最后可以写一个统一运行子模块的功能。
 - login：该文件夹内为示例子模块。可以后期当作登陆鉴权模块的基础。目前其添加了MySQL的依赖，可以后期根据技术选型修改。
 
-## 架构设计
+## 数据库设计
 
 ``` mermaid
 erDiagram
@@ -70,64 +70,48 @@ erDiagram
 
 ``` mermaid
 erDiagram
-          +--------+              +--------+
-          |  Exam  |              |  Paper |
-          +--------+              +--------+
-              |                      |
-              |                      |
-              |                      |
-              |                      |
-              |                      |
-+-------------+------------+ +------+------+
-|          Question         | | Exam Session |
-+-------------+------------+ +------+------+
-              |                      |
-              |                      |
-              |                      |
-              |                      |
-              |                      |
-        +-----+------+        +------+--------+
-        |  Category  |        | Student Result |
-        +------------+        +---------------+
-
 Exam {
-  exam_id PK
-  exam_name
+  string exam_id PK
+  string exam_name
 }
 
 Paper {
-  paper_id PK
-  paper_name
-  exam_id FK
-  duration
-  total_score
+  string paper_id PK
+  string paper_name
+  string exam_id FK
+  string duration
+  string total_score
 }
 
 Question {
-  question_id PK
-  question_content
-  question_type
-  category_id FK
+  string question_id PK
+  string question_content
+  string question_type
+  string category_id FK
 }
 
 Category {
-  category_id PK
-  category_name
+  string category_id PK
+  string category_name
 }
 
 ExamSession {
-  session_id PK
-  paper_id FK
-  start_time
-  end_time
+  string session_id PK
+  string paper_id FK
+  string start_time
+  string end_time
 }
 
 StudentResult {
-  result_id PK
-  session_id FK
-  student_id
-  score
+  string result_id PK
+  string session_id FK
+  string student_id
+  int score
 }
+Exam ||--|| Paper : relate
+Paper ||--|| ExamSession : relate
+Question }o--|| Category : contains
+ExamSession ||--o{ StudentResult : relate
 ```
 解释：
 
