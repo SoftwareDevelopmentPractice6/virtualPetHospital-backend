@@ -17,7 +17,7 @@
 - eureka：该文件夹内为Spring cloud所需的Eureka组件，**请勿改动**。其用于项目内各个子模块的注册。最后可以写一个统一运行子模块的功能。
 - login：该文件夹内为示例子模块。可以后期当作登陆鉴权模块的基础。目前其添加了MySQL的依赖，可以后期根据技术选型修改。
 
-## 架构设计
+## 数据库设计
 
 ``` mermaid
 erDiagram
@@ -66,6 +66,65 @@ erDiagram
         string video
     }
 ```
+
+
+``` mermaid
+erDiagram
+Exam {
+  string exam_id PK
+  string exam_name
+}
+
+Paper {
+  string paper_id PK
+  string paper_name
+  string exam_id FK
+  string duration
+  string total_score
+}
+
+Question {
+  string question_id PK
+  string question_content
+  string question_type
+  string category_id FK
+}
+
+Category {
+  string category_id PK
+  string category_name
+}
+
+ExamSession {
+  string session_id PK
+  string paper_id FK
+  string start_time
+  string end_time
+}
+
+StudentResult {
+  string result_id PK
+  string session_id FK
+  string student_id
+  int score
+}
+Exam ||--|| Paper : relate
+Paper ||--|| ExamSession : relate
+Question }o--|| Category : contains
+ExamSession ||--o{ StudentResult : relate
+```
+解释：
+
+Exam 表存储考试信息，包括考试 ID 和考试名称等。
+Paper 表存储试卷信息，包括试卷 ID、试卷名称、所属考试 ID、考试时间、每题分数、总分等。
+Question 表存储考题信息，包括考题 ID、考题内容、考题类型、所属类别 ID 等。
+Category 表存储考题类别信息，包括类别 ID 和类别名称等。
+ExamSession 表存储每次考试信息，包括考试 ID、试卷 ID、开始时间、结束时间等。
+StudentResult 表存储学生考试成绩信息，包括成绩 ID、考试 ID、学生 ID、考试得分等。
+在这个设计中，考试信息、试卷信息、考题信息、考题类别信息、每次考试信息和学生考试成绩信息都被存储在不同的表中，各自独立。这样做的好处是可以方便地进行增删改查操作，同时也可以方便地进行数据分析和统计。
+
+
+
 
 ## 技术选型
 
