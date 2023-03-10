@@ -1,0 +1,16 @@
+server:
+  port: 5678
+spring:
+  application:
+    name: system-service
+
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
+  client:
+    registry-fetch-interval-seconds: 30
+    service-url:
+      defaultZone: http://localhost:5272/eureka/
+    healthcheck:
+      enabled: true
