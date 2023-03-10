@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-09 16:00:15
+ * @LastEditTime: 2023-03-10 00:12:49
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -29,6 +29,51 @@
 - eureka：该文件夹内为Spring cloud所需的Eureka组件，**请勿改动**。其用于项目内各个子模块的注册。最后可以写一个统一运行子模块的功能。
 - login：该文件夹内为示例子模块。可以后期当作登陆鉴权模块的基础。目前其添加了MySQL的依赖，可以后期根据技术选型修改。
 - system: 该文件夹内为系统管理模块。
+
+## 架构设计
+
+``` mermaid
+flowchart LR
+    subgraph backend
+        subgraph modules
+            direction TB
+            subgraph module 1
+                direction LR
+                entity1 --> dao1 --> service1 --> controller1
+            end
+            subgraph module 2
+                direction LR
+                entity2 --> dao2 --> service2 --> controller2
+            end
+            subgraph module 3
+                direction LR
+                entity3 --> dao3 --> service3 --> controller3
+            end
+            subgraph module 4
+                direction LR
+                entity4 --> dao4 --> service4 --> controller4
+            end
+        end
+        subgraph intermediator
+            direction LR
+            servicei --> controlleri
+        end
+
+        controller1 --> servicei
+        controller2 --> servicei
+        controller3 --> servicei
+        controller4 --> servicei
+    end
+
+    subgraph database
+        databse1 --> entity1
+        databse2 --> entity2
+        databse3 --> entity3
+        databse4 --> entity4
+    end
+
+    controlleri --> frontend
+```
 
 ## 技术选型
 
