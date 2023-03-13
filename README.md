@@ -1,8 +1,8 @@
 <!--
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
- * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-10 11:17:08
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-13 19:10:33
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -29,6 +29,8 @@
 - eureka：该文件夹内为Spring cloud所需的Eureka组件，**请勿改动**。其用于项目内各个子模块的注册。最后可以写一个统一运行子模块的功能。
 - login：该文件夹内为示例子模块。可以后期当作登陆鉴权模块的基础。目前其添加了MySQL的依赖，可以后期根据技术选型修改。
 - system: 该文件夹内为系统管理模块、导览模块与职能学习部分。
+- medicalRecordManagement: 病例管理模块。
+- jacoco-report: 用于测试报告集成。
 
 ## 架构设计
 
@@ -127,6 +129,43 @@ flowchart LR
 
 1. 为了注册子模块到eureka，请完成以下事项：
     - 在`pom.xml`内添加依赖：Spring Discovery Client与Spring Boot Starter Actuator
+    - `pom.xml`修改为以下格式：
+
+        ``` xml
+        <?xml version="1.0" encoding="UTF-8"?>
+        <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+            <modelVersion>4.0.0</modelVersion>
+            <parent>
+                <groupId>pet.hospital.backend</groupId>
+                <artifactId>virtualPetHospital-backend</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+                <relativePath/> <!-- lookup parent from repository -->
+            </parent>
+            <artifactId></artifactId> <!-- 此处为子模块artifactId -->
+            <name></name> <!-- 此处为子模块name -->
+            <description>Test report aggression.</description> <!-- 此处为子模块描述，需填写 -->
+            <properties>
+                <java.version>17</java.version>
+            </properties>
+            <dependencies>
+                <!-- 按需要添加依赖 -->
+            </dependencies>
+
+        </project>
+
+        ```
+
+    - `jacoco-report`模块下的`pom.xml`内添加依赖，格式如下：
+
+        ``` xml
+        <dependency>
+            <groupId>pet.hospital.backend</groupId>
+            <artifactId></artifactId> <!-- 子模块artifactId -->
+            <version>${project.version}</version>
+        </dependency>
+        ```
+
     - 在启动类上添加注解`@EnableDiscoveryClient`
     - `resources/application.yml`按如下配置，文件后缀名记得修改为`yml`文件
 
