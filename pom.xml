@@ -23,6 +23,7 @@
 		<module>login</module>
 		<module>medicalRecordManagement</module>
 		<module>system</module>
+		<module>jacoco-report</module>
 	</modules>
 	<dependencies>
 		
