@@ -10,7 +10,7 @@
 	</parent>
 	<artifactId>jacoco-report</artifactId>
 	<name>jacoco-report</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Test report aggression.</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
