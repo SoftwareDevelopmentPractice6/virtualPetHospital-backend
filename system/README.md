@@ -1,12 +1,12 @@
 <!--
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-10 09:00:09
- * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-10 09:45:57
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-14 16:36:31
  * @FilePath: /virtualPetHospital-backend/system/README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
-# 系统管理模块
+# 系统管理模块 & 导览模块
 
 本模块作为系统管理模块（除鉴权部分）、导览模块与职能学习等部分的功能设计。
 
@@ -15,6 +15,7 @@
 - 药品和疫苗在一个表中，需要标注区别
 - 科室、人员管理不做
 - 其他与3d导览的科室一致
+- 导览模块需要每个科室与角色相关的权限信息
 
 ## 系统管理 & 导览对应
 

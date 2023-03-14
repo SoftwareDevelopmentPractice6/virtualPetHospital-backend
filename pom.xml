@@ -24,6 +24,7 @@
 		<module>medicalRecordManagement</module>
 		<module>system</module>
 		<module>jacoco-report</module>
+		<module>swagger</module>
 	</modules>
 	<dependencies>
 		
