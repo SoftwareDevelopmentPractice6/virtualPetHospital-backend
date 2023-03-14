@@ -92,6 +92,9 @@
 							<includes>
 								<include>.gitignore</include>
 							</includes>
+							<exclude>
+								<exclude>**/pom.xml</exclude>
+							</exclude>
 							<!-- define the steps to apply to those files -->
 							<trimTrailingWhitespace />
 							<endWithNewline />
