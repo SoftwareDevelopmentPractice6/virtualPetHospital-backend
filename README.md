@@ -210,7 +210,8 @@ flowchart LR
 2. 本文件只作为整个后端的文档，各个模块的细致说明等文档放在各个子模块的目录下即可。
 3. 生成测试报告：根目录下跑`mvn test`
 4. 生成API文档：运行子模块`swagger`然后到对应端口看
-5. `mvn`命令跑不了，显示`non-resolvable parent pom for ···`，或无法正确识别项目结构的解决方法：
+5. java格式化检查与自动格式化：根目录下`mvn spotless:check`，`mvn spotless:apply`
+6. `mvn`命令跑不了，显示`non-resolvable parent pom for ···`，或无法正确识别项目结构的解决方法：
    1. 删除根目录下`pom.xml`内以下内容：
 
         ``` xml
