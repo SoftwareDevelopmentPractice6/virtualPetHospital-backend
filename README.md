@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-14 18:34:34
+ * @LastEditTime: 2023-03-14 18:47:02
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -201,3 +201,20 @@ flowchart LR
 2. 本文件只作为整个后端的文档，各个模块的细致说明等文档放在各个子模块的目录下即可。
 3. 生成测试报告：根目录下跑`mvn test`
 4. 生成API文档：运行子模块`swagger`然后到对应端口看
+5. `mvn`命令跑不了，显示`non-resolvable parent pom for ···`，或无法正确识别项目结构的解决方法：
+   1. 删除根目录下`pom.xml`内以下内容：
+
+        ``` xml
+        <modules>
+            <module>eureka</module>
+            <module>login</module>
+            <module>medicalRecordManagement</module>
+            <module>system</module>
+            <module>jacoco-report</module>
+            <module>swagger</module>
+        </modules>
+        ```
+
+   2. 根目录下依次执行命令`mvn clean`，`mvn install`。
+   3. 把根目录下`pom.xml`内删除的内容添加回去。
+   4. 编译器重新加载项目，之后`mvn`命令可以正常运行，且项目结构也可以被正常识别。
