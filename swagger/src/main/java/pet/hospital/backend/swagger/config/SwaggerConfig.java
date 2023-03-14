@@ -34,7 +34,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("虚拟宠物医院API文档")
                 .description("虚拟宠物医院API文档")
-                .version("0.0。1-SNAPSHOT")
+                .version("0.0.1-SNAPSHOT")
                 .build();
     }
 }
