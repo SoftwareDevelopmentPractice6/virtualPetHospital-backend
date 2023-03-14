@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-14 16:57:39
+ * @LastEditTime: 2023-03-14 18:34:34
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -84,7 +84,7 @@ flowchart LR
 
 ## 技术选型
 
-- JAVA 11
+- JAVA 17
 - Spring Boot 3.0.3
 - Spring Cloud微服务架构
 - MySQL
