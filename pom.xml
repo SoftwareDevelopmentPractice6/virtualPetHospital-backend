@@ -91,6 +91,7 @@
 							<!-- define the files to apply to -->
 							<includes>
 								<include>.gitignore</include>
+								<include>src/main/resources/**/*.sql</include>
 							</includes>
 							<excludes>
 								<exclude>**/pom.xml</exclude>
@@ -129,6 +130,25 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<!-- 本地开发环境 -->
+			<id>dev</id>
+			<properties>
+				<profileActive>dev</profileActive>
+			</properties>
+			<!-- 默认开启这个配置 -->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<profileActive>prod</profileActive>
+			</properties>
+		</profile>
+	</profiles>
 	<repositories>
 		<repository>
 			<id>netflix-candidates</id>

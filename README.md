@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-15 02:35:02
+ * @LastEditTime: 2023-03-15 09:57:40
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -110,6 +110,7 @@ flowchart LR
 - 其他函数可以考虑简单写点参数与返回值之类的注释
 - 尽量不要过长或过短的函数。能复用的部分尽可能复用
 - 尽量使用REST风格API，接口统一前缀`/api`
+- 单元测试覆盖率要求70%以上
 
 ## Tips
 
@@ -203,16 +204,47 @@ flowchart LR
         })
         ```
 
-4. 子模块内MVC模式，四层的package命名为`entity, dao, service, controller`。
+4. 子模块连接数据库：
+   - `yml`文件内增加以下配置：
+  
+        ``` yml
+        spring:
+            datasource:
+                username: root 
+                # MySql数据库使用统一的用户名与密码
+                password: virtualPetHospital 
+                # MySql数据库使用统一的用户名与密码
+                url: jdbc:mysql://localhost:3306/login?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+                # 子模块使用自己的database，命名为子模块的artifactId
+                # url部分?前的login修改成子模块所使用的database名
+            sql:
+                init:
+                mode: always
+                username: root
+                password: virtualPetHospital
+                schema-locations:
+                    - classpath:database/login_initialize.sql
+                    # 初始化表sql文件，文件放在`/resource/database`内
+                data-locations:
+                    - classpath:database/login_data.sql
+                    # 导入数据sql文件，文件放在`/resource/database`内
+        ```
+
+   - 初始化表的sql文件建表时，统一采用`CREATE TABLE IF NOT EXISTS TABLE_NAME`
+5. 子模块内MVC模式，四层的package命名为`entity, dao, service, controller`。
 
 ### 其他
 
 1. 以`master`分支为主分支。如果要进行开发等改动，请创建新分支进行修改，完成后提交pr，**不要自己merge**。
 2. 本文件只作为整个后端的文档，各个模块的细致说明等文档放在各个子模块的目录下即可。
-3. 生成测试报告：根目录下跑`mvn test`
-4. 生成API文档：运行子模块`swagger`，然后到`localhost:5273/swagger-ui/`查看
-5. java格式化检查与自动格式化：根目录下`mvn spotless:check`，`mvn spotless:apply`
-6. `mvn`命令跑不了，显示`non-resolvable parent pom for ···`，或无法正确识别项目结构的解决方法：
+3. 方便起见MySql数据库使用统一的账号密码：`
+   - 端口：`3306`
+   - 账号：`root`
+   - 密码：`virtualPetHospital`
+4. 生成测试报告：根目录下跑`mvn test`
+5. 生成API文档：运行子模块`swagger`，然后到`localhost:5273/swagger-ui/`查看
+6. java格式化检查与自动格式化：根目录下`mvn spotless:check`，`mvn spotless:apply`
+7. `mvn`命令跑不了，显示`non-resolvable parent pom for ···`，或无法正确识别项目结构的解决方法：
    1. 删除根目录下`pom.xml`内以下内容：
 
         ``` xml

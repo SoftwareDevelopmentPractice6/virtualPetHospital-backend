@@ -15,9 +15,16 @@ eureka:
     healthcheck:
       enabled: true # 开启健康检查（依赖spring-boot-starter-actuator）
 
+springfox:
+  documentation:
+    enabled: false
+    auto-startup: false
+    swagger-ui:
+      enabled: false
+
 springdoc:
   api-docs:
-    enabled: true
+    enabled: false
     path: /api-docs
   swagger-ui:
     path: /swagger-ui

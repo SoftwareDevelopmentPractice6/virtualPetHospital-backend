@@ -12,13 +12,13 @@
 
 ```mermaid
 erDiagram
-    USER
-    USER {
-        int user_id PK
-        string user_name
-        string password
-        int authority
-    }
+	USER
+	USER {
+		int user_id PK
+		string user_name
+		string password
+		int authority
+	}
 ```
 
 ## 需求
