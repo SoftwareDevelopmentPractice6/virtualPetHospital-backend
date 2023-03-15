@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-15 22:46:09
+ * @LastEditTime: 2023-03-16 00:40:09
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -30,6 +30,7 @@
   - login：登陆鉴权模块。
   - system: 系统管理模块、导览模块与职能学习部分。
   - medicalRecordManagement: 病例管理模块。
+  - intermediator: 中间层模块，后期负责数据转发到前端
 
 ## 架构设计
 
@@ -86,8 +87,8 @@ flowchart LR
 
 - JAVA 17
 - Spring Boot 3.0.3
-- Spring Cloud微服务架构
-- MySQL
+- Spring Cloud 微服务架构
+- MySQL 8.0.32
 
 以上均可以随意改动，只作参考
 
@@ -268,6 +269,7 @@ flowchart LR
             <module>medicalRecordManagement</module>
             <module>system</module>
             <module>jacoco-report</module>
+            <module>intermediator</module>
         </modules>
         ```
 

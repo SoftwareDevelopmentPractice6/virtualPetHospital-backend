@@ -34,6 +34,12 @@
 			<artifactId>system</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>pet.hospital.backend</groupId>
+			<artifactId>intermediator</artifactId> <!-- 子模块artifactId -->
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -41,7 +47,7 @@
 			<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19.1</version>
+                <version>2.22.0</version>
                 <configuration>
                     <!-- Jacoco prepare-agent builds some command-line params without -->
                     <!-- which jacoco will not instrument. Hence it is important to add -->
@@ -55,6 +61,13 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.8</version>
+				<configuration>
+					<excludes>
+						<exclude>**/pet/hospital/backend/*/constant/*</exclude>
+						<exclude>**/pet/hospital/backend/*/dao/*</exclude>
+						<exclude>**/pet/hospital/backend/*/entity/*</exclude>
+					</excludes>
+				</configuration>
 				<executions>
 					<execution>
 						<id>report-aggregate</id>
