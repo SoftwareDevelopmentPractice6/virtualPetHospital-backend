@@ -8,24 +8,27 @@
  */
 package pet.hospital.backend.swagger.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
-
 @RestController
 @Api(value = "Swagger模块")
-@RequestMapping(value = "/api/swagger", produces = { "application/json;charset=UTF-8" })
+@RequestMapping(
+        value = "/api/swagger",
+        produces = {"application/json;charset=UTF-8"})
 public class TestController {
-    
+
     @ApiOperation(value = "Swagger测试用接口")
     @ApiImplicitParam(name = "status", value = "测试返回消息判断", required = true, dataType = "Boolean")
     @GetMapping(value = "/test/{status}")
-    public String swaggerTestAPI (@PathVariable (value = "status") Boolean status) {
-        return status ? "Swagger Message: Swagger test returns message \"Success!\"." : "Swagger Message: Swagger test returns message \"Failure!\".";
+    public String swaggerTestAPI(@PathVariable(value = "status") Boolean status) {
+        return status
+                ? "Swagger Message: Swagger test returns message \"Success!\"."
+                : "Swagger Message: Swagger test returns message \"Failure!\".";
     }
 }

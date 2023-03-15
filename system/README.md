@@ -29,46 +29,46 @@
 
 ``` mermaid
 erDiagram
-    ROOM ||--|{ FUNCTION : includes
-    ROOM ||--|{ MEDICINE : includes
-    ROOM ||--|{ ARCHIVE : includes
-    ROOM ||--|{ CHARGE : includes
-    ROOM ||--|{ CHEMICAL_EXAMINE : includes
-    ROOM ||--|{ HOSPITAL_ADMISSION : includes
-    ROOM {
-        string r_name PK
-        string role
-    }
-    FUNCTION {
-        int f_id PK
-        string f_name
-        string f_description
-        string f_flow
-        string f_video
-        string r_name FK
-        string role
-    }
-    MEDICINE {
-        int m_id PK
-        string m_name
-        string m_kind "for vaccinum distinguish"
-        string store_requirement
-        string instruction
-        string check_flow
-        string provide_flow
-    }
-    ARCHIVE {
+	ROOM ||--|{ FUNCTION : includes
+	ROOM ||--|{ MEDICINE : includes
+	ROOM ||--|{ ARCHIVE : includes
+	ROOM ||--|{ CHARGE : includes
+	ROOM ||--|{ CHEMICAL_EXAMINE : includes
+	ROOM ||--|{ HOSPITAL_ADMISSION : includes
+	ROOM {
+		string r_name PK
+		string role
+	}
+	FUNCTION {
+		int f_id PK
+		string f_name
+		string f_description
+		string f_flow
+		string f_video
+		string r_name FK
+		string role
+	}
+	MEDICINE {
+		int m_id PK
+		string m_name
+		string m_kind "for vaccinum distinguish"
+		string store_requirement
+		string instruction
+		string check_flow
+		string provide_flow
+	}
+	ARCHIVE {
 
-    }
-    CHARGE {
+	}
+	CHARGE {
 
-    }
-    CHEMICAL_EXAMINE {
+	}
+	CHEMICAL_EXAMINE {
 
-    }
-    HOSPITAL_ADMISSION {
+	}
+	HOSPITAL_ADMISSION {
 
-    }
+	}
 ```
 
 - ROOM: 对应科室的表

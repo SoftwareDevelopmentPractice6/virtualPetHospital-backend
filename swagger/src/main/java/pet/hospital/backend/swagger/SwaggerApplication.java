@@ -8,26 +8,18 @@
  */
 package pet.hospital.backend.swagger;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
-import io.swagger.v3.oas.annotations.info.Info;
-
 @EnableDiscoveryClient
 @SpringBootApplication
-@OpenAPIDefinition(
-	info = @Info(
-		title = "虚拟宠物医院API文档",
-		version = "0.0.1-SNAPSHOT",
-		description = "虚拟宠物医院API文档"
-	)
-)
+@OpenAPIDefinition(info = @Info(title = "虚拟宠物医院API文档", version = "0.0.1-SNAPSHOT", description = "虚拟宠物医院API文档"))
 public class SwaggerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SwaggerApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(SwaggerApplication.class, args);
+    }
 }
