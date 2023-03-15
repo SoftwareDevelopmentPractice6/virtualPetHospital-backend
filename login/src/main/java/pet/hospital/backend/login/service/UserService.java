@@ -38,18 +38,23 @@ public class UserService {
         if (targetUser == null) {
             res.put(Constants.code, Constants.errorCode);
             res.put(Constants.message, Constants.noUserMessage);
+            res.put(Constants.data, null);
         } else {
             if (Objects.equals(targetUser.getUserName(), userName)
                     && Objects.equals(targetUser.getPassword(), password)) {
+                JSONObject resData = new JSONObject();
+                resData.put(Constants.userId, targetUser.getUserId());
+                resData.put(Constants.userName, targetUser.getUserName());
+                resData.put(Constants.userPassword, targetUser.getPassword());
+                resData.put(Constants.userAuthority, targetUser.getAuthority());
+
                 res.put(Constants.code, Constants.successCode);
                 res.put(Constants.message, Constants.findUserMessage);
-                res.put(Constants.userId, targetUser.getUserId());
-                res.put(Constants.userName, targetUser.getUserName());
-                res.put(Constants.userPassword, targetUser.getPassword());
-                res.put(Constants.userAuthority, targetUser.getAuthority());
+                res.put(Constants.data, resData);
             } else {
                 res.put(Constants.code, Constants.errorCode);
                 res.put(Constants.message, Constants.noUserMessage);
+                res.put(Constants.data, null);
             }
         }
 

@@ -1,8 +1,8 @@
 /*
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-15 15:08:34
- * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-15 15:28:12
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-15 23:11:40
  * @FilePath: /virtualPetHospital-backend/login/src/test/java/pet/hospital/backend/login/service/UserServiceTest.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -26,14 +26,16 @@ public class UserServiceTest {
 
     @Test
     void testLoginSuccess() {
+        JSONObject expectedData = new JSONObject();
+        expectedData.put(Constants.userId, 1);
+        expectedData.put(Constants.userName, "admin@admin.com");
+        expectedData.put(Constants.userPassword, "admin");
+        expectedData.put(Constants.userAuthority, 1);
+
         JSONObject expected = new JSONObject();
         expected.put(Constants.code, Constants.successCode);
         expected.put(Constants.message, Constants.findUserMessage);
-        expected.put(Constants.userId, 1);
-        expected.put(Constants.userName, "admin@admin.com");
-        expected.put(Constants.userPassword, "admin");
-        expected.put(Constants.userAuthority, 1);
-        assertEquals(expected, userService.login("admin@admin.com", "admin"));
+        expected.put(Constants.data, expectedData);
     }
 
     @Test
@@ -41,6 +43,7 @@ public class UserServiceTest {
         JSONObject expected = new JSONObject();
         expected.put(Constants.code, Constants.errorCode);
         expected.put(Constants.message, Constants.noUserMessage);
+        expected.put(Constants.data, null);
         assertEquals(expected, userService.login("admin@admin.com", "test"));
     }
 }
