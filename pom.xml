@@ -92,8 +92,6 @@
 							<includes>
 								<include>.gitignore</include>
 								<include>src/main/resources/**/*.sql</include>
-								<include>src/main/resources/**/*.yml</include>
-								<include>src/main/resources/**/*.properties</include>
 							</includes>
 							<excludes>
 								<exclude>**/pom.xml</exclude>
