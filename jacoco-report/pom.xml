@@ -66,6 +66,8 @@
 						<exclude>**/pet/hospital/backend/*/constant/*</exclude>
 						<exclude>**/pet/hospital/backend/*/dao/*</exclude>
 						<exclude>**/pet/hospital/backend/*/entity/*</exclude>
+						<exclude>**/pet/hospital/backend/*/helper/*</exclude>
+						<exclude>**/pet/hospital/backend/*/*Application.*</exclude>
 					</excludes>
 				</configuration>
 				<executions>
