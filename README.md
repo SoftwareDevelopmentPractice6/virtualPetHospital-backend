@@ -1,8 +1,8 @@
 <!--
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
- * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-15 11:24:10
+ * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-15 15:58:31
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -17,8 +17,9 @@
 ## TODO
 
 - [X] 数据库设计
-- [ ] 数据库配置
-- [ ] SQL
+- [X] 数据库配置
+- [ ] SQL: DDL 3.18 5 PM
+- [ ] 开发 一个模块一周 包括测试
 
 ## 项目结构
 
@@ -109,6 +110,7 @@ flowchart LR
 - 复杂函数勤写注释
 - 其他函数可以考虑简单写点参数与返回值之类的注释
 - 尽量不要过长或过短的函数。能复用的部分尽可能复用
+- 增删操作使用`saveAndFlush`等功能，不要用原生sql
 - 尽量使用REST风格API，接口统一前缀`/api`
 - 单元测试覆盖率要求70%以上
 
