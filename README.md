@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-15 09:57:40
+ * @LastEditTime: 2023-03-15 10:52:04
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -219,15 +219,15 @@ flowchart LR
                 # url部分?前的login修改成子模块所使用的database名
             sql:
                 init:
-                mode: always
-                username: root
-                password: virtualPetHospital
-                schema-locations:
-                    - classpath:database/login_initialize.sql
-                    # 初始化表sql文件，文件放在`/resource/database`内
-                data-locations:
-                    - classpath:database/login_data.sql
-                    # 导入数据sql文件，文件放在`/resource/database`内
+                    mode: always
+                    username: root
+                    password: virtualPetHospital
+                    schema-locations:
+                        - classpath:database/login_initialize.sql
+                        # 初始化表sql文件，文件放在`/resource/database`内
+                    data-locations:
+                        - classpath:database/login_data.sql
+                        # 导入数据sql文件，文件放在`/resource/database`内
         ```
 
    - 初始化表的sql文件建表时，统一采用`CREATE TABLE IF NOT EXISTS TABLE_NAME`
