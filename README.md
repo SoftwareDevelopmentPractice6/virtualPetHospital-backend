@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-15 22:42:23
+ * @LastEditTime: 2023-03-15 22:46:09
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -10,9 +10,9 @@
 
 ## Contributors
 
-- 李亦杨 10195101467：职能学习、数据管理
-- 刁泽皓 10195101470：鉴权、系统管理、导览
-- 陆宣辰 10195101466：病历管理、测试
+- 李亦杨 10195101467：数据管理
+- 刁泽皓 10195101470：鉴权、系统管理、导览、职能学习（角色扮演，集成到系统管理部分）
+- 陆宣辰 10195101466：病例管理、测试、职能学习（病例学习，集成到病例部分）
 
 ## TODO
 
