@@ -2,7 +2,15 @@
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-15 13:12:14
  * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-15 13:50:27
+ * @LastEditTime: 2023-03-15 15:16:06
+ * @FilePath: /virtualPetHospital-backend/login/src/main/java/pet/hospital/backend/login/service/UserService.java
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
+/*
+ * @Author: pikapikapi pikapikapi_kaori@icloud.com
+ * @Date: 2023-03-15 13:12:14
+ * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-15 15:15:29
  * @FilePath: /virtualPetHospital-backend/login/src/main/java/service/UserService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -41,7 +49,7 @@ public class UserService {
                 res.put(Constants.userAuthority, targetUser.getAuthority());
             } else {
                 res.put(Constants.code, Constants.errorCode);
-                res.put(Constants.message, Constants.wrongUserMessage);
+                res.put(Constants.message, Constants.noUserMessage);
             }
         }
 

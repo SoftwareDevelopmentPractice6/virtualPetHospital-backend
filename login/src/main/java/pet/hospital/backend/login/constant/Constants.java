@@ -20,7 +20,5 @@ public class Constants {
 
     public static String noUserMessage = "No such user exists.";
 
-    public static String wrongUserMessage = "User name or password isn't correct.";
-
     public static String findUserMessage = "User found.";
 }
