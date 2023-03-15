@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-15 10:52:04
+ * @LastEditTime: 2023-03-15 11:24:10
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -210,7 +210,7 @@ flowchart LR
         ``` yml
         spring:
             datasource:
-                username: root 
+                username: virtualPetHospital 
                 # MySql数据库使用统一的用户名与密码
                 password: virtualPetHospital 
                 # MySql数据库使用统一的用户名与密码
@@ -220,7 +220,7 @@ flowchart LR
             sql:
                 init:
                     mode: always
-                    username: root
+                    username: virtualPetHospital
                     password: virtualPetHospital
                     schema-locations:
                         - classpath:database/login_initialize.sql
@@ -239,7 +239,7 @@ flowchart LR
 2. 本文件只作为整个后端的文档，各个模块的细致说明等文档放在各个子模块的目录下即可。
 3. 方便起见MySql数据库使用统一的账号密码：`
    - 端口：`3306`
-   - 账号：`root`
+   - 账号：`virtualPetHospital`
    - 密码：`virtualPetHospital`
 4. 生成测试报告：根目录下跑`mvn test`
 5. 生成API文档：运行子模块`swagger`，然后到`localhost:5273/swagger-ui/`查看
