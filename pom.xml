@@ -25,6 +25,7 @@
 		<module>medicalRecordManagement</module>
 		<module>system</module>
 		<module>jacoco-report</module>
+		<module>intermediator</module>
 	</modules>
 	<dependencies>
 		<dependency>

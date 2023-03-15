@@ -34,6 +34,12 @@
 			<artifactId>system</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>pet.hospital.backend</groupId>
+			<artifactId>intermediator</artifactId> <!-- 子模块artifactId -->
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
