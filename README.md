@@ -1,8 +1,8 @@
 <!--
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
- * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-15 21:41:59
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-15 22:42:23
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -26,7 +26,6 @@
 - 系统类：
   - eureka：该文件夹内为Spring cloud所需的Eureka组件，**请勿改动**。其用于项目内各个子模块的注册。
   - jacoco-report: 用于测试报告集成，**请勿改动**。
-  - swagger: 用于生成API文档，**请勿改动**。
 - 功能模块：
   - login：登陆鉴权模块。
   - system: 系统管理模块、导览模块与职能学习部分。
@@ -191,6 +190,19 @@ flowchart LR
         </dependency>
         ```
 
+    - 启动类上加注解
+
+      ``` java
+      @OpenAPIDefinition(
+        info = @Info(
+            title = "鉴权模块", // 模块名称
+            version = "0.0.1-SNAPSHOT",  // 项目版本
+            description = "虚拟宠物医院API文档-鉴权模块" // 描述
+        )
+      )
+
+      ```
+
     - controller层内：
       - 类上加注解`@API(value = "")`，值填写模块名称
       - 每个接口的函数上添加以下两个注解：
@@ -244,7 +256,7 @@ flowchart LR
    - 账号：`virtualPetHospital`
    - 密码：`virtualPetHospital`
 4. 生成测试报告：根目录下跑`mvn test`
-5. 生成API文档：运行子模块`swagger`，然后到`localhost:5273/swagger-ui/`查看
+5. 生成API文档：运行模块后，然后到对应端口`localhost:${module_port}/swagger-ui/index.html`查看
 6. java格式化检查与自动格式化：根目录下`mvn spotless:check`，`mvn spotless:apply`
 7. `mvn`命令跑不了，显示`non-resolvable parent pom for ···`，或无法正确识别项目结构的解决方法：
    1. 删除根目录下`pom.xml`内以下内容：
@@ -256,7 +268,6 @@ flowchart LR
             <module>medicalRecordManagement</module>
             <module>system</module>
             <module>jacoco-report</module>
-            <module>swagger</module>
         </modules>
         ```
 
