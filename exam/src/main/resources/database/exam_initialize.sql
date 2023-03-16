@@ -1,42 +1,42 @@
-CREATE TABLE IF NOT EXISTS Exam (
+CREATE TABLE IF NOT EXISTS EXAM (
 exam_id VARCHAR(255) PRIMARY KEY,
 exam_name VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS Paper (
+CREATE TABLE IF NOT EXISTS PAPER (
 paper_id VARCHAR(255) PRIMARY KEY,
 paper_name VARCHAR(255),
 exam_id VARCHAR(255),
 duration VARCHAR(255),
 total_score VARCHAR(255),
-FOREIGN KEY (exam_id) REFERENCES Exam(exam_id)
+FOREIGN KEY (exam_id) REFERENCES EXAM(exam_id)
 );
 
-CREATE TABLE IF NOT EXISTS Category (
+CREATE TABLE IF NOT EXISTS CATEGORY (
 category_id VARCHAR(255) PRIMARY KEY,
 category_name VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS Question (
+CREATE TABLE IF NOT EXISTS QUESTION (
 question_id VARCHAR(255) PRIMARY KEY,
-question_content VARCHAR(255),
+question_content TINYTEXT,
 question_type VARCHAR(255),
 category_id VARCHAR(255),
-FOREIGN KEY (category_id) REFERENCES Category(category_id)
+FOREIGN KEY (category_id) REFERENCES CATEGORY(category_id)
 );
 
-CREATE TABLE IF NOT EXISTS ExamSession (
+CREATE TABLE IF NOT EXISTS EXAMSESSION (
 session_id VARCHAR(255) PRIMARY KEY,
 paper_id VARCHAR(255),
-start_time VARCHAR(255),
-end_time VARCHAR(255),
-FOREIGN KEY (paper_id) REFERENCES Paper(paper_id)
+start_time TIME),
+end_time TIME,
+FOREIGN KEY (paper_id) REFERENCES PAPER(paper_id)
 );
 
-CREATE TABLE IF NOT EXISTS StudentResult (
+CREATE TABLE IF NOT EXISTS STUDENTRESULT (
 result_id VARCHAR(255) PRIMARY KEY,
 session_id VARCHAR(255),
 student_id VARCHAR(255),
 score INT,
-FOREIGN KEY (session_id) REFERENCES ExamSession(session_id)
+FOREIGN KEY (session_id) REFERENCES EXAMSESSION(session_id)
 );
