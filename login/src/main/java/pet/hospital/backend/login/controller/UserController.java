@@ -32,10 +32,10 @@ public class UserController {
     @ApiOperation(value = "系统登录接口")
     @ApiImplicitParams({
         @ApiImplicitParam(name = "userName", value = "用户名", required = true, dataType = "String"),
-        @ApiImplicitParam(name = "password", value = "用户密码", required = true, dataType = "String")
+        @ApiImplicitParam(name = "userPassword", value = "用户密码", required = true, dataType = "String")
     })
     @PostMapping(value = "/login")
-    public JSONObject login(String userName, String password) {
-        return userService.login(userName, password);
+    public JSONObject login(String userName, String userPassword) {
+        return userService.login(userName, userPassword);
     }
 }
