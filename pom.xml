@@ -26,6 +26,7 @@
 		<module>system</module>
 		<module>jacoco-report</module>
 		<module>intermediator</module>
+		<module>exam</module>
 	</modules>
 	<dependencies>
 		<dependency>
