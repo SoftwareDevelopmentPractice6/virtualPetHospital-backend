@@ -12,13 +12,6 @@
     <artifactId>system</artifactId>
     <name>system</name>
     <description>System management includes basic structure and function management, function mode management, case management and other functions.</description>
-    <properties>
-        <java.version>17</java.version>
-        <spring-cloud.version>2022.0.1</spring-cloud.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
