@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-16 00:40:09
+ * @LastEditTime: 2023-03-16 13:33:10
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -204,7 +204,7 @@ flowchart LR
 
       ```
 
-    - controller层内：
+    - controller层内（intermediator以外的模块可以不加，建议加一下方便用UI测接口）：
       - 类上加注解`@API(value = "")`，值填写模块名称
       - 每个接口的函数上添加以下两个注解：
 
@@ -217,6 +217,55 @@ flowchart LR
             // 参数名称、参数含义、是否必须、数据类型、
             @ApiImplicitParam(name = "", value = "", required = , dataType = "")
         })
+        ```
+
+    - intermediator模块内部每个控制器都要添加以下内容：
+      - 类上加注解`@API(tag="")`，`tag`填写模块名称
+      - 每个接口的函数上添加以下两个注解：
+
+        ``` java
+        @ApiOperation(value="", notes="") 
+        // value填写功能，notes写备注（可以是详细的功能）
+        @ApiImplicitParams({
+            // 填写参数列表
+            @ApiImplicitParam(name = "", value = "", required = , dataType = ""),
+            // 参数名称、参数含义、是否必须、数据类型、
+            @ApiImplicitParam(name = "", value = "", required = , dataType = "")
+        })
+        @ApiResponses(
+        // 返回结果示例
+            value = {
+                @ApiResponse(
+                // 一个ApiResponse是一个example
+                    responseCode = "200",
+                    // 状态码，不能重复
+                    content =
+                        @Content(
+                            examples = {
+                                @ExampleObject(
+                                    name = "login",
+                                    // 示例名称
+                                    description = "Login success message.",
+                                    //示例描述
+                                    value =
+                                    // 示例内容，以JSON字符串形式表示
+                                            "{\"code\": 200,\"message\": \"ok\",\"data\": {\"userPassword\": \"admin\",\"userName\": \"admin@admin.com\",\"userAuthority\": 1,\"userId\": 1}}")
+                            },
+                            mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                            // 传输格式，通常是application/json
+                @ApiResponse(
+                    responseCode = "515",
+                    description = "Request failed",
+                    content =
+                        @Content(
+                            examples = {
+                                @ExampleObject(
+                                    name = "login",
+                                    description = "Login failure message.",
+                                    value = "{\"code\": 515,\"message\": \"Request failed\"}")
+                            },
+                            mediaType = MediaType.APPLICATION_JSON_VALUE))
+            })
         ```
 
 4. 子模块连接数据库：
