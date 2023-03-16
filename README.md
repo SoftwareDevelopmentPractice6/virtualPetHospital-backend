@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-17 02:24:15
+ * @LastEditTime: 2023-03-17 03:21:30
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -20,7 +20,7 @@
 - [X] 数据库配置
 - [ ] SQL: DDL 3.18 5 PM
   - [X] 鉴权 & 系统
-  - [ ] 病例 & 测试：病例内`CASE`表加一个字段`category`，表明基础病例的所属类别（内科、寄生虫···）
+  - [ ] 病例 & 测试：病例内`DISEASENAME`表加一个字段`category`，表明基础病例的所属类别（内科、寄生虫···）
 - [ ] 开发 一个模块一周 包括测试
 - [ ] 需要的sql：
   - [ ] 增：每表一个

@@ -30,7 +30,7 @@ erDiagram
 		string CasecheckID FK
 		string TreatmentProgramID FK
 	}
-	Case ||--|{ DiseaseName : contains
+	DiseaseName ||--|{ Case : contains
 	Case ||--|{ Admission : contains
 	Case ||--|{ Casecheck : contains
 	Case ||--|{ DiagnosticResult : contains
