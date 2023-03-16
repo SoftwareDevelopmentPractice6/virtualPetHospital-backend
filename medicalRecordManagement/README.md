@@ -40,6 +40,7 @@ erDiagram
         string content
         string photo
         string video
+        string category
     }
     DiagnosticResult {
         int DiagnosticResultID PK
