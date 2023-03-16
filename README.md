@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-16 13:33:10
+ * @LastEditTime: 2023-03-16 13:41:53
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -13,6 +13,18 @@
 - 李亦杨 10195101467：数据管理
 - 刁泽皓 10195101470：鉴权、系统管理、导览、职能学习（角色扮演，集成到系统管理部分）
 - 陆宣辰 10195101466：病例管理、测试、职能学习（病例学习，集成到病例部分）
+
+## 运行demo
+
+1. 启动MySql数据库，数据库需要一个满足以下条件的用户
+
+   - 权限：All
+   - 端口：`3306`
+   - 账号：`virtualPetHospital`
+   - 密码：`virtualPetHospital`
+
+2. 启动eureka模块，随后启动login、intermediator两个模块
+3. [8090端口的swagger界面](ocalhost:8090/swagger-ui/index.html)可以测试demo接口
 
 ## TODO
 
