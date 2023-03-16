@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-17 02:08:53
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-17 02:45:19
+ * @LastEditTime: 2023-03-17 02:48:00
  * @FilePath: /virtualPetHospital-backend/docs/QA.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -65,7 +65,7 @@ Java Runtime (class file version 61.0), this version of the Java Runtime only re
 
 电脑默认Java版本太低，改成Java 17
 
-### `无法识别mvn命令`
+### 无法识别`mvn`命令
 
 - MacOs/Linux: `mvn`改成`./mvnw`
 - Windows: `mvn`改成`mvnw.cmd`
