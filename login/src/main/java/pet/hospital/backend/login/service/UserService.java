@@ -22,10 +22,10 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public JSONObject login(String userName, String password) {
+    public JSONObject login(String userName, String userPassword) {
         JSONObject res = new JSONObject();
 
-        User targetUser = userRepository.getUser(userName, password);
+        User targetUser = userRepository.getUser(userName, userPassword);
 
         if (targetUser == null) {
             res.put(Constants.code, Constants.errorCode);
@@ -33,7 +33,7 @@ public class UserService {
             res.put(Constants.data, null);
         } else {
             if (Objects.equals(targetUser.getUserName(), userName)
-                    && Objects.equals(targetUser.getPassword(), password)) {
+                    && Objects.equals(targetUser.getPassword(), userPassword)) {
                 JSONObject resData = new JSONObject();
                 resData.put(Constants.userId, targetUser.getUserId());
                 resData.put(Constants.userName, targetUser.getUserName());

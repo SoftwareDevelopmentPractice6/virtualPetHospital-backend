@@ -14,11 +14,3 @@ eureka:
       defaultZone: http://localhost:5272/eureka/
     healthcheck:
       enabled: true # 开启健康检查（依赖spring-boot-starter-actuator）
-
-module:
-  login:
-    url: http://localhost:8762/
-  medicalRecordManagement:
-    url: http://localhost:8777/
-  system:
-    url: http://localhost:5678/
