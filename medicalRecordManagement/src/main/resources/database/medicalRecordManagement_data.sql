@@ -1,6 +1,4 @@
-DELETE FROM MEDICALCASE WHERE case_id = 1;
-INSERT INTO MEDICALCASE (case_id, disease_name_id, diagnostic_result_id, admission_id, casecheck_id, treatment_program_id)
-VALUES (1, 1, 1, 1, 1, 1);
+
 
 DELETE FROM DISEASENAME WHERE disease_name_id = 1;
 INSERT INTO DISEASENAME (disease_name_id, content, photo, video, category)
@@ -21,3 +19,7 @@ VALUES (1, '病例检查1', 'https://example.com/casecheck1.jpg', 'https://examp
 DELETE FROM TREATMENTPROGRAM WHERE treatment_program_id = 1;
 INSERT INTO TREATMENTPROGRAM (treatment_program_id, content, photo, video)
 VALUES (1, '治疗方案1', 'https://example.com/treatment1.jpg', 'https://example.com/treatment1.mp4');
+
+DELETE FROM MEDICALCASE WHERE case_id = 1;
+INSERT INTO MEDICALCASE (case_id, disease_name_id, diagnostic_result_id, admission_id, casecheck_id, treatment_program_id)
+VALUES (1, 1, 1, 1, 1, 1);
