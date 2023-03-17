@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-17 02:08:53
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-17 12:55:22
+ * @LastEditTime: 2023-03-17 21:12:12
  * @FilePath: /virtualPetHospital-backend/docs/QA.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -280,5 +280,7 @@ Spring-boot 3.0.3内部问题，保证项目路径没有空格或中文即可
 3. [Spring-boot测试](https://blog.csdn.net/m0_52601969/article/details/125954919)
 4. [Spring-boot Mock测试](https://blog.csdn.net/oschina_41790905/article/details/111501402)
 5. [Spring-boot连数据库](https://www.w3cschool.cn/article/69469419.html)
-6. [JPA增删](https://blog.csdn.net/star1210644725/article/details/100550905?spm=1001.2101.3001.6650.1&utm_medium=distribute.wap_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-100550905-blog-102753021.wap_relevant_featuresortv7&depth_1-utm_source=distribute.wap_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-100550905-blog-102753021.wap_relevant_featuresortv7)
-7. [Spring-cloud模块间调用](https://www.cnblogs.com/moonandstar08/p/7565524.html)
+6. [JPA deleteById](https://blog.csdn.net/qq_34465338/article/details/121336199)
+7. [JPA saveAndFlush](https://blog.csdn.net/chusen/article/details/112913759)
+8. [Spring-cloud模块间调用](https://www.cnblogs.com/moonandstar08/p/7565524.html)
+9. [Spring接收、发送文件](https://blog.csdn.net/qq_57390446/article/details/127797971)

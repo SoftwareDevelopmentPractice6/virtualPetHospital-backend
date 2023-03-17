@@ -1,8 +1,8 @@
 <!--
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
- * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-17 10:33:58
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-17 21:25:54
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -70,7 +70,9 @@
 
 - dao层：
   
-  - 增删操作使用`saveAndFlush`与`deleteById`等JPA内建函数，不要用原生sql
+  - 增改操作使用`saveAndFlush`，不要用原生sql
+  - 删除操作使用`deleteById`，不要用原生sql
+  - 只有查数据要写SQL
 
 - service层：
   
@@ -96,8 +98,7 @@
     - 删：DELETE
     - 改：PUT
     - 查：GET/POST
-      参数为一个时用GET方法，参数用`@PathVariable`修饰，使参数在请求路径中；
-      参数多个时用POST方法
+      参数为一个时用GET方法，参数用`@PathVariable`修饰，使参数在请求路径中；参数多个时用POST方法
   - 建议接入swagger方便测试与查看接口，使用可以参考[这里](docs/QA.md#添加子模块到swagger用于api文档生成)
 
 - 测试：
