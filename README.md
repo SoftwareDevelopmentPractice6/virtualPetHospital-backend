@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-17 22:10:37
+ * @LastEditTime: 2023-03-17 23:01:38
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -23,10 +23,10 @@
   - [X] 病例 & 测试：病例内`DISEASENAME`表加一个字段`category`，表明基础病例的所属类别（内科、寄生虫···）
 - [ ] 开发：一个模块一周 包括测试
 - [ ] 需要的sql：
-  - [ ] 增：每表一个，POST请求
-  - [ ] 删；根据id删，每表一个，DELETE请求
-  - [ ] 改：根据id改，每表一个，用于改整条数据除id的全字段，PUT请求
-  - [ ] 查：视情况而定，参数少可以用GET请求，参数多时用POST请求。GET请求参数用`@PathVariable`修饰，使参数在请求路径中
+  - [ ] 增：每表一个
+  - [ ] 删：根据id删，每表一个
+  - [ ] 改：根据id改，每表一个，用于改整条数据除id的全字段。控制器层接受的参数是JSON字符串
+  - [ ] 查：视情况而定
 - [ ] 中间层
 - [ ] 文件上传
 
@@ -73,7 +73,7 @@
   
   - 增改操作使用`saveAndFlush`，不要用原生sql
   - 删除操作使用`deleteById`，不要用原生sql
-  - 只有查数据要写SQL
+  - 查数据时，根据Id搜索的话可以直接在service用`findById`方法，其他查找需要自己写sql
 
 - service层：
   
