@@ -1,5 +1,5 @@
-DELETE FROM CASE WHERE case_id = 1;
-INSERT INTO CASE (case_id, disease_name_id, diagnostic_result_id, admission_id, casecheck_id, treatment_program_id)
+DELETE FROM MEDICALCASE WHERE case_id = 1;
+INSERT INTO MEDICALCASE (case_id, disease_name_id, diagnostic_result_id, admission_id, casecheck_id, treatment_program_id)
 VALUES (1, 1, 1, 1, 1, 1);
 
 DELETE FROM DISEASENAME WHERE disease_name_id = 1;
