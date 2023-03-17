@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-17 23:01:38
+ * @LastEditTime: 2023-03-17 23:10:52
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -91,7 +91,8 @@
 
 - controller层：
   
-  - 尽量使用REST风格API，接口统一前缀`/api`
+  - 中间层尽量使用REST风格API，其他模块尽量不要使用
+  - 接口统一前缀`/api`
   - 接口：
 
     - 增：POST
