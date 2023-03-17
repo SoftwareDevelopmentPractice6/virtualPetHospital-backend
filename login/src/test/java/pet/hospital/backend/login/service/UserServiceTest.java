@@ -15,8 +15,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-import pet.hospital.backend.login.constant.Constants;
-import pet.hospital.backend.login.helper.ResponseHelper;
+import pet.hospital.backend.common.constant.Constants;
+import pet.hospital.backend.common.helper.ResponseHelper;
 
 @SpringBootTest
 @Transactional

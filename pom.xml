@@ -24,12 +24,13 @@
 	</properties>
 	<modules>
 		<module>eureka</module>
+		<module>common</module>
+		<module>jacoco-report</module>
 		<module>login</module>
 		<module>medicalRecordManagement</module>
 		<module>system</module>
-		<module>jacoco-report</module>
-		<module>intermediator</module>
 		<module>exam</module>
+		<module>intermediator</module>
 	</modules>
 	<dependencies>
 

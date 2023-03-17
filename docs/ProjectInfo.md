@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-17 02:07:30
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-17 12:54:03
+ * @LastEditTime: 2023-03-18 00:57:13
  * @FilePath: /virtualPetHospital-backend/docs/ProjectInfo.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -73,6 +73,7 @@ flowchart LR
 - 系统类：
   - eureka：该文件夹内为Spring cloud所需的Eureka组件，**请勿改动**。其用于项目内各个子模块的注册。
   - jacoco-report: 用于测试报告集成，**请勿改动**。
+  - common: 各个子模块共享的工具模块
 - 功能模块：
   - login：登陆鉴权模块。
   - system: 系统管理模块、导览模块与职能学习部分。

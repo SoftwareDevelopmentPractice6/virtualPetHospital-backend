@@ -21,8 +21,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
-import pet.hospital.backend.login.constant.Constants;
-import pet.hospital.backend.login.helper.ResponseHelper;
+import pet.hospital.backend.common.constant.Constants;
+import pet.hospital.backend.common.helper.ResponseHelper;
 
 @SpringBootTest
 @Transactional
