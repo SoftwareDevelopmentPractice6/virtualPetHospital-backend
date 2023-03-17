@@ -36,15 +36,15 @@ CREATE TABLE IF NOT EXISTS TREATMENTPROGRAM (
 	);
 
 CREATE TABLE IF NOT EXISTS MEDICALCASE (
-    case_id INT PRIMARY KEY AUTO_INCREMENT ,
-    disease_name_id INT,
-    diagnostic_result_id INT,
-    admission_id INT,
-    casecheck_id INT,
-    treatment_program_id INT,
-    FOREIGN KEY (disease_name_id) REFERENCES DISEASENAME(disease_name_id),
-    FOREIGN KEY (diagnostic_result_id) REFERENCES DIAGNOSTICRESULT(diagnostic_result_id),
-    FOREIGN KEY (admission_id) REFERENCES ADMISSION(admission_id),
-    FOREIGN KEY (casecheck_id) REFERENCES CASECHECK(casecheck_id),
-    FOREIGN KEY (treatment_program_id) REFERENCES TREATMENTPROGRAM(treatment_program_id)
-    );
+	case_id INT PRIMARY KEY AUTO_INCREMENT ,
+	disease_name_id INT,
+	diagnostic_result_id INT,
+	admission_id INT,
+	casecheck_id INT,
+	treatment_program_id INT,
+	FOREIGN KEY (disease_name_id) REFERENCES DISEASENAME(disease_name_id) ON DELETE CASCADE,
+	FOREIGN KEY (diagnostic_result_id) REFERENCES DIAGNOSTICRESULT(diagnostic_result_id) ON DELETE CASCADE,
+	FOREIGN KEY (admission_id) REFERENCES ADMISSION(admission_id) ON DELETE CASCADE,
+	FOREIGN KEY (casecheck_id) REFERENCES CASECHECK(casecheck_id) ON DELETE CASCADE,
+	FOREIGN KEY (treatment_program_id) REFERENCES TREATMENTPROGRAM(treatment_program_id) ON DELETE CASCADE
+	);
