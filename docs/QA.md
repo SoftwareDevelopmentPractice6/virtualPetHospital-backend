@@ -1,8 +1,8 @@
 <!--
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-17 02:08:53
- * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-17 10:48:55
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-17 12:55:22
  * @FilePath: /virtualPetHospital-backend/docs/QA.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -48,6 +48,7 @@ Could not find artifact ··· and 'parent.relativePath' points at no local POM
         <module>system</module>
         <module>jacoco-report</module>
         <module>intermediator</module>
+        <module>exam</module>
     </modules>
     ```
 
