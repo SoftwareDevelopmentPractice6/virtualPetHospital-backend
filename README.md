@@ -58,6 +58,7 @@
 - style: 代码格式等修改
 - refactor: 重构
 - config: 项目配置
+- perf: 性能优化
 
 ### 代码规范
 
