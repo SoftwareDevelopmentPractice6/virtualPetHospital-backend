@@ -31,6 +31,12 @@
 
 		<dependency>
 			<groupId>pet.hospital.backend</groupId>
+			<artifactId>exam</artifactId> 
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>pet.hospital.backend</groupId>
 			<artifactId>system</artifactId>
 			<version>${project.version}</version>
 		</dependency>
