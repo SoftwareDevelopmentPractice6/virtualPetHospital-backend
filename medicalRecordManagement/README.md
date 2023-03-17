@@ -22,90 +22,90 @@
 ``` mermaid
 erDiagram
 
-	Case {
-		string CaseID PK
-		string DiseaseNameID FK
-		string DiagnosticResultID FK
-		string AdmissionID FK
-		string CasecheckID FK
-		string TreatmentProgramID FK
-	}
-	Case ||--|{ DiseaseName : contains
-	Case ||--|{ Admission : contains
-	Case ||--|{ Casecheck : contains
-	Case ||--|{ DiagnosticResult : contains
-	Case ||--|{ TreatmentProgram : contains
-	DiseaseName {
-		string DiseaseNameID PK
-		string content
-		string photo
-		string video
-	}
-	DiagnosticResult {
-		string DiagnosticResultID PK
-		string content
-		string photo
-		string video
-	}
-	Admission {
-		string AdmissionID PK
-		string content
-		string photo
-		string video
-	}
-	Casecheck {
-		string CasecheckID PK
-		string content
-		string photo
-		string video
-	}
-	TreatmentProgram {
-		string TreatmentProgramID PK
-		string content
-		string photo
-		string video
-	}
+    Case {
+        int CaseID PK
+        int DiseaseNameID FK
+        int DiagnosticResultID FK
+        int AdmissionID FK
+        int CasecheckID FK
+        int TreatmentProgramID FK
+    }
+    DiseaseName ||--|{ Case : contains
+    Case ||--|{ Admission : contains
+    Case ||--|{ Casecheck : contains
+    Case ||--|{ DiagnosticResult : contains
+    Case ||--|{ TreatmentProgram : contains
+    DiseaseName {
+        int DiseaseNameID PK
+        string content
+        string photo
+        string video
+        string category
+    }
+    DiagnosticResult {
+        int DiagnosticResultID PK
+        string content
+        string photo
+        string video
+    }
+    Admission {
+        int AdmissionID PK
+        string content
+        string photo
+        string video
+    }
+    Casecheck {
+        int CasecheckID PK
+        string content
+        string photo
+        string video
+    }
+    TreatmentProgram {
+        int TreatmentProgramID PK
+        string content
+        string photo
+        string video
+    }
 ```
-
 
 ``` mermaid
 erDiagram
 Exam {
-string exam_id PK
+int exam_id PK
 string exam_name
 }
 
 Paper {
-string paper_id PK
+int paper_id PK
 string paper_name
-string exam_id FK
+int exam_id FK
 string duration
 string total_score
 }
 
 Question {
-string question_id PK
+int question_id PK
 string question_content
 string question_type
-string category_id FK
+int category_id FK
 }
 
 Category {
-string category_id PK
+int category_id PK
 string category_name
 }
 
 ExamSession {
-string session_id PK
-string paper_id FK
-string start_time
-string end_time
+int session_id PK
+int paper_id FK
+time start_time
+time end_time
 }
 
 StudentResult {
-string result_id PK
-string session_id FK
-string student_id
+int result_id PK
+int session_id FK
+int student_id
 int score
 }
 Exam ||--|| Paper : relate
@@ -113,6 +113,7 @@ Paper ||--|| ExamSession : relate
 Question }o--|| Category : contains
 ExamSession ||--o{ StudentResult : relate
 ```
+
 解释：
 
 Exam 表存储考试信息，包括考试 ID 和考试名称等。
@@ -158,28 +159,28 @@ StudentResult 表存储学生考试成绩信息，包括成绩 ID、考试 ID、
 ## Tips
 
 1. 为了注册子模块到eureka，请完成以下事项：
-	- 在`pom.xml`内添加依赖：Spring Discovery Client与Spring Boot Starter Actuator
-	- 在启动类上添加注解`@EnableDiscoveryClient`
-	- `resources/application.yml`按如下配置，文件后缀名记得修改为`yml`文件
+    - 在`pom.xml`内添加依赖：Spring Discovery Client与Spring Boot Starter Actuator
+    - 在启动类上添加注解`@EnableDiscoveryClient`
+    - `resources/application.yml`按如下配置，文件后缀名记得修改为`yml`文件
 
-		``` yml
-		server:
-			port: # 端口号自己配新的，不要重复
-		spring:
-			application:
-				name: # 名称自己选新的，需要能说明模块大致内容，不要重复
+        ``` yml
+        server:
+            port: # 端口号自己配新的，不要重复
+        spring:
+            application:
+                name: # 名称自己选新的，需要能说明模块大致内容，不要重复
 
-		eureka:
-			instance:
-				lease-renewal-interval-in-seconds: 30      # 心跳时间，即服务续约间隔时间（缺省为30s）
-				lease-expiration-duration-in-seconds: 90  # 发呆时间，即服务续约到期时间（缺省为90s）
-			client:
-				registry-fetch-interval-seconds: 30 # 拉取服务注册信息间隔（缺省为30s）
-				service-url:
-					defaultZone: http://localhost:5272/eureka/
-				healthcheck:
-					enabled: true # 开启健康检查（依赖spring-boot-starter-actuator）
-		```
+        eureka:
+            instance:
+                lease-renewal-interval-in-seconds: 30      # 心跳时间，即服务续约间隔时间（缺省为30s）
+                lease-expiration-duration-in-seconds: 90  # 发呆时间，即服务续约到期时间（缺省为90s）
+            client:
+                registry-fetch-interval-seconds: 30 # 拉取服务注册信息间隔（缺省为30s）
+                service-url:
+                    defaultZone: http://localhost:5272/eureka/
+                healthcheck:
+                    enabled: true # 开启健康检查（依赖spring-boot-starter-actuator）
+        ```
 
 2. 以`master`分支为主分支。如果要进行开发等改动，请创建新分支进行修改，完成后提交pr。
 3. 本文件只作为整个后端的文档，各个模块的细致说明（如接口等）等文档放在各个子模块的目录下即可。
