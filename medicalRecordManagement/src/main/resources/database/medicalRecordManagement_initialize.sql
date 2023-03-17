@@ -1,19 +1,19 @@
 CREATE TABLE IF NOT EXISTS CASE (
-    CaseID VARCHAR(255) PRIMARY KEY,
-    DiseaseNameID VARCHAR(255),
-    DiagnosticResultID VARCHAR(255),
-    AdmissionID VARCHAR(255),
-    CasecheckID VARCHAR(255),
-    TreatmentProgramID VARCHAR(255),
-    FOREIGN KEY (DiseaseNameID) REFERENCES DISEASENAME(DiseaseNameID),
-    FOREIGN KEY (DiagnosticResultID) REFERENCES DIAGNOSTICRESULT(DiagnosticResultID),
-    FOREIGN KEY (AdmissionID) REFERENCES ADMISSION(AdmissionID),
-    FOREIGN KEY (CasecheckID) REFERENCES CASECHECK(CasecheckID),
-    FOREIGN KEY (TreatmentProgramID) REFERENCES TREATMENTPROGRAM(TreatmentProgramID)
+    case_id INT PRIMARY KEY AUTO_INCREMENT ,
+    disease_name_id INT,
+    diagnostic_result_id INT,
+    admission_id INT,
+    casecheck_id INT,
+    treatment_program_id INT,
+    FOREIGN KEY (disease_name_id) REFERENCES DISEASENAME(disease_name_id),
+    FOREIGN KEY (diagnostic_result_id) REFERENCES DIAGNOSTICRESULT(diagnostic_result_id),
+    FOREIGN KEY (admission_id) REFERENCES ADMISSION(admission_id),
+    FOREIGN KEY (casecheck_id) REFERENCES CASECHECK(casecheck_id),
+    FOREIGN KEY (treatment_program_id) REFERENCES TREATMENTPROGRAM(treatment_program_id)
     );
 
 CREATE TABLE IF NOT EXISTS DISEASENAME (
-    DiseaseNameID VARCHAR(255) PRIMARY KEY,
+    disease_name_id INT PRIMARY KEY AUTO_INCREMENT,
     content TEXT,
     photo VARCHAR(255),
     video VARCHAR(255),
@@ -21,28 +21,28 @@ CREATE TABLE IF NOT EXISTS DISEASENAME (
     );
 
 CREATE TABLE IF NOT EXISTS DIAGNOSTICRESULT (
-    DiagnosticResultID VARCHAR(255) PRIMARY KEY,
+    diagnostic_result_id INT PRIMARY KEY AUTO_INCREMENT,
     content TEXT,
     photo VARCHAR(255),
     video VARCHAR(255)
     );
 
 CREATE TABLE IF NOT EXISTS ADMISSION (
-    AdmissionID VARCHAR(255) PRIMARY KEY,
+    admission_id INT PRIMARY KEY AUTO_INCREMENT,
     content TEXT,
     photo VARCHAR(255),
     video VARCHAR(255)
     );
 
 CREATE TABLE IF NOT EXISTS CASECHECK (
-    CasecheckID VARCHAR(255) PRIMARY KEY,
+    casecheck_id INT PRIMARY KEY AUTO_INCREMENT,
     content TEXT,
     photo VARCHAR(255),
     video VARCHAR(255)
     );
 
 CREATE TABLE IF NOT EXISTS TREATMENTPROGRAM (
-    TreatmentProgramID VARCHAR(255) PRIMARY KEY,
+    treatment_program_id INT PRIMARY KEY AUTO_INCREMENT,
     content TEXT,
     photo VARCHAR(255),
     video VARCHAR(255)
