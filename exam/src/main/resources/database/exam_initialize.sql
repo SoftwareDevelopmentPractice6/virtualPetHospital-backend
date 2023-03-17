@@ -28,8 +28,8 @@ FOREIGN KEY (category_id) REFERENCES CATEGORY(category_id)
 CREATE TABLE IF NOT EXISTS EXAMSESSION (
 session_id VARCHAR(255) PRIMARY KEY,
 paper_id VARCHAR(255),
-start_time TIME),
-end_time TIME,
+start_time DATETIME,
+end_time DATETIME,
 FOREIGN KEY (paper_id) REFERENCES PAPER(paper_id)
 );
 

@@ -3,8 +3,8 @@ INSERT INTO CASE (CaseID, DiseaseNameID, DiagnosticResultID, AdmissionID, Casech
 VALUES ('C001', 'DN001', 'DR001', 'A001', 'CC001', 'TP001');
 
 DELETE FROM DISEASENAME WHERE DiseaseNameID = 'DN001';
-INSERT INTO DISEASENAME (DiseaseNameID, content, photo, video)
-VALUES ('DN001', '高血压', 'https://example.com/hypertension.jpg', 'https://example.com/hypertension.mp4');
+INSERT INTO DISEASENAME (DiseaseNameID, content, photo, video, category)
+VALUES ('DN001', '高血压', 'https://example.com/hypertension.jpg', 'https://example.com/hypertension.mp4','内科');
 
 DELETE FROM DIAGNOSTICRESULT WHERE DiagnosticResultID = 'DR001';
 INSERT INTO DIAGNOSTICRESULT (DiagnosticResultID, content, photo, video)
