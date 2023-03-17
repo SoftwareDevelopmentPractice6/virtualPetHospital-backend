@@ -21,4 +21,3 @@ VALUES ('CC001', '病例检查1', 'https://example.com/casecheck1.jpg', 'https:/
 DELETE FROM TREATMENTPROGRAM WHERE treatment_program_id = 'TP001';
 INSERT INTO TREATMENTPROGRAM (treatment_program_id, content, photo, video)
 VALUES ('TP001', '治疗方案1', 'https://example.com/treatment1.jpg', 'https://example.com/treatment1.mp4');
-
