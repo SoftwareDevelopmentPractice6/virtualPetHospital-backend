@@ -2,7 +2,7 @@
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-15 15:17:40
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-16 12:09:18
+ * @LastEditTime: 2023-03-17 21:53:53
  * @FilePath: /virtualPetHospital-backend/login/src/test/java/pet/hospital/backend/login/controller/UserControllerTest.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -44,7 +44,6 @@ public class UserControllerTest {
 
         JSONObject expected = new JSONObject();
         expected.put(Constants.code, Constants.successCode);
-        expected.put(Constants.message, Constants.findUserMessage);
         expected.put(Constants.data, expectedData);
 
         String resStr = mockMvc.perform(post("/api/auth/login")

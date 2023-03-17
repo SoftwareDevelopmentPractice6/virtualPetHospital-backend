@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-17 21:25:54
+ * @LastEditTime: 2023-03-17 22:10:37
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -77,12 +77,11 @@
 - service层：
   
   - 不变量统一存在`Constants.java`内，每个模块一个，使用时用`Constants.xxx`的方式
-  - 返回数据格式：
+  - 返回数据格式，请求状态可以参考[intermediator模块内helper文件夹下的EnumCode.java文件](intermediator/src/main/java/pet/hospital/backend/intermediator/helper/EnumCode.java)：
 
     ```json
     {
-      "code": 1 // 表明请求是否成功，成功为1，失败为-1
-      "message": "xxx" // 与code相关联
+      "code": 200, // 表明请求状态
       "data": {
         // 内部存储需要的数据，JSONObject格式或JSONArray格式
       }

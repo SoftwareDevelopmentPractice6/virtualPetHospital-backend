@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-16 12:48:39
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-16 13:04:18
+ * @LastEditTime: 2023-03-17 22:05:44
  * @FilePath: /virtualPetHospital-backend/intermediator/src/test/java/pet/hospital/backend/intermediator/controller/AuthControllerTest.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -24,6 +24,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.client.RestTemplate;
 import pet.hospital.backend.intermediator.constant.Constants;
+import pet.hospital.backend.intermediator.helper.EnumCode;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -48,8 +49,7 @@ public class AuthControllerTest {
         mockApiData.put(Constants.userAuthority, 1);
 
         JSONObject expected = new JSONObject();
-        expected.put(Constants.code, Constants.successCode);
-        expected.put(Constants.message, "");
+        expected.put(Constants.code, EnumCode.SUCCESS.getCode());
         expected.put(Constants.data, mockApiData);
 
         Mockito.when(restTemplate.postForObject(Mockito.anyString(), Mockito.any(), Mockito.any()))

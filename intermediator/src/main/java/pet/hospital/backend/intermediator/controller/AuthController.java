@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-16 02:51:46
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-16 11:55:58
+ * @LastEditTime: 2023-03-17 21:32:08
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/controller/AuthController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -63,6 +63,18 @@ public class AuthController {
                                                     name = "login",
                                                     description = "Login failure message.",
                                                     value = "{\"code\": 515,\"message\": \"Request failed\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                @ApiResponse(
+                        responseCode = "401",
+                        description = "Unauthorized",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    name = "login",
+                                                    description = "Login failure message.",
+                                                    value = "{\"code\": 401,\"message\": \"Unauthorized\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE))
             })

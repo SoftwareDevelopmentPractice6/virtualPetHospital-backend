@@ -13,7 +13,9 @@ public enum EnumCode {
 
     AUTHORITY_ERROR(401, "Unauthorized"),
 
-    REQUEST_ERROR(515, "Request failed");
+    REQUEST_ERROR(515, "Request failed"),
+
+    INTERNAL_ERROR(500, "Server internal error");
 
     private int code; // 状态码
     private String message; // 描述
@@ -29,5 +31,18 @@ public enum EnumCode {
 
     public String getMessage() {
         return message;
+    }
+
+    public static EnumCode getEnumCodeType(int code) {
+        switch (code) {
+            case 200:
+                return EnumCode.SUCCESS;
+            case 401:
+                return EnumCode.AUTHORITY_ERROR;
+            case 515:
+                return EnumCode.REQUEST_ERROR;
+            default:
+                return EnumCode.INTERNAL_ERROR;
+        }
     }
 }
