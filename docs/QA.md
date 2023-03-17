@@ -1,8 +1,8 @@
 <!--
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-17 02:08:53
- * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-17 02:48:00
+ * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-17 10:48:55
  * @FilePath: /virtualPetHospital-backend/docs/QA.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -271,3 +271,13 @@ Spring-boot 3.0.3内部问题，保证项目路径没有空格或中文即可
 ### 其他
 
 - 子模块内MVC模式，四层的package命名为`entity, dao, service, controller`。
+
+## 学习资料
+
+1. [Spring-boot四层MVC框架](https://blog.csdn.net/weixin_44532671/article/details/117914161?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-117914161-blog-125536691.pc_relevant_multi_platform_whitelistv3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-117914161-blog-125536691.pc_relevant_multi_platform_whitelistv3)
+2. [Spring-boot测试回滚](https://blog.csdn.net/weixin_60719453/article/details/127423660)
+3. [Spring-boot测试](https://blog.csdn.net/m0_52601969/article/details/125954919)
+4. [Spring-boot Mock测试](https://blog.csdn.net/oschina_41790905/article/details/111501402)
+5. [Spring-boot连数据库](https://www.w3cschool.cn/article/69469419.html)
+6. [JPA增删](https://blog.csdn.net/star1210644725/article/details/100550905?spm=1001.2101.3001.6650.1&utm_medium=distribute.wap_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-100550905-blog-102753021.wap_relevant_featuresortv7&depth_1-utm_source=distribute.wap_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-100550905-blog-102753021.wap_relevant_featuresortv7)
+7. [Spring-cloud模块间调用](https://www.cnblogs.com/moonandstar08/p/7565524.html)
