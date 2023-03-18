@@ -2,7 +2,7 @@
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-15 13:51:43
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-18 16:12:47
+ * @LastEditTime: 2023-03-18 16:31:29
  * @FilePath: /virtualPetHospital-backend/login/src/main/java/pet/hospital/backend/login/controller/UserController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -40,8 +40,10 @@ public class UserController {
     @PostMapping(value = "/login")
     public JSONObject login(
             @Parameter(description = "用户名", required = true) @RequestParam String userName,
-            @Parameter(description = "用户密码", required = true) @RequestParam String userPassword) {
-        return userService.login(userName, userPassword);
+            @Parameter(description = "用户密码", required = true) @RequestParam String userPassword)
+            throws UnsupportedEncodingException {
+        return userService.login(
+                URLDecoder.decode(userName, Constants.UTF8), URLDecoder.decode(userPassword, Constants.UTF8));
     }
 
     @Operation(summary = "新增用户接口")
@@ -49,8 +51,12 @@ public class UserController {
     public JSONObject addUser(
             @Parameter(description = "用户名", required = true) @RequestParam String userName,
             @Parameter(description = "用户密码", required = true) @RequestParam String userPassword,
-            @Parameter(description = "用户权限", required = true) @RequestParam int userAuthority) {
-        return userService.addUser(userName, userPassword, userAuthority);
+            @Parameter(description = "用户权限", required = true) @RequestParam int userAuthority)
+            throws UnsupportedEncodingException {
+        return userService.addUser(
+                URLDecoder.decode(userName, Constants.UTF8),
+                URLDecoder.decode(userPassword, Constants.UTF8),
+                userAuthority);
     }
 
     @Operation(summary = "更改用户信息接口")
@@ -68,8 +74,7 @@ public class UserController {
                     @RequestParam
                     String newUserInfo)
             throws UnsupportedEncodingException {
-        newUserInfo = URLDecoder.decode(newUserInfo, Constants.UTF8);
-        return userService.updateUser(JSON.parseObject(newUserInfo));
+        return userService.updateUser(JSON.parseObject(URLDecoder.decode(newUserInfo, Constants.UTF8)));
     }
 
     @Operation(summary = "删除用户信息接口")
