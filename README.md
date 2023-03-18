@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-18 19:49:45
+ * @LastEditTime: 2023-03-18 22:09:03
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -22,6 +22,10 @@
   - [X] 鉴权 & 系统
   - [X] 病例 & 测试：病例内`DISEASENAME`表加一个字段`category`，表明基础病例的所属类别（内科、寄生虫···）
 - [ ] 开发：一个模块一周，可以先不写单测
+  - [X] login
+  - [ ] system
+  - [ ] 病例
+  - [ ] exam
 - [ ] 需要的功能：
   - [ ] 增：每表一个
   - [ ] 删：根据id删，每表一个
@@ -33,6 +37,7 @@
 ## 文档
 
 - [项目相关信息](./docs/ProjectInfo.md)
+- [规范与开发教程](./docs/StandardInstruction.md)
 - [各类问题](./docs/QA.md)
 
 ## 运行demo
@@ -45,77 +50,10 @@
    - 密码：`virtualPetHospital`
 
 2. 启动eureka模块，随后启动login、intermediator两个模块
-3. [8090端口的swagger界面](ocalhost:8090/swagger-ui/index.html)可以测试demo接口
+3. [8090端口的swagger界面](localhost:8090/swagger-ui/index.html)可以测试demo接口
+4. 开发可以完全参考demo，即login模块
 
-## 规范
-
-### Commit Message
-
-- feat: 新功能、特性
-- fix: 修bug
-- docs: 文档修改
-- test: 测试
-- style: 代码格式等修改
-- refactor: 重构
-- config: 项目配置
-- perf: 性能优化
-
-### 代码规范
-
-- 总体开发规范：
-  
-  - **命名要能清楚表达变量/函数等作用**，驼峰法，变量类型不用在变量名内提醒
-  - 复杂函数勤写注释
-  - 其他函数可以考虑简单写点参数与返回值之类的注释
-  - 尽量不要过长或过短的函数。能复用的部分尽可能复用
-
-- dao层：
-  
-  - 增改操作使用`saveAndFlush`，不要用原生sql
-  - 删除操作使用`deleteById`，不要用原生sql
-  - 查操作不用写sql，使用内建方法`findAll`或`findById`，可以使用java stream流进行filter，例如：
-
-    ```java
-    List<User> targetUserList = userRepository.findAll().stream()
-                .filter(user -> Objects.equals(user.getUserName(), userName))
-                .collect(Collectors.toList());
-    ```
-
-- service层：
-  
-  - 不变量统一存在`Constants.java`内，每个模块一个，使用时用`Constants.xxx`的方式
-  - 返回数据格式，请求状态可以参考[intermediator模块内helper文件夹下的EnumCode.java文件](intermediator/src/main/java/pet/hospital/backend/intermediator/helper/EnumCode.java)：
-
-    ```json
-    {
-      "code": 200, // 表明请求状态
-      "data": {
-        // 内部存储需要的数据，JSONObject格式或JSONArray格式
-      }
-    }
-    ```
-
-- controller层：
-  
-  - 中间层尽量使用REST风格API，其他模块尽量不要使用
-  - 接口统一前缀`/api`
-  - 接口：
-
-    - 增：POST
-    - 删：DELETE
-    - 改：PUT
-    - 查：GET/POST
-      参数为一个时用GET方法，参数用`@PathVariable`修饰，使参数在请求路径中；参数多个时用POST方法
-  - 建议接入swagger方便测试与查看接口，使用可以参考[这里](docs/QA.md#添加子模块到swagger用于api文档生成)
-
-- 测试：
-
-  - 测试只需要写service层与controller层
-  - 单元测试覆盖率要求70%以上
-  - 类上注解`@Transactional`，表明测试需要回滚
-  - 控制器层测试不要调方法，需要用Mockito模拟发请求
-
-## 其他
+## 说明
 
 1. 以`master`分支为主分支。如果要进行开发等改动，请创建新分支进行修改，完成后提交pr，**不要自己merge**。
 2. 本文件只作为整个后端的文档，各个模块的细致说明等文档放在各个子模块的目录下即可。

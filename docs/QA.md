@@ -2,30 +2,11 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-17 02:08:53
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-18 19:47:58
+ * @LastEditTime: 2023-03-18 21:16:57
  * @FilePath: /virtualPetHospital-backend/docs/QA.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 # 虚拟宠物医院后端项目常见问题
-
-## 常用工具使用
-
-1. 生成测试报告：根目录下跑`mvn test`
-2. 生成API文档：运行模块后，然后到对应端口`localhost:${module_port}/swagger-ui/index.html`查看
-3. java格式化检查与自动格式化：根目录下`mvn spotless:check`，`mvn spotless:apply`
-
-## 常用`mvn`命令
-
-- `mvn test`: 跑测试、生成测试报告
-- `mvn clean install`: 重新加载项目、下载依赖等
-- `mvn spotless:check`：检查Java格式
-- `mvn spotless:apply`：Java格式化
-- `mvn versions:set -D newVersion=版本号`: 更新项目版本
-- `mvn versions:revert`: 项目版本回滚
-- `mvn versions:commit`: 项目版本提交
-- `mvn package`: 项目打包
-- `mvn 指令 -D skipTests`: 跳过测试
-- `mvn 指令 -P 环境定义ID`: 指定环境运行
 
 ## 常见报错
 
@@ -162,69 +143,6 @@ Spring-boot 3.0.3内部问题，保证项目路径没有空格或中文即可
 </dependency>
 ```
 
-### 添加子模块到swagger，用于API文档生成
-
-- 启动类上加注解
-
-  ``` java
-  @OpenAPIDefinition(
-    info = @Info(
-        title = "鉴权模块", // 模块名称
-        version = "0.0.1-SNAPSHOT",  // 项目版本
-        description = "虚拟宠物医院API文档-鉴权模块" // 描述
-    )
-  )
-
-  ```
-
-- controller层内（intermediator以外的模块可以不加，建议加一下方便用UI测接口）：
-  - 类上加注解`@Tag(name = "")`，值填写模块名称
-  - 每个接口的函数上添加`@Operation(summary ="")`
-  - 每个参数前添加`@Parameter(description = "") @RequestParam(required = true)`，description写参数描述，required为是否必须。其中`RequestParam`表明以query string方式请求，`RequestBody`表明请求写在请求体中，`PathVariable`表明请求参数写在路径中
-- intermediator模块内部每个控制器都要添加以下内容：
-  - 类上加注解`@Tag(name = "")`，值填写模块名称
-  - 每个参数前添加`@Parameter(description = "") @RequestParam(required = true)`，description写参数描述，required为是否必须。其中`RequestParam`表明以query string方式请求，`RequestBody`表明请求写在请求体中，`PathVariable`表明请求参数写在路径中
-  - 每个接口的函数上添加以下两个注解：
-
-    ``` java
-    @Operation(summary ="")
-    // summary为接口功能
-    @ApiResponses(
-    // 返回结果示例
-        value = {
-            @ApiResponse(
-            // 一个ApiResponse是一个example
-                responseCode = "200",
-                // 状态码，不能重复
-                content =
-                    @Content(
-                        examples = {
-                            @ExampleObject(
-                                name = "login",
-                                // 示例名称
-                                description = "Login success message.",
-                                //示例描述
-                                value =
-                                // 示例内容，以JSON字符串形式表示
-                                        "{\"code\": 200,\"message\": \"ok\",\"data\": {\"userPassword\": \"admin\",\"userName\": \"admin@admin.com\",\"userAuthority\": 1,\"userId\": 1}}")
-                        },
-                        mediaType = MediaType.APPLICATION_JSON_VALUE)),
-                        // 传输格式，通常是application/json
-            @ApiResponse(
-                responseCode = "515",
-                description = "Request failed",
-                content =
-                    @Content(
-                        examples = {
-                            @ExampleObject(
-                                name = "login",
-                                description = "Login failure message.",
-                                value = "{\"code\": 515,\"message\": \"Request failed\"}")
-                        },
-                        mediaType = MediaType.APPLICATION_JSON_VALUE))
-        })
-    ```
-
 ### 子模块连接数据库
 
 - `yml`文件内增加以下配置：
@@ -253,19 +171,3 @@ Spring-boot 3.0.3内部问题，保证项目路径没有空格或中文即可
     ```
 
 - 初始化表的sql文件建表时，统一采用`CREATE TABLE IF NOT EXISTS TABLE_NAME`
-
-### 其他
-
-- 子模块内MVC模式，四层的package命名为`entity, dao, service, controller`。
-
-## 学习资料
-
-1. [Spring-boot四层MVC框架](https://blog.csdn.net/weixin_44532671/article/details/117914161?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-117914161-blog-125536691.pc_relevant_multi_platform_whitelistv3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-117914161-blog-125536691.pc_relevant_multi_platform_whitelistv3)
-2. [Spring-boot测试回滚](https://blog.csdn.net/weixin_60719453/article/details/127423660)
-3. [Spring-boot测试](https://blog.csdn.net/m0_52601969/article/details/125954919)
-4. [Spring-boot Mock测试](https://blog.csdn.net/oschina_41790905/article/details/111501402)
-5. [Spring-boot连数据库](https://www.w3cschool.cn/article/69469419.html)
-6. [JPA deleteById](https://blog.csdn.net/qq_34465338/article/details/121336199)
-7. [JPA saveAndFlush](https://blog.csdn.net/chusen/article/details/112913759)
-8. [Spring-cloud模块间调用](https://www.cnblogs.com/moonandstar08/p/7565524.html)
-9. [Spring接收、发送文件](https://blog.csdn.net/qq_57390446/article/details/127797971)
