@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-18 22:09:03
+ * @LastEditTime: 2023-03-19 00:15:53
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -36,9 +36,23 @@
 
 ## 文档
 
+### 后端开发人员用文档
+
 - [项目相关信息](./docs/ProjectInfo.md)
 - [规范与开发教程](./docs/StandardInstruction.md)
 - [各类问题](./docs/QA.md)
+
+### 前端接口文档
+
+1. 首先安装http-server
+
+    ```nodejs
+    npm install http-server -g
+    ```
+
+2. `cd`到`/docs/api-docs`
+3. 命令`http-server`启动本地文件服务器
+4. 到8080端口查看API文档
 
 ## 运行demo
 

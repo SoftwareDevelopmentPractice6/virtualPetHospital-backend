@@ -1,0 +1,365 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "中间层模块",
+        "description": "虚拟宠物医院API文档，前端用",
+        "version": "0.0.1-SNAPSHOT"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8090",
+            "description": "Generated server url"
+        }
+    ],
+    "paths": {
+        "/api/auth/user": {
+            "get": {
+                "tags": [
+                    "鉴权模块"
+                ],
+                "summary": "获取用户列表接口",
+                "operationId": "getUsers",
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "userList": [
+                                            {
+                                                "userPassword": "test",
+                                                "userAuthority": 3,
+                                                "userName": "test@test.com",
+                                                "userId": 2
+                                            },
+                                            {
+                                                "userPassword": "tttt",
+                                                "userAuthority": 3,
+                                                "userName": "tt",
+                                                "userId": 6
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "鉴权模块"
+                ],
+                "summary": "更改用户信息接口",
+                "operationId": "updateUser",
+                "parameters": [
+                    {
+                        "name": "newUserInfo",
+                        "in": "query",
+                        "description": "更改后的用户信息，json字符串",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "json-string",
+                            "example": {
+                                "userId": 2,
+                                "userName": "test@test.com",
+                                "userPassword": "tttt",
+                                "userAuthority": 3
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "message": "ok",
+                                    "data": {
+                                        "userPassword": "admin",
+                                        "userName": "admin@admin.com",
+                                        "userAuthority": 1,
+                                        "userId": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "鉴权模块"
+                ],
+                "summary": "新增用户接口",
+                "operationId": "addUser",
+                "parameters": [
+                    {
+                        "name": "userName",
+                        "in": "query",
+                        "description": "用户名",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "userPassword",
+                        "in": "query",
+                        "description": "用户密码",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "userAuthority",
+                        "in": "query",
+                        "description": "用户权限",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "message": "ok",
+                                    "data": {
+                                        "userPassword": "admin",
+                                        "userName": "admin@admin.com",
+                                        "userAuthority": 1,
+                                        "userId": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "鉴权模块"
+                ],
+                "summary": "删除用户接口",
+                "operationId": "deleteUser",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "description": "用户Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "message": "ok",
+                                    "data": {
+                                        "userPassword": "admin",
+                                        "userName": "admin@admin.com",
+                                        "userAuthority": 1,
+                                        "userId": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/login": {
+            "post": {
+                "tags": [
+                    "鉴权模块"
+                ],
+                "summary": "系统登录接口",
+                "operationId": "login",
+                "parameters": [
+                    {
+                        "name": "userName",
+                        "in": "query",
+                        "description": "用户名",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "userPassword",
+                        "in": "query",
+                        "description": "用户密码",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 401,
+                                    "message": "Unauthorized"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "message": "ok",
+                                    "data": {
+                                        "userPassword": "admin",
+                                        "userName": "admin@admin.com",
+                                        "userAuthority": 1,
+                                        "userId": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/user/{userNameKeyword}": {
+            "get": {
+                "tags": [
+                    "鉴权模块"
+                ],
+                "summary": "获取用户列表接口",
+                "operationId": "getUsersByKeyword",
+                "parameters": [
+                    {
+                        "name": "userNameKeyword",
+                        "in": "path",
+                        "description": "用户名关键字，支持模糊查询",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "userList": [
+                                            {
+                                                "userPassword": "test",
+                                                "userAuthority": 3,
+                                                "userName": "test@test.com",
+                                                "userId": 2
+                                            },
+                                            {
+                                                "userPassword": "tttt",
+                                                "userAuthority": 3,
+                                                "userName": "tt",
+                                                "userId": 6
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {}
+}
