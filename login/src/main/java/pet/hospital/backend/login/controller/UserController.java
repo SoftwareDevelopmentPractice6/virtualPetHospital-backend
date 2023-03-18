@@ -2,7 +2,7 @@
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-15 13:51:43
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-18 03:45:06
+ * @LastEditTime: 2023-03-18 16:12:47
  * @FilePath: /virtualPetHospital-backend/login/src/main/java/pet/hospital/backend/login/controller/UserController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -14,6 +14,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import pet.hospital.backend.common.constant.Constants;
 import pet.hospital.backend.login.service.UserService;
 
 @RestController
@@ -63,7 +66,9 @@ public class UserController {
                                             example =
                                                     "{\"userId\": 2, \"userName\": \"test@test.com\", \"userPassword\": \"tttt\", \"userAuthority\": 3}"))
                     @RequestParam
-                    String newUserInfo) {
+                    String newUserInfo)
+            throws UnsupportedEncodingException {
+        newUserInfo = URLDecoder.decode(newUserInfo, Constants.UTF8);
         return userService.updateUser(JSON.parseObject(newUserInfo));
     }
 
