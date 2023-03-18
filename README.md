@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-17 23:10:52
+ * @LastEditTime: 2023-03-18 19:49:45
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -21,8 +21,8 @@
 - [X] SQL: DDL 3.18 5 PM
   - [X] 鉴权 & 系统
   - [X] 病例 & 测试：病例内`DISEASENAME`表加一个字段`category`，表明基础病例的所属类别（内科、寄生虫···）
-- [ ] 开发：一个模块一周 包括测试
-- [ ] 需要的sql：
+- [ ] 开发：一个模块一周，可以先不写单测
+- [ ] 需要的功能：
   - [ ] 增：每表一个
   - [ ] 删：根据id删，每表一个
   - [ ] 改：根据id改，每表一个，用于改整条数据除id的全字段。控制器层接受的参数是JSON字符串
@@ -73,7 +73,13 @@
   
   - 增改操作使用`saveAndFlush`，不要用原生sql
   - 删除操作使用`deleteById`，不要用原生sql
-  - 查数据时，根据Id搜索的话可以直接在service用`findById`方法，其他查找需要自己写sql
+  - 查操作不用写sql，使用内建方法`findAll`或`findById`，可以使用java stream流进行filter，例如：
+
+    ```java
+    List<User> targetUserList = userRepository.findAll().stream()
+                .filter(user -> Objects.equals(user.getUserName(), userName))
+                .collect(Collectors.toList());
+    ```
 
 - service层：
   

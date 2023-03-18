@@ -2,7 +2,7 @@
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-15 13:51:43
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-18 16:31:29
+ * @LastEditTime: 2023-03-18 19:29:27
  * @FilePath: /virtualPetHospital-backend/login/src/main/java/pet/hospital/backend/login/controller/UserController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -16,8 +16,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,8 +41,8 @@ public class UserController {
     @Operation(summary = "系统登录接口")
     @PostMapping(value = "/login")
     public JSONObject login(
-            @Parameter(description = "用户名", required = true) @RequestParam String userName,
-            @Parameter(description = "用户密码", required = true) @RequestParam String userPassword)
+            @Parameter(description = "用户名") @RequestParam String userName,
+            @Parameter(description = "用户密码") @RequestParam String userPassword)
             throws UnsupportedEncodingException {
         return userService.login(
                 URLDecoder.decode(userName, Constants.UTF8), URLDecoder.decode(userPassword, Constants.UTF8));
@@ -49,9 +51,9 @@ public class UserController {
     @Operation(summary = "新增用户接口")
     @PostMapping(value = "/register")
     public JSONObject addUser(
-            @Parameter(description = "用户名", required = true) @RequestParam String userName,
-            @Parameter(description = "用户密码", required = true) @RequestParam String userPassword,
-            @Parameter(description = "用户权限", required = true) @RequestParam int userAuthority)
+            @Parameter(description = "用户名") @RequestParam String userName,
+            @Parameter(description = "用户密码") @RequestParam String userPassword,
+            @Parameter(description = "用户权限") @RequestParam int userAuthority)
             throws UnsupportedEncodingException {
         return userService.addUser(
                 URLDecoder.decode(userName, Constants.UTF8),
@@ -79,7 +81,16 @@ public class UserController {
 
     @Operation(summary = "删除用户信息接口")
     @DeleteMapping(value = "/delete")
-    public JSONObject deleteUser(@Parameter(description = "用户Id", required = true) @RequestParam int userId) {
+    public JSONObject deleteUser(@Parameter(description = "用户Id") @RequestParam int userId) {
         return userService.deleteUser(userId);
+    }
+
+    @Operation(summary = "获取用户列表接口")
+    @GetMapping(value = "/users")
+    public JSONObject getUsers(
+            @Parameter(description = "用户名关键字，支持模糊查询") @RequestParam(required = false) String userNameKeyword)
+            throws UnsupportedEncodingException {
+        return userService.getUsers(
+                Objects.equals(userNameKeyword, null) ? "" : URLDecoder.decode(userNameKeyword, Constants.UTF8));
     }
 }

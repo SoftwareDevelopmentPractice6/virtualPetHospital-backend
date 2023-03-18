@@ -2,15 +2,18 @@
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-15 13:12:14
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-18 00:46:00
+ * @LastEditTime: 2023-03-18 19:30:10
  * @FilePath: /virtualPetHospital-backend/login/src/main/java/pet/hospital/backend/login/service/UserService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 package pet.hospital.backend.login.service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSON;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pet.hospital.backend.common.constant.Constants;
@@ -25,11 +28,14 @@ public class UserService {
     private UserRepository userRepository;
 
     public JSONObject login(String userName, String userPassword) {
-        User targetUser = userRepository.getUserByUserName(userName);
+        List<User> targetUserList = userRepository.findAll().stream()
+                .filter(user -> Objects.equals(user.getUserName(), userName))
+                .collect(Collectors.toList());
 
-        if (targetUser == null) {
+        if (!Objects.equals(targetUserList.size(), 1)) {
             return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
         } else {
+            User targetUser = targetUserList.get(0);
             if (Objects.equals(targetUser.getUserPassword(), userPassword)) {
                 return ResponseHelper.constructSuccessResponse(targetUser);
             } else {
@@ -39,9 +45,11 @@ public class UserService {
     }
 
     public JSONObject addUser(String userName, String userPassword, int userAuthority) {
-        User targetUser = userRepository.getUserByUserName(userName);
+        List<User> targetUserList = userRepository.findAll().stream()
+                .filter(user -> Objects.equals(user.getUserName(), userName))
+                .collect(Collectors.toList());
 
-        if (targetUser == null) {
+        if (!Objects.equals(targetUserList.size(), 1)) {
             User newUser = new User();
             newUser.setUserName(userName);
             newUser.setUserPassword(userPassword);
@@ -86,5 +94,15 @@ public class UserService {
                 return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
             }
         }
+    }
+
+    public JSONObject getUsers(String userNameKeyword) {
+        JSONObject res = new JSONObject();
+        res.put(
+                Constants.userList,
+                JSONObject.parseArray(JSON.toJSONString(userRepository.findAll().stream()
+                        .filter(user -> !Objects.equals(user.getUserName().indexOf(userNameKeyword), -1))
+                        .collect(Collectors.toList()))));
+        return ResponseHelper.constructSuccessResponse(res);
     }
 }

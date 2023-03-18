@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-16 02:51:46
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-18 16:15:49
+ * @LastEditTime: 2023-03-18 19:42:12
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/controller/AuthController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -21,6 +21,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,8 +48,7 @@ public class AuthController {
                                 @Content(
                                         examples = {
                                             @ExampleObject(
-                                                    name = "login",
-                                                    description = "Login success message.",
+                                                    description = "Success message.",
                                                     value =
                                                             "{\"code\": 200,\"message\": \"ok\",\"data\": {\"userPassword\": \"admin\",\"userName\": \"admin@admin.com\",\"userAuthority\": 1,\"userId\": 1}}")
                                         },
@@ -59,8 +60,7 @@ public class AuthController {
                                 @Content(
                                         examples = {
                                             @ExampleObject(
-                                                    name = "login",
-                                                    description = "Login failure message.",
+                                                    description = "Failure message.",
                                                     value = "{\"code\": 515,\"message\": \"Request failed\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
@@ -71,16 +71,15 @@ public class AuthController {
                                 @Content(
                                         examples = {
                                             @ExampleObject(
-                                                    name = "login",
-                                                    description = "Login failure message.",
+                                                    description = "Failure message.",
                                                     value = "{\"code\": 401,\"message\": \"Unauthorized\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE))
             })
     @PostMapping(value = "/login")
     public ResponseEntity<JSONObject> login(
-            @Parameter(description = "用户名", required = true) @RequestParam String userName,
-            @Parameter(description = "用户密码", required = true) @RequestParam String userPassword) {
+            @Parameter(description = "用户名") @RequestParam String userName,
+            @Parameter(description = "用户密码") @RequestParam String userPassword) {
         return authService.login(userName, userPassword).toResponseEntity();
     }
 
@@ -93,8 +92,7 @@ public class AuthController {
                                 @Content(
                                         examples = {
                                             @ExampleObject(
-                                                    name = "login",
-                                                    description = "Login success message.",
+                                                    description = "Success message.",
                                                     value =
                                                             "{\"code\": 200,\"message\": \"ok\",\"data\": {\"userPassword\": \"admin\",\"userName\": \"admin@admin.com\",\"userAuthority\": 1,\"userId\": 1}}")
                                         },
@@ -106,17 +104,16 @@ public class AuthController {
                                 @Content(
                                         examples = {
                                             @ExampleObject(
-                                                    name = "login",
-                                                    description = "Login failure message.",
+                                                    description = "Failure message.",
                                                     value = "{\"code\": 515,\"message\": \"Request failed\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE))
             })
     @PostMapping(value = "/user")
     public ResponseEntity<JSONObject> addUser(
-            @Parameter(description = "用户名", required = true) @RequestParam String userName,
-            @Parameter(description = "用户密码", required = true) @RequestParam String userPassword,
-            @Parameter(description = "用户权限", required = true) @RequestParam int userAuthority) {
+            @Parameter(description = "用户名") @RequestParam String userName,
+            @Parameter(description = "用户密码") @RequestParam String userPassword,
+            @Parameter(description = "用户权限") @RequestParam int userAuthority) {
         return authService.addUser(userName, userPassword, userAuthority).toResponseEntity();
     }
 
@@ -129,8 +126,7 @@ public class AuthController {
                                 @Content(
                                         examples = {
                                             @ExampleObject(
-                                                    name = "login",
-                                                    description = "Login success message.",
+                                                    description = "Success message.",
                                                     value =
                                                             "{\"code\": 200,\"message\": \"ok\",\"data\": {\"userPassword\": \"admin\",\"userName\": \"admin@admin.com\",\"userAuthority\": 1,\"userId\": 1}}")
                                         },
@@ -142,8 +138,7 @@ public class AuthController {
                                 @Content(
                                         examples = {
                                             @ExampleObject(
-                                                    name = "login",
-                                                    description = "Login failure message.",
+                                                    description = "Failure message.",
                                                     value = "{\"code\": 515,\"message\": \"Request failed\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE))
@@ -152,7 +147,6 @@ public class AuthController {
     public ResponseEntity<JSONObject> updateUser(
             @Parameter(
                             description = "更改后的用户信息，json字符串",
-                            required = true,
                             schema =
                                     @Schema(
                                             type = "string",
@@ -173,8 +167,7 @@ public class AuthController {
                                 @Content(
                                         examples = {
                                             @ExampleObject(
-                                                    name = "login",
-                                                    description = "Login success message.",
+                                                    description = "Success message.",
                                                     value =
                                                             "{\"code\": 200,\"message\": \"ok\",\"data\": {\"userPassword\": \"admin\",\"userName\": \"admin@admin.com\",\"userAuthority\": 1,\"userId\": 1}}")
                                         },
@@ -186,15 +179,76 @@ public class AuthController {
                                 @Content(
                                         examples = {
                                             @ExampleObject(
-                                                    name = "login",
-                                                    description = "Login failure message.",
+                                                    description = "Failure message.",
                                                     value = "{\"code\": 515,\"message\": \"Request failed\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE))
             })
     @DeleteMapping(value = "/user")
-    public ResponseEntity<JSONObject> deleteUser(
-            @Parameter(description = "用户Id", required = true) @RequestParam int userId) {
+    public ResponseEntity<JSONObject> deleteUser(@Parameter(description = "用户Id") @RequestParam int userId) {
         return authService.deleteUser(userId).toResponseEntity();
+    }
+
+    @Operation(summary = "获取用户列表接口")
+    @ApiResponses(
+            value = {
+                @ApiResponse(
+                        responseCode = "200",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\": 200,   \"data\": {     \"userList\": [       {         \"userPassword\": \"test\",         \"userAuthority\": 3,         \"userName\": \"test@test.com\",         \"userId\": 2       },       {         \"userPassword\": \"tttt\",         \"userAuthority\": 3,         \"userName\": \"tt\",         \"userId\": 6       }     ]   } }")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                @ApiResponse(
+                        responseCode = "515",
+                        description = "Request failed",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Failure message.",
+                                                    value = "{\"code\": 515,\"message\": \"Request failed\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE))
+            })
+    @GetMapping(value = "/user/{userNameKeyword}")
+    public ResponseEntity<JSONObject> getUsersByKeyword(
+            @Parameter(description = "用户名关键字，支持模糊查询") @PathVariable String userNameKeyword) {
+        return authService.getUsers(userNameKeyword).toResponseEntity();
+    }
+
+    @Operation(summary = "获取用户列表接口")
+    @ApiResponses(
+            value = {
+                @ApiResponse(
+                        responseCode = "200",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\": 200,   \"data\": {     \"userList\": [       {         \"userPassword\": \"test\",         \"userAuthority\": 3,         \"userName\": \"test@test.com\",         \"userId\": 2       },       {         \"userPassword\": \"tttt\",         \"userAuthority\": 3,         \"userName\": \"tt\",         \"userId\": 6       }     ]   } }")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                @ApiResponse(
+                        responseCode = "515",
+                        description = "Request failed",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Failure message.",
+                                                    value = "{\"code\": 515,\"message\": \"Request failed\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE))
+            })
+    @GetMapping(value = "/user")
+    public ResponseEntity<JSONObject> getUsers() {
+        return authService.getUsers(null).toResponseEntity();
     }
 }

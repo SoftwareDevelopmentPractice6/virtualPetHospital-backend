@@ -9,12 +9,6 @@
 package pet.hospital.backend.login.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import pet.hospital.backend.login.entity.User;
 
-public interface UserRepository extends JpaRepository<User, Integer> {
-
-    @Query("select u from User u where u.userName = :userName")
-    User getUserByUserName(@Param("userName") String userName);
-}
+public interface UserRepository extends JpaRepository<User, Integer> {}
