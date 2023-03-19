@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-18 21:03:21
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-18 21:49:19
+ * @LastEditTime: 2023-03-19 15:02:21
  * @FilePath: /virtualPetHospital-backend/docs/StandardInstruction.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -52,6 +52,65 @@
 ### 后端子模块开发
 
 子模块内MVC模式，四层的package命名为`entity, dao, service, controller`。
+
+### entity层
+
+1. 若有外键，那么从表和主表都需要有属性，如下：
+
+    ```sql
+    CREATE TABLE IF NOT EXISTS CATEGORY (
+        category_id INT PRIMARY KEY AUTO_INCREMENT,
+        category_name VARCHAR(255)
+    );
+
+    CREATE TABLE IF NOT EXISTS QUESTION (
+        question_id INT PRIMARY KEY AUTO_INCREMENT,
+        question_content TEXT,
+        question_type VARCHAR(255),
+        category_id INT,
+        FOREIGN KEY (category_id) REFERENCES CATEGORY(category_id) ON DELETE CASCADE
+    );
+    ```
+
+    ```java
+    public class Category {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "category_id", nullable = false)
+        int categoryId;
+
+        @Column(name = "category_name")
+        String categoryName;
+
+        @OneToMany(cascade = CascadeType.ALL)
+        @JSONField(serialize = false) // 忽略此属性，序列化为json时不需要此属性
+        List<Question> categoryQuestion;
+    }
+
+
+    public class Question {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "question_id", nullable = false)
+        int questionId;
+
+        @Column(name = "question_content")
+        String questionContent;
+
+        @Column(name = "question_type")
+        String questionType;
+
+        @ManyToOne
+        @JoinColumn(name = "category_id", referencedColumnName = "category_id")
+        Category questionCategory;
+    }
+    ```
+
+2. 通常主表字段中需要加`cascade = CascadeType.ALL`，从表不需要。具体情况看业务
+3. 主表的实体类指向从表的属性上需要添加`@JSONField(serialize = false)`，表明序列化为`json`时需要忽略该字段，防止出现无限循环问题
+4. 任何表的主键字段都不允许改动
 
 #### dao层
 
@@ -198,6 +257,9 @@
 ### Spring-boot数据库相关
 
 - [Spring-boot连数据库](https://www.w3cschool.cn/article/69469419.html)
+- [外键写法概要](https://www.cnblogs.com/luo630/p/15428367.html)
+- [一对一、一对多、多对多等外键写法](https://blog.csdn.net/sinianliushui/article/details/101452018?spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-101452018-blog-127540339.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-101452018-blog-127540339.pc_relevant_default&utm_relevant_index=6)
+- [JPA级连操作](https://www.jianshu.com/p/ae07c9f147bc)
 - [JPA deleteById](https://blog.csdn.net/qq_34465338/article/details/121336199)
 - [JPA saveAndFlush](https://blog.csdn.net/chusen/article/details/112913759)
 - [用JPA来减少撰写sql](https://blog.csdn.net/weixin_45815335/article/details/125203399)
