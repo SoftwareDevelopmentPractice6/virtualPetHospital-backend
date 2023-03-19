@@ -2,11 +2,13 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-19 14:37:13
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-19 14:40:10
+ * @LastEditTime: 2023-03-19 15:00:10
  * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/entity/Category.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 package pet.hospital.backend.exam.entity;
+
+import com.alibaba.fastjson.annotation.JSONField;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -31,6 +33,7 @@ public class Category {
     @Column(name = "category_name")
     String categoryName;
 
+    @JSONField(serialize = false)
     @OneToMany(cascade = CascadeType.ALL)
     Question categoryQuestion;
 }

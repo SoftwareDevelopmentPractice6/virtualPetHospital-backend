@@ -1,5 +1,7 @@
 package pet.hospital.backend.exam.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,6 +25,7 @@ public class Exam {
     @Column(name = "exam_name")
     String examName;
 
+    @JSONField(serialize = false)
     @OneToOne(cascade = CascadeType.ALL)
     Paper examPaper;
 }

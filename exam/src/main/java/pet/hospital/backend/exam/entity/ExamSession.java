@@ -10,6 +10,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import java.util.Date;
+
+import com.alibaba.fastjson.annotation.JSONField;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,6 +36,7 @@ public class ExamSession {
     @JoinColumn(name = "paper_id", referencedColumnName = "paper_id")
     Paper examSessionPaper;
 
+    @JSONField(serialize = false)
     @OneToMany(cascade = CascadeType.ALL)
     StudentResult examSessionStudentResult;
 }
