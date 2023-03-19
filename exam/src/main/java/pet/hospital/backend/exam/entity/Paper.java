@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-19 13:49:13
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-19 14:59:47
+ * @LastEditTime: 2023-03-19 19:30:35
  * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/entity/Paper.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -16,7 +16,6 @@
  */
 package pet.hospital.backend.exam.entity;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -50,8 +49,4 @@ public class Paper {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "exam_id", referencedColumnName = "exam_id")
     Exam paperExam;
-
-    @JSONField(serialize = false)
-    @OneToOne(cascade = CascadeType.ALL)
-    ExamSession paperExamSession;
 }

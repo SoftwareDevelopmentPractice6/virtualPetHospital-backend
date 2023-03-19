@@ -1,13 +1,10 @@
 package pet.hospital.backend.exam.entity;
 
-import com.alibaba.fastjson.annotation.JSONField;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,8 +20,4 @@ public class Exam {
 
     @Column(name = "exam_name")
     String examName;
-
-    @JSONField(serialize = false)
-    @OneToOne(cascade = CascadeType.ALL)
-    Paper examPaper;
 }
