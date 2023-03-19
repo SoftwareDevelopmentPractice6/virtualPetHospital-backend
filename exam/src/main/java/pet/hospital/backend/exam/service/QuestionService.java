@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-19 19:31:04
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-19 20:24:28
+ * @LastEditTime: 2023-03-20 00:49:16
  * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/service/QuestionService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -32,34 +32,20 @@ public class QuestionService {
     @Autowired
     CategoryRepository categoryRepository;
 
-    public JSONObject getQuestionsByContent(String questionKeyword) {
+    public JSONObject getQuestions(String questionKeyword, String questionType, Integer categoryId) {
         JSONObject res = new JSONObject();
         res.put(
                 Constants.questionList,
                 JSONObject.parseArray(JSON.toJSONString(questionRepository.findAll().stream()
-                        .filter(question ->
-                                !Objects.equals(question.getQuestionContent().indexOf(questionKeyword), -1))
-                        .collect(Collectors.toList()))));
-        return ResponseHelper.constructSuccessResponse(res);
-    }
-
-    public JSONObject getQuestionsByType(String questionType) {
-        JSONObject res = new JSONObject();
-        res.put(
-                Constants.questionList,
-                JSONObject.parseArray(JSON.toJSONString(questionRepository.findAll().stream()
-                        .filter(question -> Objects.equals(question.getQuestionType(), questionType))
-                        .collect(Collectors.toList()))));
-        return ResponseHelper.constructSuccessResponse(res);
-    }
-
-    public JSONObject getQuestionsByCategoryId(int categoryId) {
-        JSONObject res = new JSONObject();
-        res.put(
-                Constants.questionList,
-                JSONObject.parseArray(JSON.toJSONString(questionRepository.findAll().stream()
-                        .filter(question ->
-                                Objects.equals(question.getQuestionCategory().getCategoryId(), categoryId))
+                        .filter(question -> !Objects.equals(
+                                        question.getQuestionContent().indexOf(questionKeyword), -1)
+                                && (Objects.equals(questionType, "")
+                                        ? true
+                                        : Objects.equals(question.getQuestionType(), questionType))
+                                && (Objects.equals(categoryId, null)
+                                        ? true
+                                        : Objects.equals(
+                                                question.getQuestionCategory().getCategoryId(), categoryId)))
                         .collect(Collectors.toList()))));
         return ResponseHelper.constructSuccessResponse(res);
     }

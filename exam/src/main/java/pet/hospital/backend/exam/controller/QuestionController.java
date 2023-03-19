@@ -31,26 +31,16 @@ public class QuestionController {
     QuestionService questionService;
 
     @Operation(summary = "获取问题接口")
-    @GetMapping(value = "/get-by-content")
-    public JSONObject getQuestionsByContent(
-            @Parameter(description = "问题内容关键字，支持模糊查询") @RequestParam(required = false) String questionKeyword)
+    @GetMapping(value = "/get")
+    public JSONObject getQuestions(
+            @Parameter(description = "问题内容关键字，支持模糊查询") @RequestParam(required = false) String questionKeyword,
+            @Parameter(description = "问题种类") @RequestParam(required = false) String questionType,
+            @Parameter(description = "问题类别Id") @RequestParam(required = false) Integer categoryId)
             throws UnsupportedEncodingException {
-        return questionService.getQuestionsByContent(
-                Objects.equals(questionKeyword, null) ? "" : URLDecoder.decode(questionKeyword, Constants.UTF8));
-    }
-
-    @Operation(summary = "获取问题接口")
-    @GetMapping(value = "/get-by-type")
-    public JSONObject getQuestionsByType(@Parameter(description = "问题种类") @RequestParam String questionType)
-            throws UnsupportedEncodingException {
-        return questionService.getQuestionsByType(URLDecoder.decode(questionType, Constants.UTF8));
-    }
-
-    @Operation(summary = "获取问题接口")
-    @GetMapping(value = "/get-by-category-id")
-    public JSONObject getQuestionsByCategoryId(@Parameter(description = "问题类别Id") @RequestParam int categoryId)
-            throws UnsupportedEncodingException {
-        return questionService.getQuestionsByCategoryId(categoryId);
+        return questionService.getQuestions(
+                Objects.equals(questionKeyword, null) ? "" : URLDecoder.decode(questionKeyword, Constants.UTF8),
+                Objects.equals(questionType, null) ? "" : URLDecoder.decode(questionType, Constants.UTF8),
+                categoryId);
     }
 
     @Operation(summary = "新增问题接口")

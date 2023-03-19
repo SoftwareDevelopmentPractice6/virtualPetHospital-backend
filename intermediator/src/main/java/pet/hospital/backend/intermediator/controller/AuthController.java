@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-16 02:51:46
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-18 19:42:12
+ * @LastEditTime: 2023-03-20 00:53:33
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/controller/AuthController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -184,8 +184,8 @@ public class AuthController {
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE))
             })
-    @DeleteMapping(value = "/user")
-    public ResponseEntity<JSONObject> deleteUser(@Parameter(description = "用户Id") @RequestParam int userId) {
+    @DeleteMapping(value = "/user/{userId}")
+    public ResponseEntity<JSONObject> deleteUser(@Parameter(description = "用户Id") @PathVariable int userId) {
         return authService.deleteUser(userId).toResponseEntity();
     }
 
