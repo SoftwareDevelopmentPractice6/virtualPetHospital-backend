@@ -39,6 +39,20 @@ public class QuestionController {
                 Objects.equals(questionKeyword, null) ? "" : URLDecoder.decode(questionKeyword, Constants.UTF8));
     }
 
+    @Operation(summary = "获取问题接口")
+    @GetMapping(value = "/get-by-type")
+    public JSONObject getQuestionsByType(@Parameter(description = "问题种类") @RequestParam String questionType)
+            throws UnsupportedEncodingException {
+        return questionService.getQuestionsByType(URLDecoder.decode(questionType, Constants.UTF8));
+    }
+
+    @Operation(summary = "获取问题接口")
+    @GetMapping(value = "/get-by-category-id")
+    public JSONObject getQuestionsByCategoryId(@Parameter(description = "问题类别Id") @RequestParam int categoryId)
+            throws UnsupportedEncodingException {
+        return questionService.getQuestionsByCategoryId(categoryId);
+    }
+
     @Operation(summary = "新增问题接口")
     @PostMapping(value = "/add")
     public JSONObject addQuestion(
