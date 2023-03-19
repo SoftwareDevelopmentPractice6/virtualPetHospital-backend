@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-18 21:03:21
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-19 15:02:21
+ * @LastEditTime: 2023-03-19 20:19:08
  * @FilePath: /virtualPetHospital-backend/docs/StandardInstruction.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -55,7 +55,7 @@
 
 ### entity层
 
-1. 若有外键，那么从表和主表都需要有属性，如下：
+1. 若有外键，那么从表需要在外键标记注解，如下：
 
     ```sql
     CREATE TABLE IF NOT EXISTS CATEGORY (
@@ -82,10 +82,6 @@
 
         @Column(name = "category_name")
         String categoryName;
-
-        @OneToMany(cascade = CascadeType.ALL)
-        @JSONField(serialize = false) // 忽略此属性，序列化为json时不需要此属性
-        List<Question> categoryQuestion;
     }
 
 
@@ -108,9 +104,7 @@
     }
     ```
 
-2. 通常主表字段中需要加`cascade = CascadeType.ALL`，从表不需要。具体情况看业务
-3. 主表的实体类指向从表的属性上需要添加`@JSONField(serialize = false)`，表明序列化为`json`时需要忽略该字段，防止出现无限循环问题
-4. 任何表的主键字段都不允许改动
+2. 任何表的主键字段都不允许改动
 
 #### dao层
 

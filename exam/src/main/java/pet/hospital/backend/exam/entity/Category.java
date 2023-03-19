@@ -8,15 +8,11 @@
  */
 package pet.hospital.backend.exam.entity;
 
-import com.alibaba.fastjson.annotation.JSONField;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,8 +28,4 @@ public class Category {
 
     @Column(name = "category_name")
     String categoryName;
-
-    @JSONField(serialize = false)
-    @OneToMany(cascade = CascadeType.ALL)
-    List<Question> categoryQuestion;
 }
