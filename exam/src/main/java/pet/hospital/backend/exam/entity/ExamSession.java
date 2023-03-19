@@ -1,5 +1,6 @@
 package pet.hospital.backend.exam.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,9 +12,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import java.util.Date;
 import java.util.List;
-
-import com.alibaba.fastjson.annotation.JSONField;
-
 import lombok.Getter;
 import lombok.Setter;
 

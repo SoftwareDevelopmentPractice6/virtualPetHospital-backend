@@ -17,7 +17,6 @@
 package pet.hospital.backend.exam.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -34,6 +34,6 @@ public class StudentResult {
     int studentResultScore;
 
     @ManyToOne
-    @JoinColumn(name = "paper_id", referencedColumnName = "paper_id")
-    Paper examSessionPaper;
+    @JoinColumn(name = "session_id", referencedColumnName = "session_id")
+    ExamSession studentResultExamSession;
 }
