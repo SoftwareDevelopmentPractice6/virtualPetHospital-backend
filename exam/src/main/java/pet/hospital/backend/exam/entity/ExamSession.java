@@ -10,6 +10,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import java.util.Date;
+import java.util.List;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
@@ -38,5 +39,5 @@ public class ExamSession {
 
     @JSONField(serialize = false)
     @OneToMany(cascade = CascadeType.ALL)
-    StudentResult examSessionStudentResult;
+    List<StudentResult> examSessionStudentResult;
 }
