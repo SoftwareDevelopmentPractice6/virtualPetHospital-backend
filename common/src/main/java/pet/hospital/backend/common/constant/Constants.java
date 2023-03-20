@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-15 21:44:22
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 20:03:57
+ * @LastEditTime: 2023-03-20 20:06:08
  * @FilePath: /virtualPetHospital-backend/login/src/main/java/pet/hospital/backend/login/constant/Constants.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -22,41 +22,11 @@ public class Constants {
 
     public static String questionList = "questionList";
 
-    public static String examId = "examId";
-
-    public static String examName = "examName";
-
-    public static String examKeyword = "examKeyword";
-
     public static String examList = "examList";
-
-    public static String paperId = "paperId";
-
-    public static String paperName = "paperName";
-
-    public static String paperDuration = "paperDuration";
-
-    public static String paperTotalScore = "paperTotalScore";
-
-    public static String paperKeyword = "paperKeyword";
 
     public static String paperList = "paperList";
 
-    public static String examSessionId = "examSessionId";
-
-    public static String examSessionStartTime = "examSessionStartTime";
-
-    public static String examSessionEndTime = "examSessionEndTime";
-
-    public static String examSessionKeyword = "examSessionKeyword";
-
     public static String examSessionList = "examSessionList";
-
-    public static String studentResultId = "studentResultId";
-
-    public static String studentResultStudentId = "studentResultStudentId";
-
-    public static String studentResultScore = "studentResultScore";
 
     public static String studentResultList = "studentResultList";
 }
