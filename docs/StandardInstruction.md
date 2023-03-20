@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-18 21:03:21
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 01:02:16
+ * @LastEditTime: 2023-03-20 21:37:08
  * @FilePath: /virtualPetHospital-backend/docs/StandardInstruction.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -281,9 +281,13 @@
 - [JPA saveAndFlush](https://blog.csdn.net/chusen/article/details/112913759)
 - [用JPA来减少撰写sql](https://blog.csdn.net/weixin_45815335/article/details/125203399)
 
-### Spring-boot封装的易用工具相关
+### Spring-boot文件传输
 
 - [Spring接收、发送文件](https://blog.csdn.net/qq_57390446/article/details/127797971)
+- [MultipartFile多服务间中转文件](https://blog.csdn.net/weixin_43202160/article/details/129025774?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EYuanLiJiHua%7EPosition-2-129025774-blog-123480628.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EYuanLiJiHua%7EPosition-2-129025774-blog-123480628.pc_relevant_default&utm_relevant_index=5)
+- [文件中转](https://blog.csdn.net/qq_38066290/article/details/111253699)
+- [大文件转发](https://stackoverflow.com/questions/15781885/how-to-forward-large-files-with-resttemplate/36226006#36226006)
+- [中转小/大型文件](https://blog.csdn.net/eleanoryss/article/details/123480628)
 
 ### Spring-boot测试相关
 
