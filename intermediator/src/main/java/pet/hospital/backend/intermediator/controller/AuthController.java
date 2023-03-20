@@ -8,6 +8,7 @@
  */
 package pet.hospital.backend.intermediator.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -155,7 +156,7 @@ public class AuthController {
                                                     "{\"userId\": 2, \"userName\": \"test@test.com\", \"userPassword\": \"tttt\", \"userAuthority\": 3}"))
                     @RequestParam
                     String newUserInfo) {
-        return authService.updateUser(newUserInfo).toResponseEntity();
+        return authService.updateUser(JSON.parseObject(newUserInfo)).toResponseEntity();
     }
 
     @Operation(summary = "删除用户接口")

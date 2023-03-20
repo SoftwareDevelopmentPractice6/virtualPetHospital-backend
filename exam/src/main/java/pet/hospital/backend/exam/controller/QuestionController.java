@@ -1,10 +1,16 @@
+/*
+ * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @Date: 2023-03-19 20:34:15
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-20 16:28:25
+ * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/controller/QuestionController.java
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 package pet.hospital.backend.exam.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -59,19 +65,16 @@ public class QuestionController {
     @Operation(summary = "更改问题信息接口")
     @PutMapping(value = "/update")
     public JSONObject updateQuestion(
-            @Parameter(
-                            description = "更改后的问题信息，json字符串",
-                            required = true,
-                            schema =
-                                    @Schema(
-                                            type = "string",
-                                            format = "json-string",
-                                            example =
-                                                    "{\"questionId\": 2, \"questionContent\": \"testQuestion2\", \"questionType\": \"testType\", \"categoryId\": 2}"))
-                    @RequestParam
-                    String newQuestionInfo)
+            @Parameter(description = "问题Id") @RequestParam int questionId,
+            @Parameter(description = "问题内容") @RequestParam String questionContent,
+            @Parameter(description = "问题种类") @RequestParam String questionType,
+            @Parameter(description = "问题类别Id") @RequestParam int categoryId)
             throws UnsupportedEncodingException {
-        return questionService.updateQuestion(JSON.parseObject(URLDecoder.decode(newQuestionInfo, Constants.UTF8)));
+        return questionService.updateQuestion(
+                questionId,
+                URLDecoder.decode(questionContent, Constants.UTF8),
+                URLDecoder.decode(questionType, Constants.UTF8),
+                categoryId);
     }
 
     @Operation(summary = "删除问题接口")
