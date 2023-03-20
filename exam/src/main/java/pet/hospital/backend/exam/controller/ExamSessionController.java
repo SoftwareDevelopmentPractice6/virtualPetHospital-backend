@@ -16,10 +16,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,8 +25,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pet.hospital.backend.common.constant.Constants;
-import pet.hospital.backend.exam.service.ExamSessionService;
 import pet.hospital.backend.common.helper.DateHelper;
+import pet.hospital.backend.exam.service.ExamSessionService;
 
 @RestController
 @Tag(name = "Exam模块")
@@ -38,7 +34,7 @@ import pet.hospital.backend.common.helper.DateHelper;
         value = "/api/exam/exam-session",
         produces = {"application/json;charset=UTF-8"})
 public class ExamSessionController {
-    
+
     @Autowired
     ExamSessionService examSessionService;
 
@@ -49,18 +45,19 @@ public class ExamSessionController {
             @Parameter(description = "考试具体信息结束时间") @RequestParam(required = false) String examSessionEndTime,
             @Parameter(description = "考试具体信息对应试卷Id") @RequestParam(required = false) Integer paperId)
             throws UnsupportedEncodingException {
-                return examSessionService.getExamSessions(DateHelper.stringToDate(examSessionStartTime), DateHelper.stringToDate(examSessionEndTime), paperId);
+        return examSessionService.getExamSessions(
+                DateHelper.stringToDate(examSessionStartTime), DateHelper.stringToDate(examSessionEndTime), paperId);
     }
 
     @Operation(summary = "新增考试具体信息接口")
     @PostMapping(value = "/add")
     public JSONObject addExamSession(
-        @Parameter(description = "考试具体信息开始时间") @RequestParam String examSessionStartTime,
-        @Parameter(description = "考试具体信息结束时间") @RequestParam String examSessionEndTime,
-        @Parameter(description = "考试具体信息对应试卷Id") @RequestParam int paperId)
+            @Parameter(description = "考试具体信息开始时间") @RequestParam String examSessionStartTime,
+            @Parameter(description = "考试具体信息结束时间") @RequestParam String examSessionEndTime,
+            @Parameter(description = "考试具体信息对应试卷Id") @RequestParam int paperId)
             throws UnsupportedEncodingException {
         return examSessionService.addExamSession(
-            DateHelper.stringToDate(examSessionStartTime), DateHelper.stringToDate(examSessionEndTime), paperId);
+                DateHelper.stringToDate(examSessionStartTime), DateHelper.stringToDate(examSessionEndTime), paperId);
     }
 
     @Operation(summary = "更改考试具体信息接口")
@@ -78,7 +75,8 @@ public class ExamSessionController {
                     @RequestParam
                     String newExamSessionInfo)
             throws UnsupportedEncodingException {
-        return examSessionService.updateExamSession(JSON.parseObject(URLDecoder.decode(newExamSessionInfo, Constants.UTF8)));
+        return examSessionService.updateExamSession(
+                JSON.parseObject(URLDecoder.decode(newExamSessionInfo, Constants.UTF8)));
     }
 
     @Operation(summary = "删除考试具体信息接口")

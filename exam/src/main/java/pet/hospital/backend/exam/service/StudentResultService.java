@@ -18,44 +18,50 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pet.hospital.backend.common.constant.Constants;
 import pet.hospital.backend.common.helper.ResponseHelper;
-import pet.hospital.backend.exam.dao.ExamRepository;
 import pet.hospital.backend.exam.dao.ExamSessionRepository;
 import pet.hospital.backend.exam.dao.StudentResultRepository;
-import pet.hospital.backend.exam.dao.StudentResultRepository;
-import pet.hospital.backend.exam.entity.Exam;
 import pet.hospital.backend.exam.entity.ExamSession;
 import pet.hospital.backend.exam.entity.StudentResult;
 
 @Service
 public class StudentResultService {
-    
+
     @Autowired
     StudentResultRepository studentResultRepository;
 
     @Autowired
     ExamSessionRepository examSessionRepository;
 
-    public JSONObject getStudentResults(Integer studentResultStudentId, Integer studentResultScore, Integer examSessionId) {
+    public JSONObject getStudentResults(
+            Integer studentResultStudentId, Integer studentResultScore, Integer examSessionId) {
         JSONObject res = new JSONObject();
         res.put(
                 Constants.studentResultList,
                 JSONObject.parseArray(JSON.toJSONString(studentResultRepository.findAll().stream()
                         .filter(studentResult -> (Objects.equals(studentResultStudentId, null)
                                         ? true
-                                        : Objects.equals(studentResult.getStudentResultStudentId(), studentResultStudentId))
-                                        && (Objects.equals(studentResultScore, null)
+                                        : Objects.equals(
+                                                studentResult.getStudentResultStudentId(), studentResultStudentId))
+                                && (Objects.equals(studentResultScore, null)
                                         ? true
                                         : Objects.equals(studentResult.getStudentResultScore(), studentResultScore))
                                 && (Objects.equals(examSessionId, null)
                                         ? true
-                                        : Objects.equals(studentResult.getStudentResultExamSession().getExamSessionId(), examSessionId)))
+                                        : Objects.equals(
+                                                studentResult
+                                                        .getStudentResultExamSession()
+                                                        .getExamSessionId(),
+                                                examSessionId)))
                         .collect(Collectors.toList()))));
         return ResponseHelper.constructSuccessResponse(res);
     }
 
     public JSONObject addStudentResult(int studentResultStudentId, int studentResultScore, int examSessionId) {
         List<StudentResult> targetStudentResultList = studentResultRepository.findAll().stream()
-                .filter(studentResult -> Objects.equals(studentResult.getStudentResultStudentId(), studentResultStudentId) && Objects.equals(studentResult.getStudentResultExamSession().getExamSessionId(), examSessionId))
+                .filter(studentResult -> Objects.equals(
+                                studentResult.getStudentResultStudentId(), studentResultStudentId)
+                        && Objects.equals(
+                                studentResult.getStudentResultExamSession().getExamSessionId(), examSessionId))
                 .collect(Collectors.toList());
 
         if (Objects.equals(targetStudentResultList.size(), 0)) {
@@ -78,19 +84,23 @@ public class StudentResultService {
     }
 
     public JSONObject updateStudentResult(JSONObject newStudentResultInfo) {
-        Optional<StudentResult> targetStudentResultOptional = studentResultRepository.findById(newStudentResultInfo.getInteger(Constants.studentResultId));
+        Optional<StudentResult> targetStudentResultOptional =
+                studentResultRepository.findById(newStudentResultInfo.getInteger(Constants.studentResultId));
 
         if (targetStudentResultOptional.isEmpty()) {
             return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
         } else {
-            Optional<ExamSession> targetExamSessionOptional = examSessionRepository.findById(newStudentResultInfo.getInteger(Constants.examSessionId));
+            Optional<ExamSession> targetExamSessionOptional =
+                    examSessionRepository.findById(newStudentResultInfo.getInteger(Constants.examSessionId));
 
             if (targetExamSessionOptional.isEmpty()) {
                 return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
             } else {
                 StudentResult targetStudentResult = targetStudentResultOptional.get();
-                targetStudentResult.setStudentResultStudentId(newStudentResultInfo.getInteger(Constants.studentResultStudentId));
-                targetStudentResult.setStudentResultScore(newStudentResultInfo.getInteger(Constants.studentResultScore));
+                targetStudentResult.setStudentResultStudentId(
+                        newStudentResultInfo.getInteger(Constants.studentResultStudentId));
+                targetStudentResult.setStudentResultScore(
+                        newStudentResultInfo.getInteger(Constants.studentResultScore));
                 targetStudentResult.setStudentResultExamSession(targetExamSessionOptional.get());
 
                 StudentResult updatedStudentResult = studentResultRepository.saveAndFlush(targetStudentResult);

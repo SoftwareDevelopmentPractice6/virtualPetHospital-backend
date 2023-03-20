@@ -10,7 +10,6 @@ package pet.hospital.backend.exam.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson2.JSON;
-
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -20,17 +19,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pet.hospital.backend.common.constant.Constants;
 import pet.hospital.backend.common.helper.ResponseHelper;
-import pet.hospital.backend.exam.dao.ExamRepository;
 import pet.hospital.backend.exam.dao.ExamSessionRepository;
 import pet.hospital.backend.exam.dao.PaperRepository;
-import pet.hospital.backend.exam.dao.ExamSessionRepository;
-import pet.hospital.backend.exam.entity.Exam;
 import pet.hospital.backend.exam.entity.ExamSession;
 import pet.hospital.backend.exam.entity.Paper;
 
 @Service
 public class ExamSessionService {
-    
+
     @Autowired
     ExamSessionRepository examSessionRepository;
 
@@ -50,7 +46,11 @@ public class ExamSessionService {
                                         : Objects.equals(examSession.getExamSessionEndTime(), examSessionEndTime))
                                 && (Objects.equals(paperId, null)
                                         ? true
-                                        : Objects.equals(examSession.getExamSessionPaper().getPaperId(), paperId)))
+                                        : Objects.equals(
+                                                examSession
+                                                        .getExamSessionPaper()
+                                                        .getPaperId(),
+                                                paperId)))
                         .collect(Collectors.toList()))));
         return ResponseHelper.constructSuccessResponse(res);
     }
@@ -58,7 +58,8 @@ public class ExamSessionService {
     public JSONObject addExamSession(Date examSessionStartTime, Date examSessionEndTime, int paperId) {
 
         List<ExamSession> targetExamSessionList = examSessionRepository.findAll().stream()
-                .filter(examSession -> Objects.equals(examSession.getExamSessionPaper().getPaperId(), paperId))
+                .filter(examSession ->
+                        Objects.equals(examSession.getExamSessionPaper().getPaperId(), paperId))
                 .collect(Collectors.toList());
 
         if (Objects.equals(targetExamSessionList.size(), 0)) {
@@ -81,12 +82,14 @@ public class ExamSessionService {
     }
 
     public JSONObject updateExamSession(JSONObject newExamSessionInfo) {
-        Optional<ExamSession> targetExamSessionOptional = examSessionRepository.findById(newExamSessionInfo.getInteger(Constants.examSessionId));
+        Optional<ExamSession> targetExamSessionOptional =
+                examSessionRepository.findById(newExamSessionInfo.getInteger(Constants.examSessionId));
 
         if (targetExamSessionOptional.isEmpty()) {
             return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
         } else {
-            Optional<Paper> targetPaperOptional = paperRepository.findById(newExamSessionInfo.getInteger(Constants.paperId));
+            Optional<Paper> targetPaperOptional =
+                    paperRepository.findById(newExamSessionInfo.getInteger(Constants.paperId));
 
             if (targetPaperOptional.isEmpty()) {
                 return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
