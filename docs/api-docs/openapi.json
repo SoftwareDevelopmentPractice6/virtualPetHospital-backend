@@ -65,24 +65,23 @@
                 ],
                 "summary": "更改用户信息接口",
                 "operationId": "updateUser",
-                "parameters": [
-                    {
-                        "name": "newUserInfo",
-                        "in": "query",
-                        "description": "更改后的用户信息，json字符串",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "format": "json-string",
-                            "example": {
-                                "userId": 2,
-                                "userName": "test@test.com",
-                                "userPassword": "tttt",
-                                "userAuthority": 3
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "更改后的用户信息",
+                                "example": {
+                                    "userId": 2,
+                                    "userName": "test@test.com",
+                                    "userPassword": "tttt",
+                                    "userAuthority": 3
+                                }
                             }
                         }
-                    }
-                ],
+                    },
+                    "required": true
+                },
                 "responses": {
                     "515": {
                         "description": "Request failed",
@@ -120,36 +119,22 @@
                 ],
                 "summary": "新增用户接口",
                 "operationId": "addUser",
-                "parameters": [
-                    {
-                        "name": "userName",
-                        "in": "query",
-                        "description": "用户名",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "新增的用户信息",
+                                "example": {
+                                    "userName": "test@test.com",
+                                    "userPassword": "tttt",
+                                    "userAuthority": 3
+                                }
+                            }
                         }
                     },
-                    {
-                        "name": "userPassword",
-                        "in": "query",
-                        "description": "用户密码",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "userAuthority",
-                        "in": "query",
-                        "description": "用户权限",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int32"
-                        }
-                    }
-                ],
+                    "required": true
+                },
                 "responses": {
                     "515": {
                         "description": "Request failed",
@@ -189,26 +174,21 @@
                 ],
                 "summary": "系统登录接口",
                 "operationId": "login",
-                "parameters": [
-                    {
-                        "name": "userName",
-                        "in": "query",
-                        "description": "用户名",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "登录用户信息",
+                                "example": {
+                                    "userName": "test@test.com",
+                                    "userPassword": "tttt"
+                                }
+                            }
                         }
                     },
-                    {
-                        "name": "userPassword",
-                        "in": "query",
-                        "description": "用户密码",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                    "required": true
+                },
                 "responses": {
                     "401": {
                         "description": "Unauthorized",

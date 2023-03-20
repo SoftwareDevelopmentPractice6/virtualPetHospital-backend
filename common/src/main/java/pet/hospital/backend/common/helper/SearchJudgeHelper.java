@@ -46,7 +46,6 @@ public class SearchJudgeHelper {
      * @param child  Value to be judged.
      * @param parent Value of reference.
      * @return If child is null or empty string, then return true; otherwise, return whether parent includes child.
-     * @throws UnsupportedEncodingException
      */
     public static Boolean softIncludes(String child, String parent) {
         child = (Objects.equals(child, null) || Objects.equals(child, "")) ? "" : child;

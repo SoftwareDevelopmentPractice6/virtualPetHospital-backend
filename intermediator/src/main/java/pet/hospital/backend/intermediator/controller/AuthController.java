@@ -2,13 +2,12 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-16 02:51:46
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 00:53:33
+ * @LastEditTime: 2023-03-20 19:17:32
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/controller/AuthController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 package pet.hospital.backend.intermediator.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -26,9 +25,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import pet.hospital.backend.intermediator.constant.Constants;
 import pet.hospital.backend.intermediator.service.AuthService;
 
 @RestController
@@ -79,9 +79,17 @@ public class AuthController {
             })
     @PostMapping(value = "/login")
     public ResponseEntity<JSONObject> login(
-            @Parameter(description = "用户名") @RequestParam String userName,
-            @Parameter(description = "用户密码") @RequestParam String userPassword) {
-        return authService.login(userName, userPassword).toResponseEntity();
+            @Parameter(
+                            description = "登录用户信息",
+                            schema =
+                                    @Schema(
+                                            type = "json",
+                                            example = "{\"userName\": \"test@test.com\", \"userPassword\": \"tttt\"}"))
+                    @RequestBody
+                    JSONObject userInfo) {
+        return authService
+                .login(userInfo.getString(Constants.userName), userInfo.getString(Constants.userPassword))
+                .toResponseEntity();
     }
 
     @Operation(summary = "新增用户接口")
@@ -112,10 +120,21 @@ public class AuthController {
             })
     @PostMapping(value = "/user")
     public ResponseEntity<JSONObject> addUser(
-            @Parameter(description = "用户名") @RequestParam String userName,
-            @Parameter(description = "用户密码") @RequestParam String userPassword,
-            @Parameter(description = "用户权限") @RequestParam int userAuthority) {
-        return authService.addUser(userName, userPassword, userAuthority).toResponseEntity();
+            @Parameter(
+                            description = "新增的用户信息",
+                            schema =
+                                    @Schema(
+                                            type = "json",
+                                            example =
+                                                    "{\"userName\": \"test@test.com\", \"userPassword\": \"tttt\", \"userAuthority\": 3}"))
+                    @RequestBody
+                    JSONObject newUserInfo) {
+        return authService
+                .addUser(
+                        newUserInfo.getString(Constants.userName),
+                        newUserInfo.getString(Constants.userPassword),
+                        newUserInfo.getInteger(Constants.userAuthority))
+                .toResponseEntity();
     }
 
     @Operation(summary = "更改用户信息接口")
@@ -147,16 +166,21 @@ public class AuthController {
     @PutMapping(value = "/user")
     public ResponseEntity<JSONObject> updateUser(
             @Parameter(
-                            description = "更改后的用户信息，json字符串",
+                            description = "更改后的用户信息",
                             schema =
                                     @Schema(
-                                            type = "string",
-                                            format = "json-string",
+                                            type = "json",
                                             example =
                                                     "{\"userId\": 2, \"userName\": \"test@test.com\", \"userPassword\": \"tttt\", \"userAuthority\": 3}"))
-                    @RequestParam
-                    String newUserInfo) {
-        return authService.updateUser(JSON.parseObject(newUserInfo)).toResponseEntity();
+                    @RequestBody
+                    JSONObject newUserInfo) {
+        return authService
+                .updateUser(
+                        newUserInfo.getInteger(Constants.userId),
+                        newUserInfo.getString(Constants.userName),
+                        newUserInfo.getString(Constants.userPassword),
+                        newUserInfo.getInteger(Constants.userAuthority))
+                .toResponseEntity();
     }
 
     @Operation(summary = "删除用户接口")
