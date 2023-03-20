@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-16 12:48:39
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-17 22:05:44
+ * @LastEditTime: 2023-03-20 22:17:09
  * @FilePath: /virtualPetHospital-backend/intermediator/src/test/java/pet/hospital/backend/intermediator/controller/AuthControllerTest.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -15,6 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import jakarta.ws.rs.core.MediaType;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,9 +61,14 @@ public class AuthControllerTest {
         expectedResponse.put(Constants.message, "ok");
         expectedResponse.put(Constants.data, mockApiData);
 
+        JSONObject requestObject = new JSONObject();
+
+        requestObject.put(Constants.userName, "admin@admin.com");
+        requestObject.put(Constants.userPassword, "admin");
+
         String resStr = mockMvc.perform(post("/api/auth/login")
-                        .param(Constants.userName, "admin@admin.com")
-                        .param(Constants.userPassword, "admin"))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(JSON.toJSONString(requestObject)))
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andReturn()
