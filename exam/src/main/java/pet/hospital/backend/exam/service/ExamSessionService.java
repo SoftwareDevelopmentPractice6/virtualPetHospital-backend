@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-20 14:16:42
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 15:06:34
+ * @LastEditTime: 2023-03-20 16:38:55
  * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/service/ExamSessionService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -81,22 +81,21 @@ public class ExamSessionService {
         }
     }
 
-    public JSONObject updateExamSession(JSONObject newExamSessionInfo) {
-        Optional<ExamSession> targetExamSessionOptional =
-                examSessionRepository.findById(newExamSessionInfo.getInteger(Constants.examSessionId));
+    public JSONObject updateExamSession(
+            int examSessionId, Date examSessionStartTime, Date examSessionEndTime, int paperId) {
+        Optional<ExamSession> targetExamSessionOptional = examSessionRepository.findById(examSessionId);
 
         if (targetExamSessionOptional.isEmpty()) {
             return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
         } else {
-            Optional<Paper> targetPaperOptional =
-                    paperRepository.findById(newExamSessionInfo.getInteger(Constants.paperId));
+            Optional<Paper> targetPaperOptional = paperRepository.findById(paperId);
 
             if (targetPaperOptional.isEmpty()) {
                 return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
             } else {
                 ExamSession targetExamSession = targetExamSessionOptional.get();
-                targetExamSession.setExamSessionStartTime(newExamSessionInfo.getDate(Constants.examSessionStartTime));
-                targetExamSession.setExamSessionEndTime(newExamSessionInfo.getDate(Constants.examSessionEndTime));
+                targetExamSession.setExamSessionStartTime(examSessionStartTime);
+                targetExamSession.setExamSessionEndTime(examSessionEndTime);
                 targetExamSession.setExamSessionPaper(targetPaperOptional.get());
 
                 ExamSession updatedExamSession = examSessionRepository.saveAndFlush(targetExamSession);

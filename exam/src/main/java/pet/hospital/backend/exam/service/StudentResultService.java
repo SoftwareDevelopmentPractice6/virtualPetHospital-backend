@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-20 15:02:00
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 15:13:17
+ * @LastEditTime: 2023-03-20 16:41:12
  * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/service/StudentResultService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -83,24 +83,21 @@ public class StudentResultService {
         }
     }
 
-    public JSONObject updateStudentResult(JSONObject newStudentResultInfo) {
-        Optional<StudentResult> targetStudentResultOptional =
-                studentResultRepository.findById(newStudentResultInfo.getInteger(Constants.studentResultId));
+    public JSONObject updateStudentResult(
+            int studentResultId, int studentResultStudentId, int studentResultScore, int examSessionId) {
+        Optional<StudentResult> targetStudentResultOptional = studentResultRepository.findById(studentResultId);
 
         if (targetStudentResultOptional.isEmpty()) {
             return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
         } else {
-            Optional<ExamSession> targetExamSessionOptional =
-                    examSessionRepository.findById(newStudentResultInfo.getInteger(Constants.examSessionId));
+            Optional<ExamSession> targetExamSessionOptional = examSessionRepository.findById(examSessionId);
 
             if (targetExamSessionOptional.isEmpty()) {
                 return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
             } else {
                 StudentResult targetStudentResult = targetStudentResultOptional.get();
-                targetStudentResult.setStudentResultStudentId(
-                        newStudentResultInfo.getInteger(Constants.studentResultStudentId));
-                targetStudentResult.setStudentResultScore(
-                        newStudentResultInfo.getInteger(Constants.studentResultScore));
+                targetStudentResult.setStudentResultStudentId(studentResultStudentId);
+                targetStudentResult.setStudentResultScore(studentResultScore);
                 targetStudentResult.setStudentResultExamSession(targetExamSessionOptional.get());
 
                 StudentResult updatedStudentResult = studentResultRepository.saveAndFlush(targetStudentResult);

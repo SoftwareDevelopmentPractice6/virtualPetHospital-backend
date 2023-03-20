@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-20 13:43:07
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 14:13:26
+ * @LastEditTime: 2023-03-20 16:37:11
  * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/service/PaperService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -76,21 +76,22 @@ public class PaperService {
         }
     }
 
-    public JSONObject updatePaper(JSONObject newPaperInfo) {
-        Optional<Paper> targetPaperOptional = paperRepository.findById(newPaperInfo.getInteger(Constants.paperId));
+    public JSONObject updatePaper(
+            int paperId, String paperName, String paperDuration, String paperTotalScore, int examId) {
+        Optional<Paper> targetPaperOptional = paperRepository.findById(paperId);
 
         if (targetPaperOptional.isEmpty()) {
             return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
         } else {
-            Optional<Exam> targetExamOptional = examRepository.findById(newPaperInfo.getInteger(Constants.examId));
+            Optional<Exam> targetExamOptional = examRepository.findById(examId);
 
             if (targetExamOptional.isEmpty()) {
                 return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
             } else {
                 Paper targetPaper = targetPaperOptional.get();
-                targetPaper.setPaperName(newPaperInfo.getString(Constants.paperName));
-                targetPaper.setPaperDuration(newPaperInfo.getString(Constants.paperDuration));
-                targetPaper.setPaperTotalScore(newPaperInfo.getString(Constants.paperTotalScore));
+                targetPaper.setPaperName(paperName);
+                targetPaper.setPaperDuration(paperDuration);
+                targetPaper.setPaperTotalScore(paperTotalScore);
                 targetPaper.setPaperExam(targetExamOptional.get());
 
                 Paper updatedPaper = paperRepository.saveAndFlush(targetPaper);
