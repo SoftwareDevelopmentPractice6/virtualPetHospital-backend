@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-19 15:15:52
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 16:31:17
+ * @LastEditTime: 2023-03-20 17:52:13
  * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/controller/CategoryController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -14,7 +14,6 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,8 +40,7 @@ public class CategoryController {
     public JSONObject getCategories(
             @Parameter(description = "问题类别关键字，支持模糊查询") @RequestParam(required = false) String categoryKeyword)
             throws UnsupportedEncodingException {
-        return categoryService.getCategories(
-                Objects.equals(categoryKeyword, null) ? "" : URLDecoder.decode(categoryKeyword, Constants.UTF8));
+        return categoryService.getCategories(categoryKeyword);
     }
 
     @Operation(summary = "新增问题类别接口")

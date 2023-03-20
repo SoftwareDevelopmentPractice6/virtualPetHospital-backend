@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-19 15:10:21
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 16:30:50
+ * @LastEditTime: 2023-03-20 17:44:06
  * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/service/CategoryService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pet.hospital.backend.common.constant.Constants;
 import pet.hospital.backend.common.helper.ResponseHelper;
+import pet.hospital.backend.common.helper.SearchJudgeHelper;
 import pet.hospital.backend.exam.dao.CategoryRepository;
 import pet.hospital.backend.exam.entity.Category;
 
@@ -32,8 +33,7 @@ public class CategoryService {
         res.put(
                 Constants.categoryList,
                 JSONObject.parseArray(JSON.toJSONString(categoryRepository.findAll().stream()
-                        .filter(category ->
-                                !Objects.equals(category.getCategoryName().indexOf(categoryKeyword), -1))
+                        .filter(category -> SearchJudgeHelper.softIncludes(categoryKeyword, category.getCategoryName()))
                         .collect(Collectors.toList()))));
         return ResponseHelper.constructSuccessResponse(res);
     }
