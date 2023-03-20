@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-20 13:43:07
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 16:37:11
+ * @LastEditTime: 2023-03-20 18:07:43
  * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/service/PaperService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pet.hospital.backend.common.constant.Constants;
 import pet.hospital.backend.common.helper.ResponseHelper;
+import pet.hospital.backend.common.helper.SearchJudgeHelper;
 import pet.hospital.backend.exam.dao.ExamRepository;
 import pet.hospital.backend.exam.dao.PaperRepository;
 import pet.hospital.backend.exam.entity.Exam;
@@ -37,16 +38,11 @@ public class PaperService {
         res.put(
                 Constants.paperList,
                 JSONObject.parseArray(JSON.toJSONString(paperRepository.findAll().stream()
-                        .filter(paper -> !Objects.equals(paper.getPaperName().indexOf(paperKeyword), -1)
-                                && (Objects.equals(paperDuration, "")
-                                        ? true
-                                        : Objects.equals(paper.getPaperDuration(), paperDuration))
-                                && (Objects.equals(paperTotalScore, "")
-                                        ? true
-                                        : Objects.equals(paper.getPaperTotalScore(), paperTotalScore))
-                                && (Objects.equals(examId, null)
-                                        ? true
-                                        : Objects.equals(paper.getPaperExam().getExamId(), examId)))
+                        .filter(paper -> SearchJudgeHelper.softIncludes(paperKeyword, paper.getPaperName())
+                                && SearchJudgeHelper.softEquals(paperDuration, paper.getPaperDuration())
+                                && SearchJudgeHelper.softEquals(paperTotalScore, paper.getPaperTotalScore())
+                                && SearchJudgeHelper.softEquals(
+                                        examId, paper.getPaperExam().getExamId()))
                         .collect(Collectors.toList()))));
         return ResponseHelper.constructSuccessResponse(res);
     }

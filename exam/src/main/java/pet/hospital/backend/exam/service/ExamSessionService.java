@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-20 14:16:42
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 16:38:55
+ * @LastEditTime: 2023-03-20 18:09:11
  * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/service/ExamSessionService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pet.hospital.backend.common.constant.Constants;
 import pet.hospital.backend.common.helper.ResponseHelper;
+import pet.hospital.backend.common.helper.SearchJudgeHelper;
 import pet.hospital.backend.exam.dao.ExamSessionRepository;
 import pet.hospital.backend.exam.dao.PaperRepository;
 import pet.hospital.backend.exam.entity.ExamSession;
@@ -38,19 +39,12 @@ public class ExamSessionService {
         res.put(
                 Constants.examSessionList,
                 JSONObject.parseArray(JSON.toJSONString(examSessionRepository.findAll().stream()
-                        .filter(examSession -> (Objects.equals(examSessionStartTime, null)
-                                        ? true
-                                        : Objects.equals(examSession.getExamSessionStartTime(), examSessionStartTime))
-                                && (Objects.equals(examSessionEndTime, null)
-                                        ? true
-                                        : Objects.equals(examSession.getExamSessionEndTime(), examSessionEndTime))
-                                && (Objects.equals(paperId, null)
-                                        ? true
-                                        : Objects.equals(
-                                                examSession
-                                                        .getExamSessionPaper()
-                                                        .getPaperId(),
-                                                paperId)))
+                        .filter(examSession -> SearchJudgeHelper.softEquals(
+                                        examSessionStartTime, examSession.getExamSessionStartTime())
+                                && SearchJudgeHelper.softEquals(examSessionEndTime, examSession.getExamSessionEndTime())
+                                && SearchJudgeHelper.softEquals(
+                                        paperId,
+                                        examSession.getExamSessionPaper().getPaperId()))
                         .collect(Collectors.toList()))));
         return ResponseHelper.constructSuccessResponse(res);
     }

@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-20 13:39:32
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 16:35:56
+ * @LastEditTime: 2023-03-20 18:06:11
  * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/controller/ExamController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -14,7 +14,6 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,8 +40,7 @@ public class ExamController {
     public JSONObject getExams(
             @Parameter(description = "考试名称关键字，支持模糊查询") @RequestParam(required = false) String examKeyword)
             throws UnsupportedEncodingException {
-        return examService.getExams(
-                Objects.equals(examKeyword, null) ? "" : URLDecoder.decode(examKeyword, Constants.UTF8));
+        return examService.getExams(examKeyword);
     }
 
     @Operation(summary = "新增考试接口")

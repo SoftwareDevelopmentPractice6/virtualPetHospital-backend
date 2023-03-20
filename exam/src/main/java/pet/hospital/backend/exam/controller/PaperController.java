@@ -14,7 +14,6 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,11 +43,7 @@ public class PaperController {
             @Parameter(description = "考卷总成绩") @RequestParam(required = false) String paperTotalScore,
             @Parameter(description = "考卷对应考试Id") @RequestParam(required = false) Integer examId)
             throws UnsupportedEncodingException {
-        return paperService.getPapers(
-                Objects.equals(paperKeyword, null) ? "" : URLDecoder.decode(paperKeyword, Constants.UTF8),
-                Objects.equals(paperDuration, null) ? "" : URLDecoder.decode(paperDuration, Constants.UTF8),
-                Objects.equals(paperTotalScore, null) ? "" : URLDecoder.decode(paperTotalScore, Constants.UTF8),
-                examId);
+        return paperService.getPapers(paperKeyword, paperDuration, paperTotalScore, examId);
     }
 
     @Operation(summary = "新增考卷接口")

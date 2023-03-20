@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-20 13:22:41
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 16:35:23
+ * @LastEditTime: 2023-03-20 18:05:36
  * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/service/ExamService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pet.hospital.backend.common.constant.Constants;
 import pet.hospital.backend.common.helper.ResponseHelper;
+import pet.hospital.backend.common.helper.SearchJudgeHelper;
 import pet.hospital.backend.exam.dao.ExamRepository;
 import pet.hospital.backend.exam.entity.Exam;
 
@@ -32,7 +33,7 @@ public class ExamService {
         res.put(
                 Constants.examList,
                 JSONObject.parseArray(JSON.toJSONString(examRepository.findAll().stream()
-                        .filter(exam -> !Objects.equals(exam.getExamName().indexOf(examKeyword), -1))
+                        .filter(exam -> SearchJudgeHelper.softIncludes(examKeyword, exam.getExamName()))
                         .collect(Collectors.toList()))));
         return ResponseHelper.constructSuccessResponse(res);
     }
