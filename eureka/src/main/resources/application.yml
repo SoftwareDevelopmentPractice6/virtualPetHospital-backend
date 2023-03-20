@@ -1,5 +1,9 @@
+spring:
+  profiles:
+    active: @profileActive@
+
 server:
-  port: 5272
+  port: ${server.port}
 
 eureka:
   instance:

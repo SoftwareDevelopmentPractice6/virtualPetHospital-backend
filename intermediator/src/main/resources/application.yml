@@ -1,8 +1,25 @@
-server:
-  port: 8090 # 端口号自己配新的，不要重复
 spring:
+  profiles:
+    active: @profileActive@
   application:
     name: intermediator-service # 名称自己选新的，需要能说明模块大致内容，不要重复
+
+server:
+  port: ${server.port} # 端口号自己配新的，不要重复
+  servlet:
+    encoding:
+      force-response: ${server.servlet.encoding.force-response}
+      charset: ${server.servlet.encoding.charset}
+
+springfox:
+  documentation:
+    enabled: ${springfox.documentation.enabled}
+
+springdoc:
+  api-docs:
+    enabled: ${springdoc.api-docs.enabled}
+  swagger-ui:
+    enabled: ${springdoc.swagger-ui.enabled}
 
 eureka:
   instance:
