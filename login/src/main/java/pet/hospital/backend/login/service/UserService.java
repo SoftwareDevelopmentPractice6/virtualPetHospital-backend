@@ -2,7 +2,7 @@
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-15 13:12:14
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 14:02:41
+ * @LastEditTime: 2023-03-20 16:19:35
  * @FilePath: /virtualPetHospital-backend/login/src/main/java/pet/hospital/backend/login/service/UserService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -63,16 +63,16 @@ public class UserService {
         }
     }
 
-    public JSONObject updateUser(JSONObject newUserInfo) {
-        Optional<User> targetUserOptional = userRepository.findById(newUserInfo.getInteger(Constants.userId));
+    public JSONObject updateUser(int userId, String userName, String userPassword, int userAuthority) {
+        Optional<User> targetUserOptional = userRepository.findById(userId);
 
         if (targetUserOptional.isEmpty()) {
             return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
         } else {
             User targetUser = targetUserOptional.get();
-            targetUser.setUserName(newUserInfo.getString(Constants.userName));
-            targetUser.setUserPassword(newUserInfo.getString(Constants.userPassword));
-            targetUser.setUserAuthority(newUserInfo.getInteger(Constants.userAuthority));
+            targetUser.setUserName(userName);
+            targetUser.setUserPassword(userPassword);
+            targetUser.setUserAuthority(userAuthority);
 
             User updatedUser = userRepository.saveAndFlush(targetUser);
 

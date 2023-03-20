@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-16 02:51:18
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-18 19:36:00
+ * @LastEditTime: 2023-03-20 16:24:56
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/service/AuthService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -69,11 +69,14 @@ public class AuthService {
         }
     }
 
-    public ResponseData<JSONObject> updateUser(String newUserInfo) {
+    public ResponseData<JSONObject> updateUser(JSONObject newUserInfo) {
         String api = "api/auth/update";
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.loginModuleBaseUrl + api)
-                .queryParam(Constants.newUserInfo, newUserInfo);
+                .queryParam(Constants.userId, newUserInfo.getInteger(Constants.userId))
+                .queryParam(Constants.userName, newUserInfo.getString(Constants.userName))
+                .queryParam(Constants.userPassword, newUserInfo.getString(Constants.userPassword))
+                .queryParam(Constants.userAuthority, newUserInfo.getInteger(Constants.userAuthority));
 
         JSONObject apiRes = restTemplate
                 .exchange(uriBuilder.toUriString(), HttpMethod.PUT, null, JSONObject.class)

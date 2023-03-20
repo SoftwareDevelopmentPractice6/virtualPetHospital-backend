@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-19 15:10:21
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 14:02:19
+ * @LastEditTime: 2023-03-20 16:30:50
  * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/service/CategoryService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -55,15 +55,14 @@ public class CategoryService {
         }
     }
 
-    public JSONObject updateCategory(JSONObject newCategoryInfo) {
-        Optional<Category> targetCategoryOptional =
-                categoryRepository.findById(newCategoryInfo.getInteger(Constants.categoryId));
+    public JSONObject updateCategory(int categoryId, String categoryName) {
+        Optional<Category> targetCategoryOptional = categoryRepository.findById(categoryId);
 
         if (targetCategoryOptional.isEmpty()) {
             return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
         } else {
             Category targetCategory = targetCategoryOptional.get();
-            targetCategory.setCategoryName(newCategoryInfo.getString(Constants.categoryName));
+            targetCategory.setCategoryName(categoryName);
 
             Category updatedCategory = categoryRepository.saveAndFlush(targetCategory);
 
