@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-19 15:10:21
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-19 18:41:50
+ * @LastEditTime: 2023-03-20 14:02:19
  * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/service/CategoryService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -43,7 +43,7 @@ public class CategoryService {
                 .filter(category -> Objects.equals(category.getCategoryName(), categoryName))
                 .collect(Collectors.toList());
 
-        if (!Objects.equals(targetCategoryList.size(), 1)) {
+        if (Objects.equals(targetCategoryList.size(), 0)) {
             Category newCategory = new Category();
             newCategory.setCategoryName(categoryName);
 
