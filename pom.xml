@@ -45,15 +45,14 @@
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-boot-starter</artifactId>
 			<version>3.0.0</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>classgraph</artifactId>
+					<groupId>io.github.classgraph</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
-		<!-- Testing -->
-		<dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.5.0-M1</version>
-            <scope>test</scope>
-        </dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
