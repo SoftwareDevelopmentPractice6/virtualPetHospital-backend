@@ -2,7 +2,7 @@
     "openapi": "3.0.1",
     "info": {
         "title": "中间层模块",
-        "description": "虚拟宠物医院API文档，前端用",
+        "description": "虚拟宠物医院API文档，前端用。字段默认值：int为-1，String为'This field is currently Empty.'，Date为null，应该会表现为空字符串。",
         "version": "0.0.1-SNAPSHOT"
     },
     "servers": [
@@ -132,17 +132,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -156,6 +145,17 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -185,17 +185,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -209,6 +198,17 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -387,6 +387,23 @@
                     "required": true
                 },
                 "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "message": "ok",
+                                    "data": {
+                                        "userPassword": "admin",
+                                        "userName": "admin@admin.com",
+                                        "userAuthority": 1,
+                                        "userId": 1
+                                    }
+                                }
+                            }
+                        }
+                    },
                     "401": {
                         "description": "Unauthorized",
                         "content": {
@@ -405,23 +422,6 @@
                                 "example": {
                                     "code": 515,
                                     "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 200,
-                                    "message": "ok",
-                                    "data": {
-                                        "userPassword": "admin",
-                                        "userName": "admin@admin.com",
-                                        "userAuthority": 1,
-                                        "userId": 1
-                                    }
                                 }
                             }
                         }
@@ -508,17 +508,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -532,6 +521,17 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
