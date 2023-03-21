@@ -9,9 +9,9 @@ spring:
     url: ${spring.datasource.url}
   sql:
     init:
-      mode: always
-      username: virtualPetHospital
-      password: virtualPetHospital
+      mode: ${spring.sql.init.mode}
+      username: ${spring.datasource.username}
+      password: ${spring.datasource.password}
       schema-locations:
         - classpath:database/exam_initialize.sql
       data-locations:
