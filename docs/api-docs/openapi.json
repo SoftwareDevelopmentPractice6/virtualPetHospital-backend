@@ -12,6 +12,55 @@
         }
     ],
     "paths": {
+        "/api/file/image": {
+            "put": {
+                "tags": [
+                    "数据传输模块"
+                ],
+                "summary": "图片格式转换接口",
+                "operationId": "convertImage",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "图片格式转换信息",
+                                "example": {
+                                    "filePath": "/Users/xxx/Documents/Java/intermediatorServiceData/data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.jpg",
+                                    "expectedFormat": "png"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "message": "ok",
+                                    "filePath": "/Users/xxx/Documents/Java/intermediatorServiceData/data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.png"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/auth/user": {
             "get": {
                 "tags": [
@@ -160,6 +209,154 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/file/files": {
+            "get": {
+                "tags": [
+                    "数据传输模块"
+                ],
+                "summary": "下载文件接口",
+                "operationId": "downloadFile",
+                "parameters": [
+                    {
+                        "name": "filePath",
+                        "in": "query",
+                        "description": "文件存储路径",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "multipart/form-data": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "数据传输模块"
+                ],
+                "summary": "上传文件接口",
+                "operationId": "uploadFile",
+                "parameters": [
+                    {
+                        "name": "filePath",
+                        "in": "query",
+                        "description": "文件存储路径",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "file"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "description": "文件",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "430": {
+                        "description": "File transfer failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 430,
+                                    "message": "File transfer error"
+                                }
+                            }
+                        }
+                    },
+                    "431": {
+                        "description": "File empty",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 431,
+                                    "message": "File empty error"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "数据传输模块"
+                ],
+                "summary": "删除文件接口",
+                "operationId": "deleteFile",
+                "parameters": [
+                    {
+                        "name": "filePath",
+                        "in": "query",
+                        "description": "文件存储路径",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "message": "ok",
+                                    "filePath": "/Users/xxx/Documents/Java/intermediatorServiceData/data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.png"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }

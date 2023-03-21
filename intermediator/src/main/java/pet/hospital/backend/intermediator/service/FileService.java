@@ -76,6 +76,15 @@ public class FileService {
         }
     }
 
+    public ResponseData<JSONObject> deleteFile(String filePath) {
+        File file = new File(filePath);
+
+        JSONObject res = new JSONObject();
+        res.put(Constants.filePath, filePath);
+
+        return file.delete() ? ResponseData.success(res) : ResponseData.error(EnumCode.REQUEST_ERROR);
+    }
+
     /**
      * @param srcPath    原图路径，包含图片名称
      * @param destPath   新图路径

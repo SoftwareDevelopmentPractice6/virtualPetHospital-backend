@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-21 14:20:30
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-21 17:34:22
+ * @LastEditTime: 2023-03-21 17:42:48
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/controller/FileController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -132,5 +133,36 @@ public class FileController {
                 .convertImage(
                         newFileInfo.getString(Constants.filePath), newFileInfo.getString(Constants.expectedFormat))
                 .toResponseEntity();
+    }
+
+    @Operation(summary = "删除文件接口")
+    @ApiResponses(
+            value = {
+                @ApiResponse(
+                        responseCode = "200",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\": 200,\"message\": \"ok\",\"filePath\": \"/Users/xxx/Documents/Java/intermediatorServiceData/data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.png\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                @ApiResponse(
+                        responseCode = "515",
+                        description = "Request failed",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Failure message.",
+                                                    value = "{\"code\": 515,\"message\": \"Request failed\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE))
+            })
+    @DeleteMapping(value = "/files")
+    public ResponseEntity<JSONObject> deleteFile(@Parameter(description = "文件存储路径") @RequestParam String filePath) {
+        return fileService.deleteFile(filePath).toResponseEntity();
     }
 }
