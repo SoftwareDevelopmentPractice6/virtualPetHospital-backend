@@ -1,29 +1,8 @@
 server:
   port: 8778
+
 spring:
-  application:
-    name: exam-service
   datasource:
     username: virtualPetHospital
     password: virtualPetHospital
     url: jdbc:mysql://localhost:3306/exam?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
-  sql:
-    init:
-      mode: always
-      username: virtualPetHospital
-      password: virtualPetHospital
-      schema-locations:
-        - classpath:database/exam_initialize.sql
-      data-locations:
-        - classpath:database/exam_data.sql
-
-eureka:
-  instance:
-    lease-renewal-interval-in-seconds: 30      # 心跳时间，即服务续约间隔时间（缺省为30s）
-    lease-expiration-duration-in-seconds: 90  # 发呆时间，即服务续约到期时间（缺省为90s）
-  client:
-    registry-fetch-interval-seconds: 30 # 拉取服务注册信息间隔（缺省为30s）
-    service-url:
-      defaultZone: http://localhost:5272/eureka/
-    healthcheck:
-      enabled: true # 开启健康检查（依赖spring-boot-starter-actuator）

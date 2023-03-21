@@ -1,30 +1,8 @@
 server:
   port: 8777
+
 spring:
-  application:
-    name: medicalRecordManagement-service
   datasource:
     username: virtualPetHospital
     password: virtualPetHospital
     url: jdbc:mysql://localhost:3306/medicalRecordManagement?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
-  sql:
-    init:
-      mode: always
-      username: virtualPetHospital
-      password: virtualPetHospital
-      schema-locations:
-        - classpath:database/medicalRecordManagement_initialize.sql
-      data-locations:
-        - classpath:database/medicalRecordManagement_data.sql
-
-eureka:
-  instance:
-    lease-renewal-interval-in-seconds: 30      
-    lease-expiration-duration-in-seconds: 90 
-  client:
-    registry-fetch-interval-seconds: 30 
-    service-url:
-      defaultZone: http://localhost:5272/eureka/
-    healthcheck:
-      enabled: true 
-
