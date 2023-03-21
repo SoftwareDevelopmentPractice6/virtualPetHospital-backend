@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-19 00:15:53
+ * @LastEditTime: 2023-03-21 18:17:49
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -25,7 +25,7 @@
   - [X] login
   - [ ] system
   - [ ] 病例
-  - [ ] exam
+  - [X] exam
 - [ ] 需要的功能：
   - [ ] 增：每表一个
   - [ ] 删：根据id删，每表一个
@@ -33,6 +33,11 @@
   - [ ] 查：视情况而定
 - [ ] 中间层
 - [ ] 文件上传
+  - [X] 单一文件传输功能
+  - [X] 图片格式转换
+  - [ ] 视频格式转换（老师给的示例项目似乎没做，比较麻烦）
+  - [ ] 分块上传（老师给的示例项目似乎没做，需要前端配合）
+  - [ ] 批量操作（前端多调几次接口比较合理？）
 
 ## 文档
 
