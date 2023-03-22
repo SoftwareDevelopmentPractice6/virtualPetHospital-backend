@@ -1,8 +1,8 @@
 /*
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-15 23:36:24
- * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-21 17:25:12
+ * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-22 15:12:58
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/constant/Constants.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -47,4 +47,27 @@ public class Constants {
     public static String userAuthority = "userAuthority";
 
     public static String userNameKeyword = "userNameKeyword";
+
+    public static String examId = "examId";
+
+    public static String examName = "examName";
+
+    public static String examNameKeyword = "examKeyword";
+
+    public static String paperId = "paperId";
+
+    public static String paperName = "paperName";
+
+    public static String paperDuration = "paperDuration";
+
+    public static String paperTotalScore = "paperTotalScore";
+
+    public static String paperNameKeyword = "paperKeyword";
+
+    public static String examSessionId = "examSessionId";
+
+    public static String examSessionStartTime = "examSessionStartTime";
+
+    public static String examSessionEndTime = "examSessionEndTime";
+
 }
