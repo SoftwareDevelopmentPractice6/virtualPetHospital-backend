@@ -87,5 +87,4 @@ public class Constants {
     public static String questionContent = "questionContent";
 
     public static String questionType = "questionType";
-
 }

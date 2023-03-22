@@ -68,7 +68,8 @@ public class ExamService {
                 restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
     }
 
-    public ResponseData<JSONObject> addPaper(String paperName, String paperDuration, String paperTotalScore, int examId) {
+    public ResponseData<JSONObject> addPaper(
+            String paperName, String paperDuration, String paperTotalScore, int examId) {
         String api = "api/exam/paper/add";
 
         MultiValueMap<String, String> requestEntity = new LinkedMultiValueMap<>();
@@ -81,7 +82,8 @@ public class ExamService {
                 restTemplate.postForObject(Constants.examModuleBaseUrl + api, requestEntity, JSONObject.class));
     }
 
-    public ResponseData<JSONObject> updatePaper(int paperId, String paperName, String paperDuration, String paperTotalScore, int examId) {
+    public ResponseData<JSONObject> updatePaper(
+            int paperId, String paperName, String paperDuration, String paperTotalScore, int examId) {
         String api = "api/exam/paper/update";
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
@@ -107,7 +109,8 @@ public class ExamService {
                 .getBody());
     }
 
-    public ResponseData<JSONObject> getPapers(String paperNameKeyword, String paperDuration, String paperTotalScore, Integer examId) {
+    public ResponseData<JSONObject> getPapers(
+            String paperNameKeyword, String paperDuration, String paperTotalScore, Integer examId) {
         String api = "api/exam/paper/get";
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
@@ -120,7 +123,8 @@ public class ExamService {
                 restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
     }
 
-    public ResponseData<JSONObject> addExamSession(String examSessionStartTime, String examSessionEndTime, int paperId) {
+    public ResponseData<JSONObject> addExamSession(
+            String examSessionStartTime, String examSessionEndTime, int paperId) {
         String api = "api/exam/exam-session/add";
 
         MultiValueMap<String, String> requestEntity = new LinkedMultiValueMap<>();
@@ -132,7 +136,8 @@ public class ExamService {
                 restTemplate.postForObject(Constants.examModuleBaseUrl + api, requestEntity, JSONObject.class));
     }
 
-    public ResponseData<JSONObject> updateExamSession(int examSessionId, String examSessionStartTime, String examSessionEndTime, int paperId) {
+    public ResponseData<JSONObject> updateExamSession(
+            int examSessionId, String examSessionStartTime, String examSessionEndTime, int paperId) {
         String api = "api/exam/exam-session/update";
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
@@ -157,7 +162,8 @@ public class ExamService {
                 .getBody());
     }
 
-    public ResponseData<JSONObject> getExamSessions(String examSessionStartTime, String examSessionEndTime, Integer paperId) {
+    public ResponseData<JSONObject> getExamSessions(
+            String examSessionStartTime, String examSessionEndTime, Integer paperId) {
         String api = "api/exam/exam-session/get";
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
@@ -169,7 +175,8 @@ public class ExamService {
                 restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
     }
 
-    public ResponseData<JSONObject> addStudentResult(int studentResultStudentId, int studentResultScore, int examSessionId) {
+    public ResponseData<JSONObject> addStudentResult(
+            int studentResultStudentId, int studentResultScore, int examSessionId) {
         String api = "api/exam/student-result/add";
 
         MultiValueMap<String, String> requestEntity = new LinkedMultiValueMap<>();
@@ -181,7 +188,8 @@ public class ExamService {
                 restTemplate.postForObject(Constants.examModuleBaseUrl + api, requestEntity, JSONObject.class));
     }
 
-    public ResponseData<JSONObject> updateStudentResult(int studentResultId, int studentResultStudentId, int studentResultScore, int examSessionId) {
+    public ResponseData<JSONObject> updateStudentResult(
+            int studentResultId, int studentResultStudentId, int studentResultScore, int examSessionId) {
         String api = "api/exam/student-result/update";
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
@@ -206,7 +214,8 @@ public class ExamService {
                 .getBody());
     }
 
-    public ResponseData<JSONObject> getStudentResults(Integer studentResultStudentId, Integer studentResultScore, Integer examSessionId) {
+    public ResponseData<JSONObject> getStudentResults(
+            Integer studentResultStudentId, Integer studentResultScore, Integer examSessionId) {
         String api = "api/exam/student-result/get";
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
@@ -273,7 +282,8 @@ public class ExamService {
                 restTemplate.postForObject(Constants.examModuleBaseUrl + api, requestEntity, JSONObject.class));
     }
 
-    public ResponseData<JSONObject> updateQuestion(int questionId, String questionContent, String questionType, int categoryId) {
+    public ResponseData<JSONObject> updateQuestion(
+            int questionId, String questionContent, String questionType, int categoryId) {
         String api = "api/exam/question/update";
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
