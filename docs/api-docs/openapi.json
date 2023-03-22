@@ -26,7 +26,7 @@
                                 "type": "json",
                                 "description": "图片格式转换信息",
                                 "example": {
-                                    "filePath": "/Users/xxx/Documents/Java/intermediatorServiceData/data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.jpg",
+                                    "filePath": "data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.jpg",
                                     "expectedFormat": "png"
                                 }
                             }
@@ -35,17 +35,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -53,7 +42,18 @@
                                 "example": {
                                     "code": 200,
                                     "message": "ok",
-                                    "filePath": "/Users/xxx/Documents/Java/intermediatorServiceData/data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.png"
+                                    "filePath": "data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.png"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -173,17 +173,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -214,6 +203,17 @@
                                 }
                             }
                         }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -240,17 +240,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -278,6 +267,17 @@
                                         "studentResultId": 2
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -384,17 +384,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -411,6 +400,17 @@
                                         "questionType": "tttt type"
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -440,17 +440,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -467,6 +456,17 @@
                                         "questionType": "tttt type"
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -512,17 +512,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -544,6 +533,17 @@
                                         ]
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -633,17 +633,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -661,6 +650,17 @@
                                         "paperId": 2
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -734,17 +734,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -756,6 +745,17 @@
                                         "examId": 2
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -783,17 +783,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -805,6 +794,17 @@
                                         "examId": 3
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -850,17 +850,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -887,6 +876,17 @@
                                         ]
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -917,17 +917,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -950,6 +939,17 @@
                                         "examSessionStartTime": 1647396000000
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1089,6 +1089,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1100,17 +1111,6 @@
                                         "categoryId": 4
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1220,17 +1220,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1244,6 +1233,17 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1273,17 +1273,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1297,6 +1286,17 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1373,6 +1373,17 @@
                     }
                 },
                 "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
                     "430": {
                         "description": "File transfer failed",
                         "content": {
@@ -1391,17 +1402,6 @@
                                 "example": {
                                     "code": 431,
                                     "message": "File empty error"
-                                }
-                            }
-                        }
-                    },
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 200,
-                                    "message": "ok"
                                 }
                             }
                         }
@@ -1426,17 +1426,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1444,7 +1433,18 @@
                                 "example": {
                                     "code": 200,
                                     "message": "ok",
-                                    "filePath": "/Users/xxx/Documents/Java/intermediatorServiceData/data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.png"
+                                    "filePath": "data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.png"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1475,17 +1475,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1503,6 +1492,17 @@
                             }
                         }
                     },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "401": {
                         "description": "Unauthorized",
                         "content": {
@@ -1510,6 +1510,57 @@
                                 "example": {
                                     "code": 401,
                                     "message": "Unauthorized"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/file/files-list": {
+            "get": {
+                "tags": [
+                    "数据传输模块"
+                ],
+                "summary": "获取指定路径下全部文件路径接口",
+                "operationId": "getDirectoryFileNames",
+                "parameters": [
+                    {
+                        "name": "directoryPath",
+                        "in": "query",
+                        "description": "文件夹路径",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "filePathList": [
+                                            "test/testId/testName/.DS_Store",
+                                            "test/testId/testName/fd1da84e-eac5-41bc-b9f2-823f7d86f41f/WallPaper_KirbyDiscovery_1920_1080.jpg",
+                                            "test/testId/testName/fd1da84e-eac5-41bc-b9f2-823f7d86f41f/WallPaper_KirbyDiscovery_1920_1080.png"
+                                        ]
+                                    },
+                                    "message": "ok"
                                 }
                             }
                         }
@@ -1649,17 +1700,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1681,6 +1721,17 @@
                                         ]
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1823,17 +1874,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1856,6 +1896,17 @@
                                             }
                                         ]
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1883,17 +1934,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1922,6 +1962,17 @@
                                 }
                             }
                         }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -1946,17 +1997,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1973,6 +2013,17 @@
                                         "questionType": "tttt type"
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -2000,17 +2051,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -2028,6 +2068,17 @@
                                         "paperId": 2
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -2055,17 +2106,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -2077,6 +2117,17 @@
                                         "examId": 3
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -2211,17 +2262,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -2235,6 +2275,17 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
