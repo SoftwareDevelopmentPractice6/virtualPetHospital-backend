@@ -1,6 +1,7 @@
 package pet.hospital.backend.intermediator.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -138,6 +139,7 @@ public class ExamController {
         return examService.deleteExam(examId).toResponseEntity();
     }
 
+    @Hidden
     @Operation(summary = "获取考试列表接口")
     @ApiResponses(
             value = {
@@ -170,6 +172,7 @@ public class ExamController {
         return examService.getExams(examNameKeyword).toResponseEntity();
     }
 
+    @Hidden
     @Operation(summary = "获取考试列表接口")
     @ApiResponses(
             value = {
@@ -325,6 +328,7 @@ public class ExamController {
         return examService.deletePaper(paperId).toResponseEntity();
     }
 
+    @Hidden
     @Operation(summary = "获取考卷列表接口")
     @ApiResponses(
             value = {
@@ -362,6 +366,7 @@ public class ExamController {
                 .toResponseEntity();
     }
 
+    @Hidden
     @Operation(summary = "获取考卷列表接口")
     @ApiResponses(
             value = {
@@ -521,6 +526,7 @@ public class ExamController {
         return examService.deleteExamSession(examSessionId).toResponseEntity();
     }
 
+    @Hidden
     @Operation(summary = "获取考试具体信息列表接口")
     @ApiResponses(
             value = {
@@ -1080,5 +1086,50 @@ public class ExamController {
             @Parameter(description = "问题种类") @RequestParam(required = false) String questionType,
             @Parameter(description = "问题类别Id") @RequestParam(required = false) Integer categoryId) {
         return examService.getQuestions(null, questionType, categoryId).toResponseEntity();
+    }
+
+    @Operation(summary = "获取考试列表接口")
+    @ApiResponses(
+            value = {
+                @ApiResponse(
+                        responseCode = "200",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"examSessionList\":[{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"tttt hours\",\"paperTotalScore\":\"tttt score\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"testPaper\",\"paperId\":1},\"examSessionEndTime\":\"2023-03-16 20:00:00\",\"examSessionStartTime\":\"2023-03-16 18:00:00\"}]},\"message\":\"ok\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                @ApiResponse(
+                        responseCode = "515",
+                        description = "Request failed",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Failure message.",
+                                                    value = "{\"code\": 515,\"message\": \"Request failed\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE))
+            })
+    @GetMapping(value = "/examinations")
+    public ResponseEntity<JSONObject> getExaminations(
+            @Parameter(description = "考试名关键字，支持模糊查询") @RequestParam(required = false) String examNameKeyword,
+            @Parameter(description = "考卷名关键字，支持模糊查询") @RequestParam(required = false) String paperNameKeyword,
+            @Parameter(description = "考卷时长") @RequestParam(required = false) String paperDuration,
+            @Parameter(description = "考卷总成绩") @RequestParam(required = false) String paperTotalScore,
+            @Parameter(description = "考试具体信息开始时间") @RequestParam(required = false) String examSessionStartTime,
+            @Parameter(description = "考试具体信息结束时间") @RequestParam(required = false) String examSessionEndTime) {
+        return examService
+                .getExaminations(
+                        examNameKeyword,
+                        paperNameKeyword,
+                        paperDuration,
+                        paperTotalScore,
+                        examSessionStartTime,
+                        examSessionEndTime)
+                .toResponseEntity();
     }
 }

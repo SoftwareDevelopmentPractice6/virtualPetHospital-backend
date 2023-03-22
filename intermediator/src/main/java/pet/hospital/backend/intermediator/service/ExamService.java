@@ -2,13 +2,18 @@
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-22 14:01:53
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-22 20:35:42
+ * @LastEditTime: 2023-03-23 02:37:33
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/service/ExamService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 package pet.hospital.backend.intermediator.service;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
@@ -17,6 +22,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import pet.hospital.backend.intermediator.constant.Constants;
+import pet.hospital.backend.intermediator.helper.EnumCode;
 import pet.hospital.backend.intermediator.helper.ResponseData;
 import pet.hospital.backend.intermediator.helper.ResponseHelper;
 
@@ -319,5 +325,63 @@ public class ExamService {
 
         return ResponseHelper.forwardResponseDataDirectly(
                 restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
+    }
+
+    public ResponseData<JSONObject> getExaminations(
+            String examNameKeyword,
+            String paperNameKeyword,
+            String paperDuration,
+            String paperTotalScore,
+            String examSessionStartTime,
+            String examSessionEndTime) {
+        JSONObject examResData = this.getExams(examNameKeyword).getData();
+        JSONObject paperResData = this.getPapers(paperNameKeyword, paperDuration, paperTotalScore, null)
+                .getData();
+        JSONObject examSessionResData = this.getExamSessions(examSessionStartTime, examSessionEndTime, null)
+                .getData();
+
+        if (examResData == null || paperResData == null || examSessionResData == null) {
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        }
+
+        JSONArray examRes = examResData.getJSONArray(Constants.examList);
+        JSONArray paperRes = paperResData.getJSONArray(Constants.paperList);
+        JSONArray examSessionRes = examSessionResData.getJSONArray(Constants.examSessionList);
+
+        examSessionRes.removeIf(examSession -> {
+            List<Boolean> judger = new ArrayList<>();
+
+            JSONObject examSessionPaperJsonObject =
+                    JSON.parseObject(JSON.toJSONString(examSession)).getJSONObject(Constants.examSessionPaper);
+
+            paperRes.stream().anyMatch(paper -> {
+                if (Objects.equals(
+                        examSessionPaperJsonObject.getInteger(Constants.paperId),
+                        JSON.parseObject(JSON.toJSONString(paper)).getInteger(Constants.paperId))) {
+                    judger.add(true);
+                    return true;
+                }
+                return false;
+            });
+
+            examRes.stream().anyMatch(exam -> {
+                if (Objects.equals(
+                        examSessionPaperJsonObject
+                                .getJSONObject(Constants.paperExam)
+                                .getInteger(Constants.examId),
+                        JSON.parseObject(JSON.toJSONString(exam)).getInteger(Constants.examId))) {
+                    judger.add(true);
+                    return true;
+                }
+                return false;
+            });
+
+            return Objects.equals(judger.size(), 2) ? !(judger.get(0) && judger.get(1)) : true;
+        });
+
+        JSONObject res = new JSONObject();
+        res.put(Constants.examSessionList, examSessionRes);
+
+        return ResponseData.success(res);
     }
 }
