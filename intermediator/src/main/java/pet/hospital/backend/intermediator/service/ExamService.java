@@ -2,7 +2,7 @@
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-22 14:01:53
  * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-22 15:21:47
+ * @LastEditTime: 2023-03-22 15:39:22
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/service/ExamService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -164,6 +164,147 @@ public class ExamService {
                 .queryParam(Constants.examSessionStartTime, examSessionStartTime)
                 .queryParam(Constants.examSessionEndTime, examSessionEndTime)
                 .queryParam(Constants.paperId, paperId);
+
+        return ResponseHelper.forwardResponseDataDirectly(
+                restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
+    }
+
+    public ResponseData<JSONObject> addStudentResult(int studentResultStudentId, int studentResultScore, int examSessionId) {
+        String api = "api/exam/student-result/add";
+
+        MultiValueMap<String, String> requestEntity = new LinkedMultiValueMap<>();
+        requestEntity.add(Constants.studentResultStudentId, String.valueOf(studentResultStudentId));
+        requestEntity.add(Constants.studentResultScore, String.valueOf(studentResultScore));
+        requestEntity.add(Constants.examSessionId, String.valueOf(examSessionId));
+
+        return ResponseHelper.forwardResponseDataDirectly(
+                restTemplate.postForObject(Constants.examModuleBaseUrl + api, requestEntity, JSONObject.class));
+    }
+
+    public ResponseData<JSONObject> updateStudentResult(int studentResultId, int studentResultStudentId, int studentResultScore, int examSessionId) {
+        String api = "api/exam/student-result/update";
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
+                .queryParam(Constants.studentResultId, studentResultId)
+                .queryParam(Constants.studentResultStudentId, studentResultStudentId)
+                .queryParam(Constants.studentResultScore, studentResultScore)
+                .queryParam(Constants.examSessionId, examSessionId);
+
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
+                .exchange(uriBuilder.toUriString(), HttpMethod.PUT, null, JSONObject.class)
+                .getBody());
+    }
+
+    public ResponseData<JSONObject> deleteStudentResult(int studentResultId) {
+        String api = "api/exam/student-result/delete";
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
+                .queryParam(Constants.studentResultId, studentResultId);
+
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
+                .exchange(uriBuilder.toUriString(), HttpMethod.DELETE, null, JSONObject.class)
+                .getBody());
+    }
+
+    public ResponseData<JSONObject> getStudentResults(Integer studentResultStudentId, Integer studentResultScore, Integer examSessionId) {
+        String api = "api/exam/student-result/get";
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
+                .queryParam(Constants.studentResultStudentId, studentResultStudentId)
+                .queryParam(Constants.studentResultScore, studentResultScore)
+                .queryParam(Constants.examSessionId, examSessionId);
+
+        return ResponseHelper.forwardResponseDataDirectly(
+                restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
+    }
+
+    public ResponseData<JSONObject> addCategory(String categoryName) {
+        String api = "api/exam/category/add";
+
+        MultiValueMap<String, String> requestEntity = new LinkedMultiValueMap<>();
+        requestEntity.add(Constants.categoryName, categoryName);
+
+        return ResponseHelper.forwardResponseDataDirectly(
+                restTemplate.postForObject(Constants.examModuleBaseUrl + api, requestEntity, JSONObject.class));
+    }
+
+    public ResponseData<JSONObject> updateCategory(int categoryId, String categoryName) {
+        String api = "api/exam/category/update";
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
+                .queryParam(Constants.categoryId, categoryId)
+                .queryParam(Constants.categoryName, categoryName);
+
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
+                .exchange(uriBuilder.toUriString(), HttpMethod.PUT, null, JSONObject.class)
+                .getBody());
+    }
+
+    public ResponseData<JSONObject> deleteCategory(int categoryId) {
+        String api = "api/exam/category/delete";
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
+                .queryParam(Constants.categoryId, categoryId);
+
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
+                .exchange(uriBuilder.toUriString(), HttpMethod.DELETE, null, JSONObject.class)
+                .getBody());
+    }
+
+    public ResponseData<JSONObject> getCategories(String categoryNameKeyword) {
+        String api = "api/exam/category/get";
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
+                .queryParam(Constants.categoryNameKeyword, categoryNameKeyword);
+
+        return ResponseHelper.forwardResponseDataDirectly(
+                restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
+    }
+
+    public ResponseData<JSONObject> addQuestion(String questionContent, String questionType, int categoryId) {
+        String api = "api/exam/question/add";
+
+        MultiValueMap<String, String> requestEntity = new LinkedMultiValueMap<>();
+        requestEntity.add(Constants.questionContent, questionContent);
+        requestEntity.add(Constants.questionType, questionType);
+        requestEntity.add(Constants.categoryId, String.valueOf(categoryId));
+
+        return ResponseHelper.forwardResponseDataDirectly(
+                restTemplate.postForObject(Constants.examModuleBaseUrl + api, requestEntity, JSONObject.class));
+    }
+
+    public ResponseData<JSONObject> updateQuestion(int questionId, String questionContent, String questionType, int categoryId) {
+        String api = "api/exam/question/update";
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
+                .queryParam(Constants.questionId, questionId)
+                .queryParam(Constants.questionContent, questionContent)
+                .queryParam(Constants.questionType, questionType)
+                .queryParam(Constants.categoryId, categoryId);
+
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
+                .exchange(uriBuilder.toUriString(), HttpMethod.PUT, null, JSONObject.class)
+                .getBody());
+    }
+
+    public ResponseData<JSONObject> deleteQuestion(int questionId) {
+        String api = "api/exam/question/delete";
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
+                .queryParam(Constants.questionId, questionId);
+
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
+                .exchange(uriBuilder.toUriString(), HttpMethod.DELETE, null, JSONObject.class)
+                .getBody());
+    }
+
+    public ResponseData<JSONObject> getQuestions(String questionContent, String questionType, Integer categoryId) {
+        String api = "api/exam/question/get";
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
+                .queryParam(Constants.questionContent, questionContent)
+                .queryParam(Constants.questionType, questionType)
+                .queryParam(Constants.categoryId, categoryId);
 
         return ResponseHelper.forwardResponseDataDirectly(
                 restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
