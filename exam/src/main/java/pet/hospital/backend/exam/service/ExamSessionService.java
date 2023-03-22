@@ -82,9 +82,15 @@ public class ExamSessionService {
         if (targetExamSessionOptional.isEmpty()) {
             return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
         } else {
+            List<ExamSession> targetExamSessionList = examSessionRepository.findAll().stream()
+                    .filter(examSession ->
+                            Objects.equals(examSession.getExamSessionPaper().getPaperId(), paperId)
+                                    && !Objects.equals(examSession.getExamSessionId(), examSessionId))
+                    .collect(Collectors.toList());
+
             Optional<Paper> targetPaperOptional = paperRepository.findById(paperId);
 
-            if (targetPaperOptional.isEmpty()) {
+            if (targetPaperOptional.isEmpty() || !Objects.equals(targetExamSessionList.size(), 0)) {
                 return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
             } else {
                 ExamSession targetExamSession = targetExamSessionOptional.get();
