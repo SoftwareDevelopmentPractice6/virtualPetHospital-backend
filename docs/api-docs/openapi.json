@@ -35,6 +35,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -43,6 +54,1101 @@
                                     "code": 200,
                                     "message": "ok",
                                     "filePath": "/Users/xxx/Documents/Java/intermediatorServiceData/data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.png"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/student-result": {
+            "get": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "获取学生考试结果列表接口",
+                "operationId": "getStudentResults",
+                "parameters": [
+                    {
+                        "name": "studentResultStudentId",
+                        "in": "query",
+                        "description": "学生Id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "studentResultScore",
+                        "in": "query",
+                        "description": "学生考试成绩",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "examSessionId",
+                        "in": "query",
+                        "description": "学生对应考试信息Id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "studentResultList": [
+                                            {
+                                                "studentResultStudentId": 1,
+                                                "studentResultExamSession": {
+                                                    "examSessionId": 1,
+                                                    "examSessionPaper": {
+                                                        "paperDuration": "2 hours",
+                                                        "paperTotalScore": "100",
+                                                        "paperExam": {
+                                                            "examName": "Math Exam",
+                                                            "examId": 1
+                                                        },
+                                                        "paperName": "Math Paper",
+                                                        "paperId": 1
+                                                    },
+                                                    "examSessionEndTime": "2023-03-16 20:00:00",
+                                                    "examSessionStartTime": "2023-03-16 18:00:00"
+                                                },
+                                                "studentResultScore": 90,
+                                                "studentResultId": 1
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "更改学生考试结果信息接口",
+                "operationId": "updateStudentResult",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "更改后的学生考试结果信息",
+                                "example": {
+                                    "studentResultId": 2,
+                                    "studentResultStudentId": 555555,
+                                    "studentResultScore": 112,
+                                    "examSessionId": 2
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "studentResultStudentId": 555555,
+                                        "studentResultExamSession": {
+                                            "examSessionId": 1,
+                                            "examSessionPaper": {
+                                                "paperDuration": "2 hours",
+                                                "paperTotalScore": "100",
+                                                "paperExam": {
+                                                    "examName": "Math Exam",
+                                                    "examId": 1
+                                                },
+                                                "paperName": "Math Paper",
+                                                "paperId": 1
+                                            },
+                                            "examSessionEndTime": 1678968000000,
+                                            "examSessionStartTime": 1678960800000
+                                        },
+                                        "studentResultScore": 112,
+                                        "studentResultId": 1
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "新增学生考试结果接口",
+                "operationId": "addStudentResult",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "新增的学生考试结果信息",
+                                "example": {
+                                    "studentResultStudentId": 555555,
+                                    "studentResultScore": 112,
+                                    "examSessionId": 2
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "studentResultStudentId": 5555,
+                                        "studentResultExamSession": {
+                                            "examSessionId": 1,
+                                            "examSessionPaper": {
+                                                "paperDuration": "2 hours",
+                                                "paperTotalScore": "100",
+                                                "paperExam": {
+                                                    "examName": "Math Exam",
+                                                    "examId": 1
+                                                },
+                                                "paperName": "Math Paper",
+                                                "paperId": 1
+                                            },
+                                            "examSessionEndTime": 1678968000000,
+                                            "examSessionStartTime": 1678960800000
+                                        },
+                                        "studentResultScore": 102,
+                                        "studentResultId": 2
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/question": {
+            "get": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "获取问题列表接口",
+                "operationId": "getQuestions",
+                "parameters": [
+                    {
+                        "name": "questionType",
+                        "in": "query",
+                        "description": "问题种类",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "categoryId",
+                        "in": "query",
+                        "description": "问题类别Id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "questionList": [
+                                            {
+                                                "questionContent": "What is the value of x in the equation x + 5 = 10?",
+                                                "questionId": 1,
+                                                "questionCategory": {
+                                                    "categoryName": "Algebra",
+                                                    "categoryId": 1
+                                                },
+                                                "questionType": "Multiple Choice"
+                                            },
+                                            {
+                                                "questionContent": "cafdqfds",
+                                                "questionId": 3,
+                                                "questionCategory": {
+                                                    "categoryName": "testCategory2",
+                                                    "categoryId": 3
+                                                },
+                                                "questionType": "aaaaaa"
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "更改问题信息接口",
+                "operationId": "updateQuestion",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "更改后的问题信息",
+                                "example": {
+                                    "questionId": 2,
+                                    "questionContent": "test question",
+                                    "questionType": "tttt type",
+                                    "categoryId": 2
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "questionContent": "test question",
+                                        "questionId": 3,
+                                        "questionCategory": {
+                                            "categoryName": "Algebra",
+                                            "categoryId": 1
+                                        },
+                                        "questionType": "tttt type"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "新增问题接口",
+                "operationId": "addQuestion",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "新增的问题信息",
+                                "example": {
+                                    "questionContent": "test question",
+                                    "questionType": "tttt type",
+                                    "categoryId": 2
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "questionContent": "test new question",
+                                        "questionId": 7,
+                                        "questionCategory": {
+                                            "categoryName": "Algebra",
+                                            "categoryId": 1
+                                        },
+                                        "questionType": "tttt type"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/paper": {
+            "get": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "获取考卷列表接口",
+                "operationId": "getPapers",
+                "parameters": [
+                    {
+                        "name": "paperDuration",
+                        "in": "query",
+                        "description": "考卷时长",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "paperTotalScore",
+                        "in": "query",
+                        "description": "考卷总成绩",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "examId",
+                        "in": "query",
+                        "description": "考卷对应考试Id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "paperList": [
+                                            {
+                                                "paperDuration": "2 hours",
+                                                "paperTotalScore": "100",
+                                                "paperExam": {
+                                                    "examName": "Math Exam",
+                                                    "examId": 1
+                                                },
+                                                "paperName": "Math Paper",
+                                                "paperId": 1
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "更改考卷信息接口",
+                "operationId": "updatePaper",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "更改后的考卷信息",
+                                "example": {
+                                    "paperId": 2,
+                                    "paperName": "testPaper",
+                                    "paperDuration": "tttt hours",
+                                    "paperTotalScore": "tttt score",
+                                    "examId": 2
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "paperDuration": "tttt hours",
+                                        "paperTotalScore": "tttt score",
+                                        "paperExam": {
+                                            "examName": "Math Exam",
+                                            "examId": 1
+                                        },
+                                        "paperName": "testPaper",
+                                        "paperId": 1
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "新增考卷接口",
+                "operationId": "addPaper",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "新增的考卷信息",
+                                "example": {
+                                    "paperName": "testPaper",
+                                    "paperDuration": "tttt hours",
+                                    "paperTotalScore": "tttt score",
+                                    "examId": 2
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "paperDuration": "tttt hours",
+                                        "paperTotalScore": "tttt score",
+                                        "paperExam": {
+                                            "examName": "ffff ffff",
+                                            "examId": 2
+                                        },
+                                        "paperName": "test new paper",
+                                        "paperId": 2
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/exam": {
+            "get": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "获取考试列表接口",
+                "operationId": "getExams",
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "examList": [
+                                            {
+                                                "examName": "Math Exam",
+                                                "examId": 1
+                                            },
+                                            {
+                                                "examName": "ffff ffff",
+                                                "examId": 2
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "更改考试信息接口",
+                "operationId": "updateExam",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "更改后的考试信息",
+                                "example": {
+                                    "examId": 2,
+                                    "examName": "test exam"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "examName": "test exam",
+                                        "examId": 2
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "新增考试接口",
+                "operationId": "addExam",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "新增的考试信息",
+                                "example": {
+                                    "examName": "test exam"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "examName": "test new exam",
+                                        "examId": 3
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/exam-session": {
+            "get": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "获取考试具体信息列表接口",
+                "operationId": "getExamSessions",
+                "parameters": [
+                    {
+                        "name": "examSessionStartTime",
+                        "in": "query",
+                        "description": "考试具体信息开始时间",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "examSessionEndTime",
+                        "in": "query",
+                        "description": "考试具体信息结束时间",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "paperId",
+                        "in": "query",
+                        "description": "考试具体信息对应试卷Id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "examSessionList": [
+                                            {
+                                                "examSessionId": 1,
+                                                "examSessionPaper": {
+                                                    "paperDuration": "tttt hours",
+                                                    "paperTotalScore": "tttt score",
+                                                    "paperExam": {
+                                                        "examName": "Math Exam",
+                                                        "examId": 1
+                                                    },
+                                                    "paperName": "testPaper",
+                                                    "paperId": 1
+                                                },
+                                                "examSessionEndTime": "2023-03-16 20:00:00",
+                                                "examSessionStartTime": "2023-03-16 18:00:00"
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "更改考试具体信息信息接口",
+                "operationId": "updateExamSession",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "更改后的考试具体信息信息",
+                                "example": {
+                                    "examSessionId": 2,
+                                    "examSessionStartTime": "2022-03-16 10:00:00",
+                                    "examSessionEndTime": "2022-03-16 11:00:00",
+                                    "paperId": 3
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "examSessionId": 3,
+                                        "examSessionPaper": {
+                                            "paperDuration": "cdscs",
+                                            "paperTotalScore": "scscs",
+                                            "paperExam": {
+                                                "examName": "qxqwsxw",
+                                                "examId": 2
+                                            },
+                                            "paperName": "asdcaxwdas",
+                                            "paperId": 2
+                                        },
+                                        "examSessionEndTime": 1647399600000,
+                                        "examSessionStartTime": 1647396000000
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "新增考试具体信息接口",
+                "operationId": "addExamSession",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "新增的考试具体信息信息",
+                                "example": {
+                                    "examSessionStartTime": "2022-03-16 10:00:00",
+                                    "examSessionEndTime": "2022-03-16 11:00:00",
+                                    "paperId": 3
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "examSessionId": 4,
+                                        "examSessionPaper": {
+                                            "paperDuration": "fur",
+                                            "paperTotalScore": "122",
+                                            "paperExam": {
+                                                "examName": "test name",
+                                                "examId": 4
+                                            },
+                                            "paperName": "test paper name",
+                                            "paperId": 3
+                                        },
+                                        "examSessionEndTime": 1647399600000,
+                                        "examSessionStartTime": 1647396000000
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/category": {
+            "get": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "获取问题类别列表接口",
+                "operationId": "getCategories",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "categoryList": [
+                                            {
+                                                "categoryName": "Algebra",
+                                                "categoryId": 1
+                                            },
+                                            {
+                                                "categoryName": "testCategory2",
+                                                "categoryId": 3
+                                            },
+                                            {
+                                                "categoryName": "testCategory9",
+                                                "categoryId": 4
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "更改问题类别信息接口",
+                "operationId": "updateCategory",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "更改后的问题类别信息",
+                                "example": {
+                                    "categoryId": 2,
+                                    "categoryName": "test category"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "categoryName": "test category",
+                                        "categoryId": 4
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "新增问题类别接口",
+                "operationId": "addCategory",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "新增的问题类别信息",
+                                "example": {
+                                    "categoryName": "test category"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "categoryName": "test new category",
+                                        "categoryId": 6
+                                    },
+                                    "message": "ok"
                                 }
                             }
                         }
@@ -69,32 +1175,6 @@
                 "summary": "获取用户列表接口",
                 "operationId": "getUsers",
                 "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 200,
-                                    "data": {
-                                        "userList": [
-                                            {
-                                                "userPassword": "test",
-                                                "userAuthority": 3,
-                                                "userName": "test@test.com",
-                                                "userId": 2
-                                            },
-                                            {
-                                                "userPassword": "tttt",
-                                                "userAuthority": 3,
-                                                "userName": "tt",
-                                                "userId": 6
-                                            }
-                                        ]
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "515": {
                         "description": "Request failed",
                         "content": {
@@ -103,6 +1183,14 @@
                                     "code": 515,
                                     "message": "Request failed"
                                 }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": "{\"code\":200,\"data\":{\"userList\":[{\"userPassword\":\"test\",\"userAuthority\":3,\"userName\":\"test@test.com\",\"userId\":2},{\"userPassword\":\"tttt\",\"userAuthority\":3,\"userName\":\"tt\",\"userId\":6}]}}}"
                             }
                         }
                     }
@@ -132,6 +1220,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -145,17 +1244,6 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -185,6 +1273,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -198,17 +1297,6 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -285,17 +1373,6 @@
                     }
                 },
                 "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 200,
-                                    "message": "ok"
-                                }
-                            }
-                        }
-                    },
                     "430": {
                         "description": "File transfer failed",
                         "content": {
@@ -314,6 +1391,17 @@
                                 "example": {
                                     "code": 431,
                                     "message": "File empty error"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "message": "ok"
                                 }
                             }
                         }
@@ -338,6 +1426,17 @@
                     }
                 ],
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -346,17 +1445,6 @@
                                     "code": 200,
                                     "message": "ok",
                                     "filePath": "/Users/xxx/Documents/Java/intermediatorServiceData/data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.png"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -387,6 +1475,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -411,6 +1510,282 @@
                                 "example": {
                                     "code": 401,
                                     "message": "Unauthorized"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/question/{questionContentKeyword}": {
+            "get": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "获取问题列表接口",
+                "operationId": "getQuestionsByKeyword",
+                "parameters": [
+                    {
+                        "name": "questionContentKeyword",
+                        "in": "path",
+                        "description": "问题内容关键字，支持模糊查询",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "questionType",
+                        "in": "query",
+                        "description": "问题种类",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "categoryId",
+                        "in": "query",
+                        "description": "问题类别Id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "questionList": [
+                                            {
+                                                "questionContent": "What is the value of x in the equation x + 5 = 10?",
+                                                "questionId": 1,
+                                                "questionCategory": {
+                                                    "categoryName": "Algebra",
+                                                    "categoryId": 1
+                                                },
+                                                "questionType": "Multiple Choice"
+                                            },
+                                            {
+                                                "questionContent": "cafdqfds",
+                                                "questionId": 3,
+                                                "questionCategory": {
+                                                    "categoryName": "testCategory2",
+                                                    "categoryId": 3
+                                                },
+                                                "questionType": "aaaaaa"
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/paper/{paperNameKeyword}": {
+            "get": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "获取考卷列表接口",
+                "operationId": "getPapersByKeyword",
+                "parameters": [
+                    {
+                        "name": "paperNameKeyword",
+                        "in": "path",
+                        "description": "考卷名关键字，支持模糊查询",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "paperDuration",
+                        "in": "query",
+                        "description": "考卷时长",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "paperTotalScore",
+                        "in": "query",
+                        "description": "考卷总成绩",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "examId",
+                        "in": "query",
+                        "description": "考卷对应考试Id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "paperList": [
+                                            {
+                                                "paperDuration": "2 hours",
+                                                "paperTotalScore": "100",
+                                                "paperExam": {
+                                                    "examName": "Math Exam",
+                                                    "examId": 1
+                                                },
+                                                "paperName": "Math Paper",
+                                                "paperId": 1
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/exam/{examNameKeyword}": {
+            "get": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "获取考试列表接口",
+                "operationId": "getExamsByKeyword",
+                "parameters": [
+                    {
+                        "name": "examNameKeyword",
+                        "in": "path",
+                        "description": "考试名关键字，支持模糊查询",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "examList": [
+                                            {
+                                                "examName": "Math Exam",
+                                                "examId": 1
+                                            },
+                                            {
+                                                "examName": "ffff ffff",
+                                                "examId": 2
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/category/{categoryNameKeyword}": {
+            "get": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "获取问题类别列表接口",
+                "operationId": "getCategoriesByKeyword",
+                "parameters": [
+                    {
+                        "name": "categoryNameKeyword",
+                        "in": "path",
+                        "description": "问题类别名关键字，支持模糊查询",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "categoryList": [
+                                            {
+                                                "categoryName": "Algebra",
+                                                "categoryId": 1
+                                            },
+                                            {
+                                                "categoryName": "testCategory2",
+                                                "categoryId": 3
+                                            },
+                                            {
+                                                "categoryName": "testCategory9",
+                                                "categoryId": 4
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
                                 }
                             }
                         }
@@ -448,6 +1823,17 @@
                     }
                 ],
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -470,6 +1856,323 @@
                                             }
                                         ]
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/student-result/{studentResultId}": {
+            "delete": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "删除学生考试结果接口",
+                "operationId": "deleteStudentResult",
+                "parameters": [
+                    {
+                        "name": "studentResultId",
+                        "in": "path",
+                        "description": "学生考试结果Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "studentResultStudentId": 5555,
+                                        "studentResultExamSession": {
+                                            "examSessionId": 1,
+                                            "examSessionPaper": {
+                                                "paperDuration": "tttt hours",
+                                                "paperTotalScore": "tttt score",
+                                                "paperExam": {
+                                                    "examName": "test exam",
+                                                    "examId": 2
+                                                },
+                                                "paperName": "test new paper",
+                                                "paperId": 2
+                                            }
+                                        },
+                                        "studentResultScore": 102,
+                                        "studentResultId": 2
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/question/{questionId}": {
+            "delete": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "删除问题接口",
+                "operationId": "deleteQuestion",
+                "parameters": [
+                    {
+                        "name": "questionId",
+                        "in": "path",
+                        "description": "问题Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "questionContent": "test new question",
+                                        "questionId": 7,
+                                        "questionCategory": {
+                                            "categoryName": "Algebra",
+                                            "categoryId": 1
+                                        },
+                                        "questionType": "tttt type"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/paper/{paperId}": {
+            "delete": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "删除考卷接口",
+                "operationId": "deletePaper",
+                "parameters": [
+                    {
+                        "name": "paperId",
+                        "in": "path",
+                        "description": "考卷Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "paperDuration": "tttt hours",
+                                        "paperTotalScore": "tttt score",
+                                        "paperExam": {
+                                            "examName": "test exam",
+                                            "examId": 2
+                                        },
+                                        "paperName": "test new paper",
+                                        "paperId": 2
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/exam/{examId}": {
+            "delete": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "删除考试接口",
+                "operationId": "deleteExam",
+                "parameters": [
+                    {
+                        "name": "examId",
+                        "in": "path",
+                        "description": "考试Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "examName": "test new exam",
+                                        "examId": 3
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/exam-session/{examSessionId}": {
+            "delete": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "删除考试具体信息接口",
+                "operationId": "deleteExamSession",
+                "parameters": [
+                    {
+                        "name": "examSessionId",
+                        "in": "path",
+                        "description": "考试具体信息Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "examSessionId": 2,
+                                        "examSessionPaper": {
+                                            "paperDuration": "tttt hours",
+                                            "paperTotalScore": "tttt score",
+                                            "paperExam": {
+                                                "examName": "Math Exam",
+                                                "examId": 1
+                                            },
+                                            "paperName": "testPaper",
+                                            "paperId": 1
+                                        }
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/category/{categoryId}": {
+            "delete": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "删除问题类别接口",
+                "operationId": "deleteCategory",
+                "parameters": [
+                    {
+                        "name": "categoryId",
+                        "in": "path",
+                        "description": "问题类别Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "categoryName": "test new category",
+                                        "categoryId": 6
+                                    },
+                                    "message": "ok"
                                 }
                             }
                         }
@@ -508,6 +2211,17 @@
                     }
                 ],
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -521,17 +2235,6 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
