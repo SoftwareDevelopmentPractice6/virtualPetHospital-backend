@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-18 21:03:21
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 21:37:08
+ * @LastEditTime: 2023-03-21 18:15:05
  * @FilePath: /virtualPetHospital-backend/docs/StandardInstruction.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -288,6 +288,7 @@
 - [文件中转](https://blog.csdn.net/qq_38066290/article/details/111253699)
 - [大文件转发](https://stackoverflow.com/questions/15781885/how-to-forward-large-files-with-resttemplate/36226006#36226006)
 - [中转小/大型文件](https://blog.csdn.net/eleanoryss/article/details/123480628)
+- [文件分块上传](https://blog.csdn.net/u011974797/article/details/127614183)
 
 ### Spring-boot测试相关
 
