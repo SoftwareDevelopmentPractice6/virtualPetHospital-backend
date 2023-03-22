@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-21 18:17:49
+ * @LastEditTime: 2023-03-22 22:58:29
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -21,23 +21,23 @@
 - [X] SQL: DDL 3.18 5 PM
   - [X] 鉴权 & 系统
   - [X] 病例 & 测试：病例内`DISEASENAME`表加一个字段`category`，表明基础病例的所属类别（内科、寄生虫···）
-- [ ] 开发：一个模块一周，可以先不写单测
+- [ ] 开发：一个模块一周，可以先不写单测。需要增删改查每表各一个
   - [X] login
   - [ ] system
   - [ ] 病例
   - [X] exam
-- [ ] 需要的功能：
-  - [ ] 增：每表一个
-  - [ ] 删：根据id删，每表一个
-  - [ ] 改：根据id改，每表一个，用于改整条数据除id的全字段。控制器层接受的参数是JSON字符串
-  - [ ] 查：视情况而定
 - [ ] 中间层
+  - [X] login
+  - [ ] system
+  - [ ] 病例
+  - [X] exam
+  - [ ] 根据前端要求整合
 - [ ] 文件上传
   - [X] 单一文件传输功能
   - [X] 图片格式转换
   - [ ] 视频格式转换（老师给的示例项目似乎没做，比较麻烦）
   - [ ] 分块上传（老师给的示例项目似乎没做，需要前端配合）
-  - [ ] 批量操作（前端多调几次接口比较合理？）
+  - [X] 批量操作（前端多调几次接口，后端不做）
 
 ## 文档
 
