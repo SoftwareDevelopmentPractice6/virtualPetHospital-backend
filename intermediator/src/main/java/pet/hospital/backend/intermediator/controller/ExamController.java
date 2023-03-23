@@ -583,7 +583,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"studentResultStudentId\":5555,\"studentResultExamSession\":{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"examSessionEndTime\":1678968000000,\"examSessionStartTime\":1678960800000},\"studentResultScore\":102,\"studentResultId\":2},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"studentResultStudentId\":5555,\"studentResultExamSession\":{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"examSessionEndTime\":\"2023-03-16 20:00:00\",\"examSessionStartTime\":\"2023-03-16 20:00:00\"},\"studentResultScore\":102,\"studentResultId\":2},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -628,7 +628,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"studentResultStudentId\":555555,\"studentResultExamSession\":{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"examSessionEndTime\":1678968000000,\"examSessionStartTime\":1678960800000},\"studentResultScore\":112,\"studentResultId\":1},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"studentResultStudentId\":555555,\"studentResultExamSession\":{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"examSessionEndTime\":\"2023-03-16 20:00:00\",\"examSessionStartTime\":\"2023-03-16 20:00:00\"},\"studentResultScore\":112,\"studentResultId\":1},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -674,7 +674,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"studentResultStudentId\":5555,\"studentResultExamSession\":{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"tttt hours\",\"paperTotalScore\":\"tttt score\",\"paperExam\":{\"examName\":\"test exam\",\"examId\":2},\"paperName\":\"test new paper\",\"paperId\":2}},\"studentResultScore\":102,\"studentResultId\":2},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"studentResultStudentId\":2314,\"studentResultExamSession\":{\"examSessionId\":2,\"examSessionPaper\":{\"paperDuration\":\"tt hours\",\"paperTotalScore\":\"ttt\",\"paperExam\":{\"examName\":\"test Exam\",\"examId\":2},\"paperName\":\"test paper\",\"paperId\":2},\"examSessionEndTime\":\"2022-03-16 11:00:00\",\"examSessionStartTime\":\"2021-03-16 10:00:00\"},\"studentResultScore\":112,\"studentResultId\":4},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -1153,7 +1153,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"examSessionId\":2,\"examSessionPaper\":{\"paperDuration\":\"tttt hours\",\"paperTotalScore\":\"tttt score\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"testPaper\",\"paperId\":1}},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"examSessionId\":7,\"examSessionPaper\":{\"paperDuration\":\"tttt hours\",\"paperTotalScore\":\"tttt score\",\"paperExam\":{\"examName\":\"test 2 exam\",\"examId\":7},\"paperName\":\"test 2 paper\",\"paperId\":6},\"examSessionEndTime\":\"2022-03-16 11:00:00\",\"examSessionStartTime\":\"2021-03-16 10:00:00\"},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -1184,7 +1184,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{{\"code\":200,\"data\":{\"examSessionId\":2,\"examSessionPaper\":{\"paperDuration\":\"tttt hours\",\"paperTotalScore\":\"tttt score\",\"paperExam\":{\"examName\":\"test exam\",\"examId\":2},\"paperName\":\"test paper\",\"paperId\":2},\"examSessionEndTime\":\"2022-03-16 11:00:00\",\"examSessionStartTime\":\"2022-03-16 10:00:00\"},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"examSessionId\":2,\"examSessionPaper\":{\"paperDuration\":\"tttt hours\",\"paperTotalScore\":\"tttt score\",\"paperExam\":{\"examName\":\"test exam\",\"examId\":2},\"paperName\":\"test paper\",\"paperId\":2},\"examSessionEndTime\":\"2022-03-16 11:00:00\",\"examSessionStartTime\":\"2022-03-16 10:00:00\"},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -1233,7 +1233,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"examSessionId\":5,\"examSessionPaper\":{\"paperDuration\":\"tttt hours\",\"paperTotalScore\":\"tttt score\",\"paperExam\":{\"examName\":\"test new exam\",\"examId\":5},\"paperName\":\"test new paper\",\"paperId\":4},\"examSessionEndTime\":1652670000000,\"examSessionStartTime\":1584324000000},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"examSessionId\":5,\"examSessionPaper\":{\"paperDuration\":\"tttt hours\",\"paperTotalScore\":\"tttt score\",\"paperExam\":{\"examName\":\"test new exam\",\"examId\":5},\"paperName\":\"test new paper\",\"paperId\":4},\"examSessionEndTime\":\"2023-03-16 20:00:00\",\"examSessionStartTime\":\"2023-03-16 20:00:00\"},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(

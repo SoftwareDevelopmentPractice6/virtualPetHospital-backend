@@ -204,8 +204,8 @@
                                                 "paperName": "Math Paper",
                                                 "paperId": 1
                                             },
-                                            "examSessionEndTime": 1678968000000,
-                                            "examSessionStartTime": 1678960800000
+                                            "examSessionEndTime": "2023-03-16 20:00:00",
+                                            "examSessionStartTime": "2023-03-16 20:00:00"
                                         },
                                         "studentResultScore": 112,
                                         "studentResultId": 1
@@ -240,17 +240,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -271,13 +260,24 @@
                                                 "paperName": "Math Paper",
                                                 "paperId": 1
                                             },
-                                            "examSessionEndTime": 1678968000000,
-                                            "examSessionStartTime": 1678960800000
+                                            "examSessionEndTime": "2023-03-16 20:00:00",
+                                            "examSessionStartTime": "2023-03-16 20:00:00"
                                         },
                                         "studentResultScore": 102,
                                         "studentResultId": 2
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -608,6 +608,32 @@
                     "required": true
                 },
                 "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "examSessionId": 2,
+                                        "examSessionPaper": {
+                                            "paperDuration": "tttt hours",
+                                            "paperTotalScore": "tttt score",
+                                            "paperExam": {
+                                                "examName": "test exam",
+                                                "examId": 2
+                                            },
+                                            "paperName": "test paper",
+                                            "paperId": 2
+                                        },
+                                        "examSessionEndTime": "2022-03-16 11:00:00",
+                                        "examSessionStartTime": "2022-03-16 10:00:00"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
                     "515": {
                         "description": "Request failed",
                         "content": {
@@ -616,14 +642,6 @@
                                     "code": 515,
                                     "message": "Request failed"
                                 }
-                            }
-                        }
-                    },
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "example": "{{\"code\":200,\"data\":{\"examSessionId\":2,\"examSessionPaper\":{\"paperDuration\":\"tttt hours\",\"paperTotalScore\":\"tttt score\",\"paperExam\":{\"examName\":\"test exam\",\"examId\":2},\"paperName\":\"test paper\",\"paperId\":2},\"examSessionEndTime\":\"2022-03-16 11:00:00\",\"examSessionStartTime\":\"2022-03-16 10:00:00\"},\"message\":\"ok\"}"
                             }
                         }
                     }
@@ -684,8 +702,8 @@
                                             "paperName": "test new paper",
                                             "paperId": 4
                                         },
-                                        "examSessionEndTime": 1652670000000,
-                                        "examSessionStartTime": 1584324000000
+                                        "examSessionEndTime": "2023-03-16 20:00:00",
+                                        "examSessionStartTime": "2023-03-16 20:00:00"
                                     },
                                     "message": "ok"
                                 }
@@ -896,6 +914,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -909,17 +938,6 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -949,6 +967,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -962,17 +991,6 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1162,6 +1180,17 @@
                             }
                         }
                     },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1175,17 +1204,6 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1408,6 +1426,17 @@
                     }
                 ],
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1430,17 +1459,6 @@
                                             }
                                         ]
                                     }
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1486,22 +1504,24 @@
                                 "example": {
                                     "code": 200,
                                     "data": {
-                                        "studentResultStudentId": 5555,
+                                        "studentResultStudentId": 2314,
                                         "studentResultExamSession": {
-                                            "examSessionId": 1,
+                                            "examSessionId": 2,
                                             "examSessionPaper": {
-                                                "paperDuration": "tttt hours",
-                                                "paperTotalScore": "tttt score",
+                                                "paperDuration": "tt hours",
+                                                "paperTotalScore": "ttt",
                                                 "paperExam": {
-                                                    "examName": "test exam",
+                                                    "examName": "test Exam",
                                                     "examId": 2
                                                 },
-                                                "paperName": "test new paper",
+                                                "paperName": "test paper",
                                                 "paperId": 2
-                                            }
+                                            },
+                                            "examSessionEndTime": "2022-03-16 11:00:00",
+                                            "examSessionStartTime": "2021-03-16 10:00:00"
                                         },
-                                        "studentResultScore": 102,
-                                        "studentResultId": 2
+                                        "studentResultScore": 112,
+                                        "studentResultId": 4
                                     },
                                     "message": "ok"
                                 }
@@ -1592,17 +1612,19 @@
                                 "example": {
                                     "code": 200,
                                     "data": {
-                                        "examSessionId": 2,
+                                        "examSessionId": 7,
                                         "examSessionPaper": {
                                             "paperDuration": "tttt hours",
                                             "paperTotalScore": "tttt score",
                                             "paperExam": {
-                                                "examName": "Math Exam",
-                                                "examId": 1
+                                                "examName": "test 2 exam",
+                                                "examId": 7
                                             },
-                                            "paperName": "testPaper",
-                                            "paperId": 1
-                                        }
+                                            "paperName": "test 2 paper",
+                                            "paperId": 6
+                                        },
+                                        "examSessionEndTime": "2022-03-16 11:00:00",
+                                        "examSessionStartTime": "2021-03-16 10:00:00"
                                     },
                                     "message": "ok"
                                 }
@@ -1692,6 +1714,17 @@
                     }
                 ],
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1705,17 +1738,6 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
