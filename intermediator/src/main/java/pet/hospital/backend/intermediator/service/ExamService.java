@@ -2,7 +2,7 @@
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-22 14:01:53
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-23 02:37:33
+ * @LastEditTime: 2023-03-23 14:56:16
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/service/ExamService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -383,5 +383,87 @@ public class ExamService {
         res.put(Constants.examSessionList, examSessionRes);
 
         return ResponseData.success(res);
+    }
+
+    public ResponseData<JSONObject> deleteExamination(int examId) {
+        JSONObject paperResData = this.getPapers(null, null, null, examId).getData();
+
+        if (paperResData == null) {
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        }
+
+        JSONObject examSessionData = this.getExamSessions(
+                        null,
+                        null,
+                        paperResData
+                                .getJSONArray(Constants.paperList)
+                                .getJSONObject(0)
+                                .getInteger(Constants.paperId))
+                .getData();
+
+        if (examSessionData == null) {
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        }
+
+        return this.deleteExamSession(examSessionData
+                .getJSONArray(Constants.examSessionList)
+                .getJSONObject(0)
+                .getInteger(Constants.examSessionId));
+    }
+
+    public ResponseData<JSONObject> updateExamination(
+            int examId,
+            String examName,
+            String paperName,
+            String paperDuration,
+            String paperTotalScore,
+            String examSessionStartTime,
+            String examSessionEndTime) {
+        JSONObject paperResData = this.getPapers(null, null, null, examId).getData();
+
+        if (paperResData == null) {
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        }
+
+        int paperId =
+                paperResData.getJSONArray(Constants.paperList).getJSONObject(0).getInteger(Constants.paperId);
+
+        JSONObject examSessionData = this.getExamSessions(null, null, paperId).getData();
+
+        if (examSessionData == null) {
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        }
+
+        JSONObject previousExamSessionData =
+                examSessionData.getJSONArray(Constants.examSessionList).getJSONObject(0);
+        JSONObject previousPaperData = previousExamSessionData.getJSONObject(Constants.examSessionPaper);
+        JSONObject previousExamData = previousPaperData.getJSONObject(Constants.paperExam);
+
+        int examSessionId = previousExamSessionData.getInteger(Constants.examSessionId);
+
+        JSONObject examUpdateRes = this.updateExam(examId, examName).getData();
+        JSONObject paperUpdateRes = this.updatePaper(paperId, paperName, paperDuration, paperTotalScore, examId)
+                .getData();
+        JSONObject examSessionUpdateRes = this.updateExamSession(
+                        examSessionId, examSessionStartTime, examSessionEndTime, paperId)
+                .getData();
+
+        if (examUpdateRes == null || paperUpdateRes == null || examSessionUpdateRes == null) {
+            this.updateExam(examId, previousExamData.getString(Constants.examName));
+            this.updatePaper(
+                    paperId,
+                    previousPaperData.getString(Constants.paperName),
+                    previousPaperData.getString(Constants.paperDuration),
+                    previousPaperData.getString(Constants.paperTotalScore),
+                    examId);
+            this.updateExamSession(
+                    examSessionId,
+                    previousExamSessionData.getString(Constants.examSessionStartTime),
+                    previousExamSessionData.getString(Constants.examSessionEndTime),
+                    paperId);
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        } else {
+            return ResponseData.success(previousExamSessionData);
+        }
     }
 }
