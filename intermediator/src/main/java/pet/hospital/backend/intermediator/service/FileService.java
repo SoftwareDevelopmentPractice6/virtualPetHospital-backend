@@ -33,8 +33,9 @@ public class FileService {
 
             filePaths.filter(Files::isRegularFile).forEach(filePath -> {
                 filePathList.add(filePath.toString()
-                        .substring(
-                                filePath.toString().lastIndexOf(projectDirectoryPath) + projectDirectoryPath.length() + 1));
+                        .substring(filePath.toString().lastIndexOf(projectDirectoryPath)
+                                + projectDirectoryPath.length()
+                                + 1));
             });
 
             JSONObject res = new JSONObject();
