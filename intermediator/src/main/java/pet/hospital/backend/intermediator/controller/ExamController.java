@@ -1097,6 +1097,164 @@ public class ExamController {
         return examService.getQuestions(null, questionType, categoryId).toResponseEntity();
     }
 
+    @Operation(summary = "新增试卷中问题接口")
+    @ApiResponses(
+            value = {
+                @ApiResponse(
+                        responseCode = "200",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"questionInPaperPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"questionPoint\":3,\"questionInPaperQuestion\":{\"questionContent\":\"new question 3\",\"questionId\":8,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"type1\"},\"questionInPaperId\":3},\"message\":\"ok\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                @ApiResponse(
+                        responseCode = "515",
+                        description = "Request failed",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Failure message.",
+                                                    value = "{\"code\": 515,\"message\": \"Request failed\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE))
+            })
+    @PostMapping(value = "/question-in-paper")
+    public ResponseEntity<JSONObject> addQuestionInPapers(
+            @Parameter(
+                            description = "新增的试卷中问题信息",
+                            schema =
+                                    @Schema(
+                                            type = "json",
+                                            example = "{\"questionPoint\": 3, \"paperId\": 1, \"questionId\": 2}"))
+                    @RequestBody
+                    JSONObject newQuestionInPaperInfo) {
+        return examService
+                .addQuestionInPapers(
+                        newQuestionInPaperInfo.getInteger(Constants.questionPoint),
+                        newQuestionInPaperInfo.getInteger(Constants.paperId),
+                        newQuestionInPaperInfo.getInteger(Constants.questionId))
+                .toResponseEntity();
+    }
+
+    @Operation(summary = "更改试卷中问题信息接口")
+    @ApiResponses(
+            value = {
+                @ApiResponse(
+                        responseCode = "200",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"questionInPaperPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"questionPoint\":8,\"questionInPaperQuestion\":{\"questionContent\":\"new question 3\",\"questionId\":8,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"type1\"},\"questionInPaperId\":3},\"message\":\"ok\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                @ApiResponse(
+                        responseCode = "515",
+                        description = "Request failed",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Failure message.",
+                                                    value = "{\"code\": 515,\"message\": \"Request failed\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE))
+            })
+    @PutMapping(value = "/question-in-paper")
+    public ResponseEntity<JSONObject> updateQuestionInPapers(
+            @Parameter(
+                            description = "更改后的试卷中问题信息",
+                            schema =
+                                    @Schema(
+                                            type = "json",
+                                            example =
+                                                    "{\"questionInPaperId\": 3,\"questionPoint\": 3,\"paperId\": 1, \"questionId\": 2}"))
+                    @RequestBody
+                    JSONObject newQuestionInPaperInfo) {
+        return examService
+                .updateQuestionInPapers(
+                        newQuestionInPaperInfo.getInteger(Constants.questionInPaperId),
+                        newQuestionInPaperInfo.getInteger(Constants.questionPoint),
+                        newQuestionInPaperInfo.getInteger(Constants.paperId),
+                        newQuestionInPaperInfo.getInteger(Constants.questionId))
+                .toResponseEntity();
+    }
+
+    @Operation(summary = "删除试卷中问题接口")
+    @ApiResponses(
+            value = {
+                @ApiResponse(
+                        responseCode = "200",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"questionInPaperPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"questionPoint\":8,\"questionInPaperQuestion\":{\"questionContent\":\"new question 3\",\"questionId\":8,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"type1\"},\"questionInPaperId\":3},\"message\":\"ok\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                @ApiResponse(
+                        responseCode = "515",
+                        description = "Request failed",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Failure message.",
+                                                    value = "{\"code\": 515,\"message\": \"Request failed\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE))
+            })
+    @DeleteMapping(value = "/question-in-paper/{questionInPaperId}")
+    public ResponseEntity<JSONObject> deleteQuestionInPapers(
+            @Parameter(description = "试卷中问题Id") @PathVariable int questionInPaperId) {
+        return examService.deleteQuestionInPapers(questionInPaperId).toResponseEntity();
+    }
+
+    @Operation(summary = "获取试卷中问题列表接口")
+    @ApiResponses(
+            value = {
+                @ApiResponse(
+                        responseCode = "200",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"questionInPaperList\":[{\"questionInPaperPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"questionPoint\":3,\"questionInPaperQuestion\":{\"questionContent\":\"test new\",\"questionId\":2,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"qa\"},\"questionInPaperId\":2},{\"questionInPaperPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"questionPoint\":3,\"questionInPaperQuestion\":{\"questionContent\":\"new question 3\",\"questionId\":8,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"type1\"},\"questionInPaperId\":3}]},\"message\":\"ok\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                @ApiResponse(
+                        responseCode = "515",
+                        description = "Request failed",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Failure message.",
+                                                    value = "{\"code\": 515,\"message\": \"Request failed\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE))
+            })
+    @GetMapping(value = "/question-in-paper")
+    public ResponseEntity<JSONObject> getQuestionInPapers(
+            @Parameter(description = "试卷中问题分数") @RequestParam(required = false) Integer questionPoint,
+            @Parameter(description = "试卷Id") @RequestParam(required = false) Integer paperId,
+            @Parameter(description = "问题Id") @RequestParam(required = false) Integer questionId) {
+        return examService
+                .getQuestionInPapers(questionPoint, paperId, questionId)
+                .toResponseEntity();
+    }
+
     @Operation(summary = "获取考试列表接口")
     @ApiResponses(
             value = {
