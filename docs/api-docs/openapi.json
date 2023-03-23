@@ -240,6 +240,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -267,17 +278,6 @@
                                         "studentResultId": 2
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -314,17 +314,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -357,6 +346,17 @@
                                 }
                             }
                         }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -384,17 +384,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -411,6 +400,17 @@
                                         "questionType": "tttt type"
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -440,6 +440,80 @@
                     "required": true
                 },
                 "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "questionContent": "test new question",
+                                        "questionId": 7,
+                                        "questionCategory": {
+                                            "categoryName": "Algebra",
+                                            "categoryId": 1
+                                        },
+                                        "questionType": "tttt type"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/question-in-paper": {
+            "get": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "获取试卷中问题列表接口",
+                "operationId": "getQuestionInPapers",
+                "parameters": [
+                    {
+                        "name": "questionPoint",
+                        "in": "query",
+                        "description": "试卷中问题分数",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "paperId",
+                        "in": "query",
+                        "description": "试卷Id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "questionId",
+                        "in": "query",
+                        "description": "问题Id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
                     "515": {
                         "description": "Request failed",
                         "content": {
@@ -458,13 +532,195 @@
                                 "example": {
                                     "code": 200,
                                     "data": {
-                                        "questionContent": "test new question",
-                                        "questionId": 7,
-                                        "questionCategory": {
-                                            "categoryName": "Algebra",
-                                            "categoryId": 1
+                                        "questionInPaperList": [
+                                            {
+                                                "questionInPaperPaper": {
+                                                    "paperDuration": "2 hours",
+                                                    "paperTotalScore": "100",
+                                                    "paperExam": {
+                                                        "examName": "Math Exam",
+                                                        "examId": 1
+                                                    },
+                                                    "paperName": "Math Paper",
+                                                    "paperId": 1
+                                                },
+                                                "questionPoint": 3,
+                                                "questionInPaperQuestion": {
+                                                    "questionContent": "test new",
+                                                    "questionId": 2,
+                                                    "questionCategory": {
+                                                        "categoryName": "Algebra",
+                                                        "categoryId": 1
+                                                    },
+                                                    "questionType": "qa"
+                                                },
+                                                "questionInPaperId": 2
+                                            },
+                                            {
+                                                "questionInPaperPaper": {
+                                                    "paperDuration": "2 hours",
+                                                    "paperTotalScore": "100",
+                                                    "paperExam": {
+                                                        "examName": "Math Exam",
+                                                        "examId": 1
+                                                    },
+                                                    "paperName": "Math Paper",
+                                                    "paperId": 1
+                                                },
+                                                "questionPoint": 3,
+                                                "questionInPaperQuestion": {
+                                                    "questionContent": "new question 3",
+                                                    "questionId": 8,
+                                                    "questionCategory": {
+                                                        "categoryName": "Algebra",
+                                                        "categoryId": 1
+                                                    },
+                                                    "questionType": "type1"
+                                                },
+                                                "questionInPaperId": 3
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "更改试卷中问题信息接口",
+                "operationId": "updateQuestionInPapers",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "更改后的试卷中问题信息",
+                                "example": {
+                                    "questionInPaperId": 3,
+                                    "questionPoint": 3,
+                                    "paperId": 1,
+                                    "questionId": 2
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "questionInPaperPaper": {
+                                            "paperDuration": "2 hours",
+                                            "paperTotalScore": "100",
+                                            "paperExam": {
+                                                "examName": "Math Exam",
+                                                "examId": 1
+                                            },
+                                            "paperName": "Math Paper",
+                                            "paperId": 1
                                         },
-                                        "questionType": "tttt type"
+                                        "questionPoint": 8,
+                                        "questionInPaperQuestion": {
+                                            "questionContent": "new question 3",
+                                            "questionId": 8,
+                                            "questionCategory": {
+                                                "categoryName": "Algebra",
+                                                "categoryId": 1
+                                            },
+                                            "questionType": "type1"
+                                        },
+                                        "questionInPaperId": 3
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "新增试卷中问题接口",
+                "operationId": "addQuestionInPapers",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "新增的试卷中问题信息",
+                                "example": {
+                                    "questionPoint": 3,
+                                    "paperId": 1,
+                                    "questionId": 2
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "questionInPaperPaper": {
+                                            "paperDuration": "2 hours",
+                                            "paperTotalScore": "100",
+                                            "paperExam": {
+                                                "examName": "Math Exam",
+                                                "examId": 1
+                                            },
+                                            "paperName": "Math Paper",
+                                            "paperId": 1
+                                        },
+                                        "questionPoint": 3,
+                                        "questionInPaperQuestion": {
+                                            "questionContent": "new question 3",
+                                            "questionId": 8,
+                                            "questionCategory": {
+                                                "categoryName": "Algebra",
+                                                "categoryId": 1
+                                            },
+                                            "questionType": "type1"
+                                        },
+                                        "questionInPaperId": 3
                                     },
                                     "message": "ok"
                                 }
@@ -538,17 +794,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -575,6 +820,17 @@
                                         ]
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -721,6 +977,17 @@
                 "summary": "获取问题类别列表接口",
                 "operationId": "getCategories",
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -744,17 +1011,6 @@
                                         ]
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -914,17 +1170,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -938,6 +1183,17 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -967,17 +1223,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -991,6 +1236,17 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1169,13 +1425,19 @@
                     "required": true
                 },
                 "responses": {
-                    "401": {
-                        "description": "Unauthorized",
+                    "200": {
+                        "description": "OK",
                         "content": {
                             "application/json": {
                                 "example": {
-                                    "code": 401,
-                                    "message": "Unauthorized"
+                                    "code": 200,
+                                    "message": "ok",
+                                    "data": {
+                                        "userPassword": "admin",
+                                        "userName": "admin@admin.com",
+                                        "userAuthority": 1,
+                                        "userId": 1
+                                    }
                                 }
                             }
                         }
@@ -1191,19 +1453,13 @@
                             }
                         }
                     },
-                    "200": {
-                        "description": "OK",
+                    "401": {
+                        "description": "Unauthorized",
                         "content": {
                             "application/json": {
                                 "example": {
-                                    "code": 200,
-                                    "message": "ok",
-                                    "data": {
-                                        "userPassword": "admin",
-                                        "userName": "admin@admin.com",
-                                        "userAuthority": 1,
-                                        "userId": 1
-                                    }
+                                    "code": 401,
+                                    "message": "Unauthorized"
                                 }
                             }
                         }
@@ -1230,6 +1486,17 @@
                     }
                 ],
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1244,17 +1511,6 @@
                                         ]
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1300,17 +1556,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1343,6 +1588,17 @@
                                 }
                             }
                         }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -1366,6 +1622,17 @@
                     }
                 ],
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1392,17 +1659,6 @@
                                 }
                             }
                         }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
                     }
                 }
             }
@@ -1426,17 +1682,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1459,6 +1704,17 @@
                                             }
                                         ]
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1551,17 +1807,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1578,6 +1823,85 @@
                                         "questionType": "tttt type"
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/question-in-paper/{questionInPaperId}": {
+            "delete": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "删除试卷中问题接口",
+                "operationId": "deleteQuestionInPapers",
+                "parameters": [
+                    {
+                        "name": "questionInPaperId",
+                        "in": "path",
+                        "description": "试卷中问题Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "questionInPaperPaper": {
+                                            "paperDuration": "2 hours",
+                                            "paperTotalScore": "100",
+                                            "paperExam": {
+                                                "examName": "Math Exam",
+                                                "examId": 1
+                                            },
+                                            "paperName": "Math Paper",
+                                            "paperId": 1
+                                        },
+                                        "questionPoint": 8,
+                                        "questionInPaperQuestion": {
+                                            "questionContent": "new question 3",
+                                            "questionId": 8,
+                                            "questionCategory": {
+                                                "categoryName": "Algebra",
+                                                "categoryId": 1
+                                            },
+                                            "questionType": "type1"
+                                        },
+                                        "questionInPaperId": 3
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1605,6 +1929,17 @@
                     }
                 ],
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1627,17 +1962,6 @@
                                         "examSessionStartTime": "2021-03-16 10:00:00"
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1714,17 +2038,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1738,6 +2051,17 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
