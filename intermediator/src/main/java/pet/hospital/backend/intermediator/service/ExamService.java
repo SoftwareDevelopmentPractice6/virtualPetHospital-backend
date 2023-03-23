@@ -2,7 +2,7 @@
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-22 14:01:53
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-23 14:56:16
+ * @LastEditTime: 2023-03-23 15:11:41
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/service/ExamService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -464,6 +464,43 @@ public class ExamService {
             return ResponseData.error(EnumCode.REQUEST_ERROR);
         } else {
             return ResponseData.success(previousExamSessionData);
+        }
+    }
+
+    public ResponseData<JSONObject> addExamination(
+            String examName,
+            String paperName,
+            String paperDuration,
+            String paperTotalScore,
+            String examSessionStartTime,
+            String examSessionEndTime) {
+        JSONObject addExamRes = this.addExam(examName).getData();
+
+        if (addExamRes == null) {
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        }
+
+        int examId = addExamRes.getInteger(Constants.examId);
+
+        JSONObject addPaperRes =
+                this.addPaper(paperName, paperDuration, paperTotalScore, examId).getData();
+
+        if (addPaperRes == null) {
+            this.deleteExam(examId);
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        }
+
+        int paperId = addPaperRes.getInteger(Constants.paperId);
+
+        JSONObject addExamSessionRes = this.addExamSession(examSessionStartTime, examSessionEndTime, paperId)
+                .getData();
+
+        if (addExamSessionRes == null) {
+            this.deleteExam(examId);
+            this.deletePaper(paperId);
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        } else {
+            return ResponseData.success(addExamSessionRes);
         }
     }
 }

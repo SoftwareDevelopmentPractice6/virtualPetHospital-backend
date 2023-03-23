@@ -34,6 +34,7 @@ public class ExamController {
     @Autowired
     private ExamService examService;
 
+    @Hidden
     @Operation(summary = "新增考试接口")
     @ApiResponses(
             value = {
@@ -206,6 +207,7 @@ public class ExamController {
         return examService.getExams(null).toResponseEntity();
     }
 
+    @Hidden
     @Operation(summary = "新增考卷接口")
     @ApiResponses(
             value = {
@@ -407,6 +409,7 @@ public class ExamController {
                 .toResponseEntity();
     }
 
+    @Hidden
     @Operation(summary = "新增考试具体信息接口")
     @ApiResponses(
             value = {
@@ -1199,7 +1202,7 @@ public class ExamController {
     @PutMapping(value = "/examinations")
     public ResponseEntity<JSONObject> updateExamination(
             @Parameter(
-                            description = "更改后的考卷信息",
+                            description = "更改后的考试信息",
                             schema =
                                     @Schema(
                                             type = "json",
@@ -1210,6 +1213,54 @@ public class ExamController {
         return examService
                 .updateExamination(
                         newExaminationInfo.getInteger(Constants.examId),
+                        newExaminationInfo.getString(Constants.examName),
+                        newExaminationInfo.getString(Constants.paperName),
+                        newExaminationInfo.getString(Constants.paperDuration),
+                        newExaminationInfo.getString(Constants.paperTotalScore),
+                        newExaminationInfo.getString(Constants.examSessionStartTime),
+                        newExaminationInfo.getString(Constants.examSessionEndTime))
+                .toResponseEntity();
+    }
+
+    @Operation(summary = "新增考试接口")
+    @ApiResponses(
+            value = {
+                @ApiResponse(
+                        responseCode = "200",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"examSessionId\":5,\"examSessionPaper\":{\"paperDuration\":\"tttt hours\",\"paperTotalScore\":\"tttt score\",\"paperExam\":{\"examName\":\"test new exam\",\"examId\":5},\"paperName\":\"test new paper\",\"paperId\":4},\"examSessionEndTime\":1652670000000,\"examSessionStartTime\":1584324000000},\"message\":\"ok\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                @ApiResponse(
+                        responseCode = "515",
+                        description = "Request failed",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Failure message.",
+                                                    value = "{\"code\": 515,\"message\": \"Request failed\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE))
+            })
+    @PostMapping(value = "/examinations")
+    public ResponseEntity<JSONObject> addExamination(
+            @Parameter(
+                            description = "新增的考试信息",
+                            schema =
+                                    @Schema(
+                                            type = "json",
+                                            example =
+                                                    "{\"examName\": \"test exam\", \"paperName\": \"test paper\", \"paperDuration\": \"tttt hours\", \"paperTotalScore\": \"tttt score\", \"examSessionStartTime\": \"2022-03-16 10:00:00\", \"examSessionEndTime\": \"2022-03-16 11:00:00\"}"))
+                    @RequestBody
+                    JSONObject newExaminationInfo) {
+        return examService
+                .addExamination(
                         newExaminationInfo.getString(Constants.examName),
                         newExaminationInfo.getString(Constants.paperName),
                         newExaminationInfo.getString(Constants.paperDuration),
