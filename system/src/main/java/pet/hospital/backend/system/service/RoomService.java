@@ -2,7 +2,7 @@
  * @Author: dafenqi-11 diaozehao@163.com
  * @Date: 2023-03-22 14:27:24
  * @LastEditors: dafenqi-11 diaozehao@163.com
- * @LastEditTime: 2023-03-24 09:12:32
+ * @LastEditTime: 2023-03-24 12:59:20
  * @FilePath: \virtualPetHospital-backend\system\src\main\java\pet\hospital\backend\system\service\RoomService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -40,9 +40,8 @@ public class RoomService {
         res.put(
                 Constants.roomList,
                 JSONObject.parseArray(JSON.toJSONString(roomRepository.findAll().stream()
-                        .filter(room -> SearchJudgeHelper.softIncludes(roomKeyword, room
-                                .getRoomName())
-                                && SearchJudgeHelper.softEquals(roomRole, room.getRoomRole()))
+                        .filter(room -> SearchJudgeHelper.softIncludes(roomKeyword, room.getRoomName())
+                                && SearchJudgeHelper.softIncludes(roomRole, room.getRoomRole()))
                         .collect(Collectors.toList()))));
         return ResponseHelper.constructSuccessResponse(res);
     }
@@ -95,10 +94,8 @@ public class RoomService {
                     return ResponseHelper.constructSuccessResponse(updatedRoom);
                 } else {
                     return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
-
                 }
             }
-
         }
     }
 

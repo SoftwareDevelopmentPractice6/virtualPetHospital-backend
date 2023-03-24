@@ -2,7 +2,7 @@
  * @Author: dafenqi-11 diaozehao@163.com
  * @Date: 2023-03-22 13:30:54
  * @LastEditors: dafenqi-11 diaozehao@163.com
- * @LastEditTime: 2023-03-24 08:27:38
+ * @LastEditTime: 2023-03-24 12:53:40
  * @FilePath: \virtualPetHospital-backend\system\src\main\java\pet\hospital\backend\system\entity\Medicine.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -35,7 +35,7 @@ public class Medicine {
     String manufacturer;
 
     @Column(name = "class")
-    String medicineClass;
+    String medicineCategory;
 
     @Column(name = "specification")
     String specification;

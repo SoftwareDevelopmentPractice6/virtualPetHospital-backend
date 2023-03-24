@@ -2,7 +2,7 @@
  * @Author: dafenqi-11 diaozehao@163.com
  * @Date: 2023-03-24 10:00:44
  * @LastEditors: dafenqi-11 diaozehao@163.com
- * @LastEditTime: 2023-03-24 10:44:12
+ * @LastEditTime: 2023-03-24 12:56:01
  * @FilePath: \virtualPetHospital-backend\system\src\main\java\pet\hospital\backend\system\controller\MedicineController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -27,7 +27,9 @@ import pet.hospital.backend.system.service.MedicineService;
 
 @RestController
 @Tag(name = "System模块")
-@RequestMapping(value = "/api/system/medicine", produces = { "application/json;charset=UTF-8" })
+@RequestMapping(
+        value = "/api/system/medicine",
+        produces = {"application/json;charset=UTF-8"})
 public class MedicineController {
     @Autowired
     MedicineService medicineService;
@@ -38,12 +40,12 @@ public class MedicineController {
             @Parameter(description = "药物名称") @RequestParam(required = false) String medicineName,
             @Parameter(description = "药物价格") @RequestParam(required = false) Double medicinePrice,
             @Parameter(description = "药物说明") @RequestParam(required = false) String manufacturer,
-            @Parameter(description = "药物类别") @RequestParam(required = false) String medicineClass,
+            @Parameter(description = "药物类别") @RequestParam(required = false) String medicineCategory,
             @Parameter(description = "药物规格") @RequestParam(required = false) String specification,
             @Parameter(description = "是否为疫苗0/1") @RequestParam(required = false) Integer isVaccine)
             throws UnsupportedEncodingException {
-        return medicineService.getMedicine(medicineName, medicinePrice, manufacturer, medicineClass, specification,
-                isVaccine);
+        return medicineService.getMedicine(
+                medicineName, medicinePrice, manufacturer, medicineCategory, specification, isVaccine);
     }
 
     @Operation(summary = "新增药物接口")
@@ -52,13 +54,13 @@ public class MedicineController {
             @Parameter(description = "药物名称") @RequestParam String medicineName,
             @Parameter(description = "药物价格") @RequestParam double medicinePrice,
             @Parameter(description = "药物说明") @RequestParam String manufacturer,
-            @Parameter(description = "药物类别") @RequestParam String medicineClass,
+            @Parameter(description = "药物类别") @RequestParam String medicineCategory,
             @Parameter(description = "药物规格") @RequestParam String specification,
             @Parameter(description = "是否为疫苗0/1") @RequestParam int isVaccine)
             throws UnsupportedEncodingException {
         return medicineService.addMedicine(
                 URLDecoder.decode(medicineName, Constants.UTF8), medicinePrice,
-                URLDecoder.decode(manufacturer, Constants.UTF8), URLDecoder.decode(medicineClass, Constants.UTF8),
+                URLDecoder.decode(manufacturer, Constants.UTF8), URLDecoder.decode(medicineCategory, Constants.UTF8),
                 URLDecoder.decode(specification, Constants.UTF8), isVaccine);
     }
 
@@ -69,14 +71,18 @@ public class MedicineController {
             @Parameter(description = "药物名称") @RequestParam String medicineName,
             @Parameter(description = "药物价格") @RequestParam double medicinePrice,
             @Parameter(description = "药物说明") @RequestParam String manufacturer,
-            @Parameter(description = "药物类别") @RequestParam String medicineClass,
+            @Parameter(description = "药物类别") @RequestParam String medicineCategory,
             @Parameter(description = "药物规格") @RequestParam String specification,
             @Parameter(description = "是否为疫苗0/1") @RequestParam int isVaccine)
             throws UnsupportedEncodingException {
         return medicineService.updateMedicine(
-                medicineId, URLDecoder.decode(medicineName, Constants.UTF8), medicinePrice,
-                URLDecoder.decode(manufacturer, Constants.UTF8), URLDecoder.decode(medicineClass, Constants.UTF8),
-                URLDecoder.decode(specification, Constants.UTF8), isVaccine);
+                medicineId,
+                URLDecoder.decode(medicineName, Constants.UTF8),
+                medicinePrice,
+                URLDecoder.decode(manufacturer, Constants.UTF8),
+                URLDecoder.decode(medicineCategory, Constants.UTF8),
+                URLDecoder.decode(specification, Constants.UTF8),
+                isVaccine);
     }
 
     @Operation(summary = "删除药物接口")

@@ -27,7 +27,9 @@ import pet.hospital.backend.system.service.RoomService;
 
 @RestController
 @Tag(name = "System模块")
-@RequestMapping(value = "/api/system/room", produces = { "application/json;charset=UTF-8" })
+@RequestMapping(
+        value = "/api/system/room",
+        produces = {"application/json;charset=UTF-8"})
 public class RoomController {
     @Autowired
     RoomService roomService;

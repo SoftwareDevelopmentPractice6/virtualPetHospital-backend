@@ -19,7 +19,9 @@ import pet.hospital.backend.system.service.ExamineService;
 
 @RestController
 @Tag(name = "System模块")
-@RequestMapping(value = "/api/system/examine", produces = { "application/json;charset=UTF-8" })
+@RequestMapping(
+        value = "/api/system/examine",
+        produces = {"application/json;charset=UTF-8"})
 public class ExamineController {
     @Autowired
     ExamineService examineService;
@@ -39,8 +41,7 @@ public class ExamineController {
             @Parameter(description = "化验名称") @RequestParam String examineName,
             @Parameter(description = "化验价格") @RequestParam double examinePrice)
             throws UnsupportedEncodingException {
-        return examineService.addExamine(
-                URLDecoder.decode(examineName, Constants.UTF8), examinePrice);
+        return examineService.addExamine(URLDecoder.decode(examineName, Constants.UTF8), examinePrice);
     }
 
     @Operation(summary = "更改化验接口")
@@ -50,8 +51,7 @@ public class ExamineController {
             @Parameter(description = "化验名称") @RequestParam String examineName,
             @Parameter(description = "化验价格") @RequestParam double examinePrice)
             throws UnsupportedEncodingException {
-        return examineService.updateExamine(
-                examineId, URLDecoder.decode(examineName, Constants.UTF8), examinePrice);
+        return examineService.updateExamine(examineId, URLDecoder.decode(examineName, Constants.UTF8), examinePrice);
     }
 
     @Operation(summary = "删除化验接口")

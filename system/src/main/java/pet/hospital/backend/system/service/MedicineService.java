@@ -2,7 +2,7 @@
  * @Author: dafenqi-11 diaozehao@163.com
  * @Date: 2023-03-24 09:12:24
  * @LastEditors: dafenqi-11 diaozehao@163.com
- * @LastEditTime: 2023-03-24 10:16:15
+ * @LastEditTime: 2023-03-24 13:35:24
  * @FilePath: \virtualPetHospital-backend\system\src\main\java\pet\hospital\backend\system\service\MedicineService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -27,24 +27,34 @@ public class MedicineService {
     @Autowired
     MedicineRepository medicineRepository;
 
-    public JSONObject getMedicine(String medicineName, Double medicinePrice, String manufacturer,
-            String medicineClass, String specification, Integer isVaccine) {
+    public JSONObject getMedicine(
+            String medicineName,
+            Double medicinePrice,
+            String manufacturer,
+            String medicineCategory,
+            String specification,
+            Integer isVaccine) {
         JSONObject res = new JSONObject();
         res.put(
                 Constants.medicineList,
                 JSONObject.parseArray(JSON.toJSONString(medicineRepository.findAll().stream()
-                        .filter(medicine -> SearchJudgeHelper.softIncludes(medicineName, medicine.getMedicineName()) &&
-                                SearchJudgeHelper.softEquals(medicinePrice, medicine.getMedicinePrice()) &&
-                                SearchJudgeHelper.softIncludes(manufacturer, medicine.getManufacturer()) &&
-                                SearchJudgeHelper.softIncludes(medicineClass, medicine.getMedicineClass()) &&
-                                SearchJudgeHelper.softIncludes(specification, medicine.getSpecification()) &&
-                                SearchJudgeHelper.softEquals(isVaccine, medicine.getIsVaccine()))
+                        .filter(medicine -> SearchJudgeHelper.softIncludes(medicineName, medicine.getMedicineName())
+                                && SearchJudgeHelper.softEquals(medicinePrice, medicine.getMedicinePrice())
+                                && SearchJudgeHelper.softIncludes(manufacturer, medicine.getManufacturer())
+                                && SearchJudgeHelper.softIncludes(medicineCategory, medicine.getMedicineCategory())
+                                && SearchJudgeHelper.softIncludes(specification, medicine.getSpecification())
+                                && SearchJudgeHelper.softEquals(isVaccine, medicine.getIsVaccine()))
                         .collect(Collectors.toList()))));
         return ResponseHelper.constructSuccessResponse(res);
     }
 
-    public JSONObject addMedicine(String medicineName, double medicinePrice, String manufacturer,
-            String medicineClass, String specification, int isVaccine) {
+    public JSONObject addMedicine(
+            String medicineName,
+            double medicinePrice,
+            String manufacturer,
+            String medicineCategory,
+            String specification,
+            int isVaccine) {
         List<Medicine> targetMedicineList = medicineRepository.findAll().stream()
                 .filter(medicine -> Objects.equals(medicine.getMedicineName(), medicineName))
                 .collect(Collectors.toList());
@@ -55,7 +65,7 @@ public class MedicineService {
             newMedicine.setMedicineName(medicineName);
             newMedicine.setMedicinePrice(medicinePrice);
             newMedicine.setManufacturer(manufacturer);
-            newMedicine.setMedicineClass(medicineClass);
+            newMedicine.setMedicineCategory(medicineCategory);
             newMedicine.setSpecification(specification);
             newMedicine.setIsVaccine(isVaccine);
 
@@ -67,8 +77,14 @@ public class MedicineService {
         }
     }
 
-    public JSONObject updateMedicine(int medicineId, String medicineName, double medicinePrice, String manufacturer,
-            String medicineClass, String specification, int isVaccine) {
+    public JSONObject updateMedicine(
+            int medicineId,
+            String medicineName,
+            double medicinePrice,
+            String manufacturer,
+            String medicineCategory,
+            String specification,
+            int isVaccine) {
         Optional<Medicine> targetMedicineOptional = medicineRepository.findById(medicineId);
 
         if (targetMedicineOptional.isEmpty()) {
@@ -77,8 +93,7 @@ public class MedicineService {
 
             // 判断除了目标id外是否有别的id对应的药物名与更新药物名重复，若有则跳过更改
             List<Medicine> targetMedicineList = medicineRepository.findAll().stream()
-                    .filter(medicine -> Objects.equals(medicine.getMedicineName(),
-                            medicineName)
+                    .filter(medicine -> Objects.equals(medicine.getMedicineName(), medicineName)
                             && !Objects.equals(medicine.getMedicineId(), medicineId))
                     .collect(Collectors.toList());
 
@@ -87,7 +102,7 @@ public class MedicineService {
                 targetMedicine.setMedicineName(medicineName);
                 targetMedicine.setMedicinePrice(medicinePrice);
                 targetMedicine.setManufacturer(manufacturer);
-                targetMedicine.setMedicineClass(medicineClass);
+                targetMedicine.setMedicineCategory(medicineCategory);
                 targetMedicine.setSpecification(specification);
                 targetMedicine.setIsVaccine(isVaccine);
 
@@ -97,7 +112,6 @@ public class MedicineService {
             } else {
                 return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
             }
-
         }
     }
 

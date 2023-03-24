@@ -55,4 +55,3 @@ CREATE TABLE IF NOT EXISTS ADMISSION(
 	remark TEXT,
 	care_price FLOAT
 );
-

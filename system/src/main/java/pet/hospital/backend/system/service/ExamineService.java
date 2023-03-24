@@ -24,8 +24,8 @@ public class ExamineService {
         res.put(
                 Constants.examineList,
                 JSONObject.parseArray(JSON.toJSONString(examineRepository.findAll().stream()
-                        .filter(examine -> SearchJudgeHelper.softIncludes(examineName, examine.getExamineName()) &&
-                                SearchJudgeHelper.softEquals(examinePrice, examine.getExaminePrice()))
+                        .filter(examine -> SearchJudgeHelper.softIncludes(examineName, examine.getExamineName())
+                                && SearchJudgeHelper.softEquals(examinePrice, examine.getExaminePrice()))
                         .collect(Collectors.toList()))));
         return ResponseHelper.constructSuccessResponse(res);
     }
@@ -56,8 +56,7 @@ public class ExamineService {
         } else {
 
             List<Examine> targetExamineList = examineRepository.findAll().stream()
-                    .filter(examine -> Objects.equals(examine.getExamineName(),
-                            examineName)
+                    .filter(examine -> Objects.equals(examine.getExamineName(), examineName)
                             && !Objects.equals(examine.getExamineId(), examineId))
                     .collect(Collectors.toList());
 
@@ -72,7 +71,6 @@ public class ExamineService {
             } else {
                 return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
             }
-
         }
     }
 
