@@ -1,8 +1,8 @@
 /*
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-20 17:23:45
- * @LastEditors: dafenqi-11 diaozehao@163.com
- * @LastEditTime: 2023-03-24 09:36:34
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-24 20:56:39
  * @FilePath: /virtualPetHospital-backend/common/src/main/java/pet/hospital/backend/common/helper/JudgeHelper.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -28,6 +28,10 @@ public class SearchJudgeHelper {
     }
 
     public static Boolean softEquals(Double toBeJudged, double referencedValue) {
+        return Objects.equals(toBeJudged, null) ? true : Objects.equals(referencedValue, toBeJudged);
+    }
+
+    public static Boolean softEquals(Character toBeJudged, char referencedValue) {
         return Objects.equals(toBeJudged, null) ? true : Objects.equals(referencedValue, toBeJudged);
     }
 
