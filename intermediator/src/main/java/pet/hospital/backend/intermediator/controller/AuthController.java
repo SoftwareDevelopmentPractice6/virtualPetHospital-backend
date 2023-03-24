@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-16 02:51:46
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 19:17:32
+ * @LastEditTime: 2023-03-22 21:25:36
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/controller/AuthController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -225,7 +225,7 @@ public class AuthController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\": 200,   \"data\": {     \"userList\": [       {         \"userPassword\": \"test\",         \"userAuthority\": 3,         \"userName\": \"test@test.com\",         \"userId\": 2       },       {         \"userPassword\": \"tttt\",         \"userAuthority\": 3,         \"userName\": \"tt\",         \"userId\": 6       }     ]   } }")
+                                                            "{\"code\":200,\"data\":{\"userList\":[{\"userPassword\":\"test\",\"userAuthority\":3,\"userName\":\"test@test.com\",\"userId\":2},{\"userPassword\":\"tttt\",\"userAuthority\":3,\"userName\":\"tt\",\"userId\":6}]}}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -257,7 +257,7 @@ public class AuthController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\": 200,   \"data\": {     \"userList\": [       {         \"userPassword\": \"test\",         \"userAuthority\": 3,         \"userName\": \"test@test.com\",         \"userId\": 2       },       {         \"userPassword\": \"tttt\",         \"userAuthority\": 3,         \"userName\": \"tt\",         \"userId\": 6       }     ]   } }")
+                                                            "{\"code\":200,\"data\":{\"userList\":[{\"userPassword\":\"test\",\"userAuthority\":3,\"userName\":\"test@test.com\",\"userId\":2},{\"userPassword\":\"tttt\",\"userAuthority\":3,\"userName\":\"tt\",\"userId\":6}]}}}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
