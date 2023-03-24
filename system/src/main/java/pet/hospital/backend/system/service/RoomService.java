@@ -1,4 +1,12 @@
 /*
+ * @Author: dafenqi-11 diaozehao@163.com
+ * @Date: 2023-03-22 14:27:24
+ * @LastEditors: dafenqi-11 diaozehao@163.com
+ * @LastEditTime: 2023-03-24 09:12:32
+ * @FilePath: \virtualPetHospital-backend\system\src\main\java\pet\hospital\backend\system\service\RoomService.java
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
+/*
  * @Author: dafenqi-11 diaozehao.163.com
  * @Date: 2023-03-22 14:27:24
  * @LastEditors: dafenqi-11 diaozehao@163.com
@@ -27,7 +35,7 @@ public class RoomService {
     @Autowired
     RoomRepository roomRepository;
 
-    public JSONObject getRoom(String roomKeyword,String roomRole) {
+    public JSONObject getRoom(String roomKeyword, String roomRole) {
         JSONObject res = new JSONObject();
         res.put(
                 Constants.roomList,
