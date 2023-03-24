@@ -1,8 +1,8 @@
 /*
  * @Author: dafenqi-11 diaozehao.163.com
  * @Date: 2023-03-22 13:19:50
- * @LastEditors: dafenqi-11 diaozehao.163.com
- * @LastEditTime: 2023-03-22 13:36:31
+ * @LastEditors: dafenqi-11 diaozehao@163.com
+ * @LastEditTime: 2023-03-24 08:25:27
  * @FilePath: \virtualPetHospital-backend\system\src\main\java\pet\hospital\backend\system\entity\Feature.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -15,6 +15,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
@@ -44,7 +45,10 @@ public class Feature {
     @Column(name = "func_role")
     String funcRole;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @Column(name = "func_tool")
+    String funcTool;
+
+    @ManyToOne
     @JoinColumn(name = "room_name", referencedColumnName = "room_name")
     Room featureRoom;
 }

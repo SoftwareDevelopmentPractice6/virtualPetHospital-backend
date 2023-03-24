@@ -1,8 +1,8 @@
 /*
  * @Author: dafenqi-11 diaozehao.163.com
  * @Date: 2023-03-22 15:08:24
- * @LastEditors: dafenqi-11 diaozehao.163.com
- * @LastEditTime: 2023-03-22 15:39:28
+ * @LastEditors: dafenqi-11 diaozehao@163.com
+ * @LastEditTime: 2023-03-24 08:30:27
  * @FilePath: \virtualPetHospital-backend\system\src\main\java\pet\hospital\backend\system\controller\RoomController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -27,9 +27,7 @@ import pet.hospital.backend.system.service.RoomService;
 
 @RestController
 @Tag(name = "System模块")
-@RequestMapping(
-        value = "/api/system/room",
-        produces = {"application/json;charset=UTF-8"})
+@RequestMapping(value = "/api/system/room", produces = { "application/json;charset=UTF-8" })
 public class RoomController {
     @Autowired
     RoomService roomService;
@@ -37,12 +35,13 @@ public class RoomController {
     @Operation(summary = "获取科室接口")
     @GetMapping(value = "/get")
     public JSONObject getRoom(
-            @Parameter(description = "科室名称关键字，支持模糊查询") @RequestParam(required = false) String roomKeyword)
+            @Parameter(description = "科室名称关键字，支持模糊查询") @RequestParam(required = false) String roomKeyword,
+            @Parameter(description = "科室人员") @RequestParam(required = false) String roomRole)
             throws UnsupportedEncodingException {
-        return roomService.getRoom(roomKeyword);
+        return roomService.getRoom(roomKeyword, roomRole);
     }
 
-    @Operation(summary = "新增问题类别接口")
+    @Operation(summary = "新增科室接口")
     @PostMapping(value = "/add")
     public JSONObject addRoom(
             @Parameter(description = "科室名") @RequestParam String roomName,
@@ -52,7 +51,7 @@ public class RoomController {
                 URLDecoder.decode(roomName, Constants.UTF8), URLDecoder.decode(roomRole, Constants.UTF8));
     }
 
-    @Operation(summary = "更改问题类别信息接口")
+    @Operation(summary = "更改科室信息接口")
     @PutMapping(value = "/update")
     public JSONObject updateRoom(
             @Parameter(description = "科室名") @RequestParam String roomName,
@@ -62,7 +61,7 @@ public class RoomController {
                 URLDecoder.decode(roomName, Constants.UTF8), URLDecoder.decode(roomRole, Constants.UTF8));
     }
 
-    @Operation(summary = "删除问题类别接口")
+    @Operation(summary = "删除科室接口")
     @DeleteMapping(value = "/delete")
     public JSONObject deleteRoom(@Parameter(description = "科室名") @RequestParam String roomName)
             throws UnsupportedEncodingException {

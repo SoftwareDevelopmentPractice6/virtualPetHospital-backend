@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS FEATURE(
 	func_video VARCHAR(255),
 	room_name VARCHAR(255),
 	func_role VARCHAR(255),
+	func_tool VARCHAR(255),
 	FOREIGN KEY (room_name) REFERENCES ROOM(room_name) ON DELETE CASCADE
 );
 
@@ -54,3 +55,4 @@ CREATE TABLE IF NOT EXISTS ADMISSION(
 	remark TEXT,
 	care_price FLOAT
 );
+

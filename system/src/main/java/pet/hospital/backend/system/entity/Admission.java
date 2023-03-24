@@ -22,7 +22,7 @@ public class Admission {
     String roomStandard;
 
     @Column(name = "care_level")
-    double careLevel;
+    String careLevel;
 
     @Column(name = "remark")
     String remark;
