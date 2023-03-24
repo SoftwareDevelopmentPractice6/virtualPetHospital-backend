@@ -53,6 +53,26 @@ flowchart LR
     controlleri --> frontend
 ```
 
+```mermaid
+sequenceDiagram
+    Frontend->>+Intermediator: Request
+    Intermediator->>+Module: Processed Request
+    Module-->>-Intermediator: Response
+    Intermediator-->>-Frontend: Processed Response
+```
+
+```mermaid
+sequenceDiagram
+    Intermediator->>+Controller: Request
+    Controller->>+Service: Processed Request
+    Service->>+Dao: Call with SQL Operations
+    Dao->>+Db: Data Request
+    Db-->>-Dao: Data Response
+    Dao-->>-Service: Data Response
+    Service-->>-Controller: Processed Data Response
+    Controller-->>-Intermediator: Response
+```
+
 ## 数据库设计
 
 - [病例管理与测试模块数据库设计](../medicalRecordManagement/README.md#数据库设计)
