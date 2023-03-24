@@ -29,4 +29,16 @@ public class Constants {
     public static String examSessionList = "examSessionList";
 
     public static String studentResultList = "studentResultList";
+
+    public static String admissionList = "admissionList";
+
+    public static String caseCheckList = "caseCheckList";
+
+    public static String diagnosticResultList = "diagnosticResultList";
+
+    public static String diseaseNameList = "diseaseNameList";
+
+    public static String treatmentProgramList = "treatmentProgramList";
+
+    public static String medicalCaseList = "medicalCaseList";
 }
