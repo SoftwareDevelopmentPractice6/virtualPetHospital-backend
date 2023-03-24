@@ -41,7 +41,7 @@ public class MedicineService {
                         .filter(medicine -> SearchJudgeHelper.softIncludes(medicineName, medicine.getMedicineName())
                                 && SearchJudgeHelper.softEquals(medicinePrice, medicine.getMedicinePrice())
                                 && SearchJudgeHelper.softIncludes(manufacturer, medicine.getManufacturer())
-                                && SearchJudgeHelper.softIncludes(medicineCategory, medicine.getMedicineCategory())
+                                && SearchJudgeHelper.softEquals(medicineCategory, medicine.getMedicineCategory())
                                 && SearchJudgeHelper.softIncludes(specification, medicine.getSpecification())
                                 && SearchJudgeHelper.softEquals(isVaccine, medicine.getIsVaccine()))
                         .collect(Collectors.toList()))));

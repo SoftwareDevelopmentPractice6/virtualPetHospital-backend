@@ -24,8 +24,8 @@ public class AdmissionService {
         res.put(
                 Constants.admissionList,
                 JSONObject.parseArray(JSON.toJSONString(admissionRepository.findAll().stream()
-                        .filter(admission -> SearchJudgeHelper.softIncludes(roomStandard, admission.getRoomStandard())
-                                && SearchJudgeHelper.softIncludes(careLevel, admission.getCareLevel())
+                        .filter(admission -> SearchJudgeHelper.softEquals(roomStandard, admission.getRoomStandard())
+                                && SearchJudgeHelper.softEquals(careLevel, admission.getCareLevel())
                                 && SearchJudgeHelper.softIncludes(remark, admission.getRemark())
                                 && SearchJudgeHelper.softEquals(carePrice, admission.getCarePrice()))
                         .collect(Collectors.toList()))));
@@ -36,7 +36,7 @@ public class AdmissionService {
         List<Admission> targetAdmissionList = admissionRepository.findAll().stream()
                 .filter(admission -> Objects.equals(admission.getRoomStandard(), roomStandard)
                         && Objects.equals(admission.getCareLevel(), careLevel)
-                        && Objects.equals(admission.getCareLevel(), carePrice))
+                        && Objects.equals(admission.getCarePrice(), carePrice))
                 .collect(Collectors.toList());
 
         if (Objects.equals(targetAdmissionList.size(), 0)) {
@@ -65,7 +65,7 @@ public class AdmissionService {
             List<Admission> targetAdmissionList = admissionRepository.findAll().stream()
                     .filter(admission -> Objects.equals(admission.getRoomStandard(), roomStandard)
                             && Objects.equals(admission.getCareLevel(), careLevel)
-                            && Objects.equals(admission.getCareLevel(), carePrice)
+                            && Objects.equals(admission.getCarePrice(), carePrice)
                             && !Objects.equals(admission.getAdmissionId(), admissionId))
                     .collect(Collectors.toList());
 

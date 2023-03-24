@@ -1,8 +1,8 @@
 /*
  * @Author: dafenqi-11 diaozehao@163.com
  * @Date: 2023-03-24 19:59:48
- * @LastEditors: dafenqi-11 diaozehao@163.com
- * @LastEditTime: 2023-03-24 21:49:19
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-25 01:26:09
  * @FilePath: \virtualPetHospital-backend\system\src\main\java\pet\hospital\backend\system\service\FeatureService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -10,7 +10,6 @@ package pet.hospital.backend.system.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson2.JSON;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,33 +29,42 @@ public class FeatureService {
 
     @Autowired
     FeatureRepository featureRepository;
+
     @Autowired
     RoomRepository roomRepository;
 
     public JSONObject getFeature(
+            Integer funcId,
             String funcName,
-            String funcDescription, String funcFlow, String funcRole, String funcTool, String roomName) {
+            String funcDescription,
+            String funcFlow,
+            String funcRole,
+            String funcTool,
+            String roomName) {
         JSONObject res = new JSONObject();
         res.put(
                 Constants.featureList,
                 JSONObject.parseArray(JSON.toJSONString(featureRepository.findAll().stream()
-                        .filter(feature -> SearchJudgeHelper.softIncludes(
-                                funcName, feature.getFuncName())
-                                && SearchJudgeHelper.softIncludes(
-                                        funcDescription, feature.getFuncDescription())
-                                && SearchJudgeHelper.softIncludes(
-                                        funcFlow, feature.getFuncFlow())
-                                && SearchJudgeHelper.softIncludes(
-                                        funcRole, feature.getFuncRole())
-                                && SearchJudgeHelper.softIncludes(
-                                        funcTool, feature.getFuncTool())
-                                && SearchJudgeHelper.softIncludes(roomName, feature.getFeatureRoom().getRoomName()))
+                        .filter(feature -> SearchJudgeHelper.softEquals(funcName, feature.getFuncName())
+                                && SearchJudgeHelper.softIncludes(funcDescription, feature.getFuncDescription())
+                                && SearchJudgeHelper.softIncludes(funcFlow, feature.getFuncFlow())
+                                && SearchJudgeHelper.softIncludes(funcRole, feature.getFuncRole())
+                                && SearchJudgeHelper.softEquals(funcTool, feature.getFuncTool())
+                                && SearchJudgeHelper.softEquals(
+                                        roomName, feature.getFeatureRoom().getRoomName())
+                                && SearchJudgeHelper.softEquals(funcId, feature.getFuncId()))
                         .collect(Collectors.toList()))));
         return ResponseHelper.constructSuccessResponse(res);
     }
 
-    public JSONObject addFeature(String funcName,
-            String funcDescription, String funcFlow, String funcRole, String funcTool, String roomName) {
+    public JSONObject addFeature(
+            String funcName,
+            String funcDescription,
+            String funcFlow,
+            String funcVideo,
+            String funcRole,
+            String funcTool,
+            String roomName) {
 
         List<Feature> targetFeatureList = featureRepository.findAll().stream()
                 .filter(feature -> Objects.equals(feature.getFuncName(), funcName))
@@ -71,6 +79,7 @@ public class FeatureService {
                 newFeature.setFuncName(funcName);
                 newFeature.setFuncDescription(funcDescription);
                 newFeature.setFuncFlow(funcFlow);
+                newFeature.setFuncVideo(funcVideo);
                 newFeature.setFuncRole(funcRole);
                 newFeature.setFuncTool(funcTool);
                 newFeature.setFeatureRoom(targetRoomOptional.get());
@@ -80,15 +89,20 @@ public class FeatureService {
                 return ResponseHelper.constructSuccessResponse(addedFeature);
             }
 
-        } else
-
-        {
+        } else {
             return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
         }
     }
 
-    public JSONObject updateFeature(int funcId, String funcName,
-            String funcDescription, String funcFlow, String funcRole, String funcTool, String roomName) {
+    public JSONObject updateFeature(
+            int funcId,
+            String funcName,
+            String funcDescription,
+            String funcFlow,
+            String funcVideo,
+            String funcRole,
+            String funcTool,
+            String roomName) {
         Optional<Feature> targetFeatureOptional = featureRepository.findById(funcId);
 
         if (targetFeatureOptional.isEmpty()) {
@@ -109,6 +123,7 @@ public class FeatureService {
                 targetFeature.setFuncName(funcName);
                 targetFeature.setFuncDescription(funcDescription);
                 targetFeature.setFuncFlow(funcFlow);
+                targetFeature.setFuncVideo(funcVideo);
                 targetFeature.setFuncRole(funcRole);
                 targetFeature.setFuncTool(funcTool);
                 targetFeature.setFeatureRoom(targetRoomOptional.get());
@@ -117,7 +132,6 @@ public class FeatureService {
 
                 return ResponseHelper.constructSuccessResponse(updatedFeature);
             }
-
         }
     }
 

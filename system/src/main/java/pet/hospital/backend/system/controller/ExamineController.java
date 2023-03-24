@@ -1,3 +1,11 @@
+/*
+ * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @Date: 2023-03-25 00:06:06
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-25 01:29:14
+ * @FilePath: /virtualPetHospital-backend/system/src/main/java/pet/hospital/backend/system/controller/ExamineController.java
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 package pet.hospital.backend.system.controller;
 
 import com.alibaba.fastjson.JSONObject;
@@ -29,7 +37,7 @@ public class ExamineController {
     @Operation(summary = "获取化验信息接口")
     @GetMapping(value = "/get")
     public JSONObject getExamine(
-            @Parameter(description = "化验名称") @RequestParam(required = false) String examineName,
+            @Parameter(description = "化验名称，支持模糊查询") @RequestParam(required = false) String examineName,
             @Parameter(description = "化验价格") @RequestParam(required = false) Double examinePrice)
             throws UnsupportedEncodingException {
         return examineService.getExamine(examineName, examinePrice);

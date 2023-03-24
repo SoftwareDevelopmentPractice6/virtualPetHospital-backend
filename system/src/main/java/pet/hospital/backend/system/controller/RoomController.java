@@ -38,7 +38,7 @@ public class RoomController {
     @GetMapping(value = "/get")
     public JSONObject getRoom(
             @Parameter(description = "科室名称关键字，支持模糊查询") @RequestParam(required = false) String roomKeyword,
-            @Parameter(description = "科室人员") @RequestParam(required = false) String roomRole)
+            @Parameter(description = "科室人员角色，NRAD顺序表示无权限、前台、医助、医师") @RequestParam(required = false) String roomRole)
             throws UnsupportedEncodingException {
         return roomService.getRoom(roomKeyword, roomRole);
     }

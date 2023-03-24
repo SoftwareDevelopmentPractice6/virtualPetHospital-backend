@@ -31,7 +31,7 @@ public class AdmissionController {
     public JSONObject getAdmission(
             @Parameter(description = "房间标准") @RequestParam(required = false) String roomStandard,
             @Parameter(description = "互理级别") @RequestParam(required = false) String careLevel,
-            @Parameter(description = "备注") @RequestParam(required = false) String remark,
+            @Parameter(description = "备注，支持模糊查询") @RequestParam(required = false) String remark,
             @Parameter(description = "住院价格") @RequestParam(required = false) Double carePrice)
             throws UnsupportedEncodingException {
         return admissionService.getAdmission(roomStandard, careLevel, remark, carePrice);
@@ -43,7 +43,7 @@ public class AdmissionController {
             @Parameter(description = "房间标准") @RequestParam String roomStandard,
             @Parameter(description = "互理级别") @RequestParam String careLevel,
             @Parameter(description = "备注") @RequestParam String remark,
-            @Parameter(description = "住院价格") @RequestParam Double carePrice)
+            @Parameter(description = "住院价格") @RequestParam double carePrice)
             throws UnsupportedEncodingException {
         return admissionService.addAdmission(
                 URLDecoder.decode(roomStandard, Constants.UTF8),
@@ -59,7 +59,7 @@ public class AdmissionController {
             @Parameter(description = "房间标准") @RequestParam String roomStandard,
             @Parameter(description = "互理级别") @RequestParam String careLevel,
             @Parameter(description = "备注") @RequestParam String remark,
-            @Parameter(description = "住院价格") @RequestParam Double carePrice)
+            @Parameter(description = "住院价格") @RequestParam double carePrice)
             throws UnsupportedEncodingException {
         return admissionService.updateAdmission(
                 admissionId,

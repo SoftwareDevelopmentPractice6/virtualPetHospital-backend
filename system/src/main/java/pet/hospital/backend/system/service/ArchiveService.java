@@ -1,8 +1,8 @@
 /*
  * @Author: dafenqi-11 diaozehao@163.com
  * @Date: 2023-03-24 19:59:48
- * @LastEditors: dafenqi-11 diaozehao@163.com
- * @LastEditTime: 2023-03-24 21:02:47
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-25 01:23:59
  * @FilePath: \virtualPetHospital-backend\system\src\main\java\pet\hospital\backend\system\service\ArchiveService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -36,22 +36,21 @@ public class ArchiveService {
                 Constants.archiveList,
                 JSONObject.parseArray(JSON.toJSONString(archiveRepository.findAll().stream()
                         .filter(archive -> SearchJudgeHelper.softEquals(storeTime, archive.getStoreTime())
-                                && SearchJudgeHelper.softIncludes(diseaseType, archive.getDiseaseType())
+                                && SearchJudgeHelper.softEquals(diseaseType, archive.getDiseaseType())
                                 && SearchJudgeHelper.softEquals(petType, archive.getPetType())
-                                && SearchJudgeHelper.softIncludes(petName, archive.getPetName())
+                                && SearchJudgeHelper.softEquals(petName, archive.getPetName())
                                 && SearchJudgeHelper.softEquals(petSex, archive.getPetSex())
                                 && SearchJudgeHelper.softEquals(ownerTel, archive.getOwnerTel()))
                         .collect(Collectors.toList()))));
         return ResponseHelper.constructSuccessResponse(res);
     }
 
-    public JSONObject addArchive(Date storeTime, String diseaseType, String petType, String petName, char petSex,
-            String ownerTel) {
+    public JSONObject addArchive(
+            Date storeTime, String diseaseType, String petType, String petName, char petSex, String ownerTel) {
 
         List<Archive> targetArchiveList = archiveRepository.findAll().stream()
-                .filter(archive -> Objects.equals(archive
-                        .getStoreTime(), storeTime) && Objects.equals(
-                                archive.getOwnerTel(), ownerTel))
+                .filter(archive -> Objects.equals(archive.getStoreTime(), storeTime)
+                        && Objects.equals(archive.getOwnerTel(), ownerTel))
                 .collect(Collectors.toList());
 
         if (Objects.equals(targetArchiveList.size(), 0)) {
@@ -67,24 +66,27 @@ public class ArchiveService {
             Archive addedArchive = archiveRepository.saveAndFlush(newArchive);
 
             return ResponseHelper.constructSuccessResponse(addedArchive);
-        } else
-
-        {
+        } else {
             return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
         }
     }
 
-    public JSONObject updateArchive(int archiveId, Date storeTime, String diseaseType, String petType, String petName,
-            char petSex, String ownerTel) {
+    public JSONObject updateArchive(
+            int archiveId,
+            Date storeTime,
+            String diseaseType,
+            String petType,
+            String petName,
+            char petSex,
+            String ownerTel) {
         Optional<Archive> targetArchiveOptional = archiveRepository.findById(archiveId);
 
         if (targetArchiveOptional.isEmpty()) {
             return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
         } else {
             List<Archive> targetArchiveList = archiveRepository.findAll().stream()
-                    .filter(archive -> Objects.equals(archive
-                            .getStoreTime(), storeTime) && Objects.equals(
-                                    archive.getOwnerTel(), ownerTel)
+                    .filter(archive -> Objects.equals(archive.getStoreTime(), storeTime)
+                            && Objects.equals(archive.getOwnerTel(), ownerTel)
                             && !Objects.equals(archive.getArchiveId(), archiveId))
                     .collect(Collectors.toList());
 

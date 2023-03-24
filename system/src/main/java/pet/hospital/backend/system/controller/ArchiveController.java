@@ -36,7 +36,9 @@ import pet.hospital.backend.system.service.ArchiveService;
 
 @RestController
 @Tag(name = "System模块")
-@RequestMapping(value = "/api/system/archive", produces = { "application/json;charset=UTF-8" })
+@RequestMapping(
+        value = "/api/system/archive",
+        produces = {"application/json;charset=UTF-8"})
 public class ArchiveController {
     @Autowired
     ArchiveService archiveService;
@@ -51,8 +53,8 @@ public class ArchiveController {
             @Parameter(description = "宠物性别") @RequestParam(required = false) Character petSex,
             @Parameter(description = "主人联系电话") @RequestParam(required = false) String ownerTel)
             throws UnsupportedEncodingException {
-        return archiveService.getArchive(DateHelper.stringToDate(storeTime), diseaseType, petType, petName, petSex,
-                ownerTel);
+        return archiveService.getArchive(
+                DateHelper.stringToDate(storeTime), diseaseType, petType, petName, petSex, ownerTel);
     }
 
     @Operation(summary = "新增档案接口")
@@ -65,16 +67,13 @@ public class ArchiveController {
             @Parameter(description = "宠物性别") @RequestParam char petSex,
             @Parameter(description = "主人联系电话") @RequestParam String ownerTel)
             throws UnsupportedEncodingException {
-        return archiveService.addArchive(DateHelper.stringToDate(storeTime),
-                URLDecoder.decode(
-                        diseaseType, Constants.UTF8),
-                URLDecoder.decode(
-                        petType, Constants.UTF8),
-                URLDecoder.decode(
-                        petName, Constants.UTF8),
+        return archiveService.addArchive(
+                DateHelper.stringToDate(storeTime),
+                URLDecoder.decode(diseaseType, Constants.UTF8),
+                URLDecoder.decode(petType, Constants.UTF8),
+                URLDecoder.decode(petName, Constants.UTF8),
                 petSex,
-                URLDecoder.decode(
-                        ownerTel, Constants.UTF8));
+                URLDecoder.decode(ownerTel, Constants.UTF8));
     }
 
     @Operation(summary = "更改档案接口")
@@ -91,15 +90,11 @@ public class ArchiveController {
         return archiveService.updateArchive(
                 archiveId,
                 DateHelper.stringToDate(storeTime),
-                URLDecoder.decode(
-                        diseaseType, Constants.UTF8),
-                URLDecoder.decode(
-                        petType, Constants.UTF8),
-                URLDecoder.decode(
-                        petName, Constants.UTF8),
+                URLDecoder.decode(diseaseType, Constants.UTF8),
+                URLDecoder.decode(petType, Constants.UTF8),
+                URLDecoder.decode(petName, Constants.UTF8),
                 petSex,
-                URLDecoder.decode(
-                        ownerTel, Constants.UTF8));
+                URLDecoder.decode(ownerTel, Constants.UTF8));
     }
 
     @Operation(summary = "删除档案接口")
