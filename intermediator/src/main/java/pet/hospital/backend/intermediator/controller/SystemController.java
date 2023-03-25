@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-25 15:02:58
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-25 16:50:40
+ * @LastEditTime: 2023-03-25 17:11:36
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/controller/SystemController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -48,7 +48,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"admissionList\":[{\"careLevel\":\"High\",\"admissionId\":1,\"remark\":\"comment on normal room\",\"carePrice\":555.25,\"roomStandard\":\"normal room\"}]},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -80,7 +85,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"careLevel\":\"Low\",\"admissionId\":2,\"remark\":\"comment on normal room\",\"carePrice\":555.25,\"roomStandard\":\"normal room 2\"},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -121,7 +131,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"careLevel\":\"High\",\"admissionId\":1,\"remark\":\"comment on normal room\",\"carePrice\":555.25,\"roomStandard\":\"normal room\"},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -163,7 +178,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"careLevel\":\"Low\",\"admissionId\":2,\"remark\":\"comment on normal room\",\"carePrice\":555.25,\"roomStandard\":\"normal room 2\"},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -190,7 +210,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"archiveList\":[{\"petName\":\"Tom\",\"petSex\":\"M\",\"petType\":\"cat\",\"storeTime\":\"2022-12-31 11:11:11\",\"ownerTel\":\"12345678910\",\"diseaseType\":\"Psychosis\",\"archiveId\":1}]},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -224,7 +249,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"petName\":\"Tom\",\"petSex\":\"M\",\"petType\":\"cat\",\"storeTime\":\"2022-12-31 12:12:12\",\"ownerTel\":\"12345678910\",\"diseaseType\":\"Psychosis\",\"archiveId\":2},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -267,7 +297,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"petName\":\"Tom\",\"petSex\":\"M\",\"petType\":\"cat\",\"storeTime\":\"2022-12-31 12:22:09\",\"ownerTel\":\"12345678910\",\"diseaseType\":\"Psychosis\",\"archiveId\":1},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -311,7 +346,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"petName\":\"Tom\",\"petSex\":\"M\",\"petType\":\"cat\",\"storeTime\":\"2022-12-31 12:12:12\",\"ownerTel\":\"12345678910\",\"diseaseType\":\"Psychosis\",\"archiveId\":2},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -337,7 +377,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"chargeList\":[{\"itemName\":\"testCharge\",\"chargeId\":1,\"chargePrice\":7.3}]},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -365,7 +410,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"chargeList\":[{\"itemName\":\"testCharge\",\"chargeId\":1,\"chargePrice\":7.3}]},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -392,7 +442,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"itemName\":\"Charge Item 2\",\"chargeId\":2,\"chargePrice\":13.12},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -428,7 +483,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"itemName\":\"Charge Item 1\",\"chargeId\":1,\"chargePrice\":123.12},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -468,7 +528,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"itemName\":\"Charge Item 2\",\"chargeId\":2,\"chargePrice\":13.12},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -494,7 +559,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"examineList\":[{\"examineName\":\"testExamine\",\"examineId\":2,\"examinePrice\":1.2}]},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -522,7 +592,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"examineList\":[{\"examineName\":\"testExamine\",\"examineId\":2,\"examinePrice\":1.2}]},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -549,7 +624,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"examineName\":\"Examine Item 2\",\"examineId\":3,\"examinePrice\":23.12},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -588,7 +668,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"examineName\":\"Examine Item 1\",\"examineId\":2,\"examinePrice\":123.12},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -628,7 +713,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"examineName\":\"testroom\",\"examineId\":2,\"examinePrice\":1.2},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -654,7 +744,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"medicineList\":[{\"medicineCategory\":\"wdff\",\"isVaccine\":0,\"medicinePrice\":3.1,\"medicineId\":1,\"specification\":\"fhiqhi\",\"medicineName\":\"testmed\",\"manufacturer\":\"aa\"}]},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -688,7 +783,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"medicineList\":[{\"medicineCategory\":\"wdff\",\"isVaccine\":0,\"medicinePrice\":3.1,\"medicineId\":1,\"specification\":\"fhiqhi\",\"medicineName\":\"testmed\",\"manufacturer\":\"aa\"}]},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -721,7 +821,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"medicineCategory\":\"Mental\",\"isVaccine\":0,\"medicinePrice\":123.12,\"medicineId\":2,\"specification\":\"Specification 1\",\"medicineName\":\"Medicine Item 2\",\"manufacturer\":\"Manufacturer 1\"},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -764,7 +869,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"medicineCategory\":\"Mental\",\"isVaccine\":0,\"medicinePrice\":123.12,\"medicineId\":1,\"specification\":\"Specification 1\",\"medicineName\":\"Medicine Item 1\",\"manufacturer\":\"Manufacturer 1\"},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -808,7 +918,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"medicineCategory\":\"Mental\",\"isVaccine\":0,\"medicinePrice\":123.12,\"medicineId\":2,\"specification\":\"Specification 1\",\"medicineName\":\"Medicine Item 2\",\"manufacturer\":\"Manufacturer 1\"},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -834,7 +949,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"roomList\":[{\"roomRole\":\"this is a test\",\"roomName\":\"testroom\"}]},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -862,7 +982,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"roomList\":[{\"roomRole\":\"this is a test\",\"roomName\":\"testroom\"}]},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -889,7 +1014,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"roomRole\":\"RAD\",\"roomName\":\"Prepare 2\"},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -925,7 +1055,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"roomRole\":\"RAD\",\"roomName\":\"Prepare\"},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -965,7 +1100,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"roomRole\":\"this is a test\",\"roomName\":\"testroom\"},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -991,7 +1131,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"featureList\":[{\"funcDescription\":\"b\",\"funcName\":\"a\",\"featureRoom\":{\"roomRole\":\"RAD\",\"roomName\":\"Prepare\"},\"funcFlow\":\"z\",\"funcRole\":\"w\",\"funcTool\":\"uuu\",\"funcId\":1,\"funcVideo\":\"a\"}]},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -1025,7 +1170,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"featureList\":[{\"funcDescription\":\"b\",\"funcName\":\"a\",\"featureRoom\":{\"roomRole\":\"RAD\",\"roomName\":\"Prepare\"},\"funcFlow\":\"z\",\"funcRole\":\"w\",\"funcTool\":\"uuu\",\"funcId\":1,\"funcVideo\":\"a\"}]},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -1058,7 +1208,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"funcDescription\":\"Inject Vaccine Description\",\"funcName\":\"Inject Vaccine\",\"featureRoom\":{\"roomRole\":\"RAD\",\"roomName\":\"Prepare\"},\"funcFlow\":\"Inject Vaccine Order\",\"funcRole\":\"NAN\",\"funcTool\":\"Needle Tubing\",\"funcId\":2,\"funcVideo\":\"system/feature/90ca72f7-7dd1-438c-b986-a529ba68c6b3/Inject Vaccine/video\"},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -1101,7 +1256,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"funcDescription\":\"Prepare Vaccine Description\",\"funcName\":\"Prepare Vaccine\",\"featureRoom\":{\"roomRole\":\"RAD\",\"roomName\":\"Prepare 2\"},\"funcFlow\":\"Prepare Vaccine Order\",\"funcRole\":\"NAD\",\"funcTool\":\"Needle Tubing\",\"funcId\":1,\"funcVideo\":\"a\"},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
@@ -1145,7 +1305,12 @@ public class SystemController {
                         responseCode = "200",
                         content =
                                 @Content(
-                                        examples = {@ExampleObject(description = "Success message.", value = "")},
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"funcDescription\":\"Inject Vaccine Description\",\"funcName\":\"Inject Vaccine\",\"featureRoom\":{\"roomRole\":\"RAD\",\"roomName\":\"Prepare\"},\"funcFlow\":\"Inject Vaccine Order\",\"funcRole\":\"NAN\",\"funcTool\":\"Needle Tubing\",\"funcId\":2,\"funcVideo\":\"system/feature/90ca72f7-7dd1-438c-b986-a529ba68c6b3/Inject Vaccine/video\"},\"message\":\"ok\"}")
+                                        },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
                         responseCode = "515",
