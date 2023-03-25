@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-15 21:44:22
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-23 16:53:43
+ * @LastEditTime: 2023-03-25 17:13:46
  * @FilePath: /virtualPetHospital-backend/login/src/main/java/pet/hospital/backend/login/constant/Constants.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -31,4 +31,18 @@ public class Constants {
     public static String studentResultList = "studentResultList";
 
     public static String questionInPaperList = "questionInPaperList";
+
+    public static String roomList = "roomList";
+
+    public static String medicineList = "medicineList";
+
+    public static String examineList = "examineList";
+
+    public static String chargeList = "chargeList";
+
+    public static String admissionList = "admissionList";
+
+    public static String archiveList = "archiveList";
+
+    public static String featureList = "featureList";
 }

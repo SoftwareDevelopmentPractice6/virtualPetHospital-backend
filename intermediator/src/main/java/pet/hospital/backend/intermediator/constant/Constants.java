@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-15 23:36:24
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-23 17:08:59
+ * @LastEditTime: 2023-03-25 17:15:11
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/constant/Constants.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -105,4 +105,78 @@ public class Constants {
     public static String questionInPaperId = "questionInPaperId";
 
     public static String questionPoint = "questionPoint";
+
+    public static String admissionId = "admissionId";
+
+    public static String roomStandard = "roomStandard";
+
+    public static String careLevel = "careLevel";
+
+    public static String remark = "remark";
+
+    public static String carePrice = "carePrice";
+
+    public static String archiveId = "archiveId";
+
+    public static String storeTime = "storeTime";
+
+    public static String diseaseType = "diseaseType";
+
+    public static String petType = "petType";
+
+    public static String petName = "petName";
+
+    public static String petSex = "petSex";
+
+    public static String ownerTel = "ownerTel";
+
+    public static String chargeId = "chargeId";
+
+    public static String itemName = "itemName";
+
+    public static String chargePrice = "chargePrice";
+
+    public static String examineId = "examineId";
+
+    public static String examineName = "examineName";
+
+    public static String examinePrice = "examinePrice";
+
+    public static String funcId = "funcId";
+
+    public static String funcName = "funcName";
+
+    public static String funcDescription = "funcDescription";
+
+    public static String funcFlow = "funcFlow";
+
+    public static String funcVideo = "funcVideo";
+
+    public static String funcRole = "funcRole";
+
+    public static String funcTool = "funcTool";
+
+    public static String featureList = "featureList";
+
+    public static String medicineId = "medicineId";
+
+    public static String medicineName = "medicineName";
+
+    public static String medicinePrice = "medicinePrice";
+
+    public static String manufacturer = "manufacturer";
+
+    public static String medicineCategory = "medicineCategory";
+
+    public static String specification = "specification";
+
+    public static String isVaccine = "isVaccine";
+
+    public static String roomName = "roomName";
+
+    public static String roomRole = "roomRole";
+
+    public static String previousRoomName = "previousRoomName";
+
+    public static String roomKeyword = "roomKeyword";
 }

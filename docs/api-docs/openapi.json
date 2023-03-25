@@ -12,6 +12,1326 @@
         }
     ],
     "paths": {
+        "/api/system/room": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "获取科室信息列表接口",
+                "operationId": "getRooms",
+                "parameters": [
+                    {
+                        "name": "roomRole",
+                        "in": "query",
+                        "description": "科室人员角色，NRAD顺序表示无权限、前台、医助、医师",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "roomList": [
+                                            {
+                                                "roomRole": "this is a test",
+                                                "roomName": "testroom"
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "更改科室信息接口",
+                "operationId": "updateRoom",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "更改后的科室信息",
+                                "example": {
+                                    "previousRoomName": "test room",
+                                    "roomName": "Prepare",
+                                    "roomRole": "RAD"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "roomRole": "RAD",
+                                        "roomName": "Prepare"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "新增科室信息接口",
+                "operationId": "addRoom",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "新增的科室信息",
+                                "example": {
+                                    "roomName": "Prepare",
+                                    "roomRole": "RAD"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "roomRole": "RAD",
+                                        "roomName": "Prepare 2"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/medicine": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "获取药品信息列表接口",
+                "operationId": "getMedicines",
+                "parameters": [
+                    {
+                        "name": "medicinePrice",
+                        "in": "query",
+                        "description": "药物价格",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "format": "double"
+                        }
+                    },
+                    {
+                        "name": "manufacturer",
+                        "in": "query",
+                        "description": "药物说明，支持模糊查询",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "medicineCategory",
+                        "in": "query",
+                        "description": "药物类别",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "specification",
+                        "in": "query",
+                        "description": "药物规格，支持模糊查询",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "isVaccine",
+                        "in": "query",
+                        "description": "是否为疫苗0/1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "medicineList": [
+                                            {
+                                                "medicineCategory": "wdff",
+                                                "isVaccine": 0,
+                                                "medicinePrice": 3.1,
+                                                "medicineId": 1,
+                                                "specification": "fhiqhi",
+                                                "medicineName": "testmed",
+                                                "manufacturer": "aa"
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "更改药品信息接口",
+                "operationId": "updateMedicine",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "更改后的药品信息",
+                                "example": {
+                                    "medicineId": 2,
+                                    "medicineName": "Medicine Item 1",
+                                    "medicinePrice": 123.12,
+                                    "manufacturer": "Manufacturer 1",
+                                    "medicineCategory": "Mental",
+                                    "specification": "Specification 1",
+                                    "isVaccine": 0
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "medicineCategory": "Mental",
+                                        "isVaccine": 0,
+                                        "medicinePrice": 123.12,
+                                        "medicineId": 1,
+                                        "specification": "Specification 1",
+                                        "medicineName": "Medicine Item 1",
+                                        "manufacturer": "Manufacturer 1"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "新增药品信息接口",
+                "operationId": "addMedicine",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "新增的药品信息",
+                                "example": {
+                                    "medicineName": "Medicine Item 1",
+                                    "medicinePrice": 123.12,
+                                    "manufacturer": "Manufacturer 1",
+                                    "medicineCategory": "Mental",
+                                    "specification": "Specification 1",
+                                    "isVaccine": 0
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "medicineCategory": "Mental",
+                                        "isVaccine": 0,
+                                        "medicinePrice": 123.12,
+                                        "medicineId": 2,
+                                        "specification": "Specification 1",
+                                        "medicineName": "Medicine Item 2",
+                                        "manufacturer": "Manufacturer 1"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/feature": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "获取功能信息列表接口",
+                "operationId": "getFeatures",
+                "parameters": [
+                    {
+                        "name": "funcDescription",
+                        "in": "query",
+                        "description": "具体功能描述，支持模糊查询",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "funcFlow",
+                        "in": "query",
+                        "description": "具体功能流程，支持模糊查询",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "funcRole",
+                        "in": "query",
+                        "description": "操作人员，NRAD顺序表示无权限、前台、医助、医师",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "funcTool",
+                        "in": "query",
+                        "description": "具体功能使用工具",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "roomName",
+                        "in": "query",
+                        "description": "对应科室名",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "featureList": [
+                                            {
+                                                "funcDescription": "b",
+                                                "funcName": "a",
+                                                "featureRoom": {
+                                                    "roomRole": "RAD",
+                                                    "roomName": "Prepare"
+                                                },
+                                                "funcFlow": "z",
+                                                "funcRole": "w",
+                                                "funcTool": "uuu",
+                                                "funcId": 1,
+                                                "funcVideo": "a"
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "更改功能信息接口",
+                "operationId": "updateFeature",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "更改后的功能信息",
+                                "example": {
+                                    "funcId": 2,
+                                    "funcName": "Prepare Vaccine",
+                                    "funcDescription": "Prepare Vaccine Description",
+                                    "funcFlow": "Prepare Vaccine Order",
+                                    "funcRole": "NAD",
+                                    "funcTool": "Needle Tubing",
+                                    "roomName": "Prepare Room"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "funcDescription": "Prepare Vaccine Description",
+                                        "funcName": "Prepare Vaccine",
+                                        "featureRoom": {
+                                            "roomRole": "RAD",
+                                            "roomName": "Prepare 2"
+                                        },
+                                        "funcFlow": "Prepare Vaccine Order",
+                                        "funcRole": "NAD",
+                                        "funcTool": "Needle Tubing",
+                                        "funcId": 1,
+                                        "funcVideo": "a"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "新增功能信息接口",
+                "operationId": "addFeature",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "新增的功能信息",
+                                "example": {
+                                    "funcName": "Prepare Vaccine",
+                                    "funcDescription": "Prepare Vaccine Description",
+                                    "funcFlow": "Prepare Vaccine Order",
+                                    "funcRole": "NAD",
+                                    "funcTool": "Needle Tubing",
+                                    "roomName": "Prepare Room"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "funcDescription": "Inject Vaccine Description",
+                                        "funcName": "Inject Vaccine",
+                                        "featureRoom": {
+                                            "roomRole": "RAD",
+                                            "roomName": "Prepare"
+                                        },
+                                        "funcFlow": "Inject Vaccine Order",
+                                        "funcRole": "NAN",
+                                        "funcTool": "Needle Tubing",
+                                        "funcId": 2,
+                                        "funcVideo": "system/feature/90ca72f7-7dd1-438c-b986-a529ba68c6b3/Inject Vaccine/video"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/examine": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "获取化验信息列表接口",
+                "operationId": "getExamines",
+                "parameters": [
+                    {
+                        "name": "examinePrice",
+                        "in": "query",
+                        "description": "化验价格",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "format": "double"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "examineList": [
+                                            {
+                                                "examineName": "testExamine",
+                                                "examineId": 2,
+                                                "examinePrice": 1.2
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "更改化验信息接口",
+                "operationId": "updateExamine",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "更改后的化验信息",
+                                "example": {
+                                    "examineId": 2,
+                                    "examineName": "Examine Item 1",
+                                    "examinePrice": 123.12
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "examineName": "Examine Item 1",
+                                        "examineId": 2,
+                                        "examinePrice": 123.12
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "新增化验信息接口",
+                "operationId": "addExamine",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "新增的化验信息",
+                                "example": {
+                                    "examineName": "Examine Item 1",
+                                    "examinePrice": 123.12
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "examineName": "Examine Item 2",
+                                        "examineId": 3,
+                                        "examinePrice": 23.12
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/charge": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "获取收费信息列表接口",
+                "operationId": "getCharges",
+                "parameters": [
+                    {
+                        "name": "chargePrice",
+                        "in": "query",
+                        "description": "收费价格",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "format": "double"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "chargeList": [
+                                            {
+                                                "itemName": "testCharge",
+                                                "chargeId": 1,
+                                                "chargePrice": 7.3
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "更改收费信息接口",
+                "operationId": "updateCharge",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "更改后的收费信息",
+                                "example": {
+                                    "chargeId": 2,
+                                    "itemName": "Charge Item 1",
+                                    "chargePrice": 123.12
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "itemName": "Charge Item 1",
+                                        "chargeId": 1,
+                                        "chargePrice": 123.12
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "新增收费信息接口",
+                "operationId": "addCharge",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "新增的收费信息",
+                                "example": {
+                                    "itemName": "Charge Item 1",
+                                    "chargePrice": 123.12
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "itemName": "Charge Item 2",
+                                        "chargeId": 2,
+                                        "chargePrice": 13.12
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/archive": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "获取档案信息列表接口",
+                "operationId": "getArchives",
+                "parameters": [
+                    {
+                        "name": "storeTime",
+                        "in": "query",
+                        "description": "记录时间",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "diseaseType",
+                        "in": "query",
+                        "description": "疾病类型",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "petType",
+                        "in": "query",
+                        "description": "宠物类型",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "petName",
+                        "in": "query",
+                        "description": "宠物名字",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "petSex",
+                        "in": "query",
+                        "description": "宠物性别",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ownerTel",
+                        "in": "query",
+                        "description": "主人联系电话",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "archiveList": [
+                                            {
+                                                "petName": "Tom",
+                                                "petSex": "M",
+                                                "petType": "cat",
+                                                "storeTime": "2022-12-31 11:11:11",
+                                                "ownerTel": "12345678910",
+                                                "diseaseType": "Psychosis",
+                                                "archiveId": 1
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "更改档案信息接口",
+                "operationId": "updateArchive",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "更改后的档案信息",
+                                "example": {
+                                    "archiveId": 2,
+                                    "storeTime": "2022-12-31 11:11:11",
+                                    "diseaseType": "Psychosis",
+                                    "petType": "cat",
+                                    "petName": "Tom",
+                                    "petSex": "M",
+                                    "ownerTel": "12345678910"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "petName": "Tom",
+                                        "petSex": "M",
+                                        "petType": "cat",
+                                        "storeTime": "2022-12-31 12:22:09",
+                                        "ownerTel": "12345678910",
+                                        "diseaseType": "Psychosis",
+                                        "archiveId": 1
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "新增档案信息接口",
+                "operationId": "addArchive",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "新增的档案信息",
+                                "example": {
+                                    "storeTime": "2022-12-31 12:12:12",
+                                    "diseaseType": "Psychosis",
+                                    "petType": "cat",
+                                    "petName": "Tom",
+                                    "petSex": "M",
+                                    "ownerTel": "12345678910"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "petName": "Tom",
+                                        "petSex": "M",
+                                        "petType": "cat",
+                                        "storeTime": "2022-12-31 12:12:12",
+                                        "ownerTel": "12345678910",
+                                        "diseaseType": "Psychosis",
+                                        "archiveId": 2
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/admission": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "获取入院信息列表接口",
+                "operationId": "getAdmissions",
+                "parameters": [
+                    {
+                        "name": "roomStandard",
+                        "in": "query",
+                        "description": "房间标准",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "careLevel",
+                        "in": "query",
+                        "description": "互理级别",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "remark",
+                        "in": "query",
+                        "description": "备注，支持模糊查询",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "carePrice",
+                        "in": "query",
+                        "description": "住院价格",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "format": "double"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "admissionList": [
+                                            {
+                                                "careLevel": "High",
+                                                "admissionId": 1,
+                                                "remark": "comment on normal room",
+                                                "carePrice": 555.25,
+                                                "roomStandard": "normal room"
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "更改入院信息接口",
+                "operationId": "updateAdmission",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "更改后的入院信息",
+                                "example": {
+                                    "admissionId": 2,
+                                    "roomStandard": "normal room",
+                                    "careLevel": "High",
+                                    "remark": "comment on normal room",
+                                    "carePrice": 555.25
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "careLevel": "High",
+                                        "admissionId": 1,
+                                        "remark": "comment on normal room",
+                                        "carePrice": 555.25,
+                                        "roomStandard": "normal room"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "新增入院信息接口",
+                "operationId": "addAdmission",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "新增的入院信息",
+                                "example": {
+                                    "roomStandard": "normal room",
+                                    "careLevel": "High",
+                                    "remark": "comment on normal room",
+                                    "carePrice": 555.25
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "careLevel": "Low",
+                                        "admissionId": 2,
+                                        "remark": "comment on normal room",
+                                        "carePrice": 555.25,
+                                        "roomStandard": "normal room 2"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/file/image": {
             "put": {
                 "tags": [
@@ -101,17 +1421,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -143,6 +1452,17 @@
                                         ]
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -384,6 +1704,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -400,17 +1731,6 @@
                                         "questionType": "tttt type"
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -682,17 +2002,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -723,6 +2032,17 @@
                                         "questionInPaperId": 3
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -864,6 +2184,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -886,17 +2217,6 @@
                                         "examSessionStartTime": "2022-03-16 10:00:00"
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -929,17 +2249,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -962,6 +2271,17 @@
                                         "examSessionStartTime": "2023-03-16 20:00:00"
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1088,6 +2408,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1099,17 +2430,6 @@
                                         "categoryId": 6
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1125,6 +2445,32 @@
                 "summary": "获取用户列表接口",
                 "operationId": "getUsers",
                 "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "userList": [
+                                            {
+                                                "userPassword": "test",
+                                                "userAuthority": 3,
+                                                "userName": "test@test.com",
+                                                "userId": 2
+                                            },
+                                            {
+                                                "userPassword": "tttt",
+                                                "userAuthority": 3,
+                                                "userName": "tt",
+                                                "userId": 6
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
                     "515": {
                         "description": "Request failed",
                         "content": {
@@ -1133,14 +2479,6 @@
                                     "code": 515,
                                     "message": "Request failed"
                                 }
-                            }
-                        }
-                    },
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "example": "{\"code\":200,\"data\":{\"userList\":[{\"userPassword\":\"test\",\"userAuthority\":3,\"userName\":\"test@test.com\",\"userId\":2},{\"userPassword\":\"tttt\",\"userAuthority\":3,\"userName\":\"tt\",\"userId\":6}]}}"
                             }
                         }
                     }
@@ -1170,6 +2508,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1183,17 +2532,6 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1223,6 +2561,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1236,17 +2585,6 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1425,6 +2763,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1442,6 +2791,249 @@
                             }
                         }
                     },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 401,
+                                    "message": "Unauthorized"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/room/{roomKeyword}": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "获取科室信息列表接口",
+                "operationId": "getRoomsByRoomName",
+                "parameters": [
+                    {
+                        "name": "roomKeyword",
+                        "in": "path",
+                        "description": "科室名称关键字，支持模糊查询",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "roomRole",
+                        "in": "query",
+                        "description": "科室人员角色，NRAD顺序表示无权限、前台、医助、医师",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "roomList": [
+                                            {
+                                                "roomRole": "this is a test",
+                                                "roomName": "testroom"
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/medicine/{medicineName}": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "获取药品信息列表接口",
+                "operationId": "getMedicinesByMedicineName",
+                "parameters": [
+                    {
+                        "name": "medicineName",
+                        "in": "path",
+                        "description": "药物名称",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "medicinePrice",
+                        "in": "query",
+                        "description": "药物价格",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "format": "double"
+                        }
+                    },
+                    {
+                        "name": "manufacturer",
+                        "in": "query",
+                        "description": "药物说明，支持模糊查询",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "medicineCategory",
+                        "in": "query",
+                        "description": "药物类别",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "specification",
+                        "in": "query",
+                        "description": "药物规格，支持模糊查询",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "isVaccine",
+                        "in": "query",
+                        "description": "是否为疫苗0/1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "medicineList": [
+                                            {
+                                                "medicineCategory": "wdff",
+                                                "isVaccine": 0,
+                                                "medicinePrice": 3.1,
+                                                "medicineId": 1,
+                                                "specification": "fhiqhi",
+                                                "medicineName": "testmed",
+                                                "manufacturer": "aa"
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/feature/{funcName}": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "获取功能信息列表接口",
+                "operationId": "getFeaturesByFeatureName",
+                "parameters": [
+                    {
+                        "name": "funcName",
+                        "in": "path",
+                        "description": "具体功能名",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "funcDescription",
+                        "in": "query",
+                        "description": "具体功能描述，支持模糊查询",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "funcFlow",
+                        "in": "query",
+                        "description": "具体功能流程，支持模糊查询",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "funcRole",
+                        "in": "query",
+                        "description": "操作人员，NRAD顺序表示无权限、前台、医助、医师",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "funcTool",
+                        "in": "query",
+                        "description": "具体功能使用工具",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "roomName",
+                        "in": "query",
+                        "description": "对应科室名",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
                     "515": {
                         "description": "Request failed",
                         "content": {
@@ -1453,13 +3045,156 @@
                             }
                         }
                     },
-                    "401": {
-                        "description": "Unauthorized",
+                    "200": {
+                        "description": "OK",
                         "content": {
                             "application/json": {
                                 "example": {
-                                    "code": 401,
-                                    "message": "Unauthorized"
+                                    "code": 200,
+                                    "data": {
+                                        "featureList": [
+                                            {
+                                                "funcDescription": "b",
+                                                "funcName": "a",
+                                                "featureRoom": {
+                                                    "roomRole": "RAD",
+                                                    "roomName": "Prepare"
+                                                },
+                                                "funcFlow": "z",
+                                                "funcRole": "w",
+                                                "funcTool": "uuu",
+                                                "funcId": 1,
+                                                "funcVideo": "a"
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/examine/{examineName}": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "获取化验信息列表接口",
+                "operationId": "getExaminesByExamineName",
+                "parameters": [
+                    {
+                        "name": "examineName",
+                        "in": "path",
+                        "description": "化验名称，支持模糊查询",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "examinePrice",
+                        "in": "query",
+                        "description": "化验价格",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "format": "double"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "examineList": [
+                                            {
+                                                "examineName": "testExamine",
+                                                "examineId": 2,
+                                                "examinePrice": 1.2
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/charge/{itemName}": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "获取收费信息列表接口",
+                "operationId": "getChargesByItemName",
+                "parameters": [
+                    {
+                        "name": "itemName",
+                        "in": "path",
+                        "description": "收费名称",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "chargePrice",
+                        "in": "query",
+                        "description": "收费价格",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "format": "double"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "chargeList": [
+                                            {
+                                                "itemName": "testCharge",
+                                                "chargeId": 1,
+                                                "chargePrice": 7.3
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1704,6 +3439,372 @@
                                             }
                                         ]
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/room/{roomName}": {
+            "delete": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "删除科室信息接口",
+                "operationId": "deleteRoom",
+                "parameters": [
+                    {
+                        "name": "roomName",
+                        "in": "path",
+                        "description": "科室信息Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "roomRole": "this is a test",
+                                        "roomName": "testroom"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/medicine/{medicineId}": {
+            "delete": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "删除药品信息接口",
+                "operationId": "deleteMedicine",
+                "parameters": [
+                    {
+                        "name": "medicineId",
+                        "in": "path",
+                        "description": "药品信息Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "medicineCategory": "Mental",
+                                        "isVaccine": 0,
+                                        "medicinePrice": 123.12,
+                                        "medicineId": 2,
+                                        "specification": "Specification 1",
+                                        "medicineName": "Medicine Item 2",
+                                        "manufacturer": "Manufacturer 1"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/feature/{funcId}": {
+            "delete": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "删除功能信息接口",
+                "operationId": "deleteFeature",
+                "parameters": [
+                    {
+                        "name": "funcId",
+                        "in": "path",
+                        "description": "功能信息Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "funcDescription": "Inject Vaccine Description",
+                                        "funcName": "Inject Vaccine",
+                                        "featureRoom": {
+                                            "roomRole": "RAD",
+                                            "roomName": "Prepare"
+                                        },
+                                        "funcFlow": "Inject Vaccine Order",
+                                        "funcRole": "NAN",
+                                        "funcTool": "Needle Tubing",
+                                        "funcId": 2,
+                                        "funcVideo": "system/feature/90ca72f7-7dd1-438c-b986-a529ba68c6b3/Inject Vaccine/video"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/examine/{examineId}": {
+            "delete": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "删除化验信息接口",
+                "operationId": "deleteExamine",
+                "parameters": [
+                    {
+                        "name": "examineId",
+                        "in": "path",
+                        "description": "化验信息Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "examineName": "testroom",
+                                        "examineId": 2,
+                                        "examinePrice": 1.2
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/charge/{chargeId}": {
+            "delete": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "删除收费信息接口",
+                "operationId": "deleteCharge",
+                "parameters": [
+                    {
+                        "name": "chargeId",
+                        "in": "path",
+                        "description": "收费信息Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "itemName": "Charge Item 2",
+                                        "chargeId": 2,
+                                        "chargePrice": 13.12
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/archive/{archiveId}": {
+            "delete": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "删除档案信息接口",
+                "operationId": "deleteArchive",
+                "parameters": [
+                    {
+                        "name": "archiveId",
+                        "in": "path",
+                        "description": "档案信息Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "petName": "Tom",
+                                        "petSex": "M",
+                                        "petType": "cat",
+                                        "storeTime": "2022-12-31 12:12:12",
+                                        "ownerTel": "12345678910",
+                                        "diseaseType": "Psychosis",
+                                        "archiveId": 2
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/admission/{admissionId}": {
+            "delete": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "删除入院信息接口",
+                "operationId": "deleteAdmission",
+                "parameters": [
+                    {
+                        "name": "admissionId",
+                        "in": "path",
+                        "description": "入院信息Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "careLevel": "Low",
+                                        "admissionId": 2,
+                                        "remark": "comment on normal room",
+                                        "carePrice": 555.25,
+                                        "roomStandard": "normal room 2"
+                                    },
+                                    "message": "ok"
                                 }
                             }
                         }
@@ -1989,6 +4090,17 @@
                     }
                 ],
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -2000,17 +4112,6 @@
                                         "categoryId": 6
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -2038,6 +4139,17 @@
                     }
                 ],
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -2051,17 +4163,6 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
