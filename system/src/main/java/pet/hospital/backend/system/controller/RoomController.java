@@ -56,11 +56,14 @@ public class RoomController {
     @Operation(summary = "更改科室信息接口")
     @PutMapping(value = "/update")
     public JSONObject updateRoom(
+            @Parameter(description = "原先的科室名称") @RequestParam String previousRoomName,
             @Parameter(description = "科室名") @RequestParam String roomName,
             @Parameter(description = "科室描述") @RequestParam String roomRole)
             throws UnsupportedEncodingException {
         return roomService.updateRoom(
-                URLDecoder.decode(roomName, Constants.UTF8), URLDecoder.decode(roomRole, Constants.UTF8));
+                URLDecoder.decode(previousRoomName, Constants.UTF8),
+                URLDecoder.decode(roomName, Constants.UTF8),
+                URLDecoder.decode(roomRole, Constants.UTF8));
     }
 
     @Operation(summary = "删除科室接口")

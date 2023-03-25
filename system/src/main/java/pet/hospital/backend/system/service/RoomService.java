@@ -1,8 +1,8 @@
 /*
  * @Author: dafenqi-11 diaozehao@163.com
  * @Date: 2023-03-22 14:27:24
- * @LastEditors: dafenqi-11 diaozehao@163.com
- * @LastEditTime: 2023-03-24 12:59:20
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-25 16:26:35
  * @FilePath: \virtualPetHospital-backend\system\src\main\java\pet\hospital\backend\system\service\RoomService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -27,6 +27,7 @@ import org.springframework.stereotype.Service;
 import pet.hospital.backend.common.constant.Constants;
 import pet.hospital.backend.common.helper.ResponseHelper;
 import pet.hospital.backend.common.helper.SearchJudgeHelper;
+import pet.hospital.backend.system.dao.FeatureRepository;
 import pet.hospital.backend.system.dao.RoomRepository;
 import pet.hospital.backend.system.entity.Room;
 
@@ -34,6 +35,9 @@ import pet.hospital.backend.system.entity.Room;
 public class RoomService {
     @Autowired
     RoomRepository roomRepository;
+
+    @Autowired
+    FeatureRepository featureRepository;
 
     public JSONObject getRoom(String roomKeyword, String roomRole) {
         JSONObject res = new JSONObject();
@@ -64,14 +68,14 @@ public class RoomService {
         }
     }
 
-    public JSONObject updateRoom(String roomName, String roomRole) {
-        Optional<Room> targetRoomOptional = roomRepository.findById(roomName);
+    public JSONObject updateRoom(String previousRoomName, String roomName, String roomRole) {
+        Optional<Room> targetRoomOptional = roomRepository.findById(previousRoomName);
 
         if (targetRoomOptional.isEmpty()) {
             return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
         } else {
 
-            if (Objects.equals(roomName, targetRoomOptional.get().getRoomName())) {
+            if (Objects.equals(roomName, previousRoomName)) {
                 Room targetRoom = targetRoomOptional.get();
                 targetRoom.setRoomName(roomName);
                 targetRoom.setRoomRole(roomRole);
@@ -85,11 +89,20 @@ public class RoomService {
                         .collect(Collectors.toList());
 
                 if (Objects.equals(targetRoomList.size(), 0)) {
-                    Room targetRoom = targetRoomOptional.get();
-                    targetRoom.setRoomName(roomName);
-                    targetRoom.setRoomRole(roomRole);
+                    Room newRoom = new Room();
+                    newRoom.setRoomName(roomName);
+                    newRoom.setRoomRole(roomRole);
 
-                    Room updatedRoom = roomRepository.saveAndFlush(targetRoom);
+                    Room updatedRoom = roomRepository.saveAndFlush(newRoom);
+
+                    featureRepository.findAll().stream()
+                            .filter(feature ->
+                                    Objects.equals(feature.getFeatureRoom().getRoomName(), previousRoomName))
+                            .forEach(feature -> {
+                                feature.setFeatureRoom(updatedRoom);
+                            });
+
+                    roomRepository.deleteById(previousRoomName);
 
                     return ResponseHelper.constructSuccessResponse(updatedRoom);
                 } else {

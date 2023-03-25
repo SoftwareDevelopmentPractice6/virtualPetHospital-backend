@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-25 14:24:59
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-25 16:01:16
+ * @LastEditTime: 2023-03-25 16:38:12
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/service/SystemService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -10,6 +10,7 @@ package pet.hospital.backend.intermediator.service;
 
 import com.alibaba.fastjson.JSONObject;
 import java.nio.file.Paths;
+import java.util.Objects;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
@@ -424,10 +425,11 @@ public class SystemService {
                 restTemplate.postForObject(Constants.systemModuleBaseUrl + api, requestEntity, JSONObject.class));
     }
 
-    public ResponseData<JSONObject> updateRoom(String roomName, String roomRole) {
+    public ResponseData<JSONObject> updateRoom(String previousRoomName, String roomName, String roomRole) {
         String api = "api/system/room/update";
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.systemModuleBaseUrl + api)
+                .queryParam(Constants.previousRoomName, previousRoomName)
                 .queryParam(Constants.roomName, roomName)
                 .queryParam(Constants.roomRole, roomRole);
 
@@ -478,6 +480,10 @@ public class SystemService {
                 this.getFeatures(funcId, null, null, null, null, null, null).getData();
 
         if (getFeatureRes == null) {
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        }
+
+        if (Objects.equals(getFeatureRes.getJSONArray(Constants.featureList).size(), 0)) {
             return ResponseData.error(EnumCode.REQUEST_ERROR);
         }
 

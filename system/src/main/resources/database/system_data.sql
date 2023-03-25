@@ -34,7 +34,7 @@ DELETE FROM `ARCHIVE` WHERE archive_id = 1;
 INSERT INTO `ARCHIVE`
 VALUES (
 		1,
-		'9999-12-31',
+		'9999-12-31 12:12:12',
 		'aa',
 		'sws',
 		'q',

@@ -1,3 +1,11 @@
+/*
+ * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @Date: 2023-03-25 00:06:06
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-25 16:57:53
+ * @FilePath: /virtualPetHospital-backend/system/src/main/java/pet/hospital/backend/system/controller/FeatureController.java
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 package pet.hospital.backend.system.controller;
 
 import com.alibaba.fastjson.JSONObject;
@@ -64,7 +72,7 @@ public class FeatureController {
     @Operation(summary = "更改具体功能操作接口")
     @PutMapping(value = "/update")
     public JSONObject updateFeature(
-            @Parameter(description = "具体功能操作Id") @RequestParam int featureId,
+            @Parameter(description = "具体功能操作Id") @RequestParam int funcId,
             @Parameter(description = "具体功能名") @RequestParam String funcName,
             @Parameter(description = "具体功能描述") @RequestParam String funcDescription,
             @Parameter(description = "具体功能流程") @RequestParam String funcFlow,
@@ -74,7 +82,7 @@ public class FeatureController {
             @Parameter(description = "对应科室名") @RequestParam String roomName)
             throws UnsupportedEncodingException {
         return featureService.updateFeature(
-                featureId,
+                funcId,
                 URLDecoder.decode(funcName, Constants.UTF8),
                 URLDecoder.decode(funcDescription, Constants.UTF8),
                 URLDecoder.decode(funcFlow, Constants.UTF8),
@@ -86,8 +94,8 @@ public class FeatureController {
 
     @Operation(summary = "删除具体功能操作接口")
     @DeleteMapping(value = "/delete")
-    public JSONObject deleteFeature(@Parameter(description = "具体功能操作id") @RequestParam int featureId)
+    public JSONObject deleteFeature(@Parameter(description = "具体功能操作id") @RequestParam int funcId)
             throws UnsupportedEncodingException {
-        return featureService.deleteFeature(featureId);
+        return featureService.deleteFeature(funcId);
     }
 }

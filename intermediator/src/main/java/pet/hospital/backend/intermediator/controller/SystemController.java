@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-25 15:02:58
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-25 16:08:57
+ * @LastEditTime: 2023-03-25 16:50:40
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/controller/SystemController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -246,7 +246,7 @@ public class SystemController {
                                     @Schema(
                                             type = "json",
                                             example =
-                                                    "{\"storeTime\": \"2022-12-31\", \"diseaseType\": \"Psychosis\", \"petType\": \"cat\", \"petName\": \"Tom\", \"petSex\": \"M\", \"ownerTel\": \"12345678910\"}"))
+                                                    "{\"storeTime\": \"2022-12-31 12:12:12\", \"diseaseType\": \"Psychosis\", \"petType\": \"cat\", \"petName\": \"Tom\", \"petSex\": \"M\", \"ownerTel\": \"12345678910\"}"))
                     @RequestBody
                     JSONObject newArchiveInfo) {
         return systemService
@@ -289,7 +289,7 @@ public class SystemController {
                                     @Schema(
                                             type = "json",
                                             example =
-                                                    "{\"archiveId\": 2, \"storeTime\": \"2022-12-31\", \"diseaseType\": \"Psychosis\", \"petType\": \"cat\", \"petName\": \"Tom\", \"petSex\": \"M\", \"ownerTel\": \"12345678910\"}"))
+                                                    "{\"archiveId\": 2, \"storeTime\": \"2022-12-31 11:11:11\", \"diseaseType\": \"Psychosis\", \"petType\": \"cat\", \"petName\": \"Tom\", \"petSex\": \"M\", \"ownerTel\": \"12345678910\"}"))
                     @RequestBody
                     JSONObject newArchiveInfo) {
         return systemService
@@ -946,11 +946,15 @@ public class SystemController {
                             schema =
                                     @Schema(
                                             type = "json",
-                                            example = "{\"roomName\": \"Prepare\", \"roomRole\": \"RAD\"}"))
+                                            example =
+                                                    "{\"previousRoomName\": \"test room\", \"roomName\": \"Prepare\", \"roomRole\": \"RAD\"}"))
                     @RequestBody
                     JSONObject newRoomInfo) {
         return systemService
-                .updateRoom(newRoomInfo.getString(Constants.roomName), newRoomInfo.getString(Constants.roomRole))
+                .updateRoom(
+                        newRoomInfo.getString(Constants.previousRoomName),
+                        newRoomInfo.getString(Constants.roomName),
+                        newRoomInfo.getString(Constants.roomRole))
                 .toResponseEntity();
     }
 
