@@ -2,13 +2,18 @@
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-22 14:01:53
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-22 20:35:42
+ * @LastEditTime: 2023-03-23 17:09:29
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/service/ExamService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 package pet.hospital.backend.intermediator.service;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
@@ -17,6 +22,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import pet.hospital.backend.intermediator.constant.Constants;
+import pet.hospital.backend.intermediator.helper.EnumCode;
 import pet.hospital.backend.intermediator.helper.ResponseData;
 import pet.hospital.backend.intermediator.helper.ResponseHelper;
 
@@ -319,5 +325,232 @@ public class ExamService {
 
         return ResponseHelper.forwardResponseDataDirectly(
                 restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
+    }
+
+    public ResponseData<JSONObject> addQuestionInPapers(int questionPoint, int paperId, int questionId) {
+        String api = "api/exam/question-in-paper/add";
+
+        MultiValueMap<String, String> requestEntity = new LinkedMultiValueMap<>();
+        requestEntity.add(Constants.questionPoint, String.valueOf(questionPoint));
+        requestEntity.add(Constants.paperId, String.valueOf(paperId));
+        requestEntity.add(Constants.questionId, String.valueOf(questionId));
+
+        return ResponseHelper.forwardResponseDataDirectly(
+                restTemplate.postForObject(Constants.examModuleBaseUrl + api, requestEntity, JSONObject.class));
+    }
+
+    public ResponseData<JSONObject> updateQuestionInPapers(
+            int questionInPaperId, int questionPoint, int paperId, int questionId) {
+        String api = "api/exam/question-in-paper/update";
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
+                .queryParam(Constants.questionInPaperId, questionInPaperId)
+                .queryParam(Constants.questionPoint, questionPoint)
+                .queryParam(Constants.paperId, paperId)
+                .queryParam(Constants.questionId, questionId);
+
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
+                .exchange(uriBuilder.toUriString(), HttpMethod.PUT, null, JSONObject.class)
+                .getBody());
+    }
+
+    public ResponseData<JSONObject> deleteQuestionInPapers(int questionInPaperId) {
+        String api = "api/exam/question-in-paper/delete";
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
+                .queryParam(Constants.questionInPaperId, questionInPaperId);
+
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
+                .exchange(uriBuilder.toUriString(), HttpMethod.DELETE, null, JSONObject.class)
+                .getBody());
+    }
+
+    public ResponseData<JSONObject> getQuestionInPapers(Integer questionPoint, Integer paperId, Integer questionId) {
+        String api = "api/exam/question-in-paper/get";
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
+                .queryParam(Constants.questionPoint, questionPoint)
+                .queryParam(Constants.paperId, paperId)
+                .queryParam(Constants.questionId, questionId);
+
+        return ResponseHelper.forwardResponseDataDirectly(
+                restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
+    }
+
+    public ResponseData<JSONObject> getExaminations(
+            String examNameKeyword,
+            String paperNameKeyword,
+            String paperDuration,
+            String paperTotalScore,
+            String examSessionStartTime,
+            String examSessionEndTime) {
+        JSONObject examResData = this.getExams(examNameKeyword).getData();
+        JSONObject paperResData = this.getPapers(paperNameKeyword, paperDuration, paperTotalScore, null)
+                .getData();
+        JSONObject examSessionResData = this.getExamSessions(examSessionStartTime, examSessionEndTime, null)
+                .getData();
+
+        if (examResData == null || paperResData == null || examSessionResData == null) {
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        }
+
+        JSONArray examRes = examResData.getJSONArray(Constants.examList);
+        JSONArray paperRes = paperResData.getJSONArray(Constants.paperList);
+        JSONArray examSessionRes = examSessionResData.getJSONArray(Constants.examSessionList);
+
+        examSessionRes.removeIf(examSession -> {
+            List<Boolean> judger = new ArrayList<>();
+
+            JSONObject examSessionPaperJsonObject =
+                    JSON.parseObject(JSON.toJSONString(examSession)).getJSONObject(Constants.examSessionPaper);
+
+            paperRes.stream().anyMatch(paper -> {
+                if (Objects.equals(
+                        examSessionPaperJsonObject.getInteger(Constants.paperId),
+                        JSON.parseObject(JSON.toJSONString(paper)).getInteger(Constants.paperId))) {
+                    judger.add(true);
+                    return true;
+                }
+                return false;
+            });
+
+            examRes.stream().anyMatch(exam -> {
+                if (Objects.equals(
+                        examSessionPaperJsonObject
+                                .getJSONObject(Constants.paperExam)
+                                .getInteger(Constants.examId),
+                        JSON.parseObject(JSON.toJSONString(exam)).getInteger(Constants.examId))) {
+                    judger.add(true);
+                    return true;
+                }
+                return false;
+            });
+
+            return Objects.equals(judger.size(), 2) ? !(judger.get(0) && judger.get(1)) : true;
+        });
+
+        JSONObject res = new JSONObject();
+        res.put(Constants.examSessionList, examSessionRes);
+
+        return ResponseData.success(res);
+    }
+
+    public ResponseData<JSONObject> deleteExamination(int examId) {
+        JSONObject paperResData = this.getPapers(null, null, null, examId).getData();
+
+        if (paperResData == null) {
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        }
+
+        JSONObject examSessionData = this.getExamSessions(
+                        null,
+                        null,
+                        paperResData
+                                .getJSONArray(Constants.paperList)
+                                .getJSONObject(0)
+                                .getInteger(Constants.paperId))
+                .getData();
+
+        if (examSessionData == null) {
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        }
+
+        return this.deleteExamSession(examSessionData
+                .getJSONArray(Constants.examSessionList)
+                .getJSONObject(0)
+                .getInteger(Constants.examSessionId));
+    }
+
+    public ResponseData<JSONObject> updateExamination(
+            int examId,
+            String examName,
+            String paperName,
+            String paperDuration,
+            String paperTotalScore,
+            String examSessionStartTime,
+            String examSessionEndTime) {
+        JSONObject paperResData = this.getPapers(null, null, null, examId).getData();
+
+        if (paperResData == null) {
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        }
+
+        int paperId =
+                paperResData.getJSONArray(Constants.paperList).getJSONObject(0).getInteger(Constants.paperId);
+
+        JSONObject examSessionData = this.getExamSessions(null, null, paperId).getData();
+
+        if (examSessionData == null) {
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        }
+
+        JSONObject previousExamSessionData =
+                examSessionData.getJSONArray(Constants.examSessionList).getJSONObject(0);
+        JSONObject previousPaperData = previousExamSessionData.getJSONObject(Constants.examSessionPaper);
+        JSONObject previousExamData = previousPaperData.getJSONObject(Constants.paperExam);
+
+        int examSessionId = previousExamSessionData.getInteger(Constants.examSessionId);
+
+        JSONObject examUpdateRes = this.updateExam(examId, examName).getData();
+        JSONObject paperUpdateRes = this.updatePaper(paperId, paperName, paperDuration, paperTotalScore, examId)
+                .getData();
+        JSONObject examSessionUpdateRes = this.updateExamSession(
+                        examSessionId, examSessionStartTime, examSessionEndTime, paperId)
+                .getData();
+
+        if (examUpdateRes == null || paperUpdateRes == null || examSessionUpdateRes == null) {
+            this.updateExam(examId, previousExamData.getString(Constants.examName));
+            this.updatePaper(
+                    paperId,
+                    previousPaperData.getString(Constants.paperName),
+                    previousPaperData.getString(Constants.paperDuration),
+                    previousPaperData.getString(Constants.paperTotalScore),
+                    examId);
+            this.updateExamSession(
+                    examSessionId,
+                    previousExamSessionData.getString(Constants.examSessionStartTime),
+                    previousExamSessionData.getString(Constants.examSessionEndTime),
+                    paperId);
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        } else {
+            return ResponseData.success(previousExamSessionData);
+        }
+    }
+
+    public ResponseData<JSONObject> addExamination(
+            String examName,
+            String paperName,
+            String paperDuration,
+            String paperTotalScore,
+            String examSessionStartTime,
+            String examSessionEndTime) {
+        JSONObject addExamRes = this.addExam(examName).getData();
+
+        if (addExamRes == null) {
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        }
+
+        int examId = addExamRes.getInteger(Constants.examId);
+
+        JSONObject addPaperRes =
+                this.addPaper(paperName, paperDuration, paperTotalScore, examId).getData();
+
+        if (addPaperRes == null) {
+            this.deleteExam(examId);
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        }
+
+        int paperId = addPaperRes.getInteger(Constants.paperId);
+
+        JSONObject addExamSessionRes = this.addExamSession(examSessionStartTime, examSessionEndTime, paperId)
+                .getData();
+
+        if (addExamSessionRes == null) {
+            this.deleteExam(examId);
+            this.deletePaper(paperId);
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        } else {
+            return ResponseData.success(addExamSessionRes);
+        }
     }
 }

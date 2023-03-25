@@ -257,7 +257,7 @@ public class AuthController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"userList\":[{\"userPassword\":\"test\",\"userAuthority\":3,\"userName\":\"test@test.com\",\"userId\":2},{\"userPassword\":\"tttt\",\"userAuthority\":3,\"userName\":\"tt\",\"userId\":6}]}}}")
+                                                            "{\"code\":200,\"data\":{\"userList\":[{\"userPassword\":\"test\",\"userAuthority\":3,\"userName\":\"test@test.com\",\"userId\":2},{\"userPassword\":\"tttt\",\"userAuthority\":3,\"userName\":\"tt\",\"userId\":6}]}}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
