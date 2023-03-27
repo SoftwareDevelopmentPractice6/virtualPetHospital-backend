@@ -2,6 +2,8 @@ package pet.hospital.backend.medicalRecordManagement.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson2.JSON;
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,8 +49,8 @@ public class MedicalCaseService {
             Integer admissionId,
             Integer caseCheckId,
             Integer diagnosticResultId,
-            Integer diseaseNameId,
-            Integer treatmentProgramId) {
+            Integer treatmentProgramId,
+            Integer diseaseNameId) {
         JSONObject res = new JSONObject();
         res.put(
                 Constants.medicalCaseList,
@@ -78,7 +80,7 @@ public class MedicalCaseService {
     }
 
     public JSONObject addMedicalCase(
-            int admissionId, int caseCheckId, int diagnosticResultId, int diseaseNameId, int treatmentProgramId) {
+            int admissionId, int caseCheckId, int diagnosticResultId, int treatmentProgramId, int diseaseNameId) {
 
         Optional<Admission> targetAdmissionOptional = admissionRepository.findById(admissionId);
         Optional<CaseCheck> targetCaseCheckIdOptional = caseCheckRepository.findById(caseCheckId);
@@ -89,24 +91,40 @@ public class MedicalCaseService {
                 treatmentProgramRepository.findById(treatmentProgramId);
 
         if (targetAdmissionOptional.isEmpty()
-                && targetCaseCheckIdOptional.isEmpty()
-                && targetDiagnosticResultOptional.isEmpty()
-                && targetDiseaseNameOptional.isEmpty()
-                && targetTreatmentProgramOptional.isEmpty()) {
+                || targetCaseCheckIdOptional.isEmpty()
+                || targetDiagnosticResultOptional.isEmpty()
+                || targetDiseaseNameOptional.isEmpty()
+                || targetTreatmentProgramOptional.isEmpty()) {
             return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
         } else {
 
-            MedicalCase newMedicalCase = new MedicalCase();
+            List<MedicalCase> targetMedicalCaseList = medicalCaseRepository.findAll().stream()
+                    .filter(medicalCase -> Objects.equals(
+                                    medicalCase.getMedicalCaseAdmission().getAdmissionId(), admissionId)
+                            || Objects.equals(
+                                    medicalCase.getMedicalCaseCaseCheck().getCaseCheckId(), caseCheckId)
+                            || Objects.equals(
+                                    medicalCase.getMedicalCaseDiagnosticResult().getDiagnosticResultId(),
+                                    diagnosticResultId)
+                            || Objects.equals(
+                                    medicalCase.getMedicalCaseTreatmentProgram().getTreatmentProgramId(),
+                                    treatmentProgramId))
+                    .collect(Collectors.toList());
+            if (Objects.equals(targetMedicalCaseList.size(), 0)) {
+                MedicalCase newMedicalCase = new MedicalCase();
 
-            newMedicalCase.setMedicalCaseDiseaseName(targetDiseaseNameOptional.get());
-            newMedicalCase.setMedicalCaseAdmission(targetAdmissionOptional.get());
-            newMedicalCase.setMedicalCaseCaseCheck(targetCaseCheckIdOptional.get());
-            newMedicalCase.setMedicalCaseDiagnosticResult(targetDiagnosticResultOptional.get());
-            newMedicalCase.setMedicalCaseTreatmentProgram(targetTreatmentProgramOptional.get());
+                newMedicalCase.setMedicalCaseDiseaseName(targetDiseaseNameOptional.get());
+                newMedicalCase.setMedicalCaseAdmission(targetAdmissionOptional.get());
+                newMedicalCase.setMedicalCaseCaseCheck(targetCaseCheckIdOptional.get());
+                newMedicalCase.setMedicalCaseDiagnosticResult(targetDiagnosticResultOptional.get());
+                newMedicalCase.setMedicalCaseTreatmentProgram(targetTreatmentProgramOptional.get());
 
-            MedicalCase addedMedicalCase = medicalCaseRepository.saveAndFlush(newMedicalCase);
+                MedicalCase addedMedicalCase = medicalCaseRepository.saveAndFlush(newMedicalCase);
 
-            return ResponseHelper.constructSuccessResponse(addedMedicalCase);
+                return ResponseHelper.constructSuccessResponse(addedMedicalCase);
+            } else {
+                return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
+            }
         }
     }
 
@@ -115,8 +133,8 @@ public class MedicalCaseService {
             int admissionId,
             int caseCheckId,
             int diagnosticResultId,
-            int diseaseNameId,
-            int treatmentProgramId) {
+            int treatmentProgramId,
+            int diseaseNameId) {
         Optional<MedicalCase> targetMedicalCaseOptional = medicalCaseRepository.findById(medicalCaseId);
 
         if (targetMedicalCaseOptional.isEmpty()) {
@@ -131,23 +149,44 @@ public class MedicalCaseService {
                     treatmentProgramRepository.findById(treatmentProgramId);
 
             if (targetAdmissionOptional.isEmpty()
-                    && targetCaseCheckIdOptional.isEmpty()
-                    && targetDiagnosticResultOptional.isEmpty()
-                    && targetDiseaseNameOptional.isEmpty()
-                    && targetTreatmentProgramOptional.isEmpty()) {
+                    || targetCaseCheckIdOptional.isEmpty()
+                    || targetDiagnosticResultOptional.isEmpty()
+                    || targetDiseaseNameOptional.isEmpty()
+                    || targetTreatmentProgramOptional.isEmpty()) {
                 return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
             } else {
+                List<MedicalCase> targetMedicalCaseList = medicalCaseRepository.findAll().stream()
+                        .filter(medicalCase -> (Objects.equals(
+                                        medicalCase.getMedicalCaseAdmission().getAdmissionId(), admissionId)
+                                || Objects.equals(
+                                        medicalCase.getMedicalCaseCaseCheck().getCaseCheckId(), caseCheckId)
+                                || Objects.equals(
+                                        medicalCase
+                                                .getMedicalCaseDiagnosticResult()
+                                                .getDiagnosticResultId(),
+                                        diagnosticResultId)
+                                || Objects.equals(
+                                        medicalCase
+                                                .getMedicalCaseTreatmentProgram()
+                                                .getTreatmentProgramId(),
+                                        treatmentProgramId))
+                                && !Objects.equals(medicalCase.getMedicalCaseId(), medicalCaseId))
+                        .collect(Collectors.toList());
 
-                MedicalCase targetMedicalCase = targetMedicalCaseOptional.get();
-                targetMedicalCase.setMedicalCaseDiseaseName(targetDiseaseNameOptional.get());
-                targetMedicalCase.setMedicalCaseAdmission(targetAdmissionOptional.get());
-                targetMedicalCase.setMedicalCaseCaseCheck(targetCaseCheckIdOptional.get());
-                targetMedicalCase.setMedicalCaseDiagnosticResult(targetDiagnosticResultOptional.get());
-                targetMedicalCase.setMedicalCaseTreatmentProgram(targetTreatmentProgramOptional.get());
+                if (Objects.equals(targetMedicalCaseList.size(), 0)) {
+                    MedicalCase targetMedicalCase = targetMedicalCaseOptional.get();
+                    targetMedicalCase.setMedicalCaseDiseaseName(targetDiseaseNameOptional.get());
+                    targetMedicalCase.setMedicalCaseAdmission(targetAdmissionOptional.get());
+                    targetMedicalCase.setMedicalCaseCaseCheck(targetCaseCheckIdOptional.get());
+                    targetMedicalCase.setMedicalCaseDiagnosticResult(targetDiagnosticResultOptional.get());
+                    targetMedicalCase.setMedicalCaseTreatmentProgram(targetTreatmentProgramOptional.get());
 
-                MedicalCase updatedMedicalCase = medicalCaseRepository.saveAndFlush(targetMedicalCase);
+                    MedicalCase updatedMedicalCase = medicalCaseRepository.saveAndFlush(targetMedicalCase);
 
-                return ResponseHelper.constructSuccessResponse(updatedMedicalCase);
+                    return ResponseHelper.constructSuccessResponse(updatedMedicalCase);
+                } else {
+                    return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
+                }
             }
         }
     }
