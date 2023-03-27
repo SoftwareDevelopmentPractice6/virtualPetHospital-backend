@@ -157,19 +157,25 @@ public class MedicalCaseService {
             } else {
                 List<MedicalCase> targetMedicalCaseList = medicalCaseRepository.findAll().stream()
                         .filter(medicalCase -> (Objects.equals(
-                                        medicalCase.getMedicalCaseAdmission().getAdmissionId(), admissionId)
-                                || Objects.equals(
-                                        medicalCase.getMedicalCaseCaseCheck().getCaseCheckId(), caseCheckId)
-                                || Objects.equals(
-                                        medicalCase
-                                                .getMedicalCaseDiagnosticResult()
-                                                .getDiagnosticResultId(),
-                                        diagnosticResultId)
-                                || Objects.equals(
-                                        medicalCase
-                                                .getMedicalCaseTreatmentProgram()
-                                                .getTreatmentProgramId(),
-                                        treatmentProgramId))
+                                                medicalCase
+                                                        .getMedicalCaseAdmission()
+                                                        .getAdmissionId(),
+                                                admissionId)
+                                        || Objects.equals(
+                                                medicalCase
+                                                        .getMedicalCaseCaseCheck()
+                                                        .getCaseCheckId(),
+                                                caseCheckId)
+                                        || Objects.equals(
+                                                medicalCase
+                                                        .getMedicalCaseDiagnosticResult()
+                                                        .getDiagnosticResultId(),
+                                                diagnosticResultId)
+                                        || Objects.equals(
+                                                medicalCase
+                                                        .getMedicalCaseTreatmentProgram()
+                                                        .getTreatmentProgramId(),
+                                                treatmentProgramId))
                                 && !Objects.equals(medicalCase.getMedicalCaseId(), medicalCaseId))
                         .collect(Collectors.toList());
 
