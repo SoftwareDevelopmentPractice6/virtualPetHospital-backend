@@ -2,7 +2,7 @@
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-22 14:01:53
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-23 17:09:29
+ * @LastEditTime: 2023-03-27 16:40:49
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/service/ExamService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -11,9 +11,6 @@ package pet.hospital.backend.intermediator.service;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
@@ -399,34 +396,11 @@ public class ExamService {
         JSONArray examSessionRes = examSessionResData.getJSONArray(Constants.examSessionList);
 
         examSessionRes.removeIf(examSession -> {
-            List<Boolean> judger = new ArrayList<>();
-
             JSONObject examSessionPaperJsonObject =
                     JSON.parseObject(JSON.toJSONString(examSession)).getJSONObject(Constants.examSessionPaper);
 
-            paperRes.stream().anyMatch(paper -> {
-                if (Objects.equals(
-                        examSessionPaperJsonObject.getInteger(Constants.paperId),
-                        JSON.parseObject(JSON.toJSONString(paper)).getInteger(Constants.paperId))) {
-                    judger.add(true);
-                    return true;
-                }
-                return false;
-            });
-
-            examRes.stream().anyMatch(exam -> {
-                if (Objects.equals(
-                        examSessionPaperJsonObject
-                                .getJSONObject(Constants.paperExam)
-                                .getInteger(Constants.examId),
-                        JSON.parseObject(JSON.toJSONString(exam)).getInteger(Constants.examId))) {
-                    judger.add(true);
-                    return true;
-                }
-                return false;
-            });
-
-            return Objects.equals(judger.size(), 2) ? !(judger.get(0) && judger.get(1)) : true;
+            return !(paperRes.contains(examSessionPaperJsonObject)
+                    && examRes.contains(examSessionPaperJsonObject.getJSONObject(Constants.paperExam)));
         });
 
         JSONObject res = new JSONObject();
