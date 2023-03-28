@@ -197,7 +197,7 @@ public class MedicalCaseService {
         }
     }
 
-    public JSONObject deleteExam(int medicalCaseId) {
+    public JSONObject deleteMedicalCase(int medicalCaseId) {
         Optional<MedicalCase> targetMedicalCaseOptional = medicalCaseRepository.findById(medicalCaseId);
 
         if (targetMedicalCaseOptional.isEmpty()) {

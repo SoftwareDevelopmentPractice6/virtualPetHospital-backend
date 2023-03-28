@@ -66,7 +66,7 @@ public class DiagnosticResultService {
         }
     }
 
-    public JSONObject deleteExam(int diagnosticResultId) {
+    public JSONObject deleteDiagnosticResult(int diagnosticResultId) {
         Optional<DiagnosticResult> targetDiagnosticResultOptional =
                 diagnosticResultRepository.findById(diagnosticResultId);
 

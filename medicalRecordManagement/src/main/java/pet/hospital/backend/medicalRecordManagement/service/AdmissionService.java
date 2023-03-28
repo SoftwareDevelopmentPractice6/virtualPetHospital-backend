@@ -60,7 +60,7 @@ public class AdmissionService {
         }
     }
 
-    public JSONObject deleteExam(int admissionId) {
+    public JSONObject deleteAdmission(int admissionId) {
         Optional<Admission> targetAdmissionOptional = admissionRepository.findById(admissionId);
 
         if (targetAdmissionOptional.isEmpty()) {

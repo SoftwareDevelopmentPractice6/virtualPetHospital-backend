@@ -95,7 +95,7 @@ public class DiseaseNameService {
         }
     }
 
-    public JSONObject deleteExam(int diseaseNameId) {
+    public JSONObject deleteDiseaseName(int diseaseNameId) {
         Optional<DiseaseName> targetDiseaseNameOptional = diseaseNameRepository.findById(diseaseNameId);
 
         if (targetDiseaseNameOptional.isEmpty()) {

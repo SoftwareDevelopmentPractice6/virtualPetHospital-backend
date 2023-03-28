@@ -66,7 +66,7 @@ public class TreatmentProgramService {
         }
     }
 
-    public JSONObject deleteExam(int treatmentProgramId) {
+    public JSONObject deleteTreatmentProgram(int treatmentProgramId) {
         Optional<TreatmentProgram> targetTreatmentProgramOptional =
                 treatmentProgramRepository.findById(treatmentProgramId);
 

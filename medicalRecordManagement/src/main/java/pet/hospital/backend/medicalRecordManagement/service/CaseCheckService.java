@@ -60,7 +60,7 @@ public class CaseCheckService {
         }
     }
 
-    public JSONObject deleteExam(int caseCheckId) {
+    public JSONObject deleteCaseCheck(int caseCheckId) {
         Optional<CaseCheck> targetCaseCheckOptional = caseCheckRepository.findById(caseCheckId);
 
         if (targetCaseCheckOptional.isEmpty()) {
