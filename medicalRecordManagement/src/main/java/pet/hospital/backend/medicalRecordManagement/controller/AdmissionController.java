@@ -1,3 +1,11 @@
+/*
+ * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @Date: 2023-03-28 19:04:37
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-28 19:05:01
+ * @FilePath: /virtualPetHospital-backend/medicalRecordManagement/src/main/java/pet/hospital/backend/medicalRecordManagement/controller/AdmissionController.java
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 package pet.hospital.backend.medicalRecordManagement.controller;
 
 import com.alibaba.fastjson.JSONObject;
@@ -20,9 +28,8 @@ import pet.hospital.backend.medicalRecordManagement.service.AdmissionService;
 @RestController
 @Tag(name = "MedicalRecordManagement模块")
 @RequestMapping(
-        value = "/api/medicalRecordManagement/admission",
+        value = "/api/disease/admission",
         produces = {"application/json;charset=UTF-8"})
-
 public class AdmissionController {
     @Autowired
     AdmissionService admissionService;
@@ -31,10 +38,9 @@ public class AdmissionController {
     @GetMapping(value = "/get")
     public JSONObject getAdmission(
             @Parameter(description = "接诊Id") @RequestParam(required = false) Integer admissionId,
-            @Parameter(description = "接诊内容关键字，支持模糊查询") @RequestParam(required = false) String admissionKeyword
-            )
+            @Parameter(description = "接诊内容关键字，支持模糊查询") @RequestParam(required = false) String admissionKeyword)
             throws UnsupportedEncodingException {
-        return admissionService.getAdmission(admissionId, URLDecoder.decode(admissionKeyword, Constants.UTF8));
+        return admissionService.getAdmission(admissionId, admissionKeyword);
     }
 
     @Operation(summary = "新增接诊接口")
@@ -57,7 +63,6 @@ public class AdmissionController {
             @Parameter(description = "接诊内容") @RequestParam String admissionContent,
             @Parameter(description = "接诊图片") @RequestParam String admissionPhoto,
             @Parameter(description = "接诊视频") @RequestParam String admissionVideo)
-
             throws UnsupportedEncodingException {
         return admissionService.updateAdmission(
                 admissionId,
@@ -72,5 +77,3 @@ public class AdmissionController {
         return admissionService.deleteAdmission(admissionId);
     }
 }
-
-

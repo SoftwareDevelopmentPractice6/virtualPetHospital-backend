@@ -20,9 +20,8 @@ import pet.hospital.backend.medicalRecordManagement.service.DiagnosticResultServ
 @RestController
 @Tag(name = "MedicalRecordManagement模块")
 @RequestMapping(
-        value = "/api/medicalRecordManagement/diagnosticResult",
+        value = "/api/disease/diagnostic-result",
         produces = {"application/json;charset=UTF-8"})
-
 public class DiagnosticResultController {
     @Autowired
     DiagnosticResultService diagnosticResultService;
@@ -31,10 +30,9 @@ public class DiagnosticResultController {
     @GetMapping(value = "/get")
     public JSONObject getDiagnosticResult(
             @Parameter(description = "诊断结果Id") @RequestParam(required = false) Integer diagnosticResultId,
-            @Parameter(description = "诊断结果内容关键字，支持模糊查询") @RequestParam(required = false) String diagnosticResultKeyword
-    )
+            @Parameter(description = "诊断结果内容关键字，支持模糊查询") @RequestParam(required = false) String diagnosticResultKeyword)
             throws UnsupportedEncodingException {
-        return diagnosticResultService.getDiagnosticResult(diagnosticResultId, URLDecoder.decode(diagnosticResultKeyword, Constants.UTF8));
+        return diagnosticResultService.getDiagnosticResult(diagnosticResultId, diagnosticResultKeyword);
     }
 
     @Operation(summary = "新增诊断结果接口")
@@ -57,7 +55,6 @@ public class DiagnosticResultController {
             @Parameter(description = "诊断结果内容") @RequestParam String diagnosticResultContent,
             @Parameter(description = "诊断结果图片") @RequestParam String diagnosticResultPhoto,
             @Parameter(description = "诊断结果视频") @RequestParam String diagnosticResultVideo)
-
             throws UnsupportedEncodingException {
         return diagnosticResultService.updateDiagnosticResult(
                 diagnosticResultId,
@@ -72,5 +69,3 @@ public class DiagnosticResultController {
         return diagnosticResultService.deleteDiagnosticResult(diagnosticResultId);
     }
 }
-
-

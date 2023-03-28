@@ -20,9 +20,8 @@ import pet.hospital.backend.medicalRecordManagement.service.CaseCheckService;
 @RestController
 @Tag(name = "MedicalRecordManagement模块")
 @RequestMapping(
-        value = "/api/medicalRecordManagement/caseCheck",
+        value = "/api/disease/case-check",
         produces = {"application/json;charset=UTF-8"})
-
 public class CaseCheckController {
     @Autowired
     CaseCheckService caseCheckService;
@@ -31,10 +30,9 @@ public class CaseCheckController {
     @GetMapping(value = "/get")
     public JSONObject getCaseCheck(
             @Parameter(description = "病例检查Id") @RequestParam(required = false) Integer caseCheckId,
-            @Parameter(description = "病例检查内容关键字，支持模糊查询") @RequestParam(required = false) String caseCheckKeyword
-    )
+            @Parameter(description = "病例检查内容关键字，支持模糊查询") @RequestParam(required = false) String caseCheckKeyword)
             throws UnsupportedEncodingException {
-        return caseCheckService.getCaseCheck(caseCheckId, URLDecoder.decode(caseCheckKeyword, Constants.UTF8));
+        return caseCheckService.getCaseCheck(caseCheckId, caseCheckKeyword);
     }
 
     @Operation(summary = "新增病例检查接口")
@@ -57,7 +55,6 @@ public class CaseCheckController {
             @Parameter(description = "病例检查内容") @RequestParam String caseCheckContent,
             @Parameter(description = "病例检查图片") @RequestParam String caseCheckPhoto,
             @Parameter(description = "病例检查视频") @RequestParam String caseCheckVideo)
-
             throws UnsupportedEncodingException {
         return caseCheckService.updateCaseCheck(
                 caseCheckId,
@@ -72,5 +69,3 @@ public class CaseCheckController {
         return caseCheckService.deleteCaseCheck(caseCheckId);
     }
 }
-
-
