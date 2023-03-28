@@ -1255,6 +1255,168 @@ public class ExamController {
                 .toResponseEntity();
     }
 
+    @Operation(summary = "新增学生单一问题作答信息接口")
+    @ApiResponses(
+            value = {
+                @ApiResponse(
+                        responseCode = "200",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"studentAnswerContent\":\"Test Answer 2\",\"studentAnswerId\":2,\"studentAnswerPoint\":0,\"studentAnswerStudentResult\":{\"studentResultStudentId\":1,\"studentResultExamSession\":{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"examSessionEndTime\":\"2023-03-16 20:00:00\",\"examSessionStartTime\":\"2023-03-16 18:00:00\"},\"studentResultScore\":90,\"studentResultId\":1},\"studentAnswerQuestionInPaper\":{\"questionInPaperPaper\":{\"paperDuration\":\"tt hours\",\"paperTotalScore\":\"ttt\",\"paperExam\":{\"examName\":\"test Exam\",\"examId\":2},\"paperName\":\"test paper\",\"paperId\":2},\"questionPoint\":40,\"questionInPaperQuestion\":{\"questionContent\":\"What is the value of x in the equation x + 5 = 10?\",\"questionId\":1,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"Multiple Choice\"},\"questionInPaperId\":4}},\"message\":\"ok\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                @ApiResponse(
+                        responseCode = "515",
+                        description = "Request failed",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Failure message.",
+                                                    value = "{\"code\": 515,\"message\": \"Request failed\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE))
+            })
+    @PostMapping(value = "/student-answer")
+    public ResponseEntity<JSONObject> addStudentAnswers(
+            @Parameter(
+                            description = "新增的学生单一问题作答信息",
+                            schema =
+                                    @Schema(
+                                            type = "json",
+                                            example =
+                                                    "{\"studentAnswerContent\": \"Test Answer 2\", \"studentAnswerPoint\": 0, \"questionInPaperId\": 2, \"studentResultId\": 2}"))
+                    @RequestBody
+                    JSONObject newStudentAnswerInfo) {
+        return examService
+                .addStudentAnswers(
+                        newStudentAnswerInfo.getString(Constants.studentAnswerContent),
+                        newStudentAnswerInfo.getInteger(Constants.studentAnswerPoint),
+                        newStudentAnswerInfo.getInteger(Constants.questionInPaperId),
+                        newStudentAnswerInfo.getInteger(Constants.studentResultId))
+                .toResponseEntity();
+    }
+
+    @Operation(summary = "更改学生单一问题作答信息接口")
+    @ApiResponses(
+            value = {
+                @ApiResponse(
+                        responseCode = "200",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"studentAnswerContent\":\"Test Answer 3\",\"studentAnswerId\":2,\"studentAnswerPoint\":4,\"studentAnswerStudentResult\":{\"studentResultStudentId\":1,\"studentResultExamSession\":{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"examSessionEndTime\":\"2023-03-16 20:00:00\",\"examSessionStartTime\":\"2023-03-16 18:00:00\"},\"studentResultScore\":90,\"studentResultId\":1},\"studentAnswerQuestionInPaper\":{\"questionInPaperPaper\":{\"paperDuration\":\"tt hours\",\"paperTotalScore\":\"ttt\",\"paperExam\":{\"examName\":\"test Exam\",\"examId\":2},\"paperName\":\"test paper\",\"paperId\":2},\"questionPoint\":40,\"questionInPaperQuestion\":{\"questionContent\":\"What is the value of x in the equation x + 5 = 10?\",\"questionId\":1,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"Multiple Choice\"},\"questionInPaperId\":4}},\"message\":\"ok\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                @ApiResponse(
+                        responseCode = "515",
+                        description = "Request failed",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Failure message.",
+                                                    value = "{\"code\": 515,\"message\": \"Request failed\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE))
+            })
+    @PutMapping(value = "/student-answer")
+    public ResponseEntity<JSONObject> updateStudentAnswers(
+            @Parameter(
+                            description = "更改后的学生单一问题作答信息",
+                            schema =
+                                    @Schema(
+                                            type = "json",
+                                            example =
+                                                    "{\"studentAnswerId\": 3, \"studentAnswerContent\": \"Test Answer 2\", \"studentAnswerPoint\": 0, \"questionInPaperId\": 2, \"studentResultId\": 2}"))
+                    @RequestBody
+                    JSONObject newStudentAnswerInfo) {
+        return examService
+                .updateStudentAnswers(
+                        newStudentAnswerInfo.getInteger(Constants.studentAnswerId),
+                        newStudentAnswerInfo.getString(Constants.studentAnswerContent),
+                        newStudentAnswerInfo.getInteger(Constants.studentAnswerPoint),
+                        newStudentAnswerInfo.getInteger(Constants.questionInPaperId),
+                        newStudentAnswerInfo.getInteger(Constants.studentResultId))
+                .toResponseEntity();
+    }
+
+    @Operation(summary = "删除学生单一问题作答信息接口")
+    @ApiResponses(
+            value = {
+                @ApiResponse(
+                        responseCode = "200",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"studentAnswerContent\":\"Test Answer 3\",\"studentAnswerId\":2,\"studentAnswerPoint\":4,\"studentAnswerStudentResult\":{\"studentResultStudentId\":1,\"studentResultExamSession\":{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"examSessionEndTime\":\"2023-03-16 20:00:00\",\"examSessionStartTime\":\"2023-03-16 18:00:00\"},\"studentResultScore\":90,\"studentResultId\":1},\"studentAnswerQuestionInPaper\":{\"questionInPaperPaper\":{\"paperDuration\":\"tt hours\",\"paperTotalScore\":\"ttt\",\"paperExam\":{\"examName\":\"test Exam\",\"examId\":2},\"paperName\":\"test paper\",\"paperId\":2},\"questionPoint\":40,\"questionInPaperQuestion\":{\"questionContent\":\"What is the value of x in the equation x + 5 = 10?\",\"questionId\":1,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"Multiple Choice\"},\"questionInPaperId\":4}},\"message\":\"ok\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                @ApiResponse(
+                        responseCode = "515",
+                        description = "Request failed",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Failure message.",
+                                                    value = "{\"code\": 515,\"message\": \"Request failed\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE))
+            })
+    @DeleteMapping(value = "/student-answer/{studentAnswerId}")
+    public ResponseEntity<JSONObject> deleteStudentAnswers(
+            @Parameter(description = "学生单一问题作答信息Id") @PathVariable int studentAnswerId) {
+        return examService.deleteStudentAnswers(studentAnswerId).toResponseEntity();
+    }
+
+    @Operation(summary = "获取学生单一问题作答信息列表接口")
+    @ApiResponses(
+            value = {
+                @ApiResponse(
+                        responseCode = "200",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"studentAnswerList\":[{\"studentAnswerContent\":\"Test Answer 3\",\"studentAnswerId\":2,\"studentAnswerPoint\":4,\"studentAnswerStudentResult\":{\"studentResultStudentId\":1,\"studentResultExamSession\":{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"examSessionEndTime\":\"2023-03-16 20:00:00\",\"examSessionStartTime\":\"2023-03-16 18:00:00\"},\"studentResultScore\":90,\"studentResultId\":1},\"studentAnswerQuestionInPaper\":{\"questionInPaperPaper\":{\"paperDuration\":\"tt hours\",\"paperTotalScore\":\"ttt\",\"paperExam\":{\"examName\":\"test Exam\",\"examId\":2},\"paperName\":\"test paper\",\"paperId\":2},\"questionPoint\":40,\"questionInPaperQuestion\":{\"questionContent\":\"What is the value of x in the equation x + 5 = 10?\",\"questionId\":1,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"Multiple Choice\"},\"questionInPaperId\":4}}]},\"message\":\"ok\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                @ApiResponse(
+                        responseCode = "515",
+                        description = "Request failed",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Failure message.",
+                                                    value = "{\"code\": 515,\"message\": \"Request failed\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE))
+            })
+    @GetMapping(value = "/student-answer")
+    public ResponseEntity<JSONObject> getStudentAnswers(
+            @Parameter(description = "学生该问题作答内容") @RequestParam(required = false) String studentAnswerKeyword,
+            @Parameter(description = "学生该问题得分") @RequestParam(required = false) Integer studentAnswerPoint,
+            @Parameter(description = "试卷中问题Id") @RequestParam(required = false) Integer questionInPaperId,
+            @Parameter(description = "学生考试结果Id") @RequestParam(required = false) Integer studentResultId) {
+        return examService
+                .getStudentAnswers(studentAnswerKeyword, studentAnswerPoint, questionInPaperId, studentResultId)
+                .toResponseEntity();
+    }
+
     @Operation(summary = "获取考试列表接口")
     @ApiResponses(
             value = {

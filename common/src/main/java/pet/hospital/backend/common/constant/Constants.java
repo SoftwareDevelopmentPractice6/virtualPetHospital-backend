@@ -32,6 +32,8 @@ public class Constants {
 
     public static String questionInPaperList = "questionInPaperList";
 
+    public static String studentAnswerList = "studentAnswerList";
+
     public static String roomList = "roomList";
 
     public static String medicineList = "medicineList";

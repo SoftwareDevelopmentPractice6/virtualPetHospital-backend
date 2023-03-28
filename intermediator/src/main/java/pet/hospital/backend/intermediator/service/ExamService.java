@@ -2,7 +2,7 @@
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-22 14:01:53
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-27 16:40:49
+ * @LastEditTime: 2023-03-28 18:41:07
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/service/ExamService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -369,6 +369,68 @@ public class ExamService {
                 .queryParam(Constants.questionPoint, questionPoint)
                 .queryParam(Constants.paperId, paperId)
                 .queryParam(Constants.questionId, questionId);
+
+        return ResponseHelper.forwardResponseDataDirectly(
+                restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
+    }
+
+    public ResponseData<JSONObject> addStudentAnswers(
+            String studentAnswerContent, int studentAnswerPoint, int questionInPaperId, int studentResultId) {
+        String api = "api/exam/student-answer/add";
+
+        MultiValueMap<String, String> requestEntity = new LinkedMultiValueMap<>();
+        requestEntity.add(Constants.studentAnswerContent, studentAnswerContent);
+        requestEntity.add(Constants.studentAnswerPoint, String.valueOf(studentAnswerPoint));
+        requestEntity.add(Constants.questionInPaperId, String.valueOf(questionInPaperId));
+        requestEntity.add(Constants.studentResultId, String.valueOf(studentResultId));
+
+        return ResponseHelper.forwardResponseDataDirectly(
+                restTemplate.postForObject(Constants.examModuleBaseUrl + api, requestEntity, JSONObject.class));
+    }
+
+    public ResponseData<JSONObject> updateStudentAnswers(
+            int studentAnswerId,
+            String studentAnswerContent,
+            int studentAnswerPoint,
+            int questionInPaperId,
+            int studentResultId) {
+        String api = "api/exam/student-answer/update";
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
+                .queryParam(Constants.studentAnswerId, studentAnswerId)
+                .queryParam(Constants.studentAnswerContent, studentAnswerContent)
+                .queryParam(Constants.studentAnswerPoint, studentAnswerPoint)
+                .queryParam(Constants.questionInPaperId, questionInPaperId)
+                .queryParam(Constants.studentResultId, studentResultId);
+
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
+                .exchange(uriBuilder.toUriString(), HttpMethod.PUT, null, JSONObject.class)
+                .getBody());
+    }
+
+    public ResponseData<JSONObject> deleteStudentAnswers(int studentAnswerId) {
+        String api = "api/exam/student-answer/delete";
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
+                .queryParam(Constants.studentAnswerId, studentAnswerId);
+
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
+                .exchange(uriBuilder.toUriString(), HttpMethod.DELETE, null, JSONObject.class)
+                .getBody());
+    }
+
+    public ResponseData<JSONObject> getStudentAnswers(
+            String studentAnswerKeyword,
+            Integer studentAnswerPoint,
+            Integer questionInPaperId,
+            Integer studentResultId) {
+        String api = "api/exam/student-answer/get";
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
+                .queryParam(Constants.studentAnswerKeyword, studentAnswerKeyword)
+                .queryParam(Constants.studentAnswerPoint, studentAnswerPoint)
+                .queryParam(Constants.questionInPaperId, questionInPaperId)
+                .queryParam(Constants.studentResultId, studentResultId);
 
         return ResponseHelper.forwardResponseDataDirectly(
                 restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
