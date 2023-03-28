@@ -71,7 +71,7 @@ public class MedicalCaseController {
 
     @Operation(summary = "删除病例接口")
     @DeleteMapping(value = "/delete")
-    public JSONObject deleteMedicalCase(@Parameter(description = "接诊Id") @RequestParam int medicalCaseId) {
+    public JSONObject deleteMedicalCase(@Parameter(description = "病例Id") @RequestParam int medicalCaseId) {
         return medicalCaseService.deleteMedicalCase(medicalCaseId);
     }
 }
