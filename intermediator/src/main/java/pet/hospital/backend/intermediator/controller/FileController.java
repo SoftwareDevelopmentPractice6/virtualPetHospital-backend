@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-21 14:20:30
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-21 17:42:48
+ * @LastEditTime: 2023-03-23 00:30:00
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/controller/FileController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -42,6 +42,38 @@ public class FileController {
 
     @Autowired
     FileService fileService;
+
+    @Operation(summary = "获取指定路径下全部文件路径接口")
+    @ApiResponses(
+            value = {
+                @ApiResponse(
+                        responseCode = "200",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"filePathList\":[\"test/testId/testName/.DS_Store\",\"test/testId/testName/fd1da84e-eac5-41bc-b9f2-823f7d86f41f/WallPaper_KirbyDiscovery_1920_1080.jpg\",\"test/testId/testName/fd1da84e-eac5-41bc-b9f2-823f7d86f41f/WallPaper_KirbyDiscovery_1920_1080.png\"]},\"message\":\"ok\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                @ApiResponse(
+                        responseCode = "515",
+                        description = "Request failed",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Failure message.",
+                                                    value = "{\"code\": 515,\"message\": \"Request failed\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE))
+            })
+    @GetMapping(value = "/files-list")
+    public ResponseEntity<JSONObject> getDirectoryFileNames(
+            @Parameter(description = "文件夹路径") @RequestParam String directoryPath) {
+        return fileService.getDirectoryFileNames(directoryPath).toResponseEntity();
+    }
 
     @Operation(summary = "上传文件接口")
     @ApiResponses(
@@ -103,7 +135,7 @@ public class FileController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\": 200,\"message\": \"ok\",\"filePath\": \"/Users/xxx/Documents/Java/intermediatorServiceData/data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.png\"}")
+                                                            "{\"code\": 200,\"message\": \"ok\",\"filePath\": \"data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.png\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -126,7 +158,7 @@ public class FileController {
                                     @Schema(
                                             type = "json",
                                             example =
-                                                    "{\"filePath\": \"/Users/xxx/Documents/Java/intermediatorServiceData/data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.jpg\", \"expectedFormat\": \"png\"}"))
+                                                    "{\"filePath\": \"data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.jpg\", \"expectedFormat\": \"png\"}"))
                     @RequestBody
                     JSONObject newFileInfo) {
         return fileService
@@ -146,7 +178,7 @@ public class FileController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\": 200,\"message\": \"ok\",\"filePath\": \"/Users/xxx/Documents/Java/intermediatorServiceData/data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.png\"}")
+                                                            "{\"code\": 200,\"message\": \"ok\",\"filePath\": \"data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.png\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(

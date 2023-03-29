@@ -40,3 +40,22 @@ student_id INT,
 score INT,
 FOREIGN KEY (session_id) REFERENCES EXAMSESSION(session_id) ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS QUESTIONSINPAPER(
+	question_in_paper_id INT PRIMARY KEY AUTO_INCREMENT,
+	points INT,
+	paper_id INT,
+	question_id INT,
+	FOREIGN KEY (paper_id) REFERENCES PAPER(paper_id) ON DELETE CASCADE,
+	FOREIGN KEY (question_id) REFERENCES QUESTION(question_id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS STUDENTANSWER(
+	student_answer_id INT PRIMARY KEY AUTO_INCREMENT,
+	student_answer_content VARCHAR(255),
+	student_answer_point INT,
+	question_in_paper_id INT,
+	result_id INT,
+	FOREIGN KEY (question_in_paper_id) REFERENCES QUESTIONSINPAPER(question_in_paper_id) ON DELETE CASCADE,
+	FOREIGN KEY (result_id) REFERENCES STUDENTRESULT(result_id) ON DELETE CASCADE
+);

@@ -2,7 +2,7 @@
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-15 13:12:14
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 17:38:12
+ * @LastEditTime: 2023-03-22 21:49:05
  * @FilePath: /virtualPetHospital-backend/login/src/main/java/pet/hospital/backend/login/service/UserService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -70,14 +70,23 @@ public class UserService {
         if (targetUserOptional.isEmpty()) {
             return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
         } else {
-            User targetUser = targetUserOptional.get();
-            targetUser.setUserName(userName);
-            targetUser.setUserPassword(userPassword);
-            targetUser.setUserAuthority(userAuthority);
+            List<User> targetUserList = userRepository.findAll().stream()
+                    .filter(user ->
+                            Objects.equals(user.getUserName(), userName) && !Objects.equals(user.getUserId(), userId))
+                    .collect(Collectors.toList());
 
-            User updatedUser = userRepository.saveAndFlush(targetUser);
+            if (Objects.equals(targetUserList.size(), 0)) {
+                User targetUser = targetUserOptional.get();
+                targetUser.setUserName(userName);
+                targetUser.setUserPassword(userPassword);
+                targetUser.setUserAuthority(userAuthority);
 
-            return ResponseHelper.constructSuccessResponse(updatedUser);
+                User updatedUser = userRepository.saveAndFlush(targetUser);
+
+                return ResponseHelper.constructSuccessResponse(updatedUser);
+            } else {
+                return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
+            }
         }
     }
 

@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS FEATURE(
 	func_video VARCHAR(255),
 	room_name VARCHAR(255),
 	func_role VARCHAR(255),
+	func_tool VARCHAR(255),
 	FOREIGN KEY (room_name) REFERENCES ROOM(room_name) ON DELETE CASCADE
 );
 
@@ -26,7 +27,7 @@ CREATE TABLE IF NOT EXISTS MEDICINE(
 
 CREATE TABLE IF NOT EXISTS ARCHIVE(
 	archive_id INT PRIMARY KEY AUTO_INCREMENT,
-	store_time DATE,
+	store_time DATETIME,
 	disease_type VARCHAR(255),
 	pet_type VARCHAR(255),
 	pet_name VARCHAR(255),

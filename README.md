@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-21 18:17:49
+ * @LastEditTime: 2023-03-25 17:40:35
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -21,23 +21,25 @@
 - [X] SQL: DDL 3.18 5 PM
   - [X] 鉴权 & 系统
   - [X] 病例 & 测试：病例内`DISEASENAME`表加一个字段`category`，表明基础病例的所属类别（内科、寄生虫···）
-- [ ] 开发：一个模块一周，可以先不写单测
+- [ ] 开发：一个模块一周，可以先不写单测。需要增删改查每表各一个
   - [X] login
-  - [ ] system
+  - [X] system
   - [ ] 病例
   - [X] exam
-- [ ] 需要的功能：
-  - [ ] 增：每表一个
-  - [ ] 删：根据id删，每表一个
-  - [ ] 改：根据id改，每表一个，用于改整条数据除id的全字段。控制器层接受的参数是JSON字符串
-  - [ ] 查：视情况而定
 - [ ] 中间层
+  - [X] login
+  - [X] system
+  - [ ] 病例
+  - [X] exam
+  - [ ] 根据前端要求整合
 - [ ] 文件上传
   - [X] 单一文件传输功能
   - [X] 图片格式转换
   - [ ] 视频格式转换（老师给的示例项目似乎没做，比较麻烦）
   - [ ] 分块上传（老师给的示例项目似乎没做，需要前端配合）
-  - [ ] 批量操作（前端多调几次接口比较合理？）
+  - [X] 批量操作（前端多调几次接口，后端不做）
+- [ ] 二次迭代
+  - [ ] 系统管理模块总表：可能需要一张全是外键的表用于关联各表以存储入住宠物的各类信息
 
 ## 文档
 
@@ -48,6 +50,16 @@
 - [各类问题](./docs/QA.md)
 
 ### 前端接口文档
+
+#### 目前已完成接口
+
+- [X] 鉴权模块
+- [X] 系统管理模块、职能学习模块角色扮演部分
+- [ ] 病例模块、职能学习模块病例学习部分
+- [X] 学生测验模块
+- [X] 数据传输模块
+
+#### 使用方法
 
 1. 首先安装http-server
 
@@ -61,16 +73,15 @@
 
 ## 运行demo
 
-1. 启动MySql数据库，数据库需要一个满足以下条件的用户
+1. 启动MySQL数据库，数据库需要一个满足以下条件的用户
 
    - 权限：All
    - 端口：`3306`
    - 账号：`virtualPetHospital`
    - 密码：`virtualPetHospital`
 
-2. 启动eureka模块，随后启动login、intermediator两个模块
+2. 启动eureka模块，随后启动login、exam、system、intermediator模块
 3. [8090端口的swagger界面](localhost:8090/swagger-ui/index.html)可以测试demo接口
-4. 开发可以完全参考demo，即login模块
 
 ## 说明
 

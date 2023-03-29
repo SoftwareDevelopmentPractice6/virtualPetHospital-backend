@@ -61,12 +61,21 @@ public class ExamService {
         if (targetExamOptional.isEmpty()) {
             return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
         } else {
-            Exam targetExam = targetExamOptional.get();
-            targetExam.setExamName(examName);
+            List<Exam> targetExamList = examRepository.findAll().stream()
+                    .filter(exam ->
+                            Objects.equals(exam.getExamName(), examName) && !Objects.equals(exam.getExamId(), examId))
+                    .collect(Collectors.toList());
 
-            Exam updatedExam = examRepository.saveAndFlush(targetExam);
+            if (Objects.equals(targetExamList.size(), 0)) {
+                Exam targetExam = targetExamOptional.get();
+                targetExam.setExamName(examName);
 
-            return ResponseHelper.constructSuccessResponse(updatedExam);
+                Exam updatedExam = examRepository.saveAndFlush(targetExam);
+
+                return ResponseHelper.constructSuccessResponse(updatedExam);
+            } else {
+                return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
+            }
         }
     }
 
