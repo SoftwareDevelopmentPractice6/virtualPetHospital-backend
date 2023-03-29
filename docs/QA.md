@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-17 02:08:53
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-18 21:16:57
+ * @LastEditTime: 2023-03-29 20:21:56
  * @FilePath: /virtualPetHospital-backend/docs/QA.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -79,7 +79,7 @@ Spring-boot 3.0.3内部问题，保证项目路径没有空格或中文即可
         <parent>
             <groupId>pet.hospital.backend</groupId>
             <artifactId>virtualPetHospital-backend</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.1-SNAPSHOT</version> <!-- 此处为父模块版本号 -->
             <relativePath/> <!-- lookup parent from repository -->
         </parent>
         <artifactId></artifactId> <!-- 此处为子模块artifactId -->

@@ -16,7 +16,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "系统模块", version = "0.0.1-SNAPSHOT", description = "虚拟宠物医院API文档-系统模块"))
+@OpenAPIDefinition(info = @Info(title = "系统模块", description = "虚拟宠物医院API文档-系统模块"))
 public class SystemApplication {
 
     public static void main(String[] args) {
