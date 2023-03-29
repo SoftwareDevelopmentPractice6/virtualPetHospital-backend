@@ -1,8 +1,8 @@
 <!--
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
- * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-29 15:48:16
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-29 20:44:00
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -71,7 +71,7 @@
 3. 命令`http-server`启动本地文件服务器
 4. 到8080端口查看API文档
 
-## 运行demo
+## 运行项目
 
 1. 启动MySQL数据库，数据库需要一个满足以下条件的用户
 
@@ -80,8 +80,8 @@
    - 账号：`virtualPetHospital`
    - 密码：`virtualPetHospital`
 
-2. 启动eureka模块，随后启动login、exam、system、intermediator模块
-3. [8090端口的swagger界面](localhost:8090/swagger-ui/index.html)可以测试demo接口
+2. 启动eureka模块，随后启动除了common与jacoco-report以外的全部模块
+3. [8090端口的swagger界面](localhost:8090/swagger-ui/index.html)可以测试项目接口
 
 ## 说明
 
