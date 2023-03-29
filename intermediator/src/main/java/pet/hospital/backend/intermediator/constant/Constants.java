@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-15 23:36:24
  * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-29 14:07:06
+ * @LastEditTime: 2023-03-29 14:10:41
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/constant/Constants.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -188,7 +188,7 @@ public class Constants {
 
     public static String roomKeyword = "roomKeyword";
 
-    public static String admissionId = "admissionId";
+    public static String diseaseAdmissionId = "admissionId";
 
     public static String admissionContent = "admissionContent";
 

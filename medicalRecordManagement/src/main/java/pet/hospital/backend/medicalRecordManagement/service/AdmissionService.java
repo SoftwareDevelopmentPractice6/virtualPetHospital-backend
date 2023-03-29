@@ -20,7 +20,7 @@ public class AdmissionService {
     public JSONObject getAdmission(Integer admissionId, String admissionKeyword) {
         JSONObject res = new JSONObject();
         res.put(
-                Constants.admissionList,
+                Constants.diseaseAdmissionList,
                 JSONObject.parseArray(JSON.toJSONString(admissionRepository.findAll().stream()
                         .filter(admission ->
                                 SearchJudgeHelper.softIncludes(admissionKeyword, admission.getAdmissionContent())

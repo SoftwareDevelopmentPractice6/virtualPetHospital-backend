@@ -34,7 +34,7 @@ public class DiseaseService {
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(
                         Constants.medicalRecordManagementModuleBaseUrl + api)
-                .queryParam(Constants.admissionId, admissionId)
+                .queryParam(Constants.diseaseAdmissionId, admissionId)
                 .queryParam(Constants.admissionKeyword, admissionKeyword);
 
         JSONObject apiRes = restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class);
@@ -79,7 +79,7 @@ public class DiseaseService {
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(
                         Constants.medicalRecordManagementModuleBaseUrl + api)
-                .queryParam(Constants.admissionId, admissionId)
+                .queryParam(Constants.diseaseAdmissionId, admissionId)
                 .queryParam(Constants.admissionContent, admissionContent)
                 .queryParam(Constants.admissionPhoto, admissionPhoto)
                 .queryParam(Constants.admissionVideo, admissionVideo);
@@ -104,7 +104,7 @@ public class DiseaseService {
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(
                         Constants.medicalRecordManagementModuleBaseUrl + api)
-                .queryParam(Constants.admissionId, admissionId);
+                .queryParam(Constants.diseaseAdmissionId, admissionId);
 
         JSONObject apiRes = restTemplate
                 .exchange(uriBuilder.toUriString(), HttpMethod.DELETE, null, JSONObject.class)
@@ -515,7 +515,7 @@ public class DiseaseService {
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(
                         Constants.medicalRecordManagementModuleBaseUrl + api)
                 .queryParam(Constants.medicalCaseId, medicalCaseId)
-                .queryParam(Constants.admissionId, admissionId)
+                .queryParam(Constants.diseaseAdmissionId, admissionId)
                 .queryParam(Constants.caseCheckId, caseCheckId)
                 .queryParam(Constants.diagnosticResultId, diagnosticResultId)
                 .queryParam(Constants.diseaseNameId, diseaseNameId)
@@ -539,7 +539,7 @@ public class DiseaseService {
         String api = "api/disease/medical-case/add";
 
         MultiValueMap<String, String> requestEntity = new LinkedMultiValueMap<>();
-        requestEntity.add(Constants.admissionId, String.valueOf(admissionId));
+        requestEntity.add(Constants.diseaseAdmissionId, String.valueOf(admissionId));
         requestEntity.add(Constants.caseCheckId, String.valueOf(caseCheckId));
         requestEntity.add(Constants.diagnosticResultId, String.valueOf(diagnosticResultId));
         requestEntity.add(Constants.diseaseNameId, String.valueOf(diseaseNameId));
@@ -571,7 +571,7 @@ public class DiseaseService {
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(
                         Constants.medicalRecordManagementModuleBaseUrl + api)
                 .queryParam(Constants.medicalCaseId, medicalCaseId)
-                .queryParam(Constants.admissionId, admissionId)
+                .queryParam(Constants.diseaseAdmissionId, admissionId)
                 .queryParam(Constants.caseCheckId, caseCheckId)
                 .queryParam(Constants.diagnosticResultId, diagnosticResultId)
                 .queryParam(Constants.diseaseNameId, diseaseNameId)
@@ -679,8 +679,9 @@ public class DiseaseService {
         }
         JSONObject targetMedicalCase =
                 getMedicalCaseRes.getJSONArray(Constants.medicalCaseList).getJSONObject(0);
-        int admissionId =
-                targetMedicalCase.getJSONObject(Constants.medicalCaseAdmission).getInteger(Constants.admissionId);
+        int admissionId = targetMedicalCase
+                .getJSONObject(Constants.medicalCaseAdmission)
+                .getInteger(Constants.diseaseAdmissionId);
         int caseCheckId =
                 targetMedicalCase.getJSONObject(Constants.medicalCaseCaseCheck).getInteger(Constants.caseCheckId);
         int diagnosticResultId = targetMedicalCase
@@ -887,7 +888,7 @@ public class DiseaseService {
                 || addDiagnosticResultRes == null
                 || addTreatmentProgramRes == null) {
             if (addAdmissionRes != null) {
-                this.deleteAdmission(addAdmissionRes.getInteger(Constants.admissionId));
+                this.deleteAdmission(addAdmissionRes.getInteger(Constants.diseaseAdmissionId));
             }
             if (addCaseCheckRes != null) {
                 this.deleteCaseCheck(addCaseCheckRes.getInteger(Constants.caseCheckId));
@@ -902,7 +903,7 @@ public class DiseaseService {
         }
 
         JSONObject addMedicalCaseRes = this.addMedicalCase(
-                        addAdmissionRes.getInteger(Constants.admissionId),
+                        addAdmissionRes.getInteger(Constants.diseaseAdmissionId),
                         addCaseCheckRes.getInteger(Constants.caseCheckId),
                         addDiagnosticResultRes.getInteger(Constants.diagnosticResultId),
                         addTreatmentProgramRes.getInteger(Constants.treatmentProgramId),
@@ -910,7 +911,7 @@ public class DiseaseService {
                 .getData();
 
         if (addMedicalCaseRes == null) {
-            this.deleteAdmission(addAdmissionRes.getInteger(Constants.admissionId));
+            this.deleteAdmission(addAdmissionRes.getInteger(Constants.diseaseAdmissionId));
             this.deleteCaseCheck(addCaseCheckRes.getInteger(Constants.caseCheckId));
             this.deleteDiagnosticResult(addDiagnosticResultRes.getInteger(Constants.diagnosticResultId));
             this.deleteTreatmentProgram(addTreatmentProgramRes.getInteger(Constants.treatmentProgramId));
@@ -933,8 +934,9 @@ public class DiseaseService {
 
         JSONObject targetMedicalCase =
                 getMedicalCaseRes.getJSONArray(Constants.medicalCaseList).getJSONObject(0);
-        this.deleteAdmission(
-                targetMedicalCase.getJSONObject(Constants.medicalCaseAdmission).getInteger(Constants.admissionId));
+        this.deleteAdmission(targetMedicalCase
+                .getJSONObject(Constants.medicalCaseAdmission)
+                .getInteger(Constants.diseaseAdmissionId));
         this.deleteCaseCheck(
                 targetMedicalCase.getJSONObject(Constants.medicalCaseCaseCheck).getInteger(Constants.caseCheckId));
         this.deleteDiagnosticResult(targetMedicalCase
