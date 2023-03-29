@@ -1,8 +1,8 @@
 <!--
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
- * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-25 17:40:35
+ * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-29 15:48:16
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -21,15 +21,15 @@
 - [X] SQL: DDL 3.18 5 PM
   - [X] 鉴权 & 系统
   - [X] 病例 & 测试：病例内`DISEASENAME`表加一个字段`category`，表明基础病例的所属类别（内科、寄生虫···）
-- [ ] 开发：一个模块一周，可以先不写单测。需要增删改查每表各一个
+- [X] 开发：一个模块一周，可以先不写单测。需要增删改查每表各一个
   - [X] login
   - [X] system
-  - [ ] 病例
+  - [X] 病例
   - [X] exam
 - [ ] 中间层
   - [X] login
   - [X] system
-  - [ ] 病例
+  - [X] 病例
   - [X] exam
   - [ ] 根据前端要求整合
 - [ ] 文件上传
@@ -55,7 +55,7 @@
 
 - [X] 鉴权模块
 - [X] 系统管理模块、职能学习模块角色扮演部分
-- [ ] 病例模块、职能学习模块病例学习部分
+- [X] 病例模块、职能学习模块病例学习部分
 - [X] 学生测验模块
 - [X] 数据传输模块
 
