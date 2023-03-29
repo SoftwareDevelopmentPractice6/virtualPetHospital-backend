@@ -136,17 +136,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -158,6 +147,17 @@
                                         "roomName": "Prepare 2"
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -286,17 +286,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -313,6 +302,17 @@
                                         "manufacturer": "Manufacturer 1"
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -345,17 +345,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -372,6 +361,17 @@
                                         "manufacturer": "Manufacturer 1"
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -502,17 +502,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -533,6 +522,17 @@
                                         "funcVideo": "a"
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -623,17 +623,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -650,6 +639,17 @@
                                         ]
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -679,17 +679,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -702,6 +691,17 @@
                                         "examinePrice": 123.12
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -730,17 +730,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -753,6 +742,17 @@
                                         "examinePrice": 23.12
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -780,17 +780,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -807,6 +796,17 @@
                                         ]
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -836,17 +836,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -859,6 +848,17 @@
                                         "chargePrice": 123.12
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -887,17 +887,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -910,6 +899,17 @@
                                         "chargePrice": 13.12
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1045,17 +1045,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1072,6 +1061,17 @@
                                         "archiveId": 1
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1104,17 +1104,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1131,6 +1120,17 @@
                                         "archiveId": 2
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1300,17 +1300,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1325,6 +1314,17 @@
                                         "roomStandard": "normal room 2"
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1421,17 +1421,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1466,6 +1455,17 @@
                                 }
                             }
                         }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -1493,17 +1493,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1534,6 +1523,17 @@
                                 }
                             }
                         }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -1560,17 +1560,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1598,6 +1587,17 @@
                                         "studentResultId": 2
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1654,17 +1654,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1727,6 +1716,17 @@
                                 }
                             }
                         }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -1755,17 +1755,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1824,6 +1813,17 @@
                                 }
                             }
                         }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -1851,17 +1851,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1917,6 +1906,17 @@
                                         }
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -2023,17 +2023,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -2050,6 +2039,17 @@
                                         "questionType": "tttt type"
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -2153,17 +2153,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -2221,6 +2210,17 @@
                                         ]
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -2433,17 +2433,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -2470,6 +2459,17 @@
                                         ]
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -2568,17 +2568,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -2604,6 +2593,17 @@
                                 }
                             }
                         }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -2616,17 +2616,6 @@
                 "summary": "获取问题类别列表接口",
                 "operationId": "getCategories",
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -2650,6 +2639,17 @@
                                         ]
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -2727,17 +2727,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -2749,6 +2738,488 @@
                                         "categoryId": 6
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/disease/medical-case": {
+            "get": {
+                "tags": [
+                    "病例模块"
+                ],
+                "summary": "获取病例信息列表接口",
+                "operationId": "getMedicalCases",
+                "parameters": [
+                    {
+                        "name": "admissionKeyword",
+                        "in": "query",
+                        "description": "接诊文字关键字，支持模糊查询",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "caseCheckKeyword",
+                        "in": "query",
+                        "description": "病例检察文字关键字，支持模糊查询",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "diagnosticResultKeyword",
+                        "in": "query",
+                        "description": "诊断结果文字关键字，支持模糊查询",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "treatmentProgramKeyword",
+                        "in": "query",
+                        "description": "治疗方案文字关键字，支持模糊查询",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "diseaseNameId",
+                        "in": "query",
+                        "description": "疾病Id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "medicalCaseList": {
+                                            "medicalCaseList": [
+                                                {
+                                                    "medicalCaseAdmission": {
+                                                        "admissionVideo": "disease/admission/362608ee-9605-4a1b-9402-c7aa9022516f/video",
+                                                        "admissionId": 3,
+                                                        "admissionPhoto": "disease/admission/362608ee-9605-4a1b-9402-c7aa9022516f/photo",
+                                                        "admissionContent": "test admission"
+                                                    },
+                                                    "medicalCaseDiagnosticResult": {
+                                                        "diagnosticResultPhoto": "disease/diagnosticResult/362608ee-9605-4a1b-9402-c7aa9022516f/photo",
+                                                        "diagnosticResultId": 3,
+                                                        "diagnosticResultVideo": "disease/diagnosticResult/362608ee-9605-4a1b-9402-c7aa9022516f/video",
+                                                        "diagnosticResultContent": "test diagnostic result"
+                                                    },
+                                                    "medicalCaseDiseaseName": {
+                                                        "diseaseNameContent": "test disease 2",
+                                                        "diseaseNameCategory": "test disease category",
+                                                        "diseaseNameId": 4,
+                                                        "diseaseNamePhoto": "disease/diseaseName/d9c280e1-9747-4e9b-a2bc-c1507cf156ad/photo",
+                                                        "diseaseNameVideo": "disease/diseaseName/d9c280e1-9747-4e9b-a2bc-c1507cf156ad/video"
+                                                    },
+                                                    "medicalCaseTreatmentProgram": {
+                                                        "treatmentProgramPhoto": "disease/treatmentProgram/362608ee-9605-4a1b-9402-c7aa9022516f/photo",
+                                                        "treatmentProgramVideo": "disease/treatmentProgram/362608ee-9605-4a1b-9402-c7aa9022516f/video",
+                                                        "treatmentProgramId": 3,
+                                                        "treatmentProgramContent": "test treatment program"
+                                                    },
+                                                    "medicalCaseId": 3,
+                                                    "medicalCaseCaseCheck": {
+                                                        "caseCheckId": 3,
+                                                        "caseCheckContent": "test case check",
+                                                        "caseCheckVideo": "disease/caseCheck/362608ee-9605-4a1b-9402-c7aa9022516f/video",
+                                                        "caseCheckPhoto": "disease/caseCheck/362608ee-9605-4a1b-9402-c7aa9022516f/photo"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "病例模块"
+                ],
+                "summary": "更改病例信息接口",
+                "operationId": "updateMedicalCase",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "更改后的病例信息",
+                                "example": {
+                                    "medicalCaseId": 2,
+                                    "diseaseNameId": 2,
+                                    "admissionContent": "test admission",
+                                    "caseCheckContent": "test case check",
+                                    "diagnosticResultContent": "test diagnostic result",
+                                    "treatmentProgramContent": "test treatment program"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "medicalCaseAdmission": {
+                                            "admissionVideo": "disease/admission/362608ee-9605-4a1b-9402-c7aa9022516f/video",
+                                            "admissionId": 3,
+                                            "admissionPhoto": "disease/admission/362608ee-9605-4a1b-9402-c7aa9022516f/photo",
+                                            "admissionContent": "test admission"
+                                        },
+                                        "medicalCaseDiagnosticResult": {
+                                            "diagnosticResultPhoto": "disease/diagnosticResult/362608ee-9605-4a1b-9402-c7aa9022516f/photo",
+                                            "diagnosticResultId": 3,
+                                            "diagnosticResultVideo": "disease/diagnosticResult/362608ee-9605-4a1b-9402-c7aa9022516f/video",
+                                            "diagnosticResultContent": "test diagnostic result"
+                                        },
+                                        "medicalCaseDiseaseName": {
+                                            "diseaseNameContent": "test disease 2",
+                                            "diseaseNameCategory": "test disease category",
+                                            "diseaseNameId": 4,
+                                            "diseaseNamePhoto": "disease/diseaseName/d9c280e1-9747-4e9b-a2bc-c1507cf156ad/photo",
+                                            "diseaseNameVideo": "disease/diseaseName/d9c280e1-9747-4e9b-a2bc-c1507cf156ad/video"
+                                        },
+                                        "medicalCaseTreatmentProgram": {
+                                            "treatmentProgramPhoto": "disease/treatmentProgram/362608ee-9605-4a1b-9402-c7aa9022516f/photo",
+                                            "treatmentProgramVideo": "disease/treatmentProgram/362608ee-9605-4a1b-9402-c7aa9022516f/video",
+                                            "treatmentProgramId": 3,
+                                            "treatmentProgramContent": "test treatment program"
+                                        },
+                                        "medicalCaseId": 3,
+                                        "medicalCaseCaseCheck": {
+                                            "caseCheckId": 3,
+                                            "caseCheckContent": "test case check",
+                                            "caseCheckVideo": "disease/caseCheck/362608ee-9605-4a1b-9402-c7aa9022516f/video",
+                                            "caseCheckPhoto": "disease/caseCheck/362608ee-9605-4a1b-9402-c7aa9022516f/photo"
+                                        }
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "病例模块"
+                ],
+                "summary": "新增病例信息接口",
+                "operationId": "addMedicalCase",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "新增的病例信息",
+                                "example": {
+                                    "diseaseNameId": 2,
+                                    "admissionContent": "test admission",
+                                    "caseCheckContent": "test case check",
+                                    "diagnosticResultContent": "test diagnostic result",
+                                    "treatmentProgramContent": "test treatment program"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "medicalCaseAdmission": {
+                                            "admissionVideo": "disease/admission/362608ee-9605-4a1b-9402-c7aa9022516f/video",
+                                            "admissionId": 3,
+                                            "admissionPhoto": "disease/admission/362608ee-9605-4a1b-9402-c7aa9022516f/photo",
+                                            "admissionContent": "test admission2"
+                                        },
+                                        "medicalCaseDiagnosticResult": {
+                                            "diagnosticResultPhoto": "disease/diagnosticResult/362608ee-9605-4a1b-9402-c7aa9022516f/photo",
+                                            "diagnosticResultId": 3,
+                                            "diagnosticResultVideo": "disease/diagnosticResult/362608ee-9605-4a1b-9402-c7aa9022516f/video",
+                                            "diagnosticResultContent": "test diagnostic result3"
+                                        },
+                                        "medicalCaseDiseaseName": {
+                                            "diseaseNameContent": "test disease3",
+                                            "diseaseNameCategory": "test disease category3",
+                                            "diseaseNameId": 3,
+                                            "diseaseNamePhoto": "disease/diseaseName/e158e5aa-0ade-48f3-89ff-31966ab5a5c0/photo",
+                                            "diseaseNameVideo": "disease/diseaseName/e158e5aa-0ade-48f3-89ff-31966ab5a5c0/video"
+                                        },
+                                        "medicalCaseTreatmentProgram": {
+                                            "treatmentProgramPhoto": "disease/treatmentProgram/362608ee-9605-4a1b-9402-c7aa9022516f/photo",
+                                            "treatmentProgramVideo": "disease/treatmentProgram/362608ee-9605-4a1b-9402-c7aa9022516f/video",
+                                            "treatmentProgramId": 3,
+                                            "treatmentProgramContent": "test treatment program4"
+                                        },
+                                        "medicalCaseId": 3,
+                                        "medicalCaseCaseCheck": {
+                                            "caseCheckId": 3,
+                                            "caseCheckContent": "test case check3",
+                                            "caseCheckVideo": "disease/caseCheck/362608ee-9605-4a1b-9402-c7aa9022516f/video",
+                                            "caseCheckPhoto": "disease/caseCheck/362608ee-9605-4a1b-9402-c7aa9022516f/photo"
+                                        }
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/disease/disease": {
+            "get": {
+                "tags": [
+                    "病例模块"
+                ],
+                "summary": "获取疾病信息列表接口",
+                "operationId": "getDiseases",
+                "parameters": [
+                    {
+                        "name": "diseaseNameCategory",
+                        "in": "query",
+                        "description": "疾病类别",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "diseaseNameList": [
+                                            {
+                                                "diseaseNameContent": "test disease1",
+                                                "diseaseNameCategory": "test disease category",
+                                                "diseaseNameId": 3,
+                                                "diseaseNamePhoto": "disease/diseaseName/e158e5aa-0ade-48f3-89ff-31966ab5a5c0/photo",
+                                                "diseaseNameVideo": "disease/diseaseName/e158e5aa-0ade-48f3-89ff-31966ab5a5c0/video"
+                                            },
+                                            {
+                                                "diseaseNameContent": "test disease 2",
+                                                "diseaseNameCategory": "test disease category",
+                                                "diseaseNameId": 4,
+                                                "diseaseNamePhoto": "disease/diseaseName/d9c280e1-9747-4e9b-a2bc-c1507cf156ad/photo",
+                                                "diseaseNameVideo": "disease/diseaseName/d9c280e1-9747-4e9b-a2bc-c1507cf156ad/video"
+                                            },
+                                            {
+                                                "diseaseNameContent": "test disease 3",
+                                                "diseaseNameCategory": "test disease category",
+                                                "diseaseNameId": 5,
+                                                "diseaseNamePhoto": "disease/diseaseName/6d6b583d-d184-4677-a91a-b75a2deddcf2/photo",
+                                                "diseaseNameVideo": "disease/diseaseName/6d6b583d-d184-4677-a91a-b75a2deddcf2/video"
+                                            },
+                                            {
+                                                "diseaseNameContent": "test disease 4",
+                                                "diseaseNameCategory": "test disease category",
+                                                "diseaseNameId": 6,
+                                                "diseaseNamePhoto": "disease/diseaseName/3adf65db-635f-42c6-b0cb-27cf46dd92d8/photo",
+                                                "diseaseNameVideo": "disease/diseaseName/3adf65db-635f-42c6-b0cb-27cf46dd92d8/video"
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "病例模块"
+                ],
+                "summary": "更改疾病信息接口",
+                "operationId": "updateDisease",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "更改后的疾病信息",
+                                "example": {
+                                    "diseaseNameId": 2,
+                                    "diseaseNameContent": "test disease",
+                                    "diseaseNameCategory": "test disease category"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "diseaseNameContent": "test disease3",
+                                        "diseaseNameCategory": "test disease category3",
+                                        "diseaseNameId": 3,
+                                        "diseaseNamePhoto": "disease/diseaseName/e158e5aa-0ade-48f3-89ff-31966ab5a5c0/photo",
+                                        "diseaseNameVideo": "disease/diseaseName/e158e5aa-0ade-48f3-89ff-31966ab5a5c0/video"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "病例模块"
+                ],
+                "summary": "新增疾病信息接口",
+                "operationId": "addDisease",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "json",
+                                "description": "新增的疾病信息",
+                                "example": {
+                                    "diseaseNameContent": "test disease",
+                                    "diseaseNameCategory": "test disease category"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "diseaseNameContent": "test disease 2",
+                                        "diseaseNameCategory": "test disease category",
+                                        "diseaseNameId": 4,
+                                        "diseaseNamePhoto": "disease/diseaseName/d9c280e1-9747-4e9b-a2bc-c1507cf156ad/photo",
+                                        "diseaseNameVideo": "disease/diseaseName/d9c280e1-9747-4e9b-a2bc-c1507cf156ad/video"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -2827,17 +3298,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -2851,6 +3311,17 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -2880,17 +3351,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -2904,6 +3364,17 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -3082,13 +3553,19 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
+                    "200": {
+                        "description": "OK",
                         "content": {
                             "application/json": {
                                 "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
+                                    "code": 200,
+                                    "message": "ok",
+                                    "data": {
+                                        "userPassword": "admin",
+                                        "userName": "admin@admin.com",
+                                        "userAuthority": 1,
+                                        "userId": 1
+                                    }
                                 }
                             }
                         }
@@ -3104,19 +3581,13 @@
                             }
                         }
                     },
-                    "200": {
-                        "description": "OK",
+                    "515": {
+                        "description": "Request failed",
                         "content": {
                             "application/json": {
                                 "example": {
-                                    "code": 200,
-                                    "message": "ok",
-                                    "data": {
-                                        "userPassword": "admin",
-                                        "userName": "admin@admin.com",
-                                        "userAuthority": 1,
-                                        "userId": 1
-                                    }
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -3424,17 +3895,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -3451,6 +3911,17 @@
                                         ]
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -3487,17 +3958,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -3514,6 +3974,17 @@
                                         ]
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -3540,17 +4011,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -3565,6 +4025,17 @@
                                         ]
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -3676,17 +4147,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -3710,6 +4170,102 @@
                                         ]
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/disease/disease/{diseaseNameKeyword}": {
+            "get": {
+                "tags": [
+                    "病例模块"
+                ],
+                "summary": "获取疾病信息列表接口",
+                "operationId": "getDiseasesByDiseaseName",
+                "parameters": [
+                    {
+                        "name": "diseaseNameKeyword",
+                        "in": "path",
+                        "description": "疾病名称关键字，支持模糊查询",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "diseaseNameCategory",
+                        "in": "query",
+                        "description": "疾病类别",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "diseaseNameList": [
+                                            {
+                                                "diseaseNameContent": "test disease1",
+                                                "diseaseNameCategory": "test disease category",
+                                                "diseaseNameId": 3,
+                                                "diseaseNamePhoto": "disease/diseaseName/e158e5aa-0ade-48f3-89ff-31966ab5a5c0/photo",
+                                                "diseaseNameVideo": "disease/diseaseName/e158e5aa-0ade-48f3-89ff-31966ab5a5c0/video"
+                                            },
+                                            {
+                                                "diseaseNameContent": "test disease 2",
+                                                "diseaseNameCategory": "test disease category",
+                                                "diseaseNameId": 4,
+                                                "diseaseNamePhoto": "disease/diseaseName/d9c280e1-9747-4e9b-a2bc-c1507cf156ad/photo",
+                                                "diseaseNameVideo": "disease/diseaseName/d9c280e1-9747-4e9b-a2bc-c1507cf156ad/video"
+                                            },
+                                            {
+                                                "diseaseNameContent": "test disease 3",
+                                                "diseaseNameCategory": "test disease category",
+                                                "diseaseNameId": 5,
+                                                "diseaseNamePhoto": "disease/diseaseName/6d6b583d-d184-4677-a91a-b75a2deddcf2/photo",
+                                                "diseaseNameVideo": "disease/diseaseName/6d6b583d-d184-4677-a91a-b75a2deddcf2/video"
+                                            },
+                                            {
+                                                "diseaseNameContent": "test disease 4",
+                                                "diseaseNameCategory": "test disease category",
+                                                "diseaseNameId": 6,
+                                                "diseaseNamePhoto": "disease/diseaseName/3adf65db-635f-42c6-b0cb-27cf46dd92d8/photo",
+                                                "diseaseNameVideo": "disease/diseaseName/3adf65db-635f-42c6-b0cb-27cf46dd92d8/video"
+                                            }
+                                        ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -3844,17 +4400,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -3871,6 +4416,17 @@
                                         "manufacturer": "Manufacturer 1"
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -3956,17 +4512,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -3979,6 +4524,17 @@
                                         "examinePrice": 1.2
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -4006,17 +4562,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -4029,6 +4574,17 @@
                                         "chargePrice": 13.12
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -4056,17 +4612,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -4083,6 +4628,17 @@
                                         "archiveId": 2
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -4110,17 +4666,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -4135,6 +4680,17 @@
                                         "roomStandard": "normal room 2"
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -4162,17 +4718,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -4203,6 +4748,17 @@
                                 }
                             }
                         }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -4227,17 +4783,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -4293,6 +4838,17 @@
                                         }
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -4442,17 +4998,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -4475,6 +5020,17 @@
                                         "examSessionStartTime": "2021-03-16 10:00:00"
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -4502,17 +5058,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -4524,6 +5069,148 @@
                                         "categoryId": 6
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/disease/medical-case/{medicalCaseId}": {
+            "delete": {
+                "tags": [
+                    "病例模块"
+                ],
+                "summary": "删除病例信息接口",
+                "operationId": "deleteMedicalCase",
+                "parameters": [
+                    {
+                        "name": "medicalCaseId",
+                        "in": "path",
+                        "description": "病例信息Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "medicalCaseAdmission": {
+                                            "admissionVideo": "disease/admission/362608ee-9605-4a1b-9402-c7aa9022516f/video",
+                                            "admissionId": 3,
+                                            "admissionPhoto": "disease/admission/362608ee-9605-4a1b-9402-c7aa9022516f/photo",
+                                            "admissionContent": "test admission"
+                                        },
+                                        "medicalCaseDiagnosticResult": {
+                                            "diagnosticResultPhoto": "disease/diagnosticResult/362608ee-9605-4a1b-9402-c7aa9022516f/photo",
+                                            "diagnosticResultId": 3,
+                                            "diagnosticResultVideo": "disease/diagnosticResult/362608ee-9605-4a1b-9402-c7aa9022516f/video",
+                                            "diagnosticResultContent": "test diagnostic result"
+                                        },
+                                        "medicalCaseDiseaseName": {
+                                            "diseaseNameContent": "test disease 2",
+                                            "diseaseNameCategory": "test disease category",
+                                            "diseaseNameId": 4,
+                                            "diseaseNamePhoto": "disease/diseaseName/d9c280e1-9747-4e9b-a2bc-c1507cf156ad/photo",
+                                            "diseaseNameVideo": "disease/diseaseName/d9c280e1-9747-4e9b-a2bc-c1507cf156ad/video"
+                                        },
+                                        "medicalCaseTreatmentProgram": {
+                                            "treatmentProgramPhoto": "disease/treatmentProgram/362608ee-9605-4a1b-9402-c7aa9022516f/photo",
+                                            "treatmentProgramVideo": "disease/treatmentProgram/362608ee-9605-4a1b-9402-c7aa9022516f/video",
+                                            "treatmentProgramId": 3,
+                                            "treatmentProgramContent": "test treatment program"
+                                        },
+                                        "medicalCaseId": 3,
+                                        "medicalCaseCaseCheck": {
+                                            "caseCheckId": 3,
+                                            "caseCheckContent": "test case check",
+                                            "caseCheckVideo": "disease/caseCheck/362608ee-9605-4a1b-9402-c7aa9022516f/video",
+                                            "caseCheckPhoto": "disease/caseCheck/362608ee-9605-4a1b-9402-c7aa9022516f/photo"
+                                        }
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/disease/disease/{diseaseNameId}": {
+            "delete": {
+                "tags": [
+                    "病例模块"
+                ],
+                "summary": "删除疾病信息接口",
+                "operationId": "deleteDisease",
+                "parameters": [
+                    {
+                        "name": "diseaseNameId",
+                        "in": "path",
+                        "description": "疾病信息Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "diseaseNameContent": "22",
+                                        "diseaseNameCategory": "22",
+                                        "diseaseNameId": 2,
+                                        "diseaseNamePhoto": "22",
+                                        "diseaseNameVideo": "22"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -4551,17 +5238,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -4575,6 +5251,17 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
