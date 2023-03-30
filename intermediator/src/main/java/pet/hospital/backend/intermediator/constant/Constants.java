@@ -1,25 +1,49 @@
 /*
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-15 23:36:24
- * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-29 14:10:41
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-31 00:26:08
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/constant/Constants.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 package pet.hospital.backend.intermediator.constant;
 
+import jakarta.annotation.PostConstruct;
 import java.util.Arrays;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Constants {
 
-    public static final String loginModuleBaseUrl = "http://localhost:8762/";
+    @Value("${application.login.url}")
+    private String injectedLoginModuleBaseUrl;
 
-    public static final String medicalRecordManagementModuleBaseUrl = "http://localhost:8777/";
+    @Value("${application.medicalRecordManagement.url}")
+    private String injectedMedicalRecordManagementModuleBaseUrl;
 
-    public static final String systemModuleBaseUrl = "http://localhost:5678/";
+    @Value("${application.system.url}")
+    private String injectedSystemModuleBaseUrl;
 
-    public static final String examModuleBaseUrl = "http://localhost:8778/";
+    @Value("${application.exam.url}")
+    private String injectedExamModuleBaseUrl;
+
+    public static String loginModuleBaseUrl;
+
+    public static String medicalRecordManagementModuleBaseUrl;
+
+    public static String systemModuleBaseUrl;
+
+    public static String examModuleBaseUrl;
+
+    @PostConstruct
+    public void init() {
+        loginModuleBaseUrl = injectedLoginModuleBaseUrl;
+        medicalRecordManagementModuleBaseUrl = injectedMedicalRecordManagementModuleBaseUrl;
+        systemModuleBaseUrl = injectedSystemModuleBaseUrl;
+        examModuleBaseUrl = injectedExamModuleBaseUrl;
+    }
 
     public static final String servicePath = "/intermediatorServiceData/data";
 

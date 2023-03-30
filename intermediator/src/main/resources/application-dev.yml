@@ -14,3 +14,13 @@ springdoc:
     enabled: true
   swagger-ui:
     enabled: true
+
+application:
+  login:
+    url: http://localhost:8762/
+  medicalRecordManagement:
+    url: http://localhost:8777/
+  system:
+    url: http://localhost:5678/
+  exam:
+    url: http://localhost:8778/
