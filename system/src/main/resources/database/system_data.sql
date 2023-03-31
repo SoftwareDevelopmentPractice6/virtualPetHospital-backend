@@ -48,7 +48,7 @@ INSERT INTO `CHARGE` VALUES (1,'testroom', 7.3);
 
 DELETE FROM `EXAMINE` WHERE examine_id = 2;
 
-INSERT INTO `EXAMINE` VALUES (2,'testroom', 1.2);
+INSERT INTO `EXAMINE` VALUES (2,'testroom', 1.2, 'testroom');
 
 DELETE FROM `ADMISSION` WHERE admission_id = 1;
 
@@ -58,5 +58,6 @@ VALUES (
 		'testroom',
 		'this is a test',
 		'oxjoq',
-		1
+		1,
+		'testroom'
 	);

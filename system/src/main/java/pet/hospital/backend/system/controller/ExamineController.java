@@ -1,8 +1,8 @@
 /*
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-25 00:06:06
- * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-25 01:29:14
+ * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-31 08:48:05
  * @FilePath: /virtualPetHospital-backend/system/src/main/java/pet/hospital/backend/system/controller/ExamineController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -38,18 +38,23 @@ public class ExamineController {
     @GetMapping(value = "/get")
     public JSONObject getExamine(
             @Parameter(description = "化验名称，支持模糊查询") @RequestParam(required = false) String examineName,
-            @Parameter(description = "化验价格") @RequestParam(required = false) Double examinePrice)
+            @Parameter(description = "化验价格") @RequestParam(required = false) Double examinePrice,
+            @Parameter(description = "科室名称") @RequestParam(required = false) String roomName)
             throws UnsupportedEncodingException {
-        return examineService.getExamine(examineName, examinePrice);
+        return examineService.getExamine(examineName, examinePrice, roomName);
     }
 
     @Operation(summary = "新增化验接口")
     @PostMapping(value = "/add")
     public JSONObject addExamine(
             @Parameter(description = "化验名称") @RequestParam String examineName,
-            @Parameter(description = "化验价格") @RequestParam double examinePrice)
+            @Parameter(description = "化验价格") @RequestParam double examinePrice,
+            @Parameter(description = "科室名称") @RequestParam String roomName)
             throws UnsupportedEncodingException {
-        return examineService.addExamine(URLDecoder.decode(examineName, Constants.UTF8), examinePrice);
+        return examineService.addExamine(
+                URLDecoder.decode(examineName, Constants.UTF8),
+                examinePrice,
+                URLDecoder.decode(roomName, Constants.UTF8));
     }
 
     @Operation(summary = "更改化验接口")
@@ -57,9 +62,14 @@ public class ExamineController {
     public JSONObject updateExamine(
             @Parameter(description = "化验Id") @RequestParam int examineId,
             @Parameter(description = "化验名称") @RequestParam String examineName,
-            @Parameter(description = "化验价格") @RequestParam double examinePrice)
+            @Parameter(description = "化验价格") @RequestParam double examinePrice,
+            @Parameter(description = "科室名称") @RequestParam String roomName)
             throws UnsupportedEncodingException {
-        return examineService.updateExamine(examineId, URLDecoder.decode(examineName, Constants.UTF8), examinePrice);
+        return examineService.updateExamine(
+                examineId,
+                URLDecoder.decode(examineName, Constants.UTF8),
+                examinePrice,
+                URLDecoder.decode(roomName, Constants.UTF8));
     }
 
     @Operation(summary = "删除化验接口")
