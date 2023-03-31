@@ -45,7 +45,9 @@ CREATE TABLE IF NOT EXISTS CHARGE(
 CREATE TABLE IF NOT EXISTS EXAMINE(
 	examine_id INT PRIMARY KEY AUTO_INCREMENT,
 	examine_name VARCHAR(255),
-	examine_price FLOAT
+	examine_price FLOAT,
+	room_name VARCHAR(255),
+	FOREIGN KEY (room_name) REFERENCES ROOM(room_name) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS ADMISSION(
@@ -53,5 +55,7 @@ CREATE TABLE IF NOT EXISTS ADMISSION(
 	room_standard VARCHAR(255),
 	care_level VARCHAR(255),
 	remark TEXT,
-	care_price FLOAT
+	care_price FLOAT,
+	room_name VARCHAR(255),
+	FOREIGN KEY (room_name) REFERENCES ROOM(room_name) ON DELETE CASCADE
 );

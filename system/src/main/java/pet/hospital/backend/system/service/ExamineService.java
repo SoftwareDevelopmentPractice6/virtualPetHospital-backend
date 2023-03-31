@@ -12,43 +12,57 @@ import pet.hospital.backend.common.constant.Constants;
 import pet.hospital.backend.common.helper.ResponseHelper;
 import pet.hospital.backend.common.helper.SearchJudgeHelper;
 import pet.hospital.backend.system.dao.ExamineRepository;
+import pet.hospital.backend.system.dao.RoomRepository;
 import pet.hospital.backend.system.entity.Examine;
+import pet.hospital.backend.system.entity.Room;
 
 @Service
 public class ExamineService {
     @Autowired
     ExamineRepository examineRepository;
 
-    public JSONObject getExamine(String examineName, Double examinePrice) {
+    @Autowired
+    RoomRepository roomRepository;
+
+    public JSONObject getExamine(String examineName, Double examinePrice, String roomName) {
         JSONObject res = new JSONObject();
         res.put(
                 Constants.examineList,
                 JSONObject.parseArray(JSON.toJSONString(examineRepository.findAll().stream()
                         .filter(examine -> SearchJudgeHelper.softIncludes(examineName, examine.getExamineName())
-                                && SearchJudgeHelper.softEquals(examinePrice, examine.getExaminePrice()))
+                                && SearchJudgeHelper.softEquals(examinePrice, examine.getExaminePrice())
+                                && SearchJudgeHelper.softEquals(
+                                        roomName, examine.getExamineRoom().getRoomName()))
                         .collect(Collectors.toList()))));
         return ResponseHelper.constructSuccessResponse(res);
     }
 
-    public JSONObject addExamine(String examineName, double examinePrice) {
+    public JSONObject addExamine(String examineName, double examinePrice, String roomName) {
         List<Examine> targetExamineList = examineRepository.findAll().stream()
                 .filter(examine -> Objects.equals(examine.getExamineName(), examineName))
                 .collect(Collectors.toList());
 
         if (Objects.equals(targetExamineList.size(), 0)) {
-            Examine newExamine = new Examine();
-            newExamine.setExamineName(examineName);
-            newExamine.setExaminePrice(examinePrice);
+            Optional<Room> targetRoomOptional = roomRepository.findById(roomName);
 
-            Examine addedExamine = examineRepository.saveAndFlush(newExamine);
+            if (targetRoomOptional.isEmpty()) {
+                return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
+            } else {
+                Examine newExamine = new Examine();
+                newExamine.setExamineName(examineName);
+                newExamine.setExaminePrice(examinePrice);
+                newExamine.setExamineRoom(targetRoomOptional.get());
 
-            return ResponseHelper.constructSuccessResponse(addedExamine);
+                Examine addedExamine = examineRepository.saveAndFlush(newExamine);
+
+                return ResponseHelper.constructSuccessResponse(addedExamine);
+            }
         } else {
             return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
         }
     }
 
-    public JSONObject updateExamine(int examineId, String examineName, double examinePrice) {
+    public JSONObject updateExamine(int examineId, String examineName, double examinePrice, String roomName) {
         Optional<Examine> targetExamineOptional = examineRepository.findById(examineId);
 
         if (targetExamineOptional.isEmpty()) {
@@ -60,16 +74,19 @@ public class ExamineService {
                             && !Objects.equals(examine.getExamineId(), examineId))
                     .collect(Collectors.toList());
 
-            if (Objects.equals(targetExamineList.size(), 0)) {
+            Optional<Room> targetRoomOptional = roomRepository.findById(roomName);
+
+            if (targetRoomOptional.isEmpty() || !Objects.equals(targetExamineList.size(), 0)) {
+                return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
+            } else {
                 Examine targetExamine = targetExamineOptional.get();
                 targetExamine.setExamineName(examineName);
                 targetExamine.setExaminePrice(examinePrice);
+                targetExamine.setExamineRoom(targetRoomOptional.get());
 
                 Examine updatedExamine = examineRepository.saveAndFlush(targetExamine);
 
                 return ResponseHelper.constructSuccessResponse(updatedExamine);
-            } else {
-                return ResponseHelper.constructFailedResponse(ResponseHelper.requestErrorCode);
             }
         }
     }

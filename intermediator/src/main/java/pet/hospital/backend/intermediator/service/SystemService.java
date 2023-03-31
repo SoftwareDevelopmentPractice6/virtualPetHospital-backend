@@ -1,8 +1,8 @@
 /*
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-25 14:24:59
- * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-25 16:38:12
+ * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-31 08:51:18
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/service/SystemService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -30,21 +30,22 @@ public class SystemService {
     private RestTemplate restTemplate;
 
     public ResponseData<JSONObject> getAdmissions(
-            String roomStandard, String careLevel, String remark, Double carePrice) {
+            String roomStandard, String careLevel, String remark, Double carePrice, String roomName) {
         String api = "api/system/admission/get";
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.systemModuleBaseUrl + api)
                 .queryParam(Constants.roomStandard, roomStandard)
                 .queryParam(Constants.careLevel, careLevel)
                 .queryParam(Constants.remark, remark)
-                .queryParam(Constants.carePrice, carePrice);
+                .queryParam(Constants.carePrice, carePrice)
+                .queryParam(Constants.roomName, roomName);
 
         return ResponseHelper.forwardResponseDataDirectly(
                 restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
     }
 
     public ResponseData<JSONObject> addAdmission(
-            String roomStandard, String careLevel, String remark, double carePrice) {
+            String roomStandard, String careLevel, String remark, double carePrice, String roomName) {
         String api = "api/system/admission/add";
 
         MultiValueMap<String, String> requestEntity = new LinkedMultiValueMap<>();
@@ -52,13 +53,14 @@ public class SystemService {
         requestEntity.add(Constants.careLevel, careLevel);
         requestEntity.add(Constants.remark, remark);
         requestEntity.add(Constants.carePrice, String.valueOf(carePrice));
+        requestEntity.add(Constants.roomName, roomName);
 
         return ResponseHelper.forwardResponseDataDirectly(
                 restTemplate.postForObject(Constants.systemModuleBaseUrl + api, requestEntity, JSONObject.class));
     }
 
     public ResponseData<JSONObject> updateAdmission(
-            int admissionId, String roomStandard, String careLevel, String remark, double carePrice) {
+            int admissionId, String roomStandard, String careLevel, String remark, double carePrice, String roomName) {
         String api = "api/system/admission/update";
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.systemModuleBaseUrl + api)
@@ -66,7 +68,8 @@ public class SystemService {
                 .queryParam(Constants.roomStandard, roomStandard)
                 .queryParam(Constants.careLevel, careLevel)
                 .queryParam(Constants.remark, remark)
-                .queryParam(Constants.carePrice, carePrice);
+                .queryParam(Constants.carePrice, carePrice)
+                .queryParam(Constants.roomName, roomName);
 
         return ResponseHelper.forwardResponseDataDirectly(restTemplate
                 .exchange(uriBuilder.toUriString(), HttpMethod.PUT, null, JSONObject.class)
@@ -197,35 +200,39 @@ public class SystemService {
                 .getBody());
     }
 
-    public ResponseData<JSONObject> getExamines(String examineName, Double examinePrice) {
+    public ResponseData<JSONObject> getExamines(String examineName, Double examinePrice, String roomName) {
         String api = "api/system/examine/get";
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.systemModuleBaseUrl + api)
                 .queryParam(Constants.examineName, examineName)
-                .queryParam(Constants.examinePrice, examinePrice);
+                .queryParam(Constants.examinePrice, examinePrice)
+                .queryParam(Constants.roomName, roomName);
 
         return ResponseHelper.forwardResponseDataDirectly(
                 restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
     }
 
-    public ResponseData<JSONObject> addExamine(String examineName, double examinePrice) {
+    public ResponseData<JSONObject> addExamine(String examineName, double examinePrice, String roomName) {
         String api = "api/system/examine/add";
 
         MultiValueMap<String, String> requestEntity = new LinkedMultiValueMap<>();
         requestEntity.add(Constants.examineName, examineName);
         requestEntity.add(Constants.examinePrice, String.valueOf(examinePrice));
+        requestEntity.add(Constants.roomName, roomName);
 
         return ResponseHelper.forwardResponseDataDirectly(
                 restTemplate.postForObject(Constants.systemModuleBaseUrl + api, requestEntity, JSONObject.class));
     }
 
-    public ResponseData<JSONObject> updateExamine(int examineId, String examineName, double examinePrice) {
+    public ResponseData<JSONObject> updateExamine(
+            int examineId, String examineName, double examinePrice, String roomName) {
         String api = "api/system/examine/update";
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.systemModuleBaseUrl + api)
                 .queryParam(Constants.examineId, examineId)
                 .queryParam(Constants.examineName, examineName)
-                .queryParam(Constants.examinePrice, examinePrice);
+                .queryParam(Constants.examinePrice, examinePrice)
+                .queryParam(Constants.roomName, roomName);
 
         return ResponseHelper.forwardResponseDataDirectly(restTemplate
                 .exchange(uriBuilder.toUriString(), HttpMethod.PUT, null, JSONObject.class)

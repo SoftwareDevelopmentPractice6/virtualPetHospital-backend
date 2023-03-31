@@ -1,8 +1,8 @@
 /*
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-25 15:02:58
- * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-30 17:59:39
+ * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-03-31 09:08:23
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/controller/SystemController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -54,7 +54,7 @@ public class SystemController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"admissionList\":[{\"careLevel\":\"High\",\"admissionId\":1,\"remark\":\"comment on normal room\",\"carePrice\":555.25,\"roomStandard\":\"normal room\"}]},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"admissionList\":[{\"careLevel\":\"this is a test\",\"admissionId\":1,\"remark\":\"oxjoq\",\"carePrice\":1,\"admissionRoom\":{\"roomRole\":\"this is a test\",\"roomName\":\"testroom\"},\"roomStandard\":\"testroom\"},{\"careLevel\":\"High\",\"admissionId\":2,\"remark\":\"comment on normal room\",\"carePrice\":555.25,\"admissionRoom\":{\"roomRole\":\"RAD\",\"roomName\":\"admission room\"},\"roomStandard\":\"normal room 3\"}]},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -74,9 +74,10 @@ public class SystemController {
             @Parameter(description = "房间标准") @RequestParam(required = false) String roomStandard,
             @Parameter(description = "互理级别") @RequestParam(required = false) String careLevel,
             @Parameter(description = "备注，支持模糊查询") @RequestParam(required = false) String remark,
-            @Parameter(description = "住院价格") @RequestParam(required = false) Double carePrice) {
+            @Parameter(description = "住院价格") @RequestParam(required = false) Double carePrice,
+            @Parameter(description = "科室名称") @RequestParam(required = false) String roomName) {
         return systemService
-                .getAdmissions(roomStandard, careLevel, remark, carePrice)
+                .getAdmissions(roomStandard, careLevel, remark, carePrice, roomName)
                 .toResponseEntity();
     }
 
@@ -91,7 +92,7 @@ public class SystemController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"careLevel\":\"Low\",\"admissionId\":2,\"remark\":\"comment on normal room\",\"carePrice\":555.25,\"roomStandard\":\"normal room 2\"},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"careLevel\":\"Low\",\"admissionId\":2,\"remark\":\"comment on normal room\",\"carePrice\":555.25,\"admissionRoom\":{\"roomRole\":\"RAD\",\"roomName\":\"admission room\"},\"roomStandard\":\"normal room 2\"},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -114,7 +115,7 @@ public class SystemController {
                                     @Schema(
                                             type = "json",
                                             example =
-                                                    "{\"roomStandard\": \"normal room\", \"careLevel\": \"High\", \"remark\": \"comment on normal room\", \"carePrice\": 555.25}"))
+                                                    "{\"roomStandard\": \"normal room\", \"careLevel\": \"High\", \"remark\": \"comment on normal room\", \"carePrice\": 555.25, \"roomName\": \"admission room\"}"))
                     @RequestBody
                     JSONObject newAdmissionInfo) {
         return systemService
@@ -122,7 +123,8 @@ public class SystemController {
                         newAdmissionInfo.getString(Constants.roomStandard),
                         newAdmissionInfo.getString(Constants.careLevel),
                         newAdmissionInfo.getString(Constants.remark),
-                        newAdmissionInfo.getDouble(Constants.carePrice))
+                        newAdmissionInfo.getDouble(Constants.carePrice),
+                        newAdmissionInfo.getString(Constants.roomName))
                 .toResponseEntity();
     }
 
@@ -137,7 +139,7 @@ public class SystemController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"careLevel\":\"High\",\"admissionId\":1,\"remark\":\"comment on normal room\",\"carePrice\":555.25,\"roomStandard\":\"normal room\"},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"careLevel\":\"High\",\"admissionId\":2,\"remark\":\"comment on normal room\",\"carePrice\":555.25,\"admissionRoom\":{\"roomRole\":\"RAD\",\"roomName\":\"admission room\"},\"roomStandard\":\"normal room 3\"},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -160,7 +162,7 @@ public class SystemController {
                                     @Schema(
                                             type = "json",
                                             example =
-                                                    "{\"admissionId\": 2, \"roomStandard\": \"normal room\", \"careLevel\": \"High\", \"remark\": \"comment on normal room\", \"carePrice\": 555.25}"))
+                                                    "{\"admissionId\": 2, \"roomStandard\": \"normal room\", \"careLevel\": \"High\", \"remark\": \"comment on normal room\", \"carePrice\": 555.25, \"roomName\": \"admission room\"}"))
                     @RequestBody
                     JSONObject newAdmissionInfo) {
         return systemService
@@ -169,7 +171,8 @@ public class SystemController {
                         newAdmissionInfo.getString(Constants.roomStandard),
                         newAdmissionInfo.getString(Constants.careLevel),
                         newAdmissionInfo.getString(Constants.remark),
-                        newAdmissionInfo.getDouble(Constants.carePrice))
+                        newAdmissionInfo.getDouble(Constants.carePrice),
+                        newAdmissionInfo.getString(Constants.roomName))
                 .toResponseEntity();
     }
 
@@ -565,7 +568,7 @@ public class SystemController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"examineList\":[{\"examineName\":\"testExamine\",\"examineId\":2,\"examinePrice\":1.2}]},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"examineList\":[{\"examineName\":\"testroom\",\"examineRoom\":{\"roomRole\":\"this is a test\",\"roomName\":\"testroom\"},\"examineId\":2,\"examinePrice\":1.2},{\"examineName\":\"Examine Item 4\",\"examineRoom\":{\"roomRole\":\"RAD\",\"roomName\":\"examine room\"},\"examineId\":3,\"examinePrice\":13.12}]},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -583,8 +586,9 @@ public class SystemController {
     @GetMapping(value = "/examine/{examineName}")
     public ResponseEntity<JSONObject> getExaminesByExamineName(
             @Parameter(description = "化验名称，支持模糊查询") @PathVariable String examineName,
-            @Parameter(description = "化验价格") @RequestParam(required = false) Double examinePrice) {
-        return systemService.getExamines(examineName, examinePrice).toResponseEntity();
+            @Parameter(description = "化验价格") @RequestParam(required = false) Double examinePrice,
+            @Parameter(description = "科室名称") @RequestParam(required = false) String roomName) {
+        return systemService.getExamines(examineName, examinePrice, roomName).toResponseEntity();
     }
 
     @Operation(summary = "获取化验信息列表接口")
@@ -598,7 +602,7 @@ public class SystemController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"examineList\":[{\"examineName\":\"testExamine\",\"examineId\":2,\"examinePrice\":1.2}]},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"examineList\":[{\"examineName\":\"testroom\",\"examineRoom\":{\"roomRole\":\"this is a test\",\"roomName\":\"testroom\"},\"examineId\":2,\"examinePrice\":1.2},{\"examineName\":\"Examine Item 4\",\"examineRoom\":{\"roomRole\":\"RAD\",\"roomName\":\"examine room\"},\"examineId\":3,\"examinePrice\":13.12}]},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -615,8 +619,9 @@ public class SystemController {
             })
     @GetMapping(value = "/examine")
     public ResponseEntity<JSONObject> getExamines(
-            @Parameter(description = "化验价格") @RequestParam(required = false) Double examinePrice) {
-        return systemService.getExamines(null, examinePrice).toResponseEntity();
+            @Parameter(description = "化验价格") @RequestParam(required = false) Double examinePrice,
+            @Parameter(description = "科室名称") @RequestParam(required = false) String roomName) {
+        return systemService.getExamines(null, examinePrice, roomName).toResponseEntity();
     }
 
     @Operation(summary = "新增化验信息接口")
@@ -630,7 +635,7 @@ public class SystemController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"examineName\":\"Examine Item 2\",\"examineId\":3,\"examinePrice\":23.12},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"examineName\":\"Examine Item 4\",\"examineRoom\":{\"roomRole\":\"RAD\",\"roomName\":\"examine room\"},\"examineId\":3,\"examinePrice\":13.12},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -653,13 +658,14 @@ public class SystemController {
                                     @Schema(
                                             type = "json",
                                             example =
-                                                    "{\"examineName\": \"Examine Item 1\", \"examinePrice\": 123.12}"))
+                                                    "{\"examineName\": \"Examine Item 1\", \"examinePrice\": 123.12, \"roomName\": \"examine room\"}"))
                     @RequestBody
                     JSONObject newExamineInfo) {
         return systemService
                 .addExamine(
                         newExamineInfo.getString(Constants.examineName),
-                        newExamineInfo.getDouble(Constants.examinePrice))
+                        newExamineInfo.getDouble(Constants.examinePrice),
+                        newExamineInfo.getString(Constants.roomName))
                 .toResponseEntity();
     }
 
@@ -674,7 +680,7 @@ public class SystemController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"examineName\":\"Examine Item 1\",\"examineId\":2,\"examinePrice\":123.12},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"examineName\":\"Examine Item 4\",\"examineRoom\":{\"roomRole\":\"RAD\",\"roomName\":\"examine room\"},\"examineId\":3,\"examinePrice\":123.12},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -697,14 +703,15 @@ public class SystemController {
                                     @Schema(
                                             type = "json",
                                             example =
-                                                    "{\"examineId\": 2, \"examineName\": \"Examine Item 1\", \"examinePrice\": 123.12}"))
+                                                    "{\"examineId\": 2, \"examineName\": \"Examine Item 1\", \"examinePrice\": 123.12, \"roomName\": \"examine room\"}"))
                     @RequestBody
                     JSONObject newExamineInfo) {
         return systemService
                 .updateExamine(
                         newExamineInfo.getInteger(Constants.examineId),
                         newExamineInfo.getString(Constants.examineName),
-                        newExamineInfo.getDouble(Constants.examinePrice))
+                        newExamineInfo.getDouble(Constants.examinePrice),
+                        newExamineInfo.getString(Constants.roomName))
                 .toResponseEntity();
     }
 
