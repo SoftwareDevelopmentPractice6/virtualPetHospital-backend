@@ -27,7 +27,7 @@ eureka:
   client:
     registry-fetch-interval-seconds: 30 # 拉取服务注册信息间隔（缺省为30s）
     service-url:
-      defaultZone: http://localhost:5272/eureka/
+      defaultZone: ${eureka.client.service-url.defaultZone}
     healthcheck:
       enabled: true # 开启健康检查（依赖spring-boot-starter-actuator）
 

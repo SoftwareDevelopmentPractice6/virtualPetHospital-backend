@@ -5,6 +5,11 @@ server:
       force-response: true
       charset: UTF-8
 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5272/eureka/
+
 springfox:
   documentation:
     enabled: true

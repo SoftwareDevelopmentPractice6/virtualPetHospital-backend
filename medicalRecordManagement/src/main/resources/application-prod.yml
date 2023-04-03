@@ -9,3 +9,8 @@ spring:
   sql:
     init:
       mode: never
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8085/eureka/

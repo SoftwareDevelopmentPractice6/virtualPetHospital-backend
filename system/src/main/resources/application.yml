@@ -27,6 +27,6 @@ eureka:
   client:
     registry-fetch-interval-seconds: 30
     service-url:
-      defaultZone: http://localhost:5272/eureka/
+      defaultZone: ${eureka.client.service-url.defaultZone}
     healthcheck:
       enabled: true
