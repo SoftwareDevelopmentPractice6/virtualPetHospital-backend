@@ -1,8 +1,8 @@
 /*
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-21 14:20:30
- * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-30 17:59:32
+ * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-04-07 10:44:41
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/controller/FileController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -166,6 +166,48 @@ public class FileController {
         return fileService
                 .convertImage(
                         newFileInfo.getString(Constants.filePath), newFileInfo.getString(Constants.expectedFormat))
+                .toResponseEntity();
+    }
+
+    @Operation(summary = "视频格式转换接口")
+    @ApiResponses(
+            value = {
+                @ApiResponse(
+                        responseCode = "200",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Success message.",
+                                                    value =
+                                                            "{\"code\":200,\"data\":{\"filePath\":\"data/video/idolmaster/bb149d8a-e34d-493a-b0a3-5c1e4202dc3a/voyager.webm\"},\"message\":\"ok\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                @ApiResponse(
+                        responseCode = "515",
+                        description = "Request failed",
+                        content =
+                                @Content(
+                                        examples = {
+                                            @ExampleObject(
+                                                    description = "Failure message.",
+                                                    value = "{\"code\": 515,\"message\": \"Request failed\"}")
+                                        },
+                                        mediaType = MediaType.APPLICATION_JSON_VALUE))
+            })
+    @PutMapping(value = "/video/webm")
+    public ResponseEntity<JSONObject> convertVideo(
+            @Parameter(
+                            description = "视频格式转换信息",
+                            schema =
+                                    @Schema(
+                                            type = "json",
+                                            example =
+                                                    "{\"filePath\": \"data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.mp4\"}"))
+                    @RequestBody
+                    JSONObject newFileInfo) {
+        return fileService
+                .convertVideoToWebm(newFileInfo.getString(Constants.filePath))
                 .toResponseEntity();
     }
 
