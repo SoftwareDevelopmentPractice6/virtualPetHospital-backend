@@ -186,13 +186,15 @@ public class FileService {
             attrs.setAudioAttributes(audio);
             attrs.setVideoAttributes(video);
 
-            System.out.println(sourceFormatName);
+            int processorNum = Runtime.getRuntime().availableProcessors();
+
+            attrs.setDecodingThreads(
+                    (processorNum / 2) <= 5 ? Math.min(processorNum, 5) : Math.min(processorNum / 2, 12));
 
             Encoder encoder = new Encoder();
             encoder.encode(multimediaObject, target, attrs);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
             return false;
         }
     }
