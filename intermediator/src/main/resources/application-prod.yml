@@ -1,3 +1,9 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 75MB
+
 server:
   port: 8090 # 端口号自己配新的，不要重复
   servlet:

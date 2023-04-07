@@ -3,6 +3,10 @@ spring:
     active: @profileActive@
   application:
     name: intermediator-service # 名称自己选新的，需要能说明模块大致内容，不要重复
+  servlet:
+    multipart:
+      max-file-size: ${spring.servlet.multipart.max-file-size}
+      max-request-size: ${spring.servlet.multipart.max-request-size}
 
 server:
   port: ${server.port} # 端口号自己配新的，不要重复

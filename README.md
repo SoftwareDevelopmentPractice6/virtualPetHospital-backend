@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-31 09:34:51
+ * @LastEditTime: 2023-04-07 10:49:44
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -35,11 +35,13 @@
 - [ ] 文件上传
   - [X] 单一文件传输功能
   - [X] 图片格式转换
-  - [ ] 视频格式转换（比较麻烦）
+  - [X] 视频格式转换
   - [ ] 分块上传（需要前端配合）
   - [X] 批量操作（前端多调几次接口，后端不做）
 - [ ] 二次迭代
   - [ ] 系统管理模块总表：可能需要一张全是外键的表用于关联各表以存储入住宠物的各类信息
+  - [ ] 视频转换性能较差，可能需要看一下解决方案
+  - [ ] 需要插入数据
 
 ## 文档
 
