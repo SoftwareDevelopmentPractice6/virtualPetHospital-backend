@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public enum VideoType {
-    MP4("mp4", "aac", "libx264");
+    MP4("mp4", "aac", "h264");
 
     private String format; // 视频格式
     private String audioEncode; // 音频编码
