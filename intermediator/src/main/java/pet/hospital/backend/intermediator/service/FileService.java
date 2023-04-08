@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import pet.hospital.backend.intermediator.constant.Constants;
 import pet.hospital.backend.intermediator.helper.EnumCode;
 import pet.hospital.backend.intermediator.helper.ResponseData;
+import pet.hospital.backend.intermediator.helper.VideoType;
 import ws.schild.jave.Encoder;
 import ws.schild.jave.MultimediaObject;
 import ws.schild.jave.encode.AudioAttributes;
@@ -31,12 +32,6 @@ public class FileService {
     private String projectDirectoryPath = Paths.get(System.getProperty("user.dir"), "../../", Constants.servicePath)
             .normalize()
             .toString();
-
-    private String webmAudioEncode = "libvorbis";
-
-    private String webmVideoEncode = "libvpx-vp9";
-
-    private String webmFormat = "webm";
 
     public ResponseData<JSONObject> getDirectoryFileNames(String directoryPath) {
         try (Stream<Path> filePaths = Files.walk(Paths.get(projectDirectoryPath, directoryPath), 2)) {
@@ -115,17 +110,17 @@ public class FileService {
         }
     }
 
-    public ResponseData<JSONObject> convertVideoToWebm(String filePath) {
+    public ResponseData<JSONObject> convertVideoToMp4(String filePath) {
         String sourceFormatName = filePath.substring(filePath.lastIndexOf(".") + 1);
-        String destFilePath = filePath.substring(0, filePath.lastIndexOf(".")) + "." + "webm";
+        String destFilePath = filePath.substring(0, filePath.lastIndexOf(".")) + "." + VideoType.MP4.getFormat();
 
         if (modifyVideoFormat(
                 Paths.get(projectDirectoryPath, filePath).toString(),
                 Paths.get(projectDirectoryPath, destFilePath).toString(),
                 sourceFormatName,
-                this.webmAudioEncode,
-                this.webmVideoEncode,
-                this.webmFormat)) {
+                VideoType.MP4.getAudioEncode(),
+                VideoType.MP4.getVideoEncode(),
+                VideoType.MP4.getFormat())) {
             JSONObject res = new JSONObject();
             res.put(Constants.filePath, destFilePath);
             return ResponseData.success(res);
@@ -170,7 +165,7 @@ public class FileService {
             MultimediaObject multimediaObject = new MultimediaObject(source);
             File target = new File(destPath);
 
-            // Set webm encoding.
+            // Set encoding.
             AudioAttributes audio = new AudioAttributes();
             audio.setCodec(targetFormatAudioEncode);
             // audio.setBitRate(128000);
@@ -187,9 +182,10 @@ public class FileService {
             attrs.setVideoAttributes(video);
 
             int processorNum = Runtime.getRuntime().availableProcessors();
+            int threadsNumToUse = (processorNum / 2) <= 5 ? Math.min(processorNum, 5) : Math.min(processorNum / 2, 12);
 
-            attrs.setDecodingThreads(
-                    (processorNum / 2) <= 5 ? Math.min(processorNum, 5) : Math.min(processorNum / 2, 12));
+            attrs.setDecodingThreads(threadsNumToUse);
+            attrs.setEncodingThreads(threadsNumToUse);
 
             Encoder encoder = new Encoder();
             encoder.encode(multimediaObject, target, attrs);

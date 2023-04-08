@@ -1,8 +1,8 @@
 /*
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-21 14:20:30
- * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-07 10:44:41
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-04-08 15:06:40
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/controller/FileController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -180,7 +180,7 @@ public class FileController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"filePath\":\"data/video/idolmaster/bb149d8a-e34d-493a-b0a3-5c1e4202dc3a/voyager.webm\"},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"filePath\":\"data/video/idolmaster/bb149d8a-e34d-493a-b0a3-5c1e4202dc3a/voyager.mp4\"},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -195,19 +195,19 @@ public class FileController {
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE))
             })
-    @PutMapping(value = "/video/webm")
-    public ResponseEntity<JSONObject> convertVideo(
+    @PutMapping(value = "/video/mp4")
+    public ResponseEntity<JSONObject> convertVideoToMp4(
             @Parameter(
                             description = "视频格式转换信息",
                             schema =
                                     @Schema(
                                             type = "json",
                                             example =
-                                                    "{\"filePath\": \"data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.mp4\"}"))
+                                                    "{\"filePath\": \"data/test/fe0151e3-188a-4342-8042-33d476394aa0/WallPaper_KirbyDiscovery_1920_1080.avi\"}"))
                     @RequestBody
                     JSONObject newFileInfo) {
         return fileService
-                .convertVideoToWebm(newFileInfo.getString(Constants.filePath))
+                .convertVideoToMp4(newFileInfo.getString(Constants.filePath))
                 .toResponseEntity();
     }
 

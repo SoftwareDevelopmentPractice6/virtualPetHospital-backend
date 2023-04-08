@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-07 23:31:44
+ * @LastEditTime: 2023-04-08 15:07:28
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -40,11 +40,7 @@
 - [ ] 二次迭代
   - [ ] 根据前端要求整合
   - [ ] 系统管理模块总表：可能需要一张全是外键的表用于关联各表以存储入住宠物的各类信息
-  - [ ] 视频转换性能问题。目前依赖包还不支持使用GPU。其他平台设备暂未测试，希望补充。目前具体测试性能如下：
-    | 设备硬件情况                                                                         | 转换前格式 | 转换前大小 | 转换后格式 | 转换后大小 | 转换时间 |
-    | ------------------------------------------------------------------------------------ | ---------- | ---------- | ---------- | ---------- | -------- |
-    | Apple Silicon (M1) Desktop; 8 CPU; 8 GPU                                             | mp4        | 38.1MB     | webm       | 66.9MB     | 10min    |
-    | Apple x86-64 Laptop; 2.3GHz Intel Core i5 2 CPU; Intel Iris Plus Graphics 640 1536MB | mp4        | 38.1MB     | webm       | 66.9MB     | 23min    |
+  - [X] 视频转换性能问题。
   - [ ] 需要插入数据
 
 ## 文档
