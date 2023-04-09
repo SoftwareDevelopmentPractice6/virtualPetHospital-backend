@@ -2,7 +2,7 @@
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-15 15:17:40
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-20 19:58:41
+ * @LastEditTime: 2023-04-10 01:19:05
  * @FilePath: /virtualPetHospital-backend/login/src/test/java/pet/hospital/backend/login/controller/UserControllerTest.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -23,6 +23,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 import pet.hospital.backend.common.constant.Constants;
 import pet.hospital.backend.common.helper.ResponseHelper;
+import pet.hospital.backend.login.service.UserService;
 
 @SpringBootTest
 @Transactional
@@ -33,9 +34,10 @@ public class UserControllerTest {
     protected UserController userController;
 
     @Autowired
-    protected MockMvc mockMvc;
+    protected UserService userService;
 
-    private static String userId = "userId";
+    @Autowired
+    protected MockMvc mockMvc;
 
     private static String userName = "userName";
 
@@ -45,15 +47,7 @@ public class UserControllerTest {
 
     @Test
     void testLoginSuccess() throws Exception {
-        JSONObject expectedData = new JSONObject();
-        expectedData.put(userId, 1);
-        expectedData.put(userName, "admin@admin.com");
-        expectedData.put(userPassword, "admin");
-        expectedData.put(userAuthority, 1);
-
-        JSONObject expected = new JSONObject();
-        expected.put(Constants.code, ResponseHelper.successCode);
-        expected.put(Constants.data, expectedData);
+        userService.addUser("admin@admin.com", "admin", 1);
 
         String resStr = mockMvc.perform(post("/api/auth/login")
                         .param(userName, "admin@admin.com")
@@ -64,6 +58,11 @@ public class UserControllerTest {
                 .getResponse()
                 .getContentAsString();
 
-        assertEquals(expected, JSON.parseObject(resStr));
+        JSONObject testRes = JSON.parseObject(resStr);
+
+        assertEquals(ResponseHelper.successCode, testRes.getInteger(Constants.code));
+        assertEquals("admin@admin.com", testRes.getJSONObject(Constants.data).getString(userName));
+        assertEquals("admin", testRes.getJSONObject(Constants.data).getString(userPassword));
+        assertEquals(1, testRes.getJSONObject(Constants.data).getInteger(userAuthority));
     }
 }
