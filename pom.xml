@@ -19,8 +19,8 @@
 		<java.version>17</java.version>
 		<spring-cloud.version>2022.0.1</spring-cloud.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 	</properties>
 	<modules>
 		<module>eureka</module>
@@ -115,7 +115,6 @@
 							<!-- define the files to apply to -->
 							<includes>
 								<include>.gitignore</include>
-								<include>src/main/resources/**/*.sql</include>
 							</includes>
 							<excludes>
 								<exclude>**/pom.xml</exclude>
@@ -130,6 +129,15 @@
 						</format>
 					</formats>
 					<!-- define a language-specific format -->
+					<sql>
+						<!-- You have to set the target manually -->
+						<includes>
+							<include>src/main/resources/**/*.sql</include>
+							<include>database/**/*.sql</include>
+						</includes>
+
+						<dbeaver />  <!-- has its own section below -->
+					</sql>
 					<java>
 						<!-- no need to specify files, inferred automatically, but you can if you
 						want -->
