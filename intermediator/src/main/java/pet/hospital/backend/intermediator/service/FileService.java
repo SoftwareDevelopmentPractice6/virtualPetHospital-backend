@@ -110,17 +110,17 @@ public class FileService {
         }
     }
 
-    public ResponseData<JSONObject> convertVideoToMp4(String filePath) {
+    public ResponseData<JSONObject> convertVideo(String filePath, VideoType videoType) {
         String sourceFormatName = filePath.substring(filePath.lastIndexOf(".") + 1);
-        String destFilePath = filePath.substring(0, filePath.lastIndexOf(".")) + "." + VideoType.MP4.getFormat();
+        String destFilePath = filePath.substring(0, filePath.lastIndexOf(".")) + "." + videoType.getFormat();
 
         if (modifyVideoFormat(
                 Paths.get(projectDirectoryPath, filePath).toString(),
                 Paths.get(projectDirectoryPath, destFilePath).toString(),
                 sourceFormatName,
-                VideoType.MP4.getAudioEncode(),
-                VideoType.MP4.getVideoEncode(),
-                VideoType.MP4.getFormat())) {
+                videoType.getAudioEncode(),
+                videoType.getVideoEncode(),
+                videoType.getFormat())) {
             JSONObject res = new JSONObject();
             res.put(Constants.filePath, destFilePath);
             return ResponseData.success(res);

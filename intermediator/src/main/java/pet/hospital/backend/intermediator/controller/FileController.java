@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import pet.hospital.backend.intermediator.constant.Constants;
+import pet.hospital.backend.intermediator.helper.VideoType;
 import pet.hospital.backend.intermediator.service.FileService;
 
 @RestController
@@ -207,7 +208,7 @@ public class FileController {
                     @RequestBody
                     JSONObject newFileInfo) {
         return fileService
-                .convertVideoToMp4(newFileInfo.getString(Constants.filePath))
+                .convertVideo(newFileInfo.getString(Constants.filePath), VideoType.MP4)
                 .toResponseEntity();
     }
 
