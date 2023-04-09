@@ -1,8 +1,8 @@
 /*
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-25 14:24:59
- * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-31 08:51:18
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-04-10 00:04:14
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/service/SystemService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -467,7 +467,7 @@ public class SystemService {
                 funcName,
                 funcDescription,
                 funcFlow,
-                Paths.get("system/feature", UUID.randomUUID().toString(), funcName, "video")
+                Paths.get("system/feature", UUID.randomUUID().toString(), "video")
                         .normalize()
                         .toString(),
                 funcRole,

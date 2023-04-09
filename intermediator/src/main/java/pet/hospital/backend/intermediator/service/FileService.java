@@ -34,7 +34,13 @@ public class FileService {
             .toString();
 
     public ResponseData<JSONObject> getDirectoryFileNames(String directoryPath) {
-        try (Stream<Path> filePaths = Files.walk(Paths.get(projectDirectoryPath, directoryPath), 2)) {
+        Path destDirPath = Paths.get(projectDirectoryPath, directoryPath);
+        File destDir = new File(destDirPath.toString());
+        if (!(destDir.exists() && destDir.isDirectory())) {
+            destDir.mkdirs();
+        }
+
+        try (Stream<Path> filePaths = Files.walk(destDirPath, 2)) {
             List<String> filePathList = new ArrayList<>();
 
             filePaths.filter(Files::isRegularFile).forEach(filePath -> {
