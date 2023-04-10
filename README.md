@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-08 15:07:28
+ * @LastEditTime: 2023-04-10 16:26:51
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -14,34 +14,56 @@
 - 刁泽皓 10195101470
 - 陆宣辰 10195101466
 
-## TODO
+## 运行项目
 
-- [X] 数据库设计
-- [X] 数据库配置
-- [X] SQL: DDL 3.18 5 PM
-  - [X] 鉴权 & 系统
-  - [X] 病例 & 测试
-- [X] 开发：需要增删改查每表各一个
-  - [X] login
-  - [X] system
-  - [X] 病例
-  - [X] exam
-- [X] 中间层
-  - [X] login
-  - [X] system
-  - [X] 病例
-  - [X] exam
-- [ ] 文件上传
-  - [X] 单一文件传输功能
-  - [X] 图片格式转换
-  - [X] 视频格式转换
-  - [ ] 分块上传（需要前端配合）
-  - [X] 批量操作（前端多调几次接口，后端不做）
-- [ ] 二次迭代
-  - [ ] 根据前端要求整合
-  - [ ] 系统管理模块总表：可能需要一张全是外键的表用于关联各表以存储入住宠物的各类信息
-  - [X] 视频转换性能问题
-  - [ ] 需要插入数据
+1. 启动MySQL数据库，数据库需要一个满足以下条件的用户
+
+   - 权限：All
+   - 端口：`3306`
+   - 账号：`virtualPetHospital`
+   - 密码：`virtualPetHospital`
+
+2. 启动eureka模块，随后启动除了common与jacoco-report以外的全部模块
+3. 8090端口的swagger界面可以测试项目接口
+
+### 便捷的启动方式
+
+#### MacOS & Linux
+
+1. 根目录下运行：
+
+    ```shell
+    chmod 755 run_backend.sh
+    ```
+
+2. 根目录下运行：
+
+    ```shell
+    ./run_backend.sh start prod
+    ```
+
+    其中两个参数分别代表：
+    - 参数1：start | stop。start用于启动项目，stop用于停止项目。
+    - 参数2：dev | prod。dev表示选择dev环境，prod表示选择prod环境。
+
+#### Windows
+
+待补充
+
+## Docker 打包
+
+按顺序执行以下命令：
+
+```bash
+# 项目打成jar包
+# Windows
+# mvnw.cmd clean package -D skipTests -P prod
+# MacOS & Linux
+./mvnw clean package -D skipTests -P prod
+
+# docker build
+docker build -t virtual-pet-hospital .
+```
 
 ## 文档
 
@@ -50,6 +72,7 @@
 - [项目相关信息](./docs/ProjectInfo.md)
 - [规范与开发教程](./docs/StandardInstruction.md)
 - [各类问题](./docs/QA.md)
+- [TODO](./docs/TODO.md)
 
 ### 前端接口文档
 
@@ -62,18 +85,6 @@
 2. `cd`到`/docs/api-docs`
 3. 命令`http-server`启动本地文件服务器
 4. 到8080端口查看API文档
-
-## 运行项目
-
-1. 启动MySQL数据库，数据库需要一个满足以下条件的用户
-
-   - 权限：All
-   - 端口：`3306`
-   - 账号：`virtualPetHospital`
-   - 密码：`virtualPetHospital`
-
-2. 启动eureka模块，随后启动除了common与jacoco-report以外的全部模块
-3. [8090端口的swagger界面](localhost:8090/swagger-ui/index.html)可以测试项目接口
 
 ## 说明
 
