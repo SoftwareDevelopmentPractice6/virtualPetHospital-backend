@@ -2,12 +2,12 @@
 
 startProd(){
     echo "--------------开始启动--------------"
-    (java -jar /docker/target/eureka.jar) &
-    (java -jar /docker/target/login.jar) &
-    (java -jar /docker/target/system.jar) &
-    (java -jar /docker/target/medicalRecordManagement.jar) &
-    (java -jar /docker/target/exam.jar) &
-    (java -jar /docker/target/intermediator.jar)
+    (java -jar eureka.jar) &
+    (java -jar login.jar) &
+    (java -jar system.jar) &
+    (java -jar medicalRecordManagement.jar) &
+    (java -jar exam.jar) &
+    (java -jar intermediator.jar)
 }
 
 stopProd() {
