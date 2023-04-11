@@ -78,12 +78,12 @@ echo "intermediator: %intermediator_dev_log%"
 echo "-----------------------------------"
 echo "Starting......"
 (
-    start /b "+++batch+++" cmd /c mvnw.cmd -pl eureka spring-boot:run -P dev ^>^> %eureka_dev_log%
-    start /b "+++batch+++" cmd /c mvnw.cmd -pl login spring-boot:run -P dev ^>^> %login_dev_log%
-    start /b "+++batch+++" cmd /c mvnw.cmd -pl system spring-boot:run -P dev ^>^> %system_dev_log%
-    start /b "+++batch+++" cmd /c mvnw.cmd -pl medicalRecordManagement spring-boot:run -P dev ^>^> %medicalRecordManagement_dev_log%
-    start /b "+++batch+++" cmd /c mvnw.cmd -pl exam spring-boot:run -P dev ^>^> %exam_dev_log%
-    start /b "+++batch+++" cmd /c mvnw.cmd -pl intermediator spring-boot:run -P dev ^>^> %intermediator_dev_log%
+    start /b cmd /c mvnw.cmd -pl eureka spring-boot:run -P dev ^>^> %eureka_dev_log%
+    start /b cmd /c mvnw.cmd -pl login spring-boot:run -P dev ^>^> %login_dev_log%
+    start /b cmd /c mvnw.cmd -pl system spring-boot:run -P dev ^>^> %system_dev_log%
+    start /b cmd /c mvnw.cmd -pl medicalRecordManagement spring-boot:run -P dev ^>^> %medicalRecordManagement_dev_log%
+    start /b cmd /c mvnw.cmd -pl exam spring-boot:run -P dev ^>^> %exam_dev_log%
+    start /b cmd /c mvnw.cmd -pl intermediator spring-boot:run -P dev ^>^> %intermediator_dev_log%
 ) | set /P "="
 
 echo "Project was terminated"
