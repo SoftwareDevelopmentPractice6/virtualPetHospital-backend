@@ -19,6 +19,12 @@ import org.springframework.web.multipart.MultipartFile;
 import pet.hospital.backend.intermediator.constant.Constants;
 import pet.hospital.backend.intermediator.helper.EnumCode;
 import pet.hospital.backend.intermediator.helper.ResponseData;
+import pet.hospital.backend.intermediator.helper.VideoType;
+import ws.schild.jave.Encoder;
+import ws.schild.jave.MultimediaObject;
+import ws.schild.jave.encode.AudioAttributes;
+import ws.schild.jave.encode.EncodingAttributes;
+import ws.schild.jave.encode.VideoAttributes;
 
 @Service
 public class FileService {
@@ -28,7 +34,13 @@ public class FileService {
             .toString();
 
     public ResponseData<JSONObject> getDirectoryFileNames(String directoryPath) {
-        try (Stream<Path> filePaths = Files.walk(Paths.get(projectDirectoryPath, directoryPath), 2)) {
+        Path destDirPath = Paths.get(projectDirectoryPath, directoryPath);
+        File destDir = new File(destDirPath.toString());
+        if (!(destDir.exists() && destDir.isDirectory())) {
+            destDir.mkdirs();
+        }
+
+        try (Stream<Path> filePaths = Files.walk(destDirPath, 2)) {
             List<String> filePathList = new ArrayList<>();
 
             filePaths.filter(Files::isRegularFile).forEach(filePath -> {
@@ -104,6 +116,25 @@ public class FileService {
         }
     }
 
+    public ResponseData<JSONObject> convertVideo(String filePath, VideoType videoType) {
+        String sourceFormatName = filePath.substring(filePath.lastIndexOf(".") + 1);
+        String destFilePath = filePath.substring(0, filePath.lastIndexOf(".")) + "." + videoType.getFormat();
+
+        if (modifyVideoFormat(
+                Paths.get(projectDirectoryPath, filePath).toString(),
+                Paths.get(projectDirectoryPath, destFilePath).toString(),
+                sourceFormatName,
+                videoType.getAudioEncode(),
+                videoType.getVideoEncode(),
+                videoType.getFormat())) {
+            JSONObject res = new JSONObject();
+            res.put(Constants.filePath, destFilePath);
+            return ResponseData.success(res);
+        } else {
+            return ResponseData.error(EnumCode.REQUEST_ERROR);
+        }
+    }
+
     public ResponseData<JSONObject> deleteFile(String filePath) {
         File file = new File(Paths.get(projectDirectoryPath, filePath).toString());
 
@@ -117,12 +148,54 @@ public class FileService {
      * @param srcPath    原图路径，包含图片名称
      * @param destPath   新图路径
      * @param formatName 图片格式，支持bmp|gif|jpg|jpeg|png
-     * @return           转换是否成功
+     * @return 转换是否成功
      */
     public boolean modifyImageFormat(String srcPath, String destPath, String formatName) {
         try {
             BufferedImage bufferedImg = ImageIO.read(new File(srcPath));
             return ImageIO.write(bufferedImg, formatName, new File(destPath));
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean modifyVideoFormat(
+            String srcPath,
+            String destPath,
+            String sourceFormatName,
+            String targetFormatAudioEncode,
+            String targetFormatVideoEncode,
+            String targetFormatName) {
+        try {
+            File source = new File(srcPath);
+            MultimediaObject multimediaObject = new MultimediaObject(source);
+            File target = new File(destPath);
+
+            // Set encoding.
+            AudioAttributes audio = new AudioAttributes();
+            audio.setCodec(targetFormatAudioEncode);
+            // audio.setBitRate(128000);
+            // audio.setSamplingRate(44100);
+            // audio.setChannels(2);
+            VideoAttributes video = new VideoAttributes();
+            // video.setBitRate(160000);
+            // video.setFrameRate(20);
+            video.setCodec(targetFormatVideoEncode);
+            EncodingAttributes attrs = new EncodingAttributes();
+            attrs.setInputFormat(sourceFormatName);
+            attrs.setOutputFormat(targetFormatName);
+            attrs.setAudioAttributes(audio);
+            attrs.setVideoAttributes(video);
+
+            int processorNum = Runtime.getRuntime().availableProcessors();
+            int threadsNumToUse = (processorNum / 2) <= 5 ? Math.min(processorNum, 5) : Math.min(processorNum / 2, 12);
+
+            attrs.setDecodingThreads(threadsNumToUse);
+            attrs.setEncodingThreads(threadsNumToUse);
+
+            Encoder encoder = new Encoder();
+            encoder.encode(multimediaObject, target, attrs);
+            return true;
         } catch (Exception e) {
             return false;
         }

@@ -32,9 +32,10 @@ public class AdmissionController {
             @Parameter(description = "房间标准") @RequestParam(required = false) String roomStandard,
             @Parameter(description = "互理级别") @RequestParam(required = false) String careLevel,
             @Parameter(description = "备注，支持模糊查询") @RequestParam(required = false) String remark,
-            @Parameter(description = "住院价格") @RequestParam(required = false) Double carePrice)
+            @Parameter(description = "住院价格") @RequestParam(required = false) Double carePrice,
+            @Parameter(description = "科室名称") @RequestParam(required = false) String roomName)
             throws UnsupportedEncodingException {
-        return admissionService.getAdmission(roomStandard, careLevel, remark, carePrice);
+        return admissionService.getAdmission(roomStandard, careLevel, remark, carePrice, roomName);
     }
 
     @Operation(summary = "新增住院接口")
@@ -43,13 +44,15 @@ public class AdmissionController {
             @Parameter(description = "房间标准") @RequestParam String roomStandard,
             @Parameter(description = "互理级别") @RequestParam String careLevel,
             @Parameter(description = "备注") @RequestParam String remark,
-            @Parameter(description = "住院价格") @RequestParam double carePrice)
+            @Parameter(description = "住院价格") @RequestParam double carePrice,
+            @Parameter(description = "科室名称") @RequestParam String roomName)
             throws UnsupportedEncodingException {
         return admissionService.addAdmission(
                 URLDecoder.decode(roomStandard, Constants.UTF8),
                 URLDecoder.decode(careLevel, Constants.UTF8),
                 URLDecoder.decode(remark, Constants.UTF8),
-                carePrice);
+                carePrice,
+                URLDecoder.decode(roomName, Constants.UTF8));
     }
 
     @Operation(summary = "更改住院接口")
@@ -59,14 +62,16 @@ public class AdmissionController {
             @Parameter(description = "房间标准") @RequestParam String roomStandard,
             @Parameter(description = "互理级别") @RequestParam String careLevel,
             @Parameter(description = "备注") @RequestParam String remark,
-            @Parameter(description = "住院价格") @RequestParam double carePrice)
+            @Parameter(description = "住院价格") @RequestParam double carePrice,
+            @Parameter(description = "科室名称") @RequestParam String roomName)
             throws UnsupportedEncodingException {
         return admissionService.updateAdmission(
                 admissionId,
                 URLDecoder.decode(roomStandard, Constants.UTF8),
                 URLDecoder.decode(careLevel, Constants.UTF8),
                 URLDecoder.decode(remark, Constants.UTF8),
-                carePrice);
+                carePrice,
+                URLDecoder.decode(roomName, Constants.UTF8));
     }
 
     @Operation(summary = "删除住院接口")

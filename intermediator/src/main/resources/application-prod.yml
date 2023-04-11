@@ -1,9 +1,20 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 750MB
+
 server:
   port: 8090 # 端口号自己配新的，不要重复
   servlet:
     encoding:
       force-response: false
       charset: UTF-8
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8085/eureka/
 
 springfox:
   documentation:

@@ -3,6 +3,10 @@ spring:
     active: @profileActive@
   application:
     name: intermediator-service # 名称自己选新的，需要能说明模块大致内容，不要重复
+  servlet:
+    multipart:
+      max-file-size: ${spring.servlet.multipart.max-file-size}
+      max-request-size: ${spring.servlet.multipart.max-request-size}
 
 server:
   port: ${server.port} # 端口号自己配新的，不要重复
@@ -28,7 +32,7 @@ eureka:
   client:
     registry-fetch-interval-seconds: 30 # 拉取服务注册信息间隔（缺省为30s）
     service-url:
-      defaultZone: http://localhost:5272/eureka/
+      defaultZone: ${eureka.client.service-url.defaultZone}
     healthcheck:
       enabled: true # 开启健康检查（依赖spring-boot-starter-actuator）
 

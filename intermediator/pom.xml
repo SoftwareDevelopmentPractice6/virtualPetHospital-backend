@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>pet.hospital.backend</groupId>
 		<artifactId>virtualPetHospital-backend</artifactId>
-		<version>0.1.0-SNAPSHOT</version>
+		<version>1.0.0-SNAPSHOT</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<artifactId>intermediator</artifactId>
@@ -57,6 +58,20 @@
 			<version>2.0.25</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/ws.schild/jave-core -->
+		<dependency>
+			<groupId>ws.schild</groupId>
+			<artifactId>jave-core</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/ws.schild/jave-all-deps -->
+		<dependency>
+			<groupId>ws.schild</groupId>
+			<artifactId>jave-all-deps</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -64,6 +79,29 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<!--目标目录，可以根据子模块的目录深度，自行调整-->
+								<copy todir="../target">
+									<!-- 拷贝jar -->
+									<fileset dir="${project.build.directory}">
+										<include name="${artifactId}-${project.version}.jar" />
+									</fileset>
+								</copy>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
