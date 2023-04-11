@@ -1427,3 +1427,989 @@ INSERT
         200.00,
         '诊疗室'
     );
+
+USE disease;
+
+DELETE
+FROM
+    DISEASENAME;
+
+DELETE
+FROM
+    DIAGNOSTICRESULT;
+
+DELETE
+FROM
+    ADMISSION;
+
+DELETE
+FROM
+    CASECHECK;
+
+DELETE
+FROM
+    TREATMENTPROGRAM;
+
+DELETE
+FROM
+    MEDICALCASE;
+
+INSERT
+    INTO
+        DISEASENAME(
+            disease_name_id,
+            content,
+            photo,
+            video,
+            category
+        )
+    VALUES(
+        2,
+        '冠心病',
+        'disease/diseaseName/5491c078-b9fa-1f47-f7f2-1d5ebf29bf26/photo',
+        'disease/diseaseName/5491c078-b9fa-1f47-f7f2-1d5ebf29bf26/video',
+        '心血管病'
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        2,
+        '心电图显示冠心病病变',
+        'disease/diagnosticResult/119980fc-52a3-9075-958d-bb3073be950b/photo',
+        'disease/diagnosticResult/119980fc-52a3-9075-958d-bb3073be950b/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        2,
+        '患者自述胸痛持续数天',
+        'disease/admission/f8d426c9-670a-07db-26aa-0a1020e9fc53/photo',
+        'disease/admission/f8d426c9-670a-07db-26aa-0a1020e9fc53/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        2,
+        '体格检查发现心率不齐',
+        'disease/caseCheck/60059edc-1976-9252-4902-c957dd413420/photo',
+        'disease/caseCheck/60059edc-1976-9252-4902-c957dd413420/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        2,
+        '药物治疗和改变生活方式，建议行冠状动脉造影',
+        'disease/treatmentProgram/b2334a94-35c9-d20b-2778-2dee659a1f73/photo',
+        'disease/treatmentProgram/b2334a94-35c9-d20b-2778-2dee659a1f73/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+    );
+
+INSERT
+    INTO
+        DISEASENAME(
+            disease_name_id,
+            content,
+            photo,
+            video,
+            category
+        )
+    VALUES(
+        3,
+        '糖尿病',
+        'disease/diseaseName/7f3685f8-4130-2cb0-bc8c-04f82028f276/photo',
+        'disease/diseaseName/7f3685f8-4130-2cb0-bc8c-04f82028f276/video',
+        '内分泌疾病'
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        3,
+        '血糖检测结果过高',
+        'disease/diagnosticResult/2f20ae97-1ef6-b66b-e041-774bb9b185ca/photo',
+        'disease/diagnosticResult/2f20ae97-1ef6-b66b-e041-774bb9b185ca/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        3,
+        '患者自述口渴、多尿等症状',
+        'disease/admission/9e4d2b7b-2bca-2f2c-9d26-45e036cf6b01/photo',
+        'disease/admission/9e4d2b7b-2bca-2f2c-9d26-45e036cf6b01/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        3,
+        '体格检查发现病人双腿轻微麻木',
+        'disease/caseCheck/567b8957-c2c3-8247-c10f-5f2e4ea72d9b/photo',
+        'disease/caseCheck/567b8957-c2c3-8247-c10f-5f2e4ea72d9b/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        3,
+        '药物治疗，建议改变饮食和生活方式',
+        'disease/treatmentProgram/f98a3523-9c0d-79f8-732a-e789496b901e/photo',
+        'disease/treatmentProgram/f98a3523-9c0d-79f8-732a-e789496b901e/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+    );
+
+INSERT
+    INTO
+        DISEASENAME(
+            disease_name_id,
+            content,
+            photo,
+            video,
+            category
+        )
+    VALUES(
+        4,
+        '双腿骨折',
+        'disease/diseaseName/4f73c0c9-513f-89bd-1c3f-21f539341b74/photo',
+        'disease/diseaseName/4f73c0c9-513f-89bd-1c3f-21f539341b74/video',
+        '骨科疾病'
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        4,
+        'X光检查显示双腿骨折',
+        'disease/diagnosticResult/feddd676-dd52-03ce-01c1-4a860bc79134/photo',
+        'disease/diagnosticResult/feddd676-dd52-03ce-01c1-4a860bc79134/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        4,
+        '患者因意外事故导致双腿骨折，需要进行手术治疗',
+        'disease/admission/d2cc81ed-6e6d-60b2-a0e4-e11f97864a57/photo',
+        'disease/admission/d2cc81ed-6e6d-60b2-a0e4-e11f97864a57/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        4,
+        '体格检查发现病人双腿无法正常活动',
+        'disease/caseCheck/722a2f02-8921-aed6-7ea2-8834e5e43cb8/photo',
+        'disease/caseCheck/722a2f02-8921-aed6-7ea2-8834e5e43cb8/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        4,
+        '手术治疗，术后进行康复治疗',
+        'disease/treatmentProgram/fb02bfe4-0971-e514-39b9-c80c2864dc1b/photo',
+        'disease/treatmentProgram/fb02bfe4-0971-e514-39b9-c80c2864dc1b/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+    );
+
+INSERT
+    INTO
+        DISEASENAME(
+            disease_name_id,
+            content,
+            photo,
+            video,
+            category
+        )
+    VALUES(
+        5,
+        '哮喘',
+        'disease/diseaseName/f072f77f-7c2a-af31-de22-87fa88caa296/photo',
+        'disease/diseaseName/f072f77f-7c2a-af31-de22-87fa88caa296/video',
+        '呼吸道疾病'
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        5,
+        '肺功能检查显示患者呼气流速降低',
+        'disease/diagnosticResult/32cd1102-3670-8405-17ad-b4171acb2b09/photo',
+        'disease/diagnosticResult/32cd1102-3670-8405-17ad-b4171acb2b09/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        5,
+        '患者感到胸闷、呼吸困难等症状',
+        'disease/admission/6c393a3d-65bb-865a-5bfb-e8231a8f07ff/photo',
+        'disease/admission/6c393a3d-65bb-865a-5bfb-e8231a8f07ff/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        5,
+        '体格检查发现病人胸部呼吸音减弱',
+        'disease/caseCheck/dea9f7c4-d5d4-0da9-edc9-bcda0d8ef75c/photo',
+        'disease/caseCheck/dea9f7c4-d5d4-0da9-edc9-bcda0d8ef75c/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        5,
+        '药物治疗和呼吸训练',
+        'disease/treatmentProgram/76f9c082-22a1-6272-ac8b-cd46ba0f7954/photo',
+        'disease/treatmentProgram/76f9c082-22a1-6272-ac8b-cd46ba0f7954/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+    );
+
+INSERT
+    INTO
+        DISEASENAME(
+            disease_name_id,
+            content,
+            photo,
+            video,
+            category
+        )
+    VALUES(
+        6,
+        '胃癌',
+        'disease/diseaseName/1464d8a1-13c8-8b2a-faea-aa6be19ea369/photo',
+        'disease/diseaseName/1464d8a1-13c8-8b2a-faea-aa6be19ea369/video',
+        '肿瘤疾病'
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        6,
+        '胃镜检查显示患者胃部出现病变',
+        'disease/diagnosticResult/a53ae0fc-4739-2e65-bc3b-792391dfd2bb/photo',
+        'disease/diagnosticResult/a53ae0fc-4739-2e65-bc3b-792391dfd2bb/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        6,
+        '患者因食欲下降、体重下降等症状前往医院就诊',
+        'disease/admission/9054e88d-77f4-4af1-e38f-eedf7b52c213/photo',
+        'disease/admission/9054e88d-77f4-4af1-e38f-eedf7b52c213/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        6,
+        '体格检查发现病人腹部明显肿块',
+        'disease/caseCheck/ff530c08-6dd3-c0f6-194a-dcf54371a1dc/photo',
+        'disease/caseCheck/ff530c08-6dd3-c0f6-194a-dcf54371a1dc/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        6,
+        '手术切除肿瘤和辅助化疗',
+        'disease/treatmentProgram/644d5ffc-875b-ca12-1f4e-bc9675d11e1d/photo',
+        'disease/treatmentProgram/644d5ffc-875b-ca12-1f4e-bc9675d11e1d/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+    );
+
+INSERT
+    INTO
+        DISEASENAME(
+            disease_name_id,
+            content,
+            photo,
+            video,
+            category
+        )
+    VALUES(
+        7,
+        '抑郁症',
+        'disease/diseaseName/776e4a59-3c67-1b6a-87ed-ac794f6fa2c3/photo',
+        'disease/diseaseName/776e4a59-3c67-1b6a-87ed-ac794f6fa2c3/video',
+        '心理疾病'
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        7,
+        '患者自述情绪低落、失眠等症状，符合抑郁症诊断标准',
+        'disease/diagnosticResult/6b896d58-0280-af57-73d2-07d15a8d1224/photo',
+        'disease/diagnosticResult/6b896d58-0280-af57-73d2-07d15a8d1224/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        7,
+        '患者因情绪低落、社交回避等症状寻求心理咨询',
+        'disease/admission/d4ab18b1-053a-ed59-5873-2b9b3d720446/photo',
+        'disease/admission/d4ab18b1-053a-ed59-5873-2b9b3d720446/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        7,
+        '临床心理评估发现患者存在明显的抑郁情绪和焦虑症状',
+        'disease/caseCheck/d6125f15-dc3a-4bce-8632-275a0356c611/photo',
+        'disease/caseCheck/d6125f15-dc3a-4bce-8632-275a0356c611/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        7,
+        '药物治疗和心理治疗',
+        'disease/treatmentProgram/931a18ae-c492-c36f-5653-c9c2f1b67cf5/photo',
+        'disease/treatmentProgram/931a18ae-c492-c36f-5653-c9c2f1b67cf5/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+    );
+
+INSERT
+    INTO
+        DISEASENAME(
+            disease_name_id,
+            content,
+            photo,
+            video,
+            category
+        )
+    VALUES(
+        8,
+        '哮喘',
+        'disease/diseaseName/0cde3d1f-eb4c-9a5d-b487-0bc2b052fa14/photo',
+        'disease/diseaseName/0cde3d1f-eb4c-9a5d-b487-0bc2b052fa14/video',
+        '呼吸系统疾病'
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        8,
+        '肺功能测试显示患者呼吸功能明显受损，支气管收缩试验阳性，符合哮喘诊断标准',
+        'disease/diagnosticResult/00f1d104-f23b-542d-13c4-01d7662450d8/photo',
+        'disease/diagnosticResult/00f1d104-f23b-542d-13c4-01d7662450d8/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        8,
+        '患者因反复咳嗽、气急、胸闷等症状就诊',
+        'disease/admission/3ad4765c-ad8b-052b-c4a8-44ff3b7b0771/photo',
+        'disease/admission/3ad4765c-ad8b-052b-c4a8-44ff3b7b0771/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        8,
+        '临床检查发现患者存在喘息、呼吸困难等症状，听诊肺部呼吸音减弱，提示肺功能受损',
+        'disease/caseCheck/d58897a9-810b-6a80-37d7-342183324502/photo',
+        'disease/caseCheck/d58897a9-810b-6a80-37d7-342183324502/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        8,
+        '吸入性类固醇和β2受体激动剂的联合治疗',
+        'disease/treatmentProgram/3fb4b3b9-163c-7d8a-5411-4963a34d8f27/photo',
+        'disease/treatmentProgram/3fb4b3b9-163c-7d8a-5411-4963a34d8f27/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+    );
+
+INSERT
+    INTO
+        DISEASENAME(
+            disease_name_id,
+            content,
+            photo,
+            video,
+            category
+        )
+    VALUES(
+        9,
+        '重症糖尿病',
+        'disease/diseaseName/bcacf9f8-aefb-ca21-e561-ecbe7670cfe5/photo',
+        'disease/diseaseName/bcacf9f8-aefb-ca21-e561-ecbe7670cfe5/video',
+        '内分泌代谢疾病'
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        9,
+        '血糖测定结果超过正常范围，糖化血红蛋白浓度升高，提示糖尿病',
+        'disease/diagnosticResult/aeab8123-229a-f994-5c5b-42f28c77f2c8/photo',
+        'disease/diagnosticResult/aeab8123-229a-f994-5c5b-42f28c77f2c8/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        9,
+        '患者因口渴、多尿、体重下降等症状就诊',
+        'disease/admission/37fa69bc-33a4-e2c3-64ad-d79ca3967492/photo',
+        'disease/admission/37fa69bc-33a4-e2c3-64ad-d79ca3967492/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        9,
+        '患者体检发现身高165cm，体重52kg，BMI为19.1，血压140/90mmHg，尿常规检查：尿糖阳性，血糖测定：空腹血糖8.5mmol/L，餐后2小时血糖10.5mmol/L，提示糖尿病',
+        'disease/caseCheck/231ed93b-0c6b-b2c5-745e-a4076f4f0561/photo',
+        'disease/caseCheck/231ed93b-0c6b-b2c5-745e-a4076f4f0561/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        9,
+        '控制饮食、运动和药物治疗，控制血糖水平',
+        'disease/treatmentProgram/185fbf3f-4f8d-ed31-321d-b31df768d9bd/photo',
+        'disease/treatmentProgram/185fbf3f-4f8d-ed31-321d-b31df768d9bd/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+    );
+
+INSERT
+    INTO
+        DISEASENAME(
+            disease_name_id,
+            content,
+            photo,
+            video,
+            category
+        )
+    VALUES(
+        10,
+        '哮喘',
+        'disease/diseaseName/6c3d45b2-5077-8b7a-571d-faf60ba38623/photo',
+        'disease/diseaseName/6c3d45b2-5077-8b7a-571d-faf60ba38623/video',
+        '呼吸系统疾病'
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        10,
+        '肺功能检查显示FEV1/FVC比值减低，提示气流受限，支气管激发试验阳性，提示哮喘',
+        'disease/diagnosticResult/689f8f23-9e02-4de2-6e72-467d63472c6e/photo',
+        'disease/diagnosticResult/689f8f23-9e02-4de2-6e72-467d63472c6e/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        10,
+        '患者因反复咳嗽、气喘、胸闷等症状就诊',
+        'disease/admission/db22e8ac-4dc1-4999-ead6-5bf872449314/photo',
+        'disease/admission/db22e8ac-4dc1-4999-ead6-5bf872449314/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        10,
+        '患者体检发现身高168cm，体重65kg，体温37.3℃，呼吸音粗，胸廓对称，肺底闻及干湿啰音，肺功能检查显示FEV1/FVC比值减低，提示气流受限',
+        'disease/caseCheck/627bed70-10c6-a1a5-1b48-beb4476f23fd/photo',
+        'disease/caseCheck/627bed70-10c6-a1a5-1b48-beb4476f23fd/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        10,
+        '根据患者哮喘的类型、程度等情况，选择合适的药物治疗，同时加强预防和控制',
+        'disease/treatmentProgram/d15de1b7-3a3c-5c17-a818-73a1a3c37565/photo',
+        'disease/treatmentProgram/d15de1b7-3a3c-5c17-a818-73a1a3c37565/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+    );
+
+INSERT
+    INTO
+        DISEASENAME(
+            disease_name_id,
+            content,
+            photo,
+            video,
+            category
+        )
+    VALUES(
+        12,
+        '胃炎',
+        'disease/diseaseName/ecb4009c-2da5-059c-36eb-4550c93b39ff/photo',
+        'disease/diseaseName/ecb4009c-2da5-059c-36eb-4550c93b39ff/video',
+        '消化系统疾病'
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        12,
+        '胃部压痛明显，胃镜检查显示胃体部位存在浅表性胃炎病变',
+        'disease/diagnosticResult/1a8af183-172f-e834-94f8-6be6ab62589f/photo',
+        'disease/diagnosticResult/1a8af183-172f-e834-94f8-6be6ab62589f/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        12,
+        '患者反复出现腹痛、恶心、呕吐等症状，就诊',
+        'disease/admission/20e2b848-1b58-7b7c-4b76-d090670fd155/photo',
+        'disease/admission/20e2b848-1b58-7b7c-4b76-d090670fd155/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        12,
+        '患者血常规、肝功能、肾功能、电解质等检查均正常，胃镜检查显示胃体部位存在浅表性胃炎病变',
+        'disease/caseCheck/075d64ff-8798-3c44-d085-420767a162df/photo',
+        'disease/caseCheck/075d64ff-8798-3c44-d085-420767a162df/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        12,
+        '通过规律饮食、注意休息、避免吸烟饮酒等方式调理胃肠功能，同时根据病情选择口服药物或其他治疗方式',
+        'disease/treatmentProgram/c7fdc351-6d0b-01c5-a652-739df99106f4/photo',
+        'disease/treatmentProgram/c7fdc351-6d0b-01c5-a652-739df99106f4/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+    );
