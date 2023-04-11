@@ -51,6 +51,7 @@ echo "medicalRecordManagement: %medicalRecordManagement_prod_log%"
 echo "exam: %exam_prod_log%"
 echo "intermediator: %intermediator_prod_log%"
 echo "-----------------------------------"
+echo "Starting......"
 (
     start /b cmd /c mvnw.cmd -pl eureka spring-boot:run -P prod ^>^> %eureka_prod_log%
     start /b cmd /c mvnw.cmd -pl login spring-boot:run -P prod ^>^> %login_prod_log%
@@ -75,6 +76,7 @@ echo "medicalRecordManagement: %medicalRecordManagement_dev_log%"
 echo "exam: %exam_dev_log%"
 echo "intermediator: %intermediator_dev_log%"
 echo "-----------------------------------"
+echo "Starting......"
 (
     start /b "+++batch+++" cmd /c mvnw.cmd -pl eureka spring-boot:run -P dev ^>^> %eureka_dev_log%
     start /b "+++batch+++" cmd /c mvnw.cmd -pl login spring-boot:run -P dev ^>^> %login_dev_log%

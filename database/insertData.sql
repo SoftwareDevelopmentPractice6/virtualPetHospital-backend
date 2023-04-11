@@ -2032,23 +2032,6 @@ INSERT
 
 INSERT
     INTO
-        DISEASENAME(
-            disease_name_id,
-            content,
-            photo,
-            video,
-            category
-        )
-    VALUES(
-        8,
-        '哮喘',
-        'disease/diseaseName/0cde3d1f-eb4c-9a5d-b487-0bc2b052fa14/photo',
-        'disease/diseaseName/0cde3d1f-eb4c-9a5d-b487-0bc2b052fa14/video',
-        '呼吸系统疾病'
-    );
-
-INSERT
-    INTO
         DIAGNOSTICRESULT(
             diagnostic_result_id,
             content,
@@ -2119,7 +2102,7 @@ INSERT
         )
     VALUES(
         8,
-        8,
+        5,
         8,
         8,
         8,
@@ -2224,23 +2207,6 @@ INSERT
 
 INSERT
     INTO
-        DISEASENAME(
-            disease_name_id,
-            content,
-            photo,
-            video,
-            category
-        )
-    VALUES(
-        10,
-        '哮喘',
-        'disease/diseaseName/6c3d45b2-5077-8b7a-571d-faf60ba38623/photo',
-        'disease/diseaseName/6c3d45b2-5077-8b7a-571d-faf60ba38623/video',
-        '呼吸系统疾病'
-    );
-
-INSERT
-    INTO
         DIAGNOSTICRESULT(
             diagnostic_result_id,
             content,
@@ -2311,7 +2277,7 @@ INSERT
         )
     VALUES(
         10,
-        10,
+        5,
         10,
         10,
         10,
