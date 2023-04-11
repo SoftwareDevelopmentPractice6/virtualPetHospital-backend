@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-10 16:26:51
+ * @LastEditTime: 2023-04-11 04:28:32
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -43,12 +43,19 @@
     ```
 
     其中两个参数分别代表：
+
     - 参数1：start | stop。start用于启动项目，stop用于停止项目。
     - 参数2：dev | prod。dev表示选择dev环境，prod表示选择prod环境。
 
 #### Windows
 
-待补充
+根目录下运行：
+
+```batch
+run_backend.bat start prod
+```
+
+可选参数及含义同上。
 
 ## Docker 打包
 
