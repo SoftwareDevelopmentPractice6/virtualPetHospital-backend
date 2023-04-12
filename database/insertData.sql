@@ -2413,3 +2413,111 @@ INSERT
         12,
         12
     );
+
+use exam;
+
+DELETE FROM STUDENTANSWER;
+DELETE FROM QUESTIONSINPAPER;
+DELETE FROM STUDENTRESULT;
+DELETE FROM EXAMSESSION;
+DELETE FROM QUESTION;
+DELETE FROM CATEGORY;
+DELETE FROM PAPER;
+DELETE FROM EXAM;
+
+
+
+INSERT INTO CATEGORY (category_name) VALUES
+('狗'), ('猫'), ('鸟'), ('其他')
+
+INSERT INTO QUESTION (question_content, question_type, category_id)
+VALUES ('你知道什么是犬瘟热吗？ A.狗得的病 B.猫得的病', '单选', 1);
+
+INSERT INTO QUESTION (question_content, question_type, category_id)
+VALUES ('猫咪为什么会打喷嚏？ A.因为感冒 B.因为过敏 C.因为异物刺激 D.其他', '单选', 2);
+
+INSERT INTO QUESTION (question_content, question_type, category_id)
+VALUES ('什么是宠物药品的过敏反应？ A.肚子疼 B.呼吸急促 C.皮肤瘙痒 D.其他', '多选', 4);
+
+INSERT INTO QUESTION (question_content, question_type, category_id)
+VALUES ('什么情况下需要紧急送宠物去医院？ A.突然晕倒 B.呼吸急促 C.严重呕吐 D.其他', '多选', 4);
+
+INSERT INTO QUESTION (question_content, question_type, category_id)
+VALUES ('半夜突然听到宠物在呕吐声，应该怎么办？ A.立刻喂水 B.观察一段时间再决定是否送医 C.在网上找解决方案 D.带宠物到宠物医院', '多选', 4);
+
+INSERT INTO QUESTION (question_content, question_type, category_id)
+VALUES ('宠物是否需要接种疫苗？ A.是 B.不是', '单选', 1);
+
+INSERT INTO QUESTION (question_content, question_type, category_id)
+VALUES ('狗的牙齿保健有哪些方法？ A.刷牙 B.磨牙棒 C.口腔喷雾 D.生骨头', '多选', 1);
+
+INSERT INTO QUESTION (question_content, question_type, category_id)
+VALUES ('猫的牙齿保健有哪些方法？ A.刷牙 B.磨牙棒 C.口腔喷雾 D.生鱼肉', '多选', 2);
+
+INSERT INTO QUESTION (question_content, question_type, category_id)
+VALUES ('宠物发烧了应该怎么办？ A.给宠物喝药 B.让宠物多休息 C.打冰敷 D.立刻带宠物去医院', '单选', 4);
+
+INSERT INTO QUESTION (question_content, question_type, category_id)
+VALUES ('宠物是否需要剪指甲？ A.是 B.不是', '单选', 4);
+
+INSERT INTO QUESTION (question_content, question_type, category_id)
+VALUES ('宠物为什么会打呼噜？ A.因为它睡得太香了 B.因为它有呼吸道疾病 C.因为它太胖了 D.因为它心情好', '单选', 4);
+
+INSERT INTO QUESTION (question_content, question_type, category_id)
+VALUES ('宠物会得肥胖症吗？ A.会 B.不会', '单选', 4);
+
+INSERT INTO EXAM (exam_name) VALUES ('宠物医院实习生测试1');
+INSERT INTO PAPER (paper_name, exam_id, duration, total_score)
+VALUES ('宠物医院实习生测试卷1', 1, '60分钟', '100分');
+INSERT INTO EXAMSESSION (paper_id, start_time, end_time)
+VALUES (1, '2023-04-12 08:00:00', '2023-04-12 09:00:00');
+
+INSERT INTO STUDENTRESULT (session_id, student_id, score)
+VALUES (1, 1, 80);
+
+INSERT INTO QUESTIONSINPAPER (points, paper_id, question_id) VALUES
+(5, 1, 1),
+(10, 1, 2),
+(15, 1, 3),
+(20, 1, 4);
+
+INSERT INTO STUDENTANSWER (student_answer_content, student_answer_point, question_in_paper_id, result_id)
+VALUES ('A', 5, 1, 1);
+
+INSERT INTO EXAM (exam_name) VALUES ('宠物医院实习生测试2');
+INSERT INTO PAPER (paper_name, exam_id, duration, total_score)
+VALUES ('宠物医院实习生测试卷2', 2, '60分钟', '100分');
+INSERT INTO EXAMSESSION (paper_id, start_time, end_time)
+VALUES (2, '2023-04-13 10:00:00', '2023-04-13 11:00:00');
+
+INSERT INTO STUDENTRESULT (session_id, student_id, score)
+VALUES (2, 2, 95);
+
+INSERT INTO QUESTIONSINPAPER (points, paper_id, question_id) VALUES
+(5, 2, 1),
+(10, 2, 3),
+(15, 2, 5),
+(20, 2, 7);
+
+INSERT INTO STUDENTANSWER (student_answer_content, student_answer_point, question_in_paper_id, result_id)
+VALUES ('B', 10, 2, 2);
+
+INSERT INTO EXAM (exam_name) VALUES ('宠物医院实习生测试3');
+INSERT INTO PAPER (paper_name, exam_id, duration, total_score)
+VALUES ('宠物医院实习生测试卷3', 3, '60分钟', '100分');
+INSERT INTO EXAMSESSION (paper_id, start_time, end_time)
+VALUES (3, '2023-04-14 14:00:00', '2023-04-14 15:00:00');
+
+INSERT INTO STUDENTRESULT (session_id, student_id, score)
+VALUES (3, 3, 70);
+
+INSERT INTO QUESTIONSINPAPER (points, paper_id, question_id) VALUES
+(5, 3, 2),
+(10, 3, 4),
+(15, 3, 6),
+(20, 3, 8);
+
+INSERT INTO STUDENTANSWER (student_answer_content, student_answer_point, question_in_paper_id, result_id)
+VALUES ('C', 15, 3, 3);
+
+
