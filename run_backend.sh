@@ -15,15 +15,21 @@ export exam_dev_log=logs/dev/exam.log
 export intermediator_dev_log=logs/dev/intermediator.log
 
 startProd(){
+    echo "--------------Stopping other applications if exists--------------"
+    stopDev
+    stopProd
+
     echo "--------------Start running--------------"
+    echo "Profile: prod"
+    sleep 1
     mkdir -p logs/prod;
     echo "Logs of running each module can be found in:"
-    echo "eureka: $eureka_prod_log"
-    echo "login: $login_prod_log"
-    echo "system: $system_prod_log"
-    echo "medicalRecordManagement: $medicalRecordManagement_prod_log"
-    echo "exam: $exam_prod_log"
-    echo "intermediator: $intermediator_prod_log"
+    echo "- eureka:                  $eureka_prod_log"
+    echo "- login:                   $login_prod_log"
+    echo "- system:                  $system_prod_log"
+    echo "- medicalRecordManagement: $medicalRecordManagement_prod_log"
+    echo "- exam:                    $exam_prod_log"
+    echo "- intermediator:           $intermediator_prod_log"
     echo "-----------------------------------"
     (./mvnw -pl eureka spring-boot:run -P prod >> $eureka_prod_log) &
     (./mvnw -pl login spring-boot:run -P prod >> $login_prod_log) &
@@ -43,27 +49,31 @@ startProd(){
         echo "Running completed"
         echo "-----------------------------------"
         echo "Running address of each module:"
-        echo "eureka: http://localhost:8085"
-        echo "login: http://localhost:8086"
-        echo "system: http://localhost:8087"
-        echo "medicalRecordManagement: http://localhost:8088"
-        echo "exam: http://localhost:8089"
-        echo "intermediator: http://localhost:8090"
-    ) &
-    wait
-    echo "Project was terminated"
+        echo "- eureka:                  http://localhost:8085"
+        echo "- login:                   http://localhost:8086"
+        echo "- system:                  http://localhost:8087"
+        echo "- medicalRecordManagement: http://localhost:8088"
+        echo "- exam:                    http://localhost:8089"
+        echo "- intermediator:           http://localhost:8090"
+    )
 }
 
 startDev(){
+    echo "--------------Stopping other applications if exists--------------"
+    stopDev
+    stopProd
+
     echo "--------------Start running--------------"
+    echo "Profile: dev"
+    sleep 1
     mkdir -p logs/dev;
     echo "Logs of running each module can be found in:"
-    echo "eureka: $eureka_dev_log"
-    echo "login: $login_dev_log"
-    echo "system: $system_dev_log"
-    echo "medicalRecordManagement: $medicalRecordManagement_dev_log"
-    echo "exam: $exam_dev_log"
-    echo "intermediator: $intermediator_dev_log"
+    echo "- eureka:                  $eureka_dev_log"
+    echo "- login:                   $login_dev_log"
+    echo "- system:                  $system_dev_log"
+    echo "- medicalRecordManagement: $medicalRecordManagement_dev_log"
+    echo "- exam:                    $exam_dev_log"
+    echo "- intermediator:           $intermediator_dev_log"
     echo "-----------------------------------"
     (./mvnw -pl eureka spring-boot:run -P dev >> $eureka_dev_log) &
     (./mvnw -pl login spring-boot:run -P dev >> $login_dev_log) &
@@ -83,19 +93,19 @@ startDev(){
         echo "Running completed"
         echo "-----------------------------------"
         echo "Running address of each module:"
-        echo "eureka: http://localhost:5272"
-        echo "login: http://localhost:8762"
-        echo "system: http://localhost:5678"
-        echo "medicalRecordManagement: http://localhost:8777"
-        echo "exam: http://localhost:8778"
-        echo "intermediator: http://localhost:8090"
-    ) &
-    wait
-    echo "Project was terminated"
+        echo "- eureka:                  http://localhost:5272"
+        echo "- login:                   http://localhost:8762"
+        echo "- system:                  http://localhost:5678"
+        echo "- medicalRecordManagement: http://localhost:8777"
+        echo "- exam:                    http://localhost:8778"
+        echo "- intermediator:           http://localhost:8090"
+    )
 }
 
 stopProd() {
     echo "--------------Start stopping--------------"
+    echo "Profile: prod"
+    sleep 1
     eureka_pid=`lsof -i:8085|grep "LISTEN"|awk '{print $2}'`;
     login_pid=`lsof -i:8086|grep "LISTEN"|awk '{print $2}'`;
     system_pid=`lsof -i:8087|grep "LISTEN"|awk '{print $2}'`;
@@ -155,6 +165,8 @@ stopProd() {
 
 stopDev() {
     echo "--------------Start stopping--------------"
+    echo "Profile: dev"
+    sleep 1
     eureka_pid=`lsof -i:5272|grep "LISTEN"|awk '{print $2}'`;
     login_pid=`lsof -i:8762|grep "LISTEN"|awk '{print $2}'`;
     system_pid=`lsof -i:5678|grep "LISTEN"|awk '{print $2}'`;
