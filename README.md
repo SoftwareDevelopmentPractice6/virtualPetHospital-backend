@@ -1,8 +1,8 @@
 <!--
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
- * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-11 04:28:32
+ * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-04-12 15:51:35
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -52,7 +52,7 @@
 根目录下运行：
 
 ```batch
-run_backend.bat start prod
+.\run_backend.bat start prod
 ```
 
 可选参数及含义同上。
