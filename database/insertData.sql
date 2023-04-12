@@ -1497,8 +1497,8 @@ INSERT
     VALUES(
         2,
         '患者自述胸痛持续数天',
-        'disease/admission/f8d426c9-670a-07db-26aa-0a1020e9fc53/photo',
-        'disease/admission/f8d426c9-670a-07db-26aa-0a1020e9fc53/video'
+        'disease/admission/119980fc-52a3-9075-958d-bb3073be950b/photo',
+        'disease/admission/119980fc-52a3-9075-958d-bb3073be950b/video'
     );
 
 INSERT
@@ -1512,8 +1512,8 @@ INSERT
     VALUES(
         2,
         '体格检查发现心率不齐',
-        'disease/caseCheck/60059edc-1976-9252-4902-c957dd413420/photo',
-        'disease/caseCheck/60059edc-1976-9252-4902-c957dd413420/video'
+        'disease/caseCheck/119980fc-52a3-9075-958d-bb3073be950b/photo',
+        'disease/caseCheck/119980fc-52a3-9075-958d-bb3073be950b/video'
     );
 
 INSERT
@@ -1527,8 +1527,8 @@ INSERT
     VALUES(
         2,
         '药物治疗和改变生活方式，建议行冠状动脉造影',
-        'disease/treatmentProgram/b2334a94-35c9-d20b-2778-2dee659a1f73/photo',
-        'disease/treatmentProgram/b2334a94-35c9-d20b-2778-2dee659a1f73/video'
+        'disease/treatmentProgram/119980fc-52a3-9075-958d-bb3073be950b/photo',
+        'disease/treatmentProgram/119980fc-52a3-9075-958d-bb3073be950b/video'
     );
 
 INSERT
@@ -1593,8 +1593,8 @@ INSERT
     VALUES(
         3,
         '患者自述口渴、多尿等症状',
-        'disease/admission/9e4d2b7b-2bca-2f2c-9d26-45e036cf6b01/photo',
-        'disease/admission/9e4d2b7b-2bca-2f2c-9d26-45e036cf6b01/video'
+        'disease/admission/2f20ae97-1ef6-b66b-e041-774bb9b185ca/photo',
+        'disease/admission/2f20ae97-1ef6-b66b-e041-774bb9b185ca/video'
     );
 
 INSERT
@@ -1608,8 +1608,8 @@ INSERT
     VALUES(
         3,
         '体格检查发现病人双腿轻微麻木',
-        'disease/caseCheck/567b8957-c2c3-8247-c10f-5f2e4ea72d9b/photo',
-        'disease/caseCheck/567b8957-c2c3-8247-c10f-5f2e4ea72d9b/video'
+        'disease/caseCheck/2f20ae97-1ef6-b66b-e041-774bb9b185ca/photo',
+        'disease/caseCheck/2f20ae97-1ef6-b66b-e041-774bb9b185ca/video'
     );
 
 INSERT
@@ -1623,8 +1623,8 @@ INSERT
     VALUES(
         3,
         '药物治疗，建议改变饮食和生活方式',
-        'disease/treatmentProgram/f98a3523-9c0d-79f8-732a-e789496b901e/photo',
-        'disease/treatmentProgram/f98a3523-9c0d-79f8-732a-e789496b901e/video'
+        'disease/treatmentProgram/2f20ae97-1ef6-b66b-e041-774bb9b185ca/photo',
+        'disease/treatmentProgram/2f20ae97-1ef6-b66b-e041-774bb9b185ca/video'
     );
 
 INSERT
@@ -1689,8 +1689,8 @@ INSERT
     VALUES(
         4,
         '患者因意外事故导致双腿骨折，需要进行手术治疗',
-        'disease/admission/d2cc81ed-6e6d-60b2-a0e4-e11f97864a57/photo',
-        'disease/admission/d2cc81ed-6e6d-60b2-a0e4-e11f97864a57/video'
+        'disease/admission/feddd676-dd52-03ce-01c1-4a860bc79134/photo',
+        'disease/admission/feddd676-dd52-03ce-01c1-4a860bc79134/video'
     );
 
 INSERT
@@ -1704,8 +1704,8 @@ INSERT
     VALUES(
         4,
         '体格检查发现病人双腿无法正常活动',
-        'disease/caseCheck/722a2f02-8921-aed6-7ea2-8834e5e43cb8/photo',
-        'disease/caseCheck/722a2f02-8921-aed6-7ea2-8834e5e43cb8/video'
+        'disease/caseCheck/feddd676-dd52-03ce-01c1-4a860bc79134/photo',
+        'disease/caseCheck/feddd676-dd52-03ce-01c1-4a860bc79134/video'
     );
 
 INSERT
@@ -1719,8 +1719,8 @@ INSERT
     VALUES(
         4,
         '手术治疗，术后进行康复治疗',
-        'disease/treatmentProgram/fb02bfe4-0971-e514-39b9-c80c2864dc1b/photo',
-        'disease/treatmentProgram/fb02bfe4-0971-e514-39b9-c80c2864dc1b/video'
+        'disease/treatmentProgram/feddd676-dd52-03ce-01c1-4a860bc79134/photo',
+        'disease/treatmentProgram/feddd676-dd52-03ce-01c1-4a860bc79134/video'
     );
 
 INSERT
@@ -1785,8 +1785,8 @@ INSERT
     VALUES(
         5,
         '患者感到胸闷、呼吸困难等症状',
-        'disease/admission/6c393a3d-65bb-865a-5bfb-e8231a8f07ff/photo',
-        'disease/admission/6c393a3d-65bb-865a-5bfb-e8231a8f07ff/video'
+        'disease/admission/32cd1102-3670-8405-17ad-b4171acb2b09/photo',
+        'disease/admission/32cd1102-3670-8405-17ad-b4171acb2b09/video'
     );
 
 INSERT
@@ -1800,8 +1800,8 @@ INSERT
     VALUES(
         5,
         '体格检查发现病人胸部呼吸音减弱',
-        'disease/caseCheck/dea9f7c4-d5d4-0da9-edc9-bcda0d8ef75c/photo',
-        'disease/caseCheck/dea9f7c4-d5d4-0da9-edc9-bcda0d8ef75c/video'
+        'disease/caseCheck/32cd1102-3670-8405-17ad-b4171acb2b09/photo',
+        'disease/caseCheck/32cd1102-3670-8405-17ad-b4171acb2b09/video'
     );
 
 INSERT
@@ -1815,8 +1815,8 @@ INSERT
     VALUES(
         5,
         '药物治疗和呼吸训练',
-        'disease/treatmentProgram/76f9c082-22a1-6272-ac8b-cd46ba0f7954/photo',
-        'disease/treatmentProgram/76f9c082-22a1-6272-ac8b-cd46ba0f7954/video'
+        'disease/treatmentProgram/32cd1102-3670-8405-17ad-b4171acb2b09/photo',
+        'disease/treatmentProgram/32cd1102-3670-8405-17ad-b4171acb2b09/video'
     );
 
 INSERT
@@ -1881,8 +1881,8 @@ INSERT
     VALUES(
         6,
         '患者因食欲下降、体重下降等症状前往医院就诊',
-        'disease/admission/9054e88d-77f4-4af1-e38f-eedf7b52c213/photo',
-        'disease/admission/9054e88d-77f4-4af1-e38f-eedf7b52c213/video'
+        'disease/admission/a53ae0fc-4739-2e65-bc3b-792391dfd2bb/photo',
+        'disease/admission/a53ae0fc-4739-2e65-bc3b-792391dfd2bb/video'
     );
 
 INSERT
@@ -1896,8 +1896,8 @@ INSERT
     VALUES(
         6,
         '体格检查发现病人腹部明显肿块',
-        'disease/caseCheck/ff530c08-6dd3-c0f6-194a-dcf54371a1dc/photo',
-        'disease/caseCheck/ff530c08-6dd3-c0f6-194a-dcf54371a1dc/video'
+        'disease/caseCheck/a53ae0fc-4739-2e65-bc3b-792391dfd2bb/photo',
+        'disease/caseCheck/a53ae0fc-4739-2e65-bc3b-792391dfd2bb/video'
     );
 
 INSERT
@@ -1911,8 +1911,8 @@ INSERT
     VALUES(
         6,
         '手术切除肿瘤和辅助化疗',
-        'disease/treatmentProgram/644d5ffc-875b-ca12-1f4e-bc9675d11e1d/photo',
-        'disease/treatmentProgram/644d5ffc-875b-ca12-1f4e-bc9675d11e1d/video'
+        'disease/treatmentProgram/a53ae0fc-4739-2e65-bc3b-792391dfd2bb/photo',
+        'disease/treatmentProgram/a53ae0fc-4739-2e65-bc3b-792391dfd2bb/video'
     );
 
 INSERT
@@ -1977,8 +1977,8 @@ INSERT
     VALUES(
         7,
         '患者因情绪低落、社交回避等症状寻求心理咨询',
-        'disease/admission/d4ab18b1-053a-ed59-5873-2b9b3d720446/photo',
-        'disease/admission/d4ab18b1-053a-ed59-5873-2b9b3d720446/video'
+        'disease/admission/6b896d58-0280-af57-73d2-07d15a8d1224/photo',
+        'disease/admission/6b896d58-0280-af57-73d2-07d15a8d1224/video'
     );
 
 INSERT
@@ -1992,8 +1992,8 @@ INSERT
     VALUES(
         7,
         '临床心理评估发现患者存在明显的抑郁情绪和焦虑症状',
-        'disease/caseCheck/d6125f15-dc3a-4bce-8632-275a0356c611/photo',
-        'disease/caseCheck/d6125f15-dc3a-4bce-8632-275a0356c611/video'
+        'disease/caseCheck/6b896d58-0280-af57-73d2-07d15a8d1224/photo',
+        'disease/caseCheck/6b896d58-0280-af57-73d2-07d15a8d1224/video'
     );
 
 INSERT
@@ -2007,8 +2007,8 @@ INSERT
     VALUES(
         7,
         '药物治疗和心理治疗',
-        'disease/treatmentProgram/931a18ae-c492-c36f-5653-c9c2f1b67cf5/photo',
-        'disease/treatmentProgram/931a18ae-c492-c36f-5653-c9c2f1b67cf5/video'
+        'disease/treatmentProgram/6b896d58-0280-af57-73d2-07d15a8d1224/photo',
+        'disease/treatmentProgram/6b896d58-0280-af57-73d2-07d15a8d1224/video'
     );
 
 INSERT
@@ -2028,23 +2028,6 @@ INSERT
         7,
         7,
         7
-    );
-
-INSERT
-    INTO
-        DISEASENAME(
-            disease_name_id,
-            content,
-            photo,
-            video,
-            category
-        )
-    VALUES(
-        8,
-        '哮喘',
-        'disease/diseaseName/0cde3d1f-eb4c-9a5d-b487-0bc2b052fa14/photo',
-        'disease/diseaseName/0cde3d1f-eb4c-9a5d-b487-0bc2b052fa14/video',
-        '呼吸系统疾病'
     );
 
 INSERT
@@ -2073,8 +2056,8 @@ INSERT
     VALUES(
         8,
         '患者因反复咳嗽、气急、胸闷等症状就诊',
-        'disease/admission/3ad4765c-ad8b-052b-c4a8-44ff3b7b0771/photo',
-        'disease/admission/3ad4765c-ad8b-052b-c4a8-44ff3b7b0771/video'
+        'disease/admission/00f1d104-f23b-542d-13c4-01d7662450d8/photo',
+        'disease/admission/00f1d104-f23b-542d-13c4-01d7662450d8/video'
     );
 
 INSERT
@@ -2088,8 +2071,8 @@ INSERT
     VALUES(
         8,
         '临床检查发现患者存在喘息、呼吸困难等症状，听诊肺部呼吸音减弱，提示肺功能受损',
-        'disease/caseCheck/d58897a9-810b-6a80-37d7-342183324502/photo',
-        'disease/caseCheck/d58897a9-810b-6a80-37d7-342183324502/video'
+        'disease/caseCheck/00f1d104-f23b-542d-13c4-01d7662450d8/photo',
+        'disease/caseCheck/00f1d104-f23b-542d-13c4-01d7662450d8/video'
     );
 
 INSERT
@@ -2103,8 +2086,8 @@ INSERT
     VALUES(
         8,
         '吸入性类固醇和β2受体激动剂的联合治疗',
-        'disease/treatmentProgram/3fb4b3b9-163c-7d8a-5411-4963a34d8f27/photo',
-        'disease/treatmentProgram/3fb4b3b9-163c-7d8a-5411-4963a34d8f27/video'
+        'disease/treatmentProgram/00f1d104-f23b-542d-13c4-01d7662450d8/photo',
+        'disease/treatmentProgram/00f1d104-f23b-542d-13c4-01d7662450d8/video'
     );
 
 INSERT
@@ -2119,7 +2102,7 @@ INSERT
         )
     VALUES(
         8,
-        8,
+        5,
         8,
         8,
         8,
@@ -2169,8 +2152,8 @@ INSERT
     VALUES(
         9,
         '患者因口渴、多尿、体重下降等症状就诊',
-        'disease/admission/37fa69bc-33a4-e2c3-64ad-d79ca3967492/photo',
-        'disease/admission/37fa69bc-33a4-e2c3-64ad-d79ca3967492/video'
+        'disease/admission/aeab8123-229a-f994-5c5b-42f28c77f2c8/photo',
+        'disease/admission/aeab8123-229a-f994-5c5b-42f28c77f2c8/video'
     );
 
 INSERT
@@ -2184,8 +2167,8 @@ INSERT
     VALUES(
         9,
         '患者体检发现身高165cm，体重52kg，BMI为19.1，血压140/90mmHg，尿常规检查：尿糖阳性，血糖测定：空腹血糖8.5mmol/L，餐后2小时血糖10.5mmol/L，提示糖尿病',
-        'disease/caseCheck/231ed93b-0c6b-b2c5-745e-a4076f4f0561/photo',
-        'disease/caseCheck/231ed93b-0c6b-b2c5-745e-a4076f4f0561/video'
+        'disease/caseCheck/aeab8123-229a-f994-5c5b-42f28c77f2c8/photo',
+        'disease/caseCheck/aeab8123-229a-f994-5c5b-42f28c77f2c8/video'
     );
 
 INSERT
@@ -2199,8 +2182,8 @@ INSERT
     VALUES(
         9,
         '控制饮食、运动和药物治疗，控制血糖水平',
-        'disease/treatmentProgram/185fbf3f-4f8d-ed31-321d-b31df768d9bd/photo',
-        'disease/treatmentProgram/185fbf3f-4f8d-ed31-321d-b31df768d9bd/video'
+        'disease/treatmentProgram/aeab8123-229a-f994-5c5b-42f28c77f2c8/photo',
+        'disease/treatmentProgram/aeab8123-229a-f994-5c5b-42f28c77f2c8/video'
     );
 
 INSERT
@@ -2220,23 +2203,6 @@ INSERT
         9,
         9,
         9
-    );
-
-INSERT
-    INTO
-        DISEASENAME(
-            disease_name_id,
-            content,
-            photo,
-            video,
-            category
-        )
-    VALUES(
-        10,
-        '哮喘',
-        'disease/diseaseName/6c3d45b2-5077-8b7a-571d-faf60ba38623/photo',
-        'disease/diseaseName/6c3d45b2-5077-8b7a-571d-faf60ba38623/video',
-        '呼吸系统疾病'
     );
 
 INSERT
@@ -2265,8 +2231,8 @@ INSERT
     VALUES(
         10,
         '患者因反复咳嗽、气喘、胸闷等症状就诊',
-        'disease/admission/db22e8ac-4dc1-4999-ead6-5bf872449314/photo',
-        'disease/admission/db22e8ac-4dc1-4999-ead6-5bf872449314/video'
+        'disease/admission/689f8f23-9e02-4de2-6e72-467d63472c6e/photo',
+        'disease/admission/689f8f23-9e02-4de2-6e72-467d63472c6e/video'
     );
 
 INSERT
@@ -2280,8 +2246,8 @@ INSERT
     VALUES(
         10,
         '患者体检发现身高168cm，体重65kg，体温37.3℃，呼吸音粗，胸廓对称，肺底闻及干湿啰音，肺功能检查显示FEV1/FVC比值减低，提示气流受限',
-        'disease/caseCheck/627bed70-10c6-a1a5-1b48-beb4476f23fd/photo',
-        'disease/caseCheck/627bed70-10c6-a1a5-1b48-beb4476f23fd/video'
+        'disease/caseCheck/689f8f23-9e02-4de2-6e72-467d63472c6e/photo',
+        'disease/caseCheck/689f8f23-9e02-4de2-6e72-467d63472c6e/video'
     );
 
 INSERT
@@ -2295,8 +2261,8 @@ INSERT
     VALUES(
         10,
         '根据患者哮喘的类型、程度等情况，选择合适的药物治疗，同时加强预防和控制',
-        'disease/treatmentProgram/d15de1b7-3a3c-5c17-a818-73a1a3c37565/photo',
-        'disease/treatmentProgram/d15de1b7-3a3c-5c17-a818-73a1a3c37565/video'
+        'disease/treatmentProgram/689f8f23-9e02-4de2-6e72-467d63472c6e/photo',
+        'disease/treatmentProgram/689f8f23-9e02-4de2-6e72-467d63472c6e/video'
     );
 
 INSERT
@@ -2311,7 +2277,7 @@ INSERT
         )
     VALUES(
         10,
-        10,
+        5,
         10,
         10,
         10,
@@ -2361,8 +2327,8 @@ INSERT
     VALUES(
         12,
         '患者反复出现腹痛、恶心、呕吐等症状，就诊',
-        'disease/admission/20e2b848-1b58-7b7c-4b76-d090670fd155/photo',
-        'disease/admission/20e2b848-1b58-7b7c-4b76-d090670fd155/video'
+        'disease/admission/1a8af183-172f-e834-94f8-6be6ab62589f/photo',
+        'disease/admission/1a8af183-172f-e834-94f8-6be6ab62589f/video'
     );
 
 INSERT
@@ -2376,8 +2342,8 @@ INSERT
     VALUES(
         12,
         '患者血常规、肝功能、肾功能、电解质等检查均正常，胃镜检查显示胃体部位存在浅表性胃炎病变',
-        'disease/caseCheck/075d64ff-8798-3c44-d085-420767a162df/photo',
-        'disease/caseCheck/075d64ff-8798-3c44-d085-420767a162df/video'
+        'disease/caseCheck/1a8af183-172f-e834-94f8-6be6ab62589f/photo',
+        'disease/caseCheck/1a8af183-172f-e834-94f8-6be6ab62589f/video'
     );
 
 INSERT
@@ -2391,8 +2357,8 @@ INSERT
     VALUES(
         12,
         '通过规律饮食、注意休息、避免吸烟饮酒等方式调理胃肠功能，同时根据病情选择口服药物或其他治疗方式',
-        'disease/treatmentProgram/c7fdc351-6d0b-01c5-a652-739df99106f4/photo',
-        'disease/treatmentProgram/c7fdc351-6d0b-01c5-a652-739df99106f4/video'
+        'disease/treatmentProgram/1a8af183-172f-e834-94f8-6be6ab62589f/photo',
+        'disease/treatmentProgram/1a8af183-172f-e834-94f8-6be6ab62589f/video'
     );
 
 INSERT
@@ -2416,92 +2382,453 @@ INSERT
 
 use exam;
 
-DELETE FROM STUDENTANSWER;
-DELETE FROM QUESTIONSINPAPER;
-DELETE FROM STUDENTRESULT;
-DELETE FROM EXAMSESSION;
-DELETE FROM QUESTION;
-DELETE FROM CATEGORY;
-DELETE FROM PAPER;
-DELETE FROM EXAM;
+DELETE
+FROM
+    STUDENTANSWER;
 
+DELETE
+FROM
+    QUESTIONSINPAPER;
 
+DELETE
+FROM
+    STUDENTRESULT;
 
-INSERT INTO CATEGORY (category_id, category_name) VALUES
-(1,'狗'), (2,'猫'), (3,'鸟'), (4,'其他');
+DELETE
+FROM
+    EXAMSESSION;
 
-INSERT INTO QUESTION (question_id, question_content, question_type, category_id)
-VALUES (1, '你知道什么是犬瘟热吗？ A.狗得的病 B.猫得的病', '单选', 1);
+DELETE
+FROM
+    QUESTION;
 
-INSERT INTO QUESTION (question_id, question_content, question_type, category_id)
-VALUES (2, '猫咪为什么会打喷嚏？ A.因为感冒 B.因为过敏 C.因为异物刺激 D.其他', '单选', 2);
+DELETE
+FROM
+    CATEGORY;
 
-INSERT INTO QUESTION (question_id, question_content, question_type, category_id)
-VALUES (3, '什么是宠物药品的过敏反应？ A.肚子疼 B.呼吸急促 C.皮肤瘙痒 D.其他', '多选', 4);
+DELETE
+FROM
+    PAPER;
 
-INSERT INTO QUESTION (question_id, question_content, question_type, category_id)
-VALUES (4, '什么情况下需要紧急送宠物去医院？ A.突然晕倒 B.呼吸急促 C.严重呕吐 D.其他', '多选', 4);
+DELETE
+FROM
+    EXAM;
 
-INSERT INTO QUESTION (question_id, question_content, question_type, category_id)
-VALUES (5, '半夜突然听到宠物在呕吐声，应该怎么办？ A.立刻喂水 B.观察一段时间再决定是否送医 C.在网上找解决方案 D.带宠物到宠物医院', '多选', 4);
+INSERT
+    INTO
+        CATEGORY(
+            category_id,
+            category_name
+        )
+    VALUES(
+        1,
+        '狗'
+    ),
+    (
+        2,
+        '猫'
+    ),
+    (
+        3,
+        '鸟'
+    ),
+    (
+        4,
+        '其他'
+    );
 
-INSERT INTO QUESTION (question_id, question_content, question_type, category_id)
-VALUES (6, '宠物是否需要接种疫苗？ A.是 B.不是', '单选', 1);
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        1,
+        '你知道什么是犬瘟热吗？ A.狗得的病 B.猫得的病',
+        '单选',
+        1
+    );
 
-INSERT INTO QUESTION (question_id, question_content, question_type, category_id)
-VALUES (7, '狗的牙齿保健有哪些方法？ A.刷牙 B.磨牙棒 C.口腔喷雾 D.生骨头', '多选', 1);
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        2,
+        '猫咪为什么会打喷嚏？ A.因为感冒 B.因为过敏 C.因为异物刺激 D.其他',
+        '单选',
+        2
+    );
 
-INSERT INTO QUESTION (question_id, question_content, question_type, category_id)
-VALUES (8, '猫的牙齿保健有哪些方法？ A.刷牙 B.磨牙棒 C.口腔喷雾 D.生鱼肉', '多选', 2);
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        3,
+        '什么是宠物药品的过敏反应？ A.肚子疼 B.呼吸急促 C.皮肤瘙痒 D.其他',
+        '多选',
+        4
+    );
 
-INSERT INTO QUESTION (question_id, question_content, question_type, category_id)
-VALUES (9, '宠物发烧了应该怎么办？ A.给宠物喝药 B.让宠物多休息 C.打冰敷 D.立刻带宠物去医院', '单选', 4);
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        4,
+        '什么情况下需要紧急送宠物去医院？ A.突然晕倒 B.呼吸急促 C.严重呕吐 D.其他',
+        '多选',
+        4
+    );
 
-INSERT INTO QUESTION (question_id, question_content, question_type, category_id)
-VALUES (10, '宠物是否需要剪指甲？ A.是 B.不是', '单选', 4);
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        5,
+        '半夜突然听到宠物在呕吐声，应该怎么办？ A.立刻喂水 B.观察一段时间再决定是否送医 C.在网上找解决方案 D.带宠物到宠物医院',
+        '多选',
+        4
+    );
 
-INSERT INTO QUESTION (question_id, question_content, question_type, category_id)
-VALUES (11, '宠物为什么会打呼噜？ A.因为它睡得太香了 B.因为它有呼吸道疾病 C.因为它太胖了 D.因为它心情好', '单选', 4);
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        6,
+        '宠物是否需要接种疫苗？ A.是 B.不是',
+        '单选',
+        1
+    );
 
-INSERT INTO QUESTION (question_id, question_content, question_type, category_id)
-VALUES (12, '宠物会得肥胖症吗？ A.会 B.不会', '单选', 4);
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        7,
+        '狗的牙齿保健有哪些方法？ A.刷牙 B.磨牙棒 C.口腔喷雾 D.生骨头',
+        '多选',
+        1
+    );
 
-INSERT INTO EXAM (exam_id, exam_name) VALUES (1, '宠物医院实习生测试1');
-INSERT INTO PAPER (paper_id, paper_name, exam_id, duration, total_score)
-VALUES (1, '宠物医院实习生测试卷1', 1, '60分钟', '100分');
-INSERT INTO EXAMSESSION (session_id, paper_id, start_time, end_time)
-VALUES (1, 1, '2023-04-12 08:00:00', '2023-04-12 09:00:00');
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        8,
+        '猫的牙齿保健有哪些方法？ A.刷牙 B.磨牙棒 C.口腔喷雾 D.生鱼肉',
+        '多选',
+        2
+    );
 
-INSERT INTO STUDENTRESULT (result_id, session_id, student_id, score)
-VALUES (1, 1, 1, 80);
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        9,
+        '宠物发烧了应该怎么办？ A.给宠物喝药 B.让宠物多休息 C.打冰敷 D.立刻带宠物去医院',
+        '单选',
+        4
+    );
 
-INSERT INTO QUESTIONSINPAPER (question_in_paper_id,points, paper_id, question_id) VALUES
-(1, 5, 1, 1),
-(1, 10, 1, 2),
-(1, 15, 1, 3),
-(1, 20, 1, 4);
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        10,
+        '宠物是否需要剪指甲？ A.是 B.不是',
+        '单选',
+        4
+    );
 
-INSERT INTO STUDENTANSWER (student_answer_id, student_answer_content, student_answer_point, question_in_paper_id, result_id)
-VALUES (1, 'A', 5, 1, 1);
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        11,
+        '宠物为什么会打呼噜？ A.因为它睡得太香了 B.因为它有呼吸道疾病 C.因为它太胖了 D.因为它心情好',
+        '单选',
+        4
+    );
 
-INSERT INTO EXAM (exam_id, exam_name) VALUES (2, '宠物医院实习生测试2');
-INSERT INTO PAPER (paper_id, paper_name, exam_id, duration, total_score)
-VALUES (2, '宠物医院实习生测试卷2', 2, '60分钟', '100分');
-INSERT INTO EXAMSESSION (session_id, paper_id, start_time, end_time)
-VALUES (2, 2, '2023-04-13 10:00:00', '2023-04-13 11:00:00');
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        12,
+        '宠物会得肥胖症吗？ A.会 B.不会',
+        '单选',
+        4
+    );
 
-INSERT INTO STUDENTRESULT (result_id,session_id, student_id, score)
-VALUES (2, 2, 2, 95);
+INSERT
+    INTO
+        EXAM(
+            exam_id,
+            exam_name
+        )
+    VALUES(
+        1,
+        '宠物医院实习生测试1'
+    );
 
-INSERT INTO QUESTIONSINPAPER (question_in_paper_id,points, paper_id, question_id) VALUES
-(2, 5, 2, 1),
-(2, 10, 2, 3),
-(2, 15, 2, 5),
-(2, 20, 2, 7);
+INSERT
+    INTO
+        PAPER(
+            paper_id,
+            paper_name,
+            exam_id,
+            duration,
+            total_score
+        )
+    VALUES(
+        1,
+        '宠物医院实习生测试卷1',
+        1,
+        '60分钟',
+        '100分'
+    );
 
-INSERT INTO STUDENTANSWER (student_answer_id, student_answer_content, student_answer_point, question_in_paper_id, result_id)
-VALUES (2, 'B', 10, 2, 2);
+INSERT
+    INTO
+        EXAMSESSION(
+            session_id,
+            paper_id,
+            start_time,
+            end_time
+        )
+    VALUES(
+        1,
+        1,
+        '2023-04-12 08:00:00',
+        '2023-04-12 09:00:00'
+    );
 
+INSERT
+    INTO
+        STUDENTRESULT(
+            result_id,
+            session_id,
+            student_id,
+            score
+        )
+    VALUES(
+        1,
+        1,
+        1,
+        80
+    );
 
+INSERT
+    INTO
+        QUESTIONSINPAPER(
+            question_in_paper_id,
+            points,
+            paper_id,
+            question_id
+        )
+    VALUES(
+        1,
+        5,
+        1,
+        1
+    ),
+    (
+        2,
+        10,
+        1,
+        2
+    ),
+    (
+        3,
+        15,
+        1,
+        3
+    ),
+    (
+        4,
+        20,
+        1,
+        4
+    );
 
+INSERT
+    INTO
+        STUDENTANSWER(
+            student_answer_id,
+            student_answer_content,
+            student_answer_point,
+            question_in_paper_id,
+            result_id
+        )
+    VALUES(
+        1,
+        'A',
+        5,
+        1,
+        1
+    );
 
+INSERT
+    INTO
+        EXAM(
+            exam_id,
+            exam_name
+        )
+    VALUES(
+        2,
+        '宠物医院实习生测试2'
+    );
+
+INSERT
+    INTO
+        PAPER(
+            paper_id,
+            paper_name,
+            exam_id,
+            duration,
+            total_score
+        )
+    VALUES(
+        2,
+        '宠物医院实习生测试卷2',
+        2,
+        '60分钟',
+        '100分'
+    );
+
+INSERT
+    INTO
+        EXAMSESSION(
+            session_id,
+            paper_id,
+            start_time,
+            end_time
+        )
+    VALUES(
+        2,
+        2,
+        '2023-04-13 10:00:00',
+        '2023-04-13 11:00:00'
+    );
+
+INSERT
+    INTO
+        STUDENTRESULT(
+            result_id,
+            session_id,
+            student_id,
+            score
+        )
+    VALUES(
+        2,
+        2,
+        2,
+        95
+    );
+
+INSERT
+    INTO
+        QUESTIONSINPAPER(
+            question_in_paper_id,
+            points,
+            paper_id,
+            question_id
+        )
+    VALUES(
+        5,
+        5,
+        2,
+        1
+    ),
+    (
+        6,
+        10,
+        2,
+        3
+    ),
+    (
+        7,
+        15,
+        2,
+        5
+    ),
+    (
+        8,
+        20,
+        2,
+        7
+    );
+
+INSERT
+    INTO
+        STUDENTANSWER(
+            student_answer_id,
+            student_answer_content,
+            student_answer_point,
+            question_in_paper_id,
+            result_id
+        )
+    VALUES(
+        2,
+        'B',
+        10,
+        2,
+        2
+    );
