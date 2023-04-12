@@ -2393,8 +2393,8 @@ DELETE FROM EXAM;
 
 
 
-INSERT INTO CATEGORY (category_name) VALUES
-(1,'狗'), (2,'猫'), (3,'鸟'), (4,'其他')
+INSERT INTO CATEGORY (category_id, category_name) VALUES
+(1,'狗'), (2,'猫'), (3,'鸟'), (4,'其他');
 
 INSERT INTO QUESTION (question_content, question_type, category_id)
 VALUES ('你知道什么是犬瘟热吗？ A.狗得的病 B.猫得的病', '单选', 1);
