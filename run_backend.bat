@@ -41,12 +41,14 @@ SET intermediator_dev_log=
 EXIT /B 0
 
 :startProd
-echo "--------------Stopping other applications if exists--------------"
+echo "Stopping other applications if exists"
+echo "-----------------------------------"
 CALL :stopDev
 CALL :stopProd
 
-echo "--------------Start running--------------"
+echo "Start running"
 echo "Profile: prod"
+echo "-----------------------------------"
 timeout 1 >nul
 if not exist logs\prod mkdir -p logs\prod;
 echo "Logs of running each module can be found in:"
@@ -78,17 +80,21 @@ echo "- system:                  http://localhost:8087"
 echo "- medicalRecordManagement: http://localhost:8088"
 echo "- exam:                    http://localhost:8089"
 echo "- intermediator:           http://localhost:8090"
+echo " "
+echo "Please visit eureka page to check whether all 5 modules are running as expected. "
 
 EXIT /B 0
 
 
 :startDev
-echo "--------------Stopping other applications if exists--------------"
+echo "Stopping other applications if exists"
+echo "-----------------------------------"
 CALL :stopDev
 CALL :stopProd
 
-echo "--------------Start running--------------"
+echo "Start running"
 echo "Profile: dev"
+echo "-----------------------------------"
 timeout 1 >nul
 if not exist logs\dev mkdir -p logs\dev;
 echo "Logs of running each module can be found in:"
@@ -120,12 +126,15 @@ echo "- system:                  http://localhost:5678"
 echo "- medicalRecordManagement: http://localhost:8777"
 echo "- exam:                    http://localhost:8778"
 echo "- intermediator:           http://localhost:8090"
+echo " "
+echo "Please visit eureka page to check whether all 5 modules are running as expected. "
 
 EXIT /B 0
 
 :stopProd
-echo "--------------Start stopping--------------"
+echo "Start stopping"
 echo "Profile: prod"
+echo "-----------------------------------"
 timeout 1 >nul
 FOR /F "tokens=5 delims= " %%P IN ('
     netstat -a -n -o ^| findstr 0.0.0.0:8085.*LISTENING
@@ -188,12 +197,14 @@ IF NOT "%intermediator_pid%" == "" (
 ) ELSE (
     echo "intermediator is not running"
 )
-echo "--------------Stopping completed--------------"
+echo "Stopping completed"
+echo "-----------------------------------"
 EXIT /B 0
 
 :stopDev
-echo "--------------Start stopping--------------"
+echo "Start stopping"
 echo "Profile: dev"
+echo "-----------------------------------"
 timeout 1 >nul
 FOR /F "tokens=5 delims= " %%P IN ('
     netstat -a -n -o ^| findstr 0.0.0.0:5272.*LISTENING
@@ -256,5 +267,6 @@ IF NOT "%intermediator_pid%" == "" (
 ) ELSE (
     echo "intermediator is not running"
 )
-echo "--------------Stopping completed--------------"
+echo "Stopping completed"
+echo "-----------------------------------"
 EXIT /B 0

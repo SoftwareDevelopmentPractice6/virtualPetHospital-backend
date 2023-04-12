@@ -15,12 +15,14 @@ export exam_dev_log=logs/dev/exam.log
 export intermediator_dev_log=logs/dev/intermediator.log
 
 startProd(){
-    echo "--------------Stopping other applications if exists--------------"
+    echo "Stopping other applications if exists"
+    echo "-----------------------------------"
     stopDev
     stopProd
 
-    echo "--------------Start running--------------"
+    echo "Start running"
     echo "Profile: prod"
+    echo "-----------------------------------"
     sleep 1
     mkdir -p logs/prod;
     echo "Logs of running each module can be found in:"
@@ -55,16 +57,20 @@ startProd(){
         echo "- medicalRecordManagement: http://localhost:8088"
         echo "- exam:                    http://localhost:8089"
         echo "- intermediator:           http://localhost:8090"
+        echo " "
+        echo "Please visit eureka page to check whether all 5 modules are running as expected. "
     )
 }
 
 startDev(){
-    echo "--------------Stopping other applications if exists--------------"
+    echo "Stopping other applications if exists"
+    echo "-----------------------------------"
     stopDev
     stopProd
 
-    echo "--------------Start running--------------"
+    echo "Start running"
     echo "Profile: dev"
+    echo "-----------------------------------"
     sleep 1
     mkdir -p logs/dev;
     echo "Logs of running each module can be found in:"
@@ -99,12 +105,15 @@ startDev(){
         echo "- medicalRecordManagement: http://localhost:8777"
         echo "- exam:                    http://localhost:8778"
         echo "- intermediator:           http://localhost:8090"
+        echo " "
+        echo "Please visit eureka page to check whether all 5 modules are running as expected. "
     )
 }
 
 stopProd() {
-    echo "--------------Start stopping--------------"
+    echo "Start stopping"
     echo "Profile: prod"
+    echo "-----------------------------------"
     sleep 1
     eureka_pid=`lsof -i:8085|grep "LISTEN"|awk '{print $2}'`;
     login_pid=`lsof -i:8086|grep "LISTEN"|awk '{print $2}'`;
@@ -160,12 +169,14 @@ stopProd() {
     else
         echo "intermediator is not running"
     fi
-    echo "--------------Stopping completed--------------"
+    echo "Stopping completed"
+    echo "-----------------------------------"
 }
 
 stopDev() {
-    echo "--------------Start stopping--------------"
+    echo "Start stopping"
     echo "Profile: dev"
+    echo "-----------------------------------"
     sleep 1
     eureka_pid=`lsof -i:5272|grep "LISTEN"|awk '{print $2}'`;
     login_pid=`lsof -i:8762|grep "LISTEN"|awk '{print $2}'`;
@@ -221,7 +232,8 @@ stopDev() {
     else
         echo "intermediator is not running"
     fi
-    echo "--------------Stopping completed--------------"
+    echo "Stopping completed"
+    echo "-----------------------------------"
 }
 
 case "$1:$2" in
