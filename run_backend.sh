@@ -14,6 +14,10 @@ export medicalRecordManagement_dev_log=logs/dev/medicalRecordManagement.log
 export exam_dev_log=logs/dev/exam.log
 export intermediator_dev_log=logs/dev/intermediator.log
 
+export GREEN="\e[32m"
+export BLUE="\e[34m"
+export ENDCOLOR="\e[0m"
+
 startProd(){
     echo "Stopping other applications if exists"
     echo "-----------------------------------"
@@ -26,12 +30,13 @@ startProd(){
     sleep 1
     mkdir -p logs/prod;
     echo "Logs of running each module can be found in:"
-    echo "- eureka:                  $eureka_prod_log"
-    echo "- login:                   $login_prod_log"
-    echo "- system:                  $system_prod_log"
-    echo "- medicalRecordManagement: $medicalRecordManagement_prod_log"
-    echo "- exam:                    $exam_prod_log"
-    echo "- intermediator:           $intermediator_prod_log"
+    printf -- "- eureka:                  ${GREEN}$eureka_prod_log${ENDCOLOR}\n"
+    printf -- "- login:                   ${GREEN}$login_prod_log${ENDCOLOR}\n"
+    printf -- "- system:                  ${GREEN}$system_prod_log${ENDCOLOR}\n"
+    printf -- "- medicalRecordManagement: ${GREEN}$medicalRecordManagement_prod_log${ENDCOLOR}\n"
+    printf -- "- exam:                    ${GREEN}$exam_prod_log${ENDCOLOR}\n"
+    printf -- "- intermediator:           ${GREEN}$intermediator_prod_log${ENDCOLOR}\n"
+    echo " "
     echo "-----------------------------------"
     (./mvnw -pl eureka spring-boot:run -P prod >> $eureka_prod_log) &
     (./mvnw -pl login spring-boot:run -P prod >> $login_prod_log) &
@@ -51,12 +56,12 @@ startProd(){
         echo "Running completed"
         echo "-----------------------------------"
         echo "Running address of each module:"
-        echo "- eureka:                  http://localhost:8085"
-        echo "- login:                   http://localhost:8086"
-        echo "- system:                  http://localhost:8087"
-        echo "- medicalRecordManagement: http://localhost:8088"
-        echo "- exam:                    http://localhost:8089"
-        echo "- intermediator:           http://localhost:8090"
+        printf -- "- eureka:                  ${BLUE}http://localhost:8085${ENDCOLOR}\n"
+        printf -- "- login:                   ${BLUE}http://localhost:8086${ENDCOLOR}\n"
+        printf -- "- system:                  ${BLUE}http://localhost:8087${ENDCOLOR}\n"
+        printf -- "- medicalRecordManagement: ${BLUE}http://localhost:8088${ENDCOLOR}\n"
+        printf -- "- exam:                    ${BLUE}http://localhost:8089${ENDCOLOR}\n"
+        printf -- "- intermediator:           ${BLUE}http://localhost:8090${ENDCOLOR}\n"
         echo " "
         echo "Please visit eureka page to check whether all 5 modules are running as expected. "
     )
@@ -74,12 +79,13 @@ startDev(){
     sleep 1
     mkdir -p logs/dev;
     echo "Logs of running each module can be found in:"
-    echo "- eureka:                  $eureka_dev_log"
-    echo "- login:                   $login_dev_log"
-    echo "- system:                  $system_dev_log"
-    echo "- medicalRecordManagement: $medicalRecordManagement_dev_log"
-    echo "- exam:                    $exam_dev_log"
-    echo "- intermediator:           $intermediator_dev_log"
+    printf -- "- eureka:                  ${GREEN}$eureka_dev_log${ENDCOLOR}\n"
+    printf -- "- login:                   ${GREEN}$login_dev_log${ENDCOLOR}\n"
+    printf -- "- system:                  ${GREEN}$system_dev_log${ENDCOLOR}\n"
+    printf -- "- medicalRecordManagement: ${GREEN}$medicalRecordManagement_dev_log${ENDCOLOR}\n"
+    printf -- "- exam:                    ${GREEN}$exam_dev_log${ENDCOLOR}\n"
+    printf -- "- intermediator:           ${GREEN}$intermediator_dev_log${ENDCOLOR}\n"
+    echo " "
     echo "-----------------------------------"
     (./mvnw -pl eureka spring-boot:run -P dev >> $eureka_dev_log) &
     (./mvnw -pl login spring-boot:run -P dev >> $login_dev_log) &
@@ -99,12 +105,12 @@ startDev(){
         echo "Running completed"
         echo "-----------------------------------"
         echo "Running address of each module:"
-        echo "- eureka:                  http://localhost:5272"
-        echo "- login:                   http://localhost:8762"
-        echo "- system:                  http://localhost:5678"
-        echo "- medicalRecordManagement: http://localhost:8777"
-        echo "- exam:                    http://localhost:8778"
-        echo "- intermediator:           http://localhost:8090"
+        printf -- "- eureka:                  ${BLUE}http://localhost:5272${ENDCOLOR}\n"
+        printf -- "- login:                   ${BLUE}http://localhost:8762${ENDCOLOR}\n"
+        printf -- "- system:                  ${BLUE}http://localhost:5678${ENDCOLOR}\n"
+        printf -- "- medicalRecordManagement: ${BLUE}http://localhost:8777${ENDCOLOR}\n"
+        printf -- "- exam:                    ${BLUE}http://localhost:8778${ENDCOLOR}\n"
+        printf -- "- intermediator:           ${BLUE}http://localhost:8090${ENDCOLOR}\n"
         echo " "
         echo "Please visit eureka page to check whether all 5 modules are running as expected. "
     )

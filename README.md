@@ -1,8 +1,8 @@
 <!--
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
- * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-12 15:51:35
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-04-13 02:39:59
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -64,7 +64,7 @@
 ```bash
 # 项目打成jar包
 # Windows
-# mvnw.cmd clean package -D skipTests -P prod
+# .\mvnw.cmd clean package -D skipTests -P prod
 # MacOS & Linux
 ./mvnw clean package -D skipTests -P prod
 
