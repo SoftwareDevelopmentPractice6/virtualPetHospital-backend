@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-13 02:39:59
+ * @LastEditTime: 2023-04-14 04:51:36
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -63,10 +63,16 @@
 
 ```bash
 # 项目打成jar包
+
 # Windows
-# .\mvnw.cmd clean package -D skipTests -P prod
+# .\mvnw.cmd clean install -D skipTests
 # MacOS & Linux
-./mvnw clean package -D skipTests -P prod
+./mvnw clean install -D skipTests
+
+# Windows
+# .\mvnw.cmd clean package -D skipTests -P docker
+# MacOS & Linux
+./mvnw clean package -D skipTests -P docker
 
 # docker build
 docker build -t virtual-pet-hospital .

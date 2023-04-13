@@ -79,7 +79,6 @@ start /b cmd /c mvnw.cmd -pl medicalRecordManagement spring-boot:run -P prod ^>^
 start /b cmd /c mvnw.cmd -pl exam spring-boot:run -P prod ^>^> %exam_prod_log%
 start /b cmd /c mvnw.cmd -pl intermediator spring-boot:run -P prod ^>^> %intermediator_prod_log%
 echo Starting......
-timeout 10 /nobreak >nul
 
 setlocal EnableDelayedExpansion
 for /F %%a in ('copy /Z "%~F0" NUL') do set "CR=%%a"
@@ -128,7 +127,6 @@ start /b cmd /c mvnw.cmd -pl medicalRecordManagement spring-boot:run -P dev ^>^>
 start /b cmd /c mvnw.cmd -pl exam spring-boot:run -P dev ^>^> %exam_dev_log%
 start /b cmd /c mvnw.cmd -pl intermediator spring-boot:run -P dev ^>^> %intermediator_dev_log%
 echo Starting......
-timeout 10 /nobreak >nul
 
 setlocal EnableDelayedExpansion
 for /F %%a in ('copy /Z "%~F0" NUL') do set "CR=%%a"
