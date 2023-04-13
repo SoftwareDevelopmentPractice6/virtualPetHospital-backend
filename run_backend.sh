@@ -28,7 +28,7 @@ startProd(){
     echo "Profile: prod"
     echo "-----------------------------------"
     sleep 1
-    mkdir -p logs/prod;
+    mkdir -p logs/prod
     echo "Logs of running each module can be found in:"
     printf -- "- eureka:                  ${GREEN}$eureka_prod_log${ENDCOLOR}\n"
     printf -- "- login:                   ${GREEN}$login_prod_log${ENDCOLOR}\n"
@@ -77,7 +77,7 @@ startDev(){
     echo "Profile: dev"
     echo "-----------------------------------"
     sleep 1
-    mkdir -p logs/dev;
+    mkdir -p logs/dev
     echo "Logs of running each module can be found in:"
     printf -- "- eureka:                  ${GREEN}$eureka_dev_log${ENDCOLOR}\n"
     printf -- "- login:                   ${GREEN}$login_dev_log${ENDCOLOR}\n"

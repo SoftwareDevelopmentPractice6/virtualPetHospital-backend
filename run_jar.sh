@@ -1,29 +1,36 @@
 #!/bin/sh
 
-export eureka_prod_log=logs/prod/eureka.log
-export login_prod_log=logs/prod/login.log
-export system_prod_log=logs/prod/system.log
-export medicalRecordManagement_prod_log=logs/prod/medicalRecordManagement.log
-export exam_prod_log=logs/prod/exam.log
-export intermediator_prod_log=logs/prod/intermediator.log
+export eureka_jar_log=logs/jar/eureka.log
+export login_jar_log=logs/jar/login.log
+export system_jar_log=logs/jar/system.log
+export medicalRecordManagement_jar_log=logs/jar/medicalRecordManagement.log
+export exam_jar_log=logs/jar/exam.log
+export intermediator_jar_log=logs/jar/intermediator.log
+
+export GREEN="\e[32m"
+export BLUE="\e[34m"
+export ENDCOLOR="\e[0m"
 
 startProd(){
-    echo "--------------Start running--------------"
-    mkdir -p logs/prod;
-    echo "Logs of running each module can be found in:"
-    echo "eureka: $eureka_prod_log"
-    echo "login: $login_prod_log"
-    echo "system: $system_prod_log"
-    echo "medicalRecordManagement: $medicalRecordManagement_prod_log"
-    echo "exam: $exam_prod_log"
-    echo "intermediator: $intermediator_prod_log"
+    echo "Start running"
     echo "-----------------------------------"
-    (java -jar eureka.jar >> $eureka_prod_log) &
-    (java -jar login.jar >> $login_prod_log) &
-    (java -jar system.jar >> $system_prod_log) &
-    (java -jar medicalRecordManagement.jar >> $medicalRecordManagement_prod_log) &
-    (java -jar exam.jar >> $exam_prod_log) &
-    (java -jar intermediator.jar >> $intermediator_prod_log) &
+    sleep 1
+    mkdir -p logs/jar
+    echo "Logs of running each module can be found in:"
+    printf -- "- eureka:                  ${GREEN}$eureka_jar_log${ENDCOLOR}\n"
+    printf -- "- login:                   ${GREEN}$login_jar_log${ENDCOLOR}\n"
+    printf -- "- system:                  ${GREEN}$system_jar_log${ENDCOLOR}\n"
+    printf -- "- medicalRecordManagement: ${GREEN}$medicalRecordManagement_jar_log${ENDCOLOR}\n"
+    printf -- "- exam:                    ${GREEN}$exam_jar_log${ENDCOLOR}\n"
+    printf -- "- intermediator:           ${GREEN}$intermediator_jar_log${ENDCOLOR}\n"
+    echo " "
+    echo "-----------------------------------"
+    (java -jar eureka.jar >> $eureka_jar_log) &
+    (java -jar login.jar >> $login_jar_log) &
+    (java -jar system.jar >> $system_jar_log) &
+    (java -jar medicalRecordManagement.jar >> $medicalRecordManagement_jar_log) &
+    (java -jar exam.jar >> $exam_jar_log) &
+    (java -jar intermediator.jar >> $intermediator_jar_log) &
     (
         echo "Starting......"
         timer=0
@@ -36,19 +43,23 @@ startProd(){
         echo "Running completed"
         echo "-----------------------------------"
         echo "Running address of each module:"
-        echo "eureka: http://localhost:8085"
-        echo "login: http://localhost:8086"
-        echo "system: http://localhost:8087"
-        echo "medicalRecordManagement: http://localhost:8088"
-        echo "exam: http://localhost:8089"
-        echo "intermediator: http://localhost:8090"
+        printf -- "- eureka:                  ${BLUE}http://127.0.0.1:8085${ENDCOLOR}\n"
+        printf -- "- login:                   ${BLUE}http://127.0.0.1:8086${ENDCOLOR}\n"
+        printf -- "- system:                  ${BLUE}http://127.0.0.1:8087${ENDCOLOR}\n"
+        printf -- "- medicalRecordManagement: ${BLUE}http://127.0.0.1:8088${ENDCOLOR}\n"
+        printf -- "- exam:                    ${BLUE}http://127.0.0.1:8089${ENDCOLOR}\n"
+        printf -- "- intermediator:           ${BLUE}http://127.0.0.1:8090${ENDCOLOR}\n"
+        echo " "
+        echo "Please visit eureka page to check whether all 5 modules are running as expected. "
     ) &
     wait
     echo "Project was terminated"
 }
 
 stopProd() {
-    echo "--------------Start stopping--------------"
+    echo "Start stopping"
+    echo "-----------------------------------"
+    sleep 1
     eureka_pid=`lsof -i:8085|grep "LISTEN"|awk '{print $2}'`;
     login_pid=`lsof -i:8086|grep "LISTEN"|awk '{print $2}'`;
     system_pid=`lsof -i:8087|grep "LISTEN"|awk '{print $2}'`;
@@ -103,7 +114,8 @@ stopProd() {
     else
         echo "intermediator is not running"
     fi
-    echo "--------------Stopping completed--------------"
+    echo "Stopping completed"
+    echo "-----------------------------------"
 }
 
 case "$1" in
