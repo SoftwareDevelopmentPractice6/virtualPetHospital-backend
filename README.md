@@ -1,8 +1,8 @@
 <!--
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
- * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-14 04:51:36
+ * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-04-14 23:38:39
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -22,6 +22,16 @@
    - 端口：`3306`
    - 账号：`virtualPetHospital`
    - 密码：`virtualPetHospital`
+
+    SQL:
+
+    ```sql
+    DROP USER if EXISTS `virtualPetHospital`;
+
+    CREATE USER `virtualPetHospital`@`localhost` IDENTIFIED WITH mysql_native_password BY 'virtualPetHospital' PASSWORD EXPIRE NEVER;
+
+    GRANT Alter, Alter Routine, Create, Create Routine, Create Temporary Tables, Create User, Create View, Delete, Drop, Event, Execute, File, Grant Option, Index, Insert, Lock Tables, Process, References, Reload, Replication Client, Replication Slave, Select, Show Databases, Show View, Shutdown, Super, Trigger, Update ON *.* TO `virtualPetHospital`@`localhost`;
+    ```
 
 2. 启动eureka模块，随后启动除了common与jacoco-report以外的全部模块
 3. 8090端口的swagger界面可以测试项目接口
