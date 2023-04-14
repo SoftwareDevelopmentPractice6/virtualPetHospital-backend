@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>pet.hospital.backend</groupId>
 	<artifactId>virtualPetHospital-backend</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>virtualPetHospital-backend</name>
 	<description>Virtual pet hospital project backend part.</description>
