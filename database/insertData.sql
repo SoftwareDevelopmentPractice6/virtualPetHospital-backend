@@ -2665,15 +2665,15 @@ INSERT
     (
         29,
         '酒精中毒',
-        'disease/diseaseName/24/photo',
-        'disease/diseaseName/24/video',
+        'disease/diseaseName/10be221e-ec10-4g16-bf9c-778wq99fbb2c/photo',
+        'disease/diseaseName/10be221e-ec10-4g16-bf9c-778wq99fbb2c/video',
         '神经系统疾病'
     ),
     (
         30,
         '慢性胃炎',
-        'disease/diseaseName/26/photo',
-        'disease/diseaseName/26/video',
+        'disease/diseaseName/10be221e-ec10-4g16-bf9c-778wq289fhe2/photo',
+        'disease/diseaseName/10be221e-ec10-4g16-bf9c-778wq289fhe2/video',
         '消化系统疾病'
     );
 
@@ -4380,7 +4380,20 @@ INSERT
         'disease/caseCheck/5e7657d1-6af3-4a75-99c5-8e0d1ee9a2d9/photo',
         'disease/caseCheck/5e7657d1-6af3-4a75-99c5-8e0d1ee9a2d9/video'
     );
-
+INSERT INTO
+    TREATMENTPROGRAM(
+        treatment_program_id,
+        content,
+        photo,
+        video
+    )
+VALUES
+(
+        35,
+        '药物治疗、电复律、心脏射频消融术等',
+        'disease/treatmentProgram/67d97f39-0736-4f6b-af6b-4a4e4adef4d6/photo',
+        'disease/treatmentProgram/67d97f39-0736-4f6b-af6b-4a4e4adef4d6/video'
+    );
 INSERT
     INTO
         MEDICALCASE(
