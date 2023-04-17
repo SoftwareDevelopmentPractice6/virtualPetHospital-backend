@@ -2380,6 +2380,3211 @@ INSERT
         12
     );
 
+INSERT
+    INTO
+        DISEASENAME(
+            disease_name_id,
+            content,
+            photo,
+            video,
+            category
+        )
+    VALUES(
+        13,
+        '糖尿病',
+        'disease/diseaseName/98e2d0f6-70c7-4b1c-9a55-6783bf3e1c20/photo',
+        'disease/diseaseName/98e2d0f6-70c7-4b1c-9a55-6783bf3e1c20/video',
+        '内分泌疾病'
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        13,
+        '血糖高于正常范围',
+        'disease/diagnosticResult/118944a3-4732-4757-81a1-74c2af27f07f/photo',
+        'disease/diagnosticResult/118944a3-4732-4757-81a1-74c2af27f07f/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        13,
+        '患者自述口渴、尿频、乏力等症状',
+        'disease/admission/118944a3-4732-4757-81a1-74c2af27f07f/photo',
+        'disease/admission/118944a3-4732-4757-81a1-74c2af27f07f/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        13,
+        '血糖、血压等检查',
+        'disease/caseCheck/118944a3-4732-4757-81a1-74c2af27f07f/photo',
+        'disease/caseCheck/118944a3-4732-4757-81a1-74c2af27f07f/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        13,
+        '控制饮食、运动，药物治疗',
+        'disease/treatmentProgram/118944a3-4732-4757-81a1-74c2af27f07f/photo',
+        'disease/treatmentProgram/118944a3-4732-4757-81a1-74c2af27f07f/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        14,
+        '糖化血红蛋白(HbA1c) > 6.5%',
+        'disease/diagnosticResult/119980fc-52a3-9075-958d-bb3073be950b/photo',
+        'disease/diagnosticResult/119980fc-52a3-9075-958d-bb3073be950b/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        14,
+        '患者自述口渴、多尿',
+        'disease/admission/119980fc-52a3-9075-958d-bb3073be950b/photo',
+        'disease/admission/119980fc-52a3-9075-958d-bb3073be950b/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        14,
+        '体格检查发现足背动脉搏动减弱',
+        'disease/caseCheck/119980fc-52a3-9075-958d-bb3073be950b/photo',
+        'disease/caseCheck/119980fc-52a3-9075-958d-bb3073be950b/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        14,
+        '控制饮食、运动、口服药物治疗',
+        'disease/treatmentProgram/119980fc-52a3-9075-958d-bb3073be950b/photo',
+        'disease/treatmentProgram/119980fc-52a3-9075-958d-bb3073be950b/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        14,
+        13,
+        14,
+        14,
+        14,
+        14
+    );
+
+INSERT
+    INTO
+        DISEASENAME(
+            disease_name_id,
+            content,
+            photo,
+            video,
+            category
+        )
+    VALUES(
+        14,
+        '感冒',
+        'disease/diseaseName/9ed9b55e-35aa-4f3c-b42d-c832d70c930c/photo',
+        'disease/diseaseName/9ed9b55e-35aa-4f3c-b42d-c832d70c930c/video',
+        '呼吸系统疾病'
+    ),
+    (
+        15,
+        '咳嗽',
+        'disease/diseaseName/768e73b7-17d9-4859-9bde-6e8d87b40f23/photo',
+        'disease/diseaseName/768e73b7-17d9-4859-9bde-6e8d87b40f23/video',
+        '呼吸系统疾病'
+    ),
+    (
+        16,
+        '肺炎',
+        'disease/diseaseName/2b3cf3e9-52f5-4b5d-9e8b-7126180b5e50/photo',
+        'disease/diseaseName/2b3cf3e9-52f5-4b5d-9e8b-7126180b5e50/video',
+        '呼吸系统疾病'
+    ),
+    (
+        17,
+        '腹泻',
+        'disease/diseaseName/8b9abf28-b1d3-4cd5-816e-78914bfbbd5c/photo',
+        'disease/diseaseName/8b9abf28-b1d3-4cd5-816e-78914bfbbd5c/video',
+        '消化系统疾病'
+    ),
+    (
+        18,
+        '便秘',
+        'disease/diseaseName/1b0a6b48-2d2d-40e6-aa13-18e8388f94b1/photo',
+        'disease/diseaseName/1b0a6b48-2d2d-40e6-aa13-18e8388f94b1/video',
+        '消化系统疾病'
+    ),
+    (
+        20,
+        '痔疮',
+        'disease/diseaseName/165f95b6-72a6-47d9-9ea1-15a49a01286c/photo',
+        'disease/diseaseName/165f95b6-72a6-47d9-9ea1-15a49a01286c/video',
+        '消化系统疾病'
+    ),
+    (
+        21,
+        '高血压',
+        'disease/diseaseName/8f62004c-bd15-4db4-a3e3-1f994ad2ee0a/photo',
+        'disease/diseaseName/8f62004c-bd15-4db4-a3e3-1f994ad2ee0a/video',
+        '心血管疾病'
+    ),
+    (
+        22,
+        '真菌感染',
+        'disease/diseaseName/f2c8a15d-f7aa-47a9-ae6d-8af067f46527/photo',
+        'disease/diseaseName/f2c8a15d-f7aa-47a9-ae6d-8af067f46527/video',
+        '皮肤疾病'
+    ),
+    (
+        23,
+        '心房颤动',
+        'disease/diseaseName/ba14d8f8-7a0e-4c38-9341-b65a8cc63b63/photo',
+        'disease/diseaseName/ba14d8f8-7a0e-4c38-9341-b65a8cc63b63/video',
+        '心血管疾病'
+    ),
+    (
+        24,
+        '心肌炎',
+        'disease/diseaseName/890017f2-2ab9-46da-bd33-e8a93b49f3af/photo',
+        'disease/diseaseName/890017f2-2ab9-46da-bd33-e8a93b49f3af/video',
+        '心血管疾病'
+    ),
+    (
+        25,
+        '脑卒中',
+        'disease/diseaseName/1e36f41b-60f7-41b8-8a0a-200f17aa6949/photo',
+        'disease/diseaseName/1e36f41b-60f7-41b8-8a0a-200f17aa6949/video',
+        '神经系统疾病'
+    ),
+    (
+        26,
+        '帕金森病',
+        'disease/diseaseName/39fb3ccf-40d8-4f2f-946a-dc6b9f2974c4/photo',
+        'disease/diseaseName/39fb3ccf-40d8-4f2f-946a-dc6b9f2974c4/video',
+        '神经系统疾病'
+    ),
+    (
+        27,
+        '多发性硬化',
+        'disease/diseaseName/2d1a8f53-d27c-4f98-baf9-34f4eae4db4b/photo',
+        'disease/diseaseName/2d1a8f53-d27c-4f98-baf9-34f4eae4db4b/video',
+        '神经系统疾病'
+    ),
+    (
+        28,
+        '风湿病',
+        'disease/diseaseName/10be071e-ec10-4e16-bf9c-778cd99fbb2c/photo',
+        'disease/diseaseName/10be071e-ec10-4e16-bf9c-778cd99fbb2c/video',
+        '风湿免疫疾病'
+    ),
+    (
+        29,
+        '酒精中毒',
+        'disease/diseaseName/24/photo',
+        'disease/diseaseName/24/video',
+        '神经系统疾病'
+    ),
+    (
+        30,
+        '慢性胃炎',
+        'disease/diseaseName/26/photo',
+        'disease/diseaseName/26/video',
+        '消化系统疾病'
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        15,
+        '高血压，收缩压>140mmHg和/或舒张压>90mmHg',
+        'disease/diagnosticResult/92b6c4f6-4fc6-4f85-9fc6-79989d37c5a2/photo',
+        'disease/diagnosticResult/92b6c4f6-4fc6-4f85-9fc6-79989d37c5a2/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        15,
+        '患者自述头疼、头晕、视物模糊等症状',
+        'disease/admission/92b6c4f6-4fc6-4f85-9fc6-79989d37c5a2/photo',
+        'disease/admission/92b6c4f6-4fc6-4f85-9fc6-79989d37c5a2/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        15,
+        '心电图、血脂、肝肾功能等检查',
+        'disease/caseCheck/92b6c4f6-4fc6-4f85-9fc6-79989d37c5a2/photo',
+        'disease/caseCheck/92b6c4f6-4fc6-4f85-9fc6-79989d37c5a2/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        15,
+        '控制饮食、适量运动、口服药物治疗、监测血压',
+        'disease/treatmentProgram/92b6c4f6-4fc6-4f85-9fc6-79989d37c5a2/photo',
+        'disease/treatmentProgram/92b6c4f6-4fc6-4f85-9fc6-79989d37c5a2/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        15,
+        21,
+        15,
+        15,
+        15,
+        15
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        1,
+        '冠状动脉造影显示冠心病病变',
+        'disease/diagnosticResult/abcdefgh-ijkl-mnop-qrst-uvwxyz123456/photo',
+        'disease/diagnosticResult/abcdefgh-ijkl-mnop-qrst-uvwxyz123456/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        1,
+        '患者自述胸痛、气短、乏力等症状',
+        'disease/admission/abcdefgh-ijkl-mnop-qrst-uvwxyz123456/photo',
+        'disease/admission/abcdefgh-ijkl-mnop-qrst-uvwxyz123456/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        1,
+        '体格检查发现心率不齐、心律失常等',
+        'disease/caseCheck/abcdefgh-ijkl-mnop-qrst-uvwxyz123456/photo',
+        'disease/caseCheck/abcdefgh-ijkl-mnop-qrst-uvwxyz123456/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        1,
+        '药物治疗、改变生活方式、行冠状动脉搭桥手术等治疗方案',
+        'disease/treatmentProgram/abcdefgh-ijkl-mnop-qrst-uvwxyz123456/photo',
+        'disease/treatmentProgram/abcdefgh-ijkl-mnop-qrst-uvwxyz123456/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        1,
+        2,
+        1,
+        1,
+        1,
+        1
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        16,
+        '空腹血糖≥7.0mmol/L',
+        'disease/diagnosticResult/1ddce6a3-c6ec-4e63-9f7b-9d43e5473202/photo',
+        'disease/diagnosticResult/1ddce6a3-c6ec-4e63-9f7b-9d43e5473202/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        16,
+        '患者自述口渴、多尿等症状',
+        'disease/admission/1ddce6a3-c6ec-4e63-9f7b-9d43e5473202/photo',
+        'disease/admission/1ddce6a3-c6ec-4e63-9f7b-9d43e5473202/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        16,
+        '血糖测定：餐后2小时血糖≥11.1mmol/L',
+        'disease/caseCheck/1ddce6a3-c6ec-4e63-9f7b-9d43e5473202/photo',
+        'disease/caseCheck/1ddce6a3-c6ec-4e63-9f7b-9d43e5473202/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        16,
+        '控制饮食、运动、药物治疗，注射胰岛素',
+        'disease/treatmentProgram/1ddce6a3-c6ec-4e63-9f7b-9d43e5473202/photo',
+        'disease/treatmentProgram/1ddce6a3-c6ec-4e63-9f7b-9d43e5473202/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        16,
+        3,
+        16,
+        16,
+        16,
+        16
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        17,
+        '上消化道内窥镜检查显示胃黏膜充血、水肿、糜烂等病变',
+        'disease/diagnosticResult/abcd1234-5678-efgh-ijkl-9012mnopqrst/photo',
+        'disease/diagnosticResult/abcd1234-5678-efgh-ijkl-9012mnopqrst/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        17,
+        '患者自述胃痛、恶心、呕吐等症状',
+        'disease/admission/abcd1234-5678-efgh-ijkl-9012mnopqrst/photo',
+        'disease/admission/abcd1234-5678-efgh-ijkl-9012mnopqrst/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        17,
+        '胃镜检查，病理组织学检查',
+        'disease/caseCheck/abcd1234-5678-efgh-ijkl-9012mnopqrst/photo',
+        'disease/caseCheck/abcd1234-5678-efgh-ijkl-9012mnopqrst/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        17,
+        '抑制幽门螺杆菌、饮食调整、口服药物治疗、支持治疗',
+        'disease/treatmentProgram/abcd1234-5678-efgh-ijkl-9012mnopqrst/photo',
+        'disease/treatmentProgram/abcd1234-5678-efgh-ijkl-9012mnopqrst/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        17,
+        12,
+        17,
+        17,
+        17,
+        17
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        18,
+        '体温38℃以上，咳嗽、流涕、喉咙疼痛等症状',
+        'disease/diagnosticResult/8f19a90f-d95e-4dc6-b12a-54207adcc9d4/photo',
+        'disease/diagnosticResult/8f19a90f-d95e-4dc6-b12a-54207adcc9d4/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        18,
+        '患者自述有发热、咳嗽、流涕等症状',
+        'disease/admission/8f19a90f-d95e-4dc6-b12a-54207adcc9d4/photo',
+        'disease/admission/8f19a90f-d95e-4dc6-b12a-54207adcc9d4/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        18,
+        '体温测定、喉咙拭子培养',
+        'disease/caseCheck/8f19a90f-d95e-4dc6-b12a-54207adcc9d4/photo',
+        'disease/caseCheck/8f19a90f-d95e-4dc6-b12a-54207adcc9d4/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        18,
+        '休息，多喝水，吃清淡易消化的食物，适当使用退热镇痛药、抗生素等',
+        'disease/treatmentProgram/8f19a90f-d95e-4dc6-b12a-54207adcc9d4/photo',
+        'disease/treatmentProgram/8f19a90f-d95e-4dc6-b12a-54207adcc9d4/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        18,
+        14,
+        18,
+        18,
+        18,
+        18
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        19,
+        '发热、咳嗽、流鼻涕、喉咙疼痛',
+        'disease/diagnosticResult/f7de931e-54d3-4083-8561-b9195b5f1b5f/photo',
+        'disease/diagnosticResult/f7de931e-54d3-4083-8561-b9195b5f1b5f/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        19,
+        '患者自述发热、咳嗽、流鼻涕、喉咙疼痛等症状',
+        'disease/admission/f7de931e-54d3-4083-8561-b9195b5f1b5f/photo',
+        'disease/admission/f7de931e-54d3-4083-8561-b9195b5f1b5f/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        19,
+        '临床症状和体征',
+        'disease/caseCheck/f7de931e-54d3-4083-8561-b9195b5f1b5f/photo',
+        'disease/caseCheck/f7de931e-54d3-4083-8561-b9195b5f1b5f/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        19,
+        '对症治疗、休息、适当补充水分、药物缓解症状',
+        'disease/treatmentProgram/f7de931e-54d3-4083-8561-b9195b5f1b5f/photo',
+        'disease/treatmentProgram/f7de931e-54d3-4083-8561-b9195b5f1b5f/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        19,
+        14,
+        19,
+        19,
+        19,
+        19
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        20,
+        '干咳、咳痰、胸闷、气促等症状',
+        'disease/diagnosticResult/3a320c3a-9c10-4f8f-b1a2-2b7d267f3461/photo',
+        'disease/diagnosticResult/3a320c3a-9c10-4f8f-b1a2-2b7d267f3461/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        20,
+        '患者自述有咳嗽、咳痰、胸闷等症状',
+        'disease/admission/3a320c3a-9c10-4f8f-b1a2-2b7d267f3461/photo',
+        'disease/admission/3a320c3a-9c10-4f8f-b1a2-2b7d267f3461/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        20,
+        '听诊、胸部X光检查、痰液检查等',
+        'disease/caseCheck/3a320c3a-9c10-4f8f-b1a2-2b7d267f3461/photo',
+        'disease/caseCheck/3a320c3a-9c10-4f8f-b1a2-2b7d267f3461/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        20,
+        '治疗原因不同，可以选用抗生素、祛痰药、止咳药、支气管扩张剂等不同药物进行治疗',
+        'disease/treatmentProgram/3a320c3a-9c10-4f8f-b1a2-2b7d267f3461/photo',
+        'disease/treatmentProgram/3a320c3a-9c10-4f8f-b1a2-2b7d267f3461/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        20,
+        15,
+        20,
+        20,
+        20,
+        20
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        21,
+        '持续性咳嗽，咳嗽时有痰',
+        'disease/diagnosticResult/024b63c5-b0cc-413d-a0f5-17e00c06b381/photo',
+        'disease/diagnosticResult/024b63c5-b0cc-413d-a0f5-17e00c06b381/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        21,
+        '患者自述持续咳嗽不退',
+        'disease/admission/024b63c5-b0cc-413d-a0f5-17e00c06b381/photo',
+        'disease/admission/024b63c5-b0cc-413d-a0f5-17e00c06b381/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        21,
+        '听诊、胸部X光片、喉咙拭子培养',
+        'disease/caseCheck/024b63c5-b0cc-413d-a0f5-17e00c06b381/photo',
+        'disease/caseCheck/024b63c5-b0cc-413d-a0f5-17e00c06b381/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        21,
+        '治疗病因，使用止咳药、祛痰药、抗生素等',
+        'disease/treatmentProgram/024b63c5-b0cc-413d-a0f5-17e00c06b381/photo',
+        'disease/treatmentProgram/024b63c5-b0cc-413d-a0f5-17e00c06b381/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        21,
+        15,
+        21,
+        21,
+        21,
+        21
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        22,
+        '发热、咳嗽、胸痛、呼吸急促等症状',
+        'disease/diagnosticResult/5b28a94b-2be2-4225-a5a5-5d9627d1c9f1/photo',
+        'disease/diagnosticResult/5b28a94b-2be2-4225-a5a5-5d9627d1c9f1/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        22,
+        '患者自述有发热、咳嗽、胸痛、呼吸急促等症状',
+        'disease/admission/5b28a94b-2be2-4225-a5a5-5d9627d1c9f1/photo',
+        'disease/admission/5b28a94b-2be2-4225-a5a5-5d9627d1c9f1/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        22,
+        '胸部X光、CT、血气分析等检查',
+        'disease/caseCheck/5b28a94b-2be2-4225-a5a5-5d9627d1c9f1/photo',
+        'disease/caseCheck/5b28a94b-2be2-4225-a5a5-5d9627d1c9f1/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        22,
+        '使用抗生素、呼吸机等治疗，保持休息，维持水电解质平衡',
+        'disease/treatmentProgram/5b28a94b-2be2-4225-a5a5-5d9627d1c9f1/photo',
+        'disease/treatmentProgram/5b28a94b-2be2-4225-a5a5-5d9627d1c9f1/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        22,
+        16,
+        22,
+        22,
+        22,
+        22
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        23,
+        '发热、咳嗽、胸痛、气急等症状',
+        'disease/diagnosticResult/7e26b5aa-97d7-4630-a9d5-973831e21c3d/photo',
+        'disease/diagnosticResult/7e26b5aa-97d7-4630-a9d5-973831e21c3d/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        23,
+        '患者出现发热、咳嗽等症状，并持续加重',
+        'disease/admission/7e26b5aa-97d7-4630-a9d5-973831e21c3d/photo',
+        'disease/admission/7e26b5aa-97d7-4630-a9d5-973831e21c3d/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        23,
+        '体温测定、血常规检查、胸部CT等',
+        'disease/caseCheck/7e26b5aa-97d7-4630-a9d5-973831e21c3d/photo',
+        'disease/caseCheck/7e26b5aa-97d7-4630-a9d5-973831e21c3d/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        23,
+        '以病毒性肺炎为主要病原体的患者，通常采取支持性治疗，以及适当使用糖皮质激素、抗病毒药物等',
+        'disease/treatmentProgram/7e26b5aa-97d7-4630-a9d5-973831e21c3d/photo',
+        'disease/treatmentProgram/7e26b5aa-97d7-4630-a9d5-973831e21c3d/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        23,
+        16,
+        23,
+        23,
+        23,
+        23
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        24,
+        '大便次数增多，排便困难，便质稀薄或呈水样，伴有腹胀、腹痛、恶心、呕吐等症状',
+        'disease/diagnosticResult/0428a68e-59b2-4df2-9f4f-4a4b4a032634/photo',
+        'disease/diagnosticResult/0428a68e-59b2-4df2-9f4f-4a4b4a032634/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        24,
+        '患者自述腹泻已有三天，大便次数增多，排便困难，便质稀薄或呈水样，伴有腹胀、腹痛、恶心、呕吐等症状',
+        'disease/admission/0428a68e-59b2-4df2-9f4f-4a4b4a032634/photo',
+        'disease/admission/0428a68e-59b2-4df2-9f4f-4a4b4a032634/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        24,
+        '查体，抽血、大便常规、肠道病原微生物检测等',
+        'disease/caseCheck/0428a68e-59b2-4df2-9f4f-4a4b4a032634/photo',
+        'disease/caseCheck/0428a68e-59b2-4df2-9f4f-4a4b4a032634/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        24,
+        '休息，多喝水，忌食辛辣、油腻、刺激性食物，口服复方妇科制剂、口服肠道微生态调节剂等',
+        'disease/treatmentProgram/0428a68e-59b2-4df2-9f4f-4a4b4a032634/photo',
+        'disease/treatmentProgram/0428a68e-59b2-4df2-9f4f-4a4b4a032634/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        24,
+        17,
+        24,
+        24,
+        24,
+        24
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        25,
+        '每天排便次数增多，排便量明显增加，大便量多呈水样，伴有恶心、呕吐等症状',
+        'disease/diagnosticResult/2a4c4ef4-ba08-4a94-8baf-fcdd1a5802d1/photo',
+        'disease/diagnosticResult/2a4c4ef4-ba08-4a94-8baf-fcdd1a5802d1/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        25,
+        '患者自述出现腹泻、腹痛、恶心、呕吐等症状',
+        'disease/admission/2a4c4ef4-ba08-4a94-8baf-fcdd1a5802d1/photo',
+        'disease/admission/2a4c4ef4-ba08-4a94-8baf-fcdd1a5802d1/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        25,
+        '粪便常规检查、病原学检查等',
+        'disease/caseCheck/2a4c4ef4-ba08-4a94-8baf-fcdd1a5802d1/photo',
+        'disease/caseCheck/2a4c4ef4-ba08-4a94-8baf-fcdd1a5802d1/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        25,
+        '积极补充水分，避免进食辛辣刺激性食物，必要时使用抗生素、腹泻止泻剂等药物',
+        'disease/treatmentProgram/2a4c4ef4-ba08-4a94-8baf-fcdd1a5802d1/photo',
+        'disease/treatmentProgram/2a4c4ef4-ba08-4a94-8baf-fcdd1a5802d1/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        25,
+        17,
+        25,
+        25,
+        25,
+        25
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        26,
+        '排便不畅，大便干燥、硬结，伴随腹胀、腹痛等症状',
+        'disease/diagnosticResult/80d2d7c5-1cb5-4418-a57f-b5d1f5aa4136/photo',
+        'disease/diagnosticResult/80d2d7c5-1cb5-4418-a57f-b5d1f5aa4136/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        26,
+        '排便不畅、干燥、难解、大便习惯改变等症状',
+        'disease/admission/80d2d7c5-1cb5-4418-a57f-b5d1f5aa4136/photo',
+        'disease/admission/80d2d7c5-1cb5-4418-a57f-b5d1f5aa4136/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        26,
+        '肛门指检，血常规、大便常规等检查',
+        'disease/caseCheck/80d2d7c5-1cb5-4418-a57f-b5d1f5aa4136/photo',
+        'disease/caseCheck/80d2d7c5-1cb5-4418-a57f-b5d1f5aa4136/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        26,
+        '饮食调理，适量运动，建立良好排便习惯，口服通便药等',
+        'disease/treatmentProgram/80d2d7c5-1cb5-4418-a57f-b5d1f5aa4136/photo',
+        'disease/treatmentProgram/80d2d7c5-1cb5-4418-a57f-b5d1f5aa4136/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        26,
+        18,
+        26,
+        26,
+        26,
+        26
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        27,
+        '肛门周围疼痛、肛门坠胀感、便血',
+        'disease/diagnosticResult/c4bfe4a6-7f9b-4f3c-9e84-d1d7c6a00772/photo',
+        'disease/diagnosticResult/c4bfe4a6-7f9b-4f3c-9e84-d1d7c6a00772/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        27,
+        '患者自述肛门疼痛、肛门坠胀感等症状',
+        'disease/admission/c4bfe4a6-7f9b-4f3c-9e84-d1d7c6a00772/photo',
+        'disease/admission/c4bfe4a6-7f9b-4f3c-9e84-d1d7c6a00772/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        27,
+        '肛门检查、直肠指诊、肛门括约肌电图等',
+        'disease/caseCheck/c4bfe4a6-7f9b-4f3c-9e84-d1d7c6a00772/photo',
+        'disease/caseCheck/c4bfe4a6-7f9b-4f3c-9e84-d1d7c6a00772/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        27,
+        '改善饮食习惯，口服药物、栓剂、外用药、手术等治疗',
+        'disease/treatmentProgram/c4bfe4a6-7f9b-4f3c-9e84-d1d7c6a00772/photo',
+        'disease/treatmentProgram/c4bfe4a6-7f9b-4f3c-9e84-d1d7c6a00772/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        27,
+        20,
+        27,
+        27,
+        27,
+        27
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        28,
+        '排便困难，排便时间间隔过长，排便次数减少',
+        'disease/diagnosticResult/4e04a4f4-9f91-48dc-9fa3-aaaf53a8c310/photo',
+        'disease/diagnosticResult/4e04a4f4-9f91-48dc-9fa3-aaaf53a8c310/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        28,
+        '患者自述排便困难、排便次数减少等症状',
+        'disease/admission/4e04a4f4-9f91-48dc-9fa3-aaaf53a8c310/photo',
+        'disease/admission/4e04a4f4-9f91-48dc-9fa3-aaaf53a8c310/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        28,
+        '腹部触诊、肛门指诊',
+        'disease/caseCheck/4e04a4f4-9f91-48dc-9fa3-aaaf53a8c310/photo',
+        'disease/caseCheck/4e04a4f4-9f91-48dc-9fa3-aaaf53a8c310/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        28,
+        '改善饮食结构、增加膳食纤维摄入量、适当运动、饮水量充足、口服轻泻剂等',
+        'disease/treatmentProgram/4e04a4f4-9f91-48dc-9fa3-aaaf53a8c310/photo',
+        'disease/treatmentProgram/4e04a4f4-9f91-48dc-9fa3-aaaf53a8c310/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        28,
+        18,
+        28,
+        28,
+        28,
+        28
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        29,
+        '肛门周围疼痛、瘙痒、出血，肛门坠胀等症状',
+        'disease/diagnosticResult/8f19a90f-d95e-4dc6-b12a-54207adcc9d4/photo',
+        'disease/diagnosticResult/8f19a90f-d95e-4dc6-b12a-54207adcc9d4/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        29,
+        '患者自述肛门部疼痛、肛门出血等症状',
+        'disease/admission/8f19a90f-d95e-4dc6-b12a-54207adcc9d4/photo',
+        'disease/admission/8f19a90f-d95e-4dc6-b12a-54207adcc9d4/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        29,
+        '肛门检查、直肠指诊等',
+        'disease/caseCheck/8f19a90f-d95e-4dc6-b12a-54207adcc9d4/photo',
+        'disease/caseCheck/8f19a90f-d95e-4dc6-b12a-54207adcc9d4/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        29,
+        '多喝水，多吃蔬菜水果，避免久坐，外用药物或手术治疗',
+        'disease/treatmentProgram/8f19a90f-d95e-4dc6-b12a-54207adcc9d4/photo',
+        'disease/treatmentProgram/8f19a90f-d95e-4dc6-b12a-54207adcc9d4/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        29,
+        20,
+        29,
+        29,
+        29,
+        29
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        30,
+        '血压持续升高，头痛、眩晕、心悸等症状',
+        'disease/diagnosticResult/9d9c23f6-89b8-4b0e-872d-c71b2e48c8e1/photo',
+        'disease/diagnosticResult/9d9c23f6-89b8-4b0e-872d-c71b2e48c8e1/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        30,
+        '患者自述有头痛、眩晕、心悸等症状',
+        'disease/admission/9d9c23f6-89b8-4b0e-872d-c71b2e48c8e1/photo',
+        'disease/admission/9d9c23f6-89b8-4b0e-872d-c71b2e48c8e1/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        30,
+        '测量血压、心电图等检查',
+        'disease/caseCheck/9d9c23f6-89b8-4b0e-872d-c71b2e48c8e1/photo',
+        'disease/caseCheck/9d9c23f6-89b8-4b0e-872d-c71b2e48c8e1/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        30,
+        '调整饮食，适量运动，控制体重，药物治疗等',
+        'disease/treatmentProgram/9d9c23f6-89b8-4b0e-872d-c71b2e48c8e1/photo',
+        'disease/treatmentProgram/9d9c23f6-89b8-4b0e-872d-c71b2e48c8e1/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        30,
+        21,
+        30,
+        30,
+        30,
+        30
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        31,
+        '收缩压≥140mmHg和/或舒张压≥90mmHg',
+        'disease/diagnosticResult/61f2f947-5098-476d-9c5f-f3cf77c8f91b/photo',
+        'disease/diagnosticResult/61f2f947-5098-476d-9c5f-f3cf77c8f91b/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        31,
+        '患者自述头痛、头晕、心悸、气短等症状，或在体检中被发现血压升高',
+        'disease/admission/61f2f947-5098-476d-9c5f-f3cf77c8f91b/photo',
+        'disease/admission/61f2f947-5098-476d-9c5f-f3cf77c8f91b/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        31,
+        '测量血压、查体、心电图、24小时动态血压监测等',
+        'disease/caseCheck/61f2f947-5098-476d-9c5f-f3cf77c8f91b/photo',
+        'disease/caseCheck/61f2f947-5098-476d-9c5f-f3cf77c8f91b/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        31,
+        '生活方式改变，药物治疗，如利尿剂、钙通道阻滞剂、ACEI/ARB等',
+        'disease/treatmentProgram/61f2f947-5098-476d-9c5f-f3cf77c8f91b/photo',
+        'disease/treatmentProgram/61f2f947-5098-476d-9c5f-f3cf77c8f91b/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        31,
+        21,
+        31,
+        31,
+        31,
+        31
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        32,
+        '心绞痛、胸闷、气短、心悸等症状',
+        'disease/diagnosticResult/69544e6b-6a1e-4264-a031-14d4a94c6b45/photo',
+        'disease/diagnosticResult/69544e6b-6a1e-4264-a031-14d4a94c6b45/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        32,
+        '患者自述出现心绞痛、胸闷等症状',
+        'disease/admission/69544e6b-6a1e-4264-a031-14d4a94c6b45/photo',
+        'disease/admission/69544e6b-6a1e-4264-a031-14d4a94c6b45/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        32,
+        '心电图、血脂、血压等检查',
+        'disease/caseCheck/69544e6b-6a1e-4264-a031-14d4a94c6b45/photo',
+        'disease/caseCheck/69544e6b-6a1e-4264-a031-14d4a94c6b45/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        32,
+        '改变不良的生活方式，如戒烟、控制体重、适当运动等。药物治疗包括硝酸酯类、钙拮抗剂、β受体阻滞剂等',
+        'disease/treatmentProgram/69544e6b-6a1e-4264-a031-14d4a94c6b45/photo',
+        'disease/treatmentProgram/69544e6b-6a1e-4264-a031-14d4a94c6b45/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        32,
+        2,
+        32,
+        32,
+        32,
+        32
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        33,
+        '皮肤上的紅疹、鳞屑、瘙痒等症状',
+        'disease/diagnosticResult/c3ba9a3a-6f92-11ec-9621-0242ac130002/photo',
+        'disease/diagnosticResult/c3ba9a3a-6f92-11ec-9621-0242ac130002/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        33,
+        '患者自述出现皮肤瘙痒等症状',
+        'disease/admission/c3ba9a3a-6f92-11ec-9621-0242ac130002/photo',
+        'disease/admission/c3ba9a3a-6f92-11ec-9621-0242ac130002/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        33,
+        '皮肤检查、血液检查',
+        'disease/caseCheck/c3ba9a3a-6f92-11ec-9621-0242ac130002/photo',
+        'disease/caseCheck/c3ba9a3a-6f92-11ec-9621-0242ac130002/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        33,
+        '抗真菌药物、局部治疗等',
+        'disease/treatmentProgram/c3ba9a3a-6f92-11ec-9621-0242ac130002/photo',
+        'disease/treatmentProgram/c3ba9a3a-6f92-11ec-9621-0242ac130002/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        33,
+        22,
+        33,
+        33,
+        33,
+        33
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        34,
+        '病灶部位红肿、疼痛，发热、畏寒、乏力等症状',
+        'disease/diagnosticResult/39711b5f-7bb7-4132-9f5c-1d2c7eae76a8/photo',
+        'disease/diagnosticResult/39711b5f-7bb7-4132-9f5c-1d2c7eae76a8/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        34,
+        '患者自述有局部瘙痒、疼痛等症状',
+        'disease/admission/39711b5f-7bb7-4132-9f5c-1d2c7eae76a8/photo',
+        'disease/admission/39711b5f-7bb7-4132-9f5c-1d2c7eae76a8/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        34,
+        '病灶刮片、真菌培养',
+        'disease/caseCheck/39711b5f-7bb7-4132-9f5c-1d2c7eae76a8/photo',
+        'disease/caseCheck/39711b5f-7bb7-4132-9f5c-1d2c7eae76a8/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        34,
+        '口服或局部使用抗真菌药物，对症处理症状',
+        'disease/treatmentProgram/39711b5f-7bb7-4132-9f5c-1d2c7eae76a8/photo',
+        'disease/treatmentProgram/39711b5f-7bb7-4132-9f5c-1d2c7eae76a8/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        34,
+        22,
+        34,
+        34,
+        34,
+        34
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        35,
+        '心电图检查、Holter 监测等',
+        'disease/diagnosticResult/5e7657d1-6af3-4a75-99c5-8e0d1ee9a2d9/photo',
+        'disease/diagnosticResult/5e7657d1-6af3-4a75-99c5-8e0d1ee9a2d9/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        35,
+        '患者自述心悸、气促等症状',
+        'disease/admission/5e7657d1-6af3-4a75-99c5-8e0d1ee9a2d9/photo',
+        'disease/admission/5e7657d1-6af3-4a75-99c5-8e0d1ee9a2d9/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        35,
+        '心电图检查、超声心动图、血常规等',
+        'disease/caseCheck/5e7657d1-6af3-4a75-99c5-8e0d1ee9a2d9/photo',
+        'disease/caseCheck/5e7657d1-6af3-4a75-99c5-8e0d1ee9a2d9/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        35,
+        23,
+        35,
+        35,
+        35,
+        35
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        36,
+        '心率不规律、心悸、气短、乏力等症状',
+        'disease/diagnosticResult/67d97f39-0736-4f6b-af6b-4a4e4adef4d6/photo',
+        'disease/diagnosticResult/67d97f39-0736-4f6b-af6b-4a4e4adef4d6/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        36,
+        '患者自述有心悸、气短等症状，有高血压、冠心病等心血管疾病病史',
+        'disease/admission/67d97f39-0736-4f6b-af6b-4a4e4adef4d6/photo',
+        'disease/admission/67d97f39-0736-4f6b-af6b-4a4e4adef4d6/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        36,
+        '心电图、Holter 监测等',
+        'disease/caseCheck/67d97f39-0736-4f6b-af6b-4a4e4adef4d6/photo',
+        'disease/caseCheck/67d97f39-0736-4f6b-af6b-4a4e4adef4d6/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        36,
+        '药物治疗、电复律、心脏射频消融术等',
+        'disease/treatmentProgram/67d97f39-0736-4f6b-af6b-4a4e4adef4d6/photo',
+        'disease/treatmentProgram/67d97f39-0736-4f6b-af6b-4a4e4adef4d6/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        36,
+        23,
+        36,
+        36,
+        36,
+        36
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        37,
+        '胸痛、心悸、心动过速、呼吸急促、乏力、出汗、发热等症状',
+        'disease/diagnosticResult/3ba7d8e8-9326-4f6b-b039-7c64cc88bb1d/photo',
+        'disease/diagnosticResult/3ba7d8e8-9326-4f6b-b039-7c64cc88bb1d/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        37,
+        '患者自述有胸痛、呼吸急促、乏力等症状',
+        'disease/admission/3ba7d8e8-9326-4f6b-b039-7c64cc88bb1d/photo',
+        'disease/admission/3ba7d8e8-9326-4f6b-b039-7c64cc88bb1d/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        37,
+        '心电图、心肌酶谱、心脏彩超',
+        'disease/caseCheck/3ba7d8e8-9326-4f6b-b039-7c64cc88bb1d/photo',
+        'disease/caseCheck/3ba7d8e8-9326-4f6b-b039-7c64cc88bb1d/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        37,
+        '休息，控制症状，使用抗生素、免疫抑制剂等',
+        'disease/treatmentProgram/3ba7d8e8-9326-4f6b-b039-7c64cc88bb1d/photo',
+        'disease/treatmentProgram/3ba7d8e8-9326-4f6b-b039-7c64cc88bb1d/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        37,
+        24,
+        37,
+        37,
+        37,
+        37
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        38,
+        '症状轻重不同，轻症表现为轻微的心悸、乏力、倦怠和气促等，重症表现为胸痛、心悸、晕厥、呼吸困难和心力衰竭等',
+        'disease/diagnosticResult/c2f2d24a-1055-4f28-b93a-9f17ebdc5a5d/photo',
+        'disease/diagnosticResult/c2f2d24a-1055-4f28-b93a-9f17ebdc5a5d/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        38,
+        '患者自述有胸痛、心悸、气促等症状，体格检查发现心脏有杂音',
+        'disease/admission/c2f2d24a-1055-4f28-b93a-9f17ebdc5a5d/photo',
+        'disease/admission/c2f2d24a-1055-4f28-b93a-9f17ebdc5a5d/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        38,
+        '心电图、心肌酶谱、抗心肌抗体检测',
+        'disease/caseCheck/c2f2d24a-1055-4f28-b93a-9f17ebdc5a5d/photo',
+        'disease/caseCheck/c2f2d24a-1055-4f28-b93a-9f17ebdc5a5d/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        38,
+        '静息、卧床、补液，心血管药物治疗等',
+        'disease/treatmentProgram/c2f2d24a-1055-4f28-b93a-9f17ebdc5a5d/photo',
+        'disease/treatmentProgram/c2f2d24a-1055-4f28-b93a-9f17ebdc5a5d/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        38,
+        24,
+        38,
+        38,
+        38,
+        38
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        39,
+        '面部、手臂或腿部一侧的无力或麻木，突然丧失视力、言语不清、严重头痛、眩晕',
+        'disease/diagnosticResult/25a9dfe1-dc8b-4e34-9441-7bb6c97b8f7b/photo',
+        'disease/diagnosticResult/25a9dfe1-dc8b-4e34-9441-7bb6c97b8f7b/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        39,
+        '患者突然出现上述症状，须立即送往医院治疗',
+        'disease/admission/25a9dfe1-dc8b-4e34-9441-7bb6c97b8f7b/photo',
+        'disease/admission/25a9dfe1-dc8b-4e34-9441-7bb6c97b8f7b/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        39,
+        'CT、MRI 等检查',
+        'disease/caseCheck/25a9dfe1-dc8b-4e34-9441-7bb6c97b8f7b/photo',
+        'disease/caseCheck/25a9dfe1-dc8b-4e34-9441-7bb6c97b8f7b/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        39,
+        '根据具体病情采用药物治疗、手术治疗或介入治疗等方法',
+        'disease/treatmentProgram/25a9dfe1-dc8b-4e34-9441-7bb6c97b8f7b/photo',
+        'disease/treatmentProgram/25a9dfe1-dc8b-4e34-9441-7bb6c97b8f7b/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        39,
+        25,
+        39,
+        39,
+        39,
+        39
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        40,
+        '头痛、眩晕、恶心、呕吐，失语、面部或身体一侧麻木或无力，突然失明或视力障碍等症状',
+        'disease/diagnosticResult/1a2b3c4d-5e6f-7g8h-9i0j-a1b2c3d4e5f6/photo',
+        'disease/diagnosticResult/1a2b3c4d-5e6f-7g8h-9i0j-a1b2c3d4e5f6/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        40,
+        '患者突发头痛、眩晕，左侧面部和肢体无力',
+        'disease/admission/1a2b3c4d-5e6f-7g8h-9i0j-a1b2c3d4e5f6/photo',
+        'disease/admission/1a2b3c4d-5e6f-7g8h-9i0j-a1b2c3d4e5f6/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        40,
+        '神经系统检查、颅内血管造影等检查',
+        'disease/caseCheck/1a2b3c4d-5e6f-7g8h-9i0j-a1b2c3d4e5f6/photo',
+        'disease/caseCheck/1a2b3c4d-5e6f-7g8h-9i0j-a1b2c3d4e5f6/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        40,
+        '根据病情轻重采用不同的治疗方法，如溶栓治疗、手术治疗等，对卒中后的康复进行支持性治疗',
+        'disease/treatmentProgram/1a2b3c4d-5e6f-7g8h-9i0j-a1b2c3d4e5f6/photo',
+        'disease/treatmentProgram/1a2b3c4d-5e6f-7g8h-9i0j-a1b2c3d4e5f6/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        40,
+        25,
+        40,
+        40,
+        40,
+        40
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        41,
+        '肌肉僵硬、震颤、运动迟缓、姿势不稳等症状',
+        'disease/diagnosticResult/129ed70e-fb2c-4b10-9a02-448f68a10c8e/photo',
+        'disease/diagnosticResult/129ed70e-fb2c-4b10-9a02-448f68a10c8e/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        41,
+        '患者自述肌肉僵硬、震颤、运动迟缓、姿势不稳等症状',
+        'disease/admission/129ed70e-fb2c-4b10-9a02-448f68a10c8e/photo',
+        'disease/admission/129ed70e-fb2c-4b10-9a02-448f68a10c8e/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        41,
+        '神经学检查、脑电图、CT/MRI等',
+        'disease/caseCheck/129ed70e-fb2c-4b10-9a02-448f68a10c8e/photo',
+        'disease/caseCheck/129ed70e-fb2c-4b10-9a02-448f68a10c8e/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        41,
+        '药物治疗、物理治疗、手术治疗等',
+        'disease/treatmentProgram/129ed70e-fb2c-4b10-9a02-448f68a10c8e/photo',
+        'disease/treatmentProgram/129ed70e-fb2c-4b10-9a02-448f68a10c8e/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        41,
+        26,
+        41,
+        41,
+        41,
+        41
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        42,
+        '手脚发抖、肌肉僵硬、运动迟缓、平衡失调等症状',
+        'disease/diagnosticResult/51ed7562-8473-4853-8b18-9600d0c7b1a1/photo',
+        'disease/diagnosticResult/51ed7562-8473-4853-8b18-9600d0c7b1a1/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        42,
+        '患者自述手脚不听使唤，身体僵硬、行动迟缓',
+        'disease/admission/51ed7562-8473-4853-8b18-9600d0c7b1a1/photo',
+        'disease/admission/51ed7562-8473-4853-8b18-9600d0c7b1a1/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        42,
+        '神经系统检查、头部MRI、脑波图等',
+        'disease/caseCheck/51ed7562-8473-4853-8b18-9600d0c7b1a1/photo',
+        'disease/caseCheck/51ed7562-8473-4853-8b18-9600d0c7b1a1/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        42,
+        '药物治疗，物理治疗，手术治疗等',
+        'disease/treatmentProgram/51ed7562-8473-4853-8b18-9600d0c7b1a1/photo',
+        'disease/treatmentProgram/51ed7562-8473-4853-8b18-9600d0c7b1a1/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        42,
+        26,
+        42,
+        42,
+        42,
+        42
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        43,
+        '神经系统检查发现多发性病灶，脑脊液检查有寡克隆带',
+        'disease/diagnosticResult/ade128d7-7ea8-4388-9bdf-211a5a96a719/photo',
+        'disease/diagnosticResult/ade128d7-7ea8-4388-9bdf-211a5a96a719/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        43,
+        '患者自述出现视力模糊、肢体乏力等症状',
+        'disease/admission/ade128d7-7ea8-4388-9bdf-211a5a96a719/photo',
+        'disease/admission/ade128d7-7ea8-4388-9bdf-211a5a96a719/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        43,
+        '脑部MRI，脑脊液检查',
+        'disease/caseCheck/ade128d7-7ea8-4388-9bdf-211a5a96a719/photo',
+        'disease/caseCheck/ade128d7-7ea8-4388-9bdf-211a5a96a719/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        43,
+        '药物治疗、物理治疗、康复治疗等综合治疗',
+        'disease/treatmentProgram/ade128d7-7ea8-4388-9bdf-211a5a96a719/photo',
+        'disease/treatmentProgram/ade128d7-7ea8-4388-9bdf-211a5a96a719/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        43,
+        27,
+        43,
+        43,
+        43,
+        43
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        44,
+        '脑部核磁共振、脊髓造影等检查',
+        'disease/diagnosticResult/e4870b7e-bb6a-4c2d-b15d-ba8c88825f9c/photo',
+        'disease/diagnosticResult/e4870b7e-bb6a-4c2d-b15d-ba8c88825f9c/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        44,
+        '患者出现视力模糊、肢体乏力、平衡障碍、感觉异常等症状',
+        'disease/admission/e4870b7e-bb6a-4c2d-b15d-ba8c88825f9c/photo',
+        'disease/admission/e4870b7e-bb6a-4c2d-b15d-ba8c88825f9c/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        44,
+        '神经系统检查、脑脊液检查等',
+        'disease/caseCheck/e4870b7e-bb6a-4c2d-b15d-ba8c88825f9c/photo',
+        'disease/caseCheck/e4870b7e-bb6a-4c2d-b15d-ba8c88825f9c/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        44,
+        '使用糖皮质激素、免疫抑制剂等药物治疗，辅助物理治疗、职业治疗等',
+        'disease/treatmentProgram/e4870b7e-bb6a-4c2d-b15d-ba8c88825f9c/photo',
+        'disease/treatmentProgram/e4870b7e-bb6a-4c2d-b15d-ba8c88825f9c/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        44,
+        27,
+        44,
+        44,
+        44,
+        44
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        45,
+        '关节肿痛、早晨僵硬、肌肉萎缩',
+        'disease/diagnosticResult/0f6c46d7-9f63-429e-bda2-070c13a7b510/photo',
+        'disease/diagnosticResult/0f6c46d7-9f63-429e-bda2-070c13a7b510/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        45,
+        '患者自述关节肿痛、僵硬等症状',
+        'disease/admission/0f6c46d7-9f63-429e-bda2-070c13a7b510/photo',
+        'disease/admission/0f6c46d7-9f63-429e-bda2-070c13a7b510/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        45,
+        '血清抗核抗体(ANA)、血沉(ESR)、C反应蛋白(CRP)、关节穿刺液等检查',
+        'disease/caseCheck/0f6c46d7-9f63-429e-bda2-070c13a7b510/photo',
+        'disease/caseCheck/0f6c46d7-9f63-429e-bda2-070c13a7b510/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        45,
+        '非甾体抗炎药、免疫抑制剂、皮质类固醇等治疗',
+        'disease/treatmentProgram/0f6c46d7-9f63-429e-bda2-070c13a7b510/photo',
+        'disease/treatmentProgram/0f6c46d7-9f63-429e-bda2-070c13a7b510/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        45,
+        28,
+        45,
+        45,
+        45,
+        45
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        46,
+        '关节肿胀、红热、疼痛，关节活动度受限，疲乏、发热、食欲不振等症状',
+        'disease/diagnosticResult/3601a8b4-cba4-4ef4-a4aa-105dfe79d2b4/photo',
+        'disease/diagnosticResult/3601a8b4-cba4-4ef4-a4aa-105dfe79d2b4/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        46,
+        '患者自述有关节肿胀、疼痛等症状',
+        'disease/admission/3601a8b4-cba4-4ef4-a4aa-105dfe79d2b4/photo',
+        'disease/admission/3601a8b4-cba4-4ef4-a4aa-105dfe79d2b4/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        46,
+        '体格检查、血常规、自身抗体检测等',
+        'disease/caseCheck/3601a8b4-cba4-4ef4-a4aa-105dfe79d2b4/photo',
+        'disease/caseCheck/3601a8b4-cba4-4ef4-a4aa-105dfe79d2b4/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        46,
+        '抗风湿、抗炎、止痛药物，维生素D、钙剂等，针对病情进行物理治疗和康复训练',
+        'disease/treatmentProgram/3601a8b4-cba4-4ef4-a4aa-105dfe79d2b4/photo',
+        'disease/treatmentProgram/3601a8b4-cba4-4ef4-a4aa-105dfe79d2b4/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        46,
+        28,
+        46,
+        46,
+        46,
+        46
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        47,
+        '饮酒过量，出现心跳加速、呼吸急促、恶心呕吐等症状',
+        'disease/diagnosticResult/0e33b971-59d8-4e8b-8d39-576c9460f9cc/photo',
+        'disease/diagnosticResult/0e33b971-59d8-4e8b-8d39-576c9460f9cc/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        47,
+        '患者出现酒精中毒的症状',
+        'disease/admission/0e33b971-59d8-4e8b-8d39-576c9460f9cc/photo',
+        'disease/admission/0e33b971-59d8-4e8b-8d39-576c9460f9cc/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        47,
+        '观察症状，体格检查，血液、尿液检查',
+        'disease/caseCheck/0e33b971-59d8-4e8b-8d39-576c9460f9cc/photo',
+        'disease/caseCheck/0e33b971-59d8-4e8b-8d39-576c9460f9cc/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        47,
+        '给予氧气吸入、输液、肝保护等治疗',
+        'disease/treatmentProgram/0e33b971-59d8-4e8b-8d39-576c9460f9cc/photo',
+        'disease/treatmentProgram/0e33b971-59d8-4e8b-8d39-576c9460f9cc/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        47,
+        29,
+        47,
+        47,
+        47,
+        47
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        48,
+        '口气浓、呼吸急促、面色潮红、大小便失禁等症状',
+        'disease/diagnosticResult/3fa3c75a-b2f5-44b5-b902-5dc9e5ef5edc/photo',
+        'disease/diagnosticResult/3fa3c75a-b2f5-44b5-b902-5dc9e5ef5edc/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        48,
+        '患者自述有饮酒史，并有口气浓、面色潮红等症状',
+        'disease/admission/3fa3c75a-b2f5-44b5-b902-5dc9e5ef5edc/photo',
+        'disease/admission/3fa3c75a-b2f5-44b5-b902-5dc9e5ef5edc/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        48,
+        '血液、呼吸等检查',
+        'disease/caseCheck/3fa3c75a-b2f5-44b5-b902-5dc9e5ef5edc/photo',
+        'disease/caseCheck/3fa3c75a-b2f5-44b5-b902-5dc9e5ef5edc/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        48,
+        '解除中毒症状，保持呼吸道通畅，补液、补充维生素等',
+        'disease/treatmentProgram/3fa3c75a-b2f5-44b5-b902-5dc9e5ef5edc/photo',
+        'disease/treatmentProgram/3fa3c75a-b2f5-44b5-b902-5dc9e5ef5edc/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        48,
+        29,
+        48,
+        47,
+        47,
+        47
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        49,
+        '腹痛、嗳气、反酸、食欲不振等症状',
+        'disease/diagnosticResult/afb090a1-14e1-40a7-8f0e-5af1b5e1b310/photo',
+        'disease/diagnosticResult/afb090a1-14e1-40a7-8f0e-5af1b5e1b310/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        49,
+        '患者出现上腹痛、嗳气、反酸、食欲不振等症状',
+        'disease/admission/afb090a1-14e1-40a7-8f0e-5af1b5e1b310/photo',
+        'disease/admission/afb090a1-14e1-40a7-8f0e-5af1b5e1b310/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        49,
+        '上消化道内窥镜检查、胃黏膜组织活检',
+        'disease/caseCheck/afb090a1-14e1-40a7-8f0e-5af1b5e1b310/photo',
+        'disease/caseCheck/afb090a1-14e1-40a7-8f0e-5af1b5e1b310/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        49,
+        '避免食用辛辣、刺激性、酸性食物，合理饮食，规律生活，必要时使用抗生素、胃黏膜保护剂等药物治疗',
+        'disease/treatmentProgram/afb090a1-14e1-40a7-8f0e-5af1b5e1b310/photo',
+        'disease/treatmentProgram/afb090a1-14e1-40a7-8f0e-5af1b5e1b310/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        49,
+        30,
+        49,
+        49,
+        49,
+        49
+    );
+
+INSERT
+    INTO
+        DIAGNOSTICRESULT(
+            diagnostic_result_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        50,
+        '上腹痛，恶心、呕吐、胃胀、食欲减退等症状',
+        'disease/diagnosticResult/9b0cf7a9-61a8-4ea6-bfa3-872e3b2bb8c1/photo',
+        'disease/diagnosticResult/9b0cf7a9-61a8-4ea6-bfa3-872e3b2bb8c1/video'
+    );
+
+INSERT
+    INTO
+        ADMISSION(
+            admission_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        50,
+        '患者自述有腹部不适、上腹痛等症状',
+        'disease/admission/9b0cf7a9-61a8-4ea6-bfa3-872e3b2bb8c1/photo',
+        'disease/admission/9b0cf7a9-61a8-4ea6-bfa3-872e3b2bb8c1/video'
+    );
+
+INSERT
+    INTO
+        CASECHECK(
+            casecheck_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        50,
+        '胃镜检查、血常规检查、呼气测试等',
+        'disease/caseCheck/9b0cf7a9-61a8-4ea6-bfa3-872e3b2bb8c1/photo',
+        'disease/caseCheck/9b0cf7a9-61a8-4ea6-bfa3-872e3b2bb8c1/video'
+    );
+
+INSERT
+    INTO
+        TREATMENTPROGRAM(
+            treatment_program_id,
+            content,
+            photo,
+            video
+        )
+    VALUES(
+        50,
+        '避免辛辣、油腻、刺激性食物，注意饮食卫生，可口服胃粘膜保护剂、抗酸药等，严重者可考虑手术治疗',
+        'disease/treatmentProgram/9b0cf7a9-61a8-4ea6-bfa3-872e3b2bb8c1/photo',
+        'disease/treatmentProgram/9b0cf7a9-61a8-4ea6-bfa3-872e3b2bb8c1/video'
+    );
+
+INSERT
+    INTO
+        MEDICALCASE(
+            case_id,
+            disease_name_id,
+            diagnostic_result_id,
+            admission_id,
+            casecheck_id,
+            treatment_program_id
+        )
+    VALUES(
+        50,
+        30,
+        50,
+        50,
+        50,
+        50
+    );
+
 use exam;
 
 DELETE
