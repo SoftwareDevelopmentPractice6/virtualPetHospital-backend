@@ -2,11 +2,27 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-21 15:13:16
+ * @LastEditTime: 2023-04-21 22:59:31
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
 # Virtual Pet Hospital Backend Part
+
+## 目录
+
+- [Virtual Pet Hospital Backend Part](#virtual-pet-hospital-backend-part)
+  - [目录](#目录)
+  - [Contributors](#contributors)
+  - [配置数据库](#配置数据库)
+  - [运行项目](#运行项目)
+    - [便捷的启动方式](#便捷的启动方式)
+      - [MacOS \& Linux](#macos--linux)
+      - [Windows](#windows)
+  - [Docker 打包](#docker-打包)
+  - [文档](#文档)
+    - [后端开发人员用文档](#后端开发人员用文档)
+    - [前端接口文档](#前端接口文档)
+  - [说明](#说明)
 
 ## Contributors
 
@@ -14,9 +30,9 @@
 - 刁泽皓 10195101470
 - 陆宣辰 10195101466
 
-## 运行项目
+## 配置数据库
 
-1. 启动MySQL数据库，数据库需要一个满足以下条件的用户
+1. 使用MySQL数据库（版本：8），数据库需要一个满足以下条件的用户
 
    - 权限：All
    - 端口：`3306`
@@ -33,8 +49,12 @@
     GRANT Alter, Alter Routine, Create, Create Routine, Create Temporary Tables, Create User, Create View, Delete, Drop, Event, Execute, File, Grant Option, Index, Insert, Lock Tables, Process, References, Reload, Replication Client, Replication Slave, Select, Show Databases, Show View, Shutdown, Super, Trigger, Update ON *.* TO `virtualPetHospital`@`localhost`;
     ```
 
-2. 启动eureka模块，随后启动除了common与jacoco-report以外的全部模块
-3. 8090端口的swagger界面可以测试项目接口
+2. 初始化数据库：运行`database/createTable.sql`
+
+## 运行项目
+
+1. 启动MySQL数据库后，启动eureka模块，随后启动除了common与jacoco-report以外的全部模块
+2. dev环境下8090端口的swagger界面可以测试项目接口
 
 ### 便捷的启动方式
 
@@ -54,8 +74,10 @@
 
     其中两个参数分别代表：
 
-    - 参数1：start | stop。start用于启动项目，stop用于停止项目。
-    - 参数2：dev | prod。dev表示选择dev环境，prod表示选择prod环境。
+    | 参数1\参数2 | dev                 | prod                 |
+    | ----------- | ------------------- | -------------------- |
+    | start       | 启动项目（dev环境） | 启动项目（prod环境） |
+    | stop        | 停止项目（dev环境） | 停止项目（prod环境） |
 
 #### Windows
 
@@ -71,35 +93,43 @@
 
 按顺序执行以下命令：
 
-```bash
-# 项目下载依赖
+1. 项目下载依赖：
 
-# Windows
-# .\mvnw.cmd clean install -D skipTests -N
-# .\mvnw.cmd clean install -D skipTests
+    ```bash
+    # Windows
+    # .\mvnw.cmd clean install -D skipTests -N
+    # .\mvnw.cmd clean install -D skipTests
 
-# MacOS & Linux
-./mvnw clean install -D skipTests -N
-./mvnw clean install -D skipTests
+    # MacOS & Linux
+    ./mvnw clean install -D skipTests -N
+    ./mvnw clean install -D skipTests
+    ```
 
-# 项目打成jar包
+2. 项目打成jar包：
 
-# Windows
-# .\mvnw.cmd clean package -D skipTests -P docker
+    ```bash
+    # Windows
+    # .\mvnw.cmd clean package -D skipTests -P docker
 
-# MacOS & Linux
-./mvnw clean package -D skipTests -P docker
+    # MacOS & Linux
+    ./mvnw clean package -D skipTests -P docker
+    ```
 
-# docker build
-docker build -t virtual-pet-hospital .
+3. docker build：
 
-# docker run
-docker run -p 8085:8085 -p 8086:8086 -p 8087:8087 -p 8088:8088 -p 8089:8089 -p 8090:8090 --name virtual-pet-hospital-backend virtual-pet-hospital
-```
+    ```bash
+    docker build -t virtual-pet-hospital .
+    ```
 
-或者可以使用Docker Desktop GUI进行配置，具体如下：
+4. docker run：
 
-![Picture](./docs/deploy_docker.png)
+    ```bash
+    docker run -p 8085:8085 -p 8086:8086 -p 8087:8087 -p 8088:8088 -p 8089:8089 -p 8090:8090 --name virtual-pet-hospital-backend virtual-pet-hospital
+    ```
+
+    或者可以使用Docker Desktop GUI进行配置，具体如下：
+
+    ![Picture](./docs/deploy_docker.png)
 
 ## 文档
 
