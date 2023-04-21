@@ -1,8 +1,8 @@
 <!--
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
- * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-14 23:38:39
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-04-21 15:13:16
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -72,21 +72,34 @@
 按顺序执行以下命令：
 
 ```bash
+# 项目下载依赖
+
+# Windows
+# .\mvnw.cmd clean install -D skipTests -N
+# .\mvnw.cmd clean install -D skipTests
+
+# MacOS & Linux
+./mvnw clean install -D skipTests -N
+./mvnw clean install -D skipTests
+
 # 项目打成jar包
 
 # Windows
-# .\mvnw.cmd clean install -D skipTests
-# MacOS & Linux
-./mvnw clean install -D skipTests
-
-# Windows
 # .\mvnw.cmd clean package -D skipTests -P docker
+
 # MacOS & Linux
 ./mvnw clean package -D skipTests -P docker
 
 # docker build
 docker build -t virtual-pet-hospital .
+
+# docker run
+docker run -p 8085:8085 -p 8086:8086 -p 8087:8087 -p 8088:8088 -p 8089:8089 -p 8090:8090 --name virtual-pet-hospital-backend virtual-pet-hospital
 ```
+
+或者可以使用Docker Desktop GUI进行配置，具体如下：
+
+![Picture](./docs/deploy_docker.png)
 
 ## 文档
 
