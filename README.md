@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-21 22:59:31
+ * @LastEditTime: 2023-04-21 23:30:50
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -16,8 +16,6 @@
   - [配置数据库](#配置数据库)
   - [运行项目](#运行项目)
     - [便捷的启动方式](#便捷的启动方式)
-      - [MacOS \& Linux](#macos--linux)
-      - [Windows](#windows)
   - [Docker 打包](#docker-打包)
   - [文档](#文档)
     - [后端开发人员用文档](#后端开发人员用文档)
@@ -58,36 +56,23 @@
 
 ### 便捷的启动方式
 
-#### MacOS & Linux
-
-1. 根目录下运行：
-
-    ```shell
-    chmod 755 run_backend.sh
-    ```
-
-2. 根目录下运行：
-
-    ```shell
-    ./run_backend.sh start prod
-    ```
-
-    其中两个参数分别代表：
-
-    | 参数1\参数2 | dev                 | prod                 |
-    | ----------- | ------------------- | -------------------- |
-    | start       | 启动项目（dev环境） | 启动项目（prod环境） |
-    | stop        | 停止项目（dev环境） | 停止项目（prod环境） |
-
-#### Windows
-
 根目录下运行：
 
-```batch
-.\run_backend.bat start prod
+```bash
+# Windows
+# .\run_backend.bat start prod
+
+# MacOS & Linux
+chmod 755 run_backend.sh
+./run_backend.sh start prod
 ```
 
-可选参数及含义同上。
+其中两个参数分别代表：
+
+| 参数1 \ 参数2 | dev                 | prod                 |
+| ------------- | ------------------- | -------------------- |
+| start         | 启动项目（dev环境） | 启动项目（prod环境） |
+| stop          | 停止项目（dev环境） | 停止项目（prod环境） |
 
 ## Docker 打包
 
