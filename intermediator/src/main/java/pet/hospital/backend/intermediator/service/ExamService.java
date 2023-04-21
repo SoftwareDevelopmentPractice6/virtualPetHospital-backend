@@ -1,8 +1,8 @@
 /*
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-22 14:01:53
- * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-28 18:41:07
+ * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-04-21 09:34:27
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/service/ExamService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -117,7 +117,7 @@ public class ExamService {
         String api = "api/exam/paper/get";
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
-                .queryParam(Constants.paperName, paperNameKeyword)
+                .queryParam(Constants.paperNameKeyword, paperNameKeyword)
                 .queryParam(Constants.paperDuration, paperDuration)
                 .queryParam(Constants.paperTotalScore, paperTotalScore)
                 .queryParam(Constants.examId, examId);
