@@ -27,7 +27,7 @@ import pet.hospital.backend.system.entity.Archive;
 public class ArchiveService {
 
     @Autowired
-    ArchiveRepository archiveRepository;
+    private ArchiveRepository archiveRepository;
 
     public JSONObject getArchive(
             Date storeTime, String diseaseType, String petType, String petName, Character petSex, String ownerTel) {

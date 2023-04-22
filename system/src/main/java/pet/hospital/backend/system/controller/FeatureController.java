@@ -32,7 +32,7 @@ import pet.hospital.backend.system.service.FeatureService;
         produces = {"application/json;charset=UTF-8"})
 public class FeatureController {
     @Autowired
-    FeatureService featureService;
+    private FeatureService featureService;
 
     @Operation(summary = "获取具体功能操作信息接口")
     @GetMapping(value = "/get")

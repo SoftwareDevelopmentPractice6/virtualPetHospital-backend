@@ -27,10 +27,10 @@ import pet.hospital.backend.system.entity.Room;
 @Service
 public class AdmissionService {
     @Autowired
-    AdmissionRepository admissionRepository;
+    private AdmissionRepository admissionRepository;
 
     @Autowired
-    RoomRepository roomRepository;
+    private RoomRepository roomRepository;
 
     public JSONObject getAdmission(
             String roomStandard, String careLevel, String remark, Double carePrice, String roomName) {

@@ -19,10 +19,10 @@ import pet.hospital.backend.system.entity.Room;
 @Service
 public class ExamineService {
     @Autowired
-    ExamineRepository examineRepository;
+    private ExamineRepository examineRepository;
 
     @Autowired
-    RoomRepository roomRepository;
+    private RoomRepository roomRepository;
 
     public JSONObject getExamine(String examineName, Double examinePrice, String roomName) {
         JSONObject res = new JSONObject();

@@ -25,7 +25,7 @@ import pet.hospital.backend.system.entity.Charge;
 @Service
 public class ChargeService {
     @Autowired
-    ChargeRepository chargeRepository;
+    private ChargeRepository chargeRepository;
 
     public JSONObject getCharge(String itemName, Double chargePrice) {
         JSONObject res = new JSONObject();

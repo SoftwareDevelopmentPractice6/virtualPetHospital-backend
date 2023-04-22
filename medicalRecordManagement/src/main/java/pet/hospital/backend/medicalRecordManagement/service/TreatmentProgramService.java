@@ -15,7 +15,7 @@ import pet.hospital.backend.medicalRecordManagement.entity.TreatmentProgram;
 @Service
 public class TreatmentProgramService {
     @Autowired
-    TreatmentProgramRepository treatmentProgramRepository;
+    private TreatmentProgramRepository treatmentProgramRepository;
 
     public JSONObject getTreatmentProgram(Integer treatmentProgramId, String treatmentProgramKeyword) {
         JSONObject res = new JSONObject();

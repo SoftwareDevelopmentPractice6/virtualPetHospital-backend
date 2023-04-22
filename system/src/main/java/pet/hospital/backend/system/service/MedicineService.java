@@ -25,7 +25,7 @@ import pet.hospital.backend.system.entity.Medicine;
 @Service
 public class MedicineService {
     @Autowired
-    MedicineRepository medicineRepository;
+    private MedicineRepository medicineRepository;
 
     public JSONObject getMedicine(
             String medicineName,
