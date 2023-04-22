@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-20 15:02:00
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-22 21:56:49
+ * @LastEditTime: 2023-04-22 21:09:01
  * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/service/StudentResultService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -28,10 +28,10 @@ import pet.hospital.backend.exam.entity.StudentResult;
 public class StudentResultService {
 
     @Autowired
-    StudentResultRepository studentResultRepository;
+    private StudentResultRepository studentResultRepository;
 
     @Autowired
-    ExamSessionRepository examSessionRepository;
+    private ExamSessionRepository examSessionRepository;
 
     public JSONObject getStudentResults(
             Integer studentResultStudentId, Integer studentResultScore, Integer examSessionId) {

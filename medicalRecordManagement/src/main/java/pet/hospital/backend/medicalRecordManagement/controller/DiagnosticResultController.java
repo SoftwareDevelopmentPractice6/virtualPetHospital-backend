@@ -24,7 +24,7 @@ import pet.hospital.backend.medicalRecordManagement.service.DiagnosticResultServ
         produces = {"application/json;charset=UTF-8"})
 public class DiagnosticResultController {
     @Autowired
-    DiagnosticResultService diagnosticResultService;
+    private DiagnosticResultService diagnosticResultService;
 
     @Operation(summary = "获取诊断结果接口")
     @GetMapping(value = "/get")

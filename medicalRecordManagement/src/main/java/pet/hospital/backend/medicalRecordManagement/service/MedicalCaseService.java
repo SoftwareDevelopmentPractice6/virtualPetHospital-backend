@@ -27,22 +27,22 @@ import pet.hospital.backend.medicalRecordManagement.entity.TreatmentProgram;
 @Service
 public class MedicalCaseService {
     @Autowired
-    MedicalCaseRepository medicalCaseRepository;
+    private MedicalCaseRepository medicalCaseRepository;
 
     @Autowired
-    AdmissionRepository admissionRepository;
+    private AdmissionRepository admissionRepository;
 
     @Autowired
-    CaseCheckRepository caseCheckRepository;
+    private CaseCheckRepository caseCheckRepository;
 
     @Autowired
-    DiagnosticResultRepository diagnosticResultRepository;
+    private DiagnosticResultRepository diagnosticResultRepository;
 
     @Autowired
-    DiseaseNameRepository diseaseNameRepository;
+    private DiseaseNameRepository diseaseNameRepository;
 
     @Autowired
-    TreatmentProgramRepository treatmentProgramRepository;
+    private TreatmentProgramRepository treatmentProgramRepository;
 
     public JSONObject getMedicalCase(
             Integer medicalCaseId,

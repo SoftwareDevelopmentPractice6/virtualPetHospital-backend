@@ -15,7 +15,7 @@ import pet.hospital.backend.medicalRecordManagement.entity.CaseCheck;
 @Service
 public class CaseCheckService {
     @Autowired
-    CaseCheckRepository caseCheckRepository;
+    private CaseCheckRepository caseCheckRepository;
 
     public JSONObject getCaseCheck(Integer caseCheckId, String caseCheckKeyword) {
         JSONObject res = new JSONObject();

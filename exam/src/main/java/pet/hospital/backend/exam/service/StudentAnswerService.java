@@ -22,13 +22,13 @@ import pet.hospital.backend.exam.entity.StudentResult;
 public class StudentAnswerService {
 
     @Autowired
-    StudentAnswerRepository studentAnswerRepository;
+    private StudentAnswerRepository studentAnswerRepository;
 
     @Autowired
-    StudentResultRepository studentResultRepository;
+    private StudentResultRepository studentResultRepository;
 
     @Autowired
-    QuestionInPaperRepository questionInPaperRepository;
+    private QuestionInPaperRepository questionInPaperRepository;
 
     public JSONObject getStudentAnswers(
             String studentAnswerKeyword,

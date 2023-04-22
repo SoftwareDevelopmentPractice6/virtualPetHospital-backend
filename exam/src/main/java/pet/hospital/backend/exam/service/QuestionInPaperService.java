@@ -30,13 +30,13 @@ import pet.hospital.backend.exam.entity.QuestionInPaper;
 public class QuestionInPaperService {
 
     @Autowired
-    QuestionInPaperRepository questionInPaperRepository;
+    private QuestionInPaperRepository questionInPaperRepository;
 
     @Autowired
-    QuestionRepository questionRepository;
+    private QuestionRepository questionRepository;
 
     @Autowired
-    PaperRepository paperRepository;
+    private PaperRepository paperRepository;
 
     public JSONObject getQuestionInPapers(Integer questionPoint, Integer paperId, Integer questionId) {
         JSONObject res = new JSONObject();

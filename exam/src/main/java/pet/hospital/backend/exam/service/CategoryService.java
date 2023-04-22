@@ -26,7 +26,7 @@ import pet.hospital.backend.exam.entity.Category;
 public class CategoryService {
 
     @Autowired
-    CategoryRepository categoryRepository;
+    private CategoryRepository categoryRepository;
 
     public JSONObject getCategories(String categoryKeyword) {
         JSONObject res = new JSONObject();

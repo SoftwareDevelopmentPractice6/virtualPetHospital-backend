@@ -33,7 +33,7 @@ import pet.hospital.backend.exam.service.ExamService;
 public class ExamController {
 
     @Autowired
-    ExamService examService;
+    private ExamService examService;
 
     @Operation(summary = "获取考试信息接口")
     @GetMapping(value = "/get")

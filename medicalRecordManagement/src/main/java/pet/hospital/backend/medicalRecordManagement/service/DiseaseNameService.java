@@ -25,7 +25,7 @@ import pet.hospital.backend.medicalRecordManagement.entity.DiseaseName;
 @Service
 public class DiseaseNameService {
     @Autowired
-    DiseaseNameRepository diseaseNameRepository;
+    private DiseaseNameRepository diseaseNameRepository;
 
     public JSONObject getDiseaseName(Integer diseaseNameId, String diseaseNameKeyword, String diseaseNameCategory) {
         JSONObject res = new JSONObject();

@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-21 14:20:30
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-08 15:06:40
+ * @LastEditTime: 2023-04-22 21:09:17
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/controller/FileController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -44,7 +44,7 @@ import pet.hospital.backend.intermediator.service.FileService;
 public class FileController {
 
     @Autowired
-    FileService fileService;
+    private FileService fileService;
 
     @Operation(summary = "获取指定路径下全部文件路径接口")
     @ApiResponses(

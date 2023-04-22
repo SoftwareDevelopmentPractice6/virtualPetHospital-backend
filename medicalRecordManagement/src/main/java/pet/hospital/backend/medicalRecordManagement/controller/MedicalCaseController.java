@@ -22,7 +22,7 @@ import pet.hospital.backend.medicalRecordManagement.service.MedicalCaseService;
         produces = {"application/json;charset=UTF-8"})
 public class MedicalCaseController {
     @Autowired
-    MedicalCaseService medicalCaseService;
+    private MedicalCaseService medicalCaseService;
 
     @Operation(summary = "获取病例接口")
     @GetMapping(value = "/get")

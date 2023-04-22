@@ -15,7 +15,7 @@ import pet.hospital.backend.medicalRecordManagement.entity.DiagnosticResult;
 @Service
 public class DiagnosticResultService {
     @Autowired
-    DiagnosticResultRepository diagnosticResultRepository;
+    private DiagnosticResultRepository diagnosticResultRepository;
 
     public JSONObject getDiagnosticResult(Integer diagnosticResultId, String diagnosticResultKeyword) {
         JSONObject res = new JSONObject();

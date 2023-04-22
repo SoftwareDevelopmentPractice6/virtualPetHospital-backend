@@ -32,7 +32,7 @@ import pet.hospital.backend.exam.service.StudentAnswerService;
         produces = {"application/json;charset=UTF-8"})
 public class StudentAnswerController {
     @Autowired
-    StudentAnswerService studentAnswerService;
+    private StudentAnswerService studentAnswerService;
 
     @Operation(summary = "获取学生单一问题作答信息接口")
     @GetMapping(value = "/get")

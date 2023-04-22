@@ -24,7 +24,7 @@ import pet.hospital.backend.medicalRecordManagement.service.CaseCheckService;
         produces = {"application/json;charset=UTF-8"})
 public class CaseCheckController {
     @Autowired
-    CaseCheckService caseCheckService;
+    private CaseCheckService caseCheckService;
 
     @Operation(summary = "获取病例检查接口")
     @GetMapping(value = "/get")

@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-27 15:44:31
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-27 17:47:06
+ * @LastEditTime: 2023-04-22 21:19:00
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/service/DiseaseService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -23,6 +23,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import pet.hospital.backend.intermediator.constant.Constants;
 import pet.hospital.backend.intermediator.helper.EnumCode;
 import pet.hospital.backend.intermediator.helper.ResponseData;
+import pet.hospital.backend.intermediator.helper.ResponseHelper;
 
 @Service
 public class DiseaseService {
@@ -37,17 +38,8 @@ public class DiseaseService {
                 .queryParam(Constants.diseaseAdmissionId, admissionId)
                 .queryParam(Constants.admissionKeyword, admissionKeyword);
 
-        JSONObject apiRes = restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class);
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+        return ResponseHelper.forwardResponseDataDirectly(
+                restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
     }
 
     public ResponseData<JSONObject> addAdmission(
@@ -59,18 +51,8 @@ public class DiseaseService {
         requestEntity.add(Constants.admissionPhoto, admissionPhoto);
         requestEntity.add(Constants.admissionVideo, admissionVideo);
 
-        JSONObject apiRes = restTemplate.postForObject(
-                Constants.medicalRecordManagementModuleBaseUrl + api, requestEntity, JSONObject.class);
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate.postForObject(
+                Constants.medicalRecordManagementModuleBaseUrl + api, requestEntity, JSONObject.class));
     }
 
     public ResponseData<JSONObject> updateAdmission(
@@ -84,19 +66,9 @@ public class DiseaseService {
                 .queryParam(Constants.admissionPhoto, admissionPhoto)
                 .queryParam(Constants.admissionVideo, admissionVideo);
 
-        JSONObject apiRes = restTemplate
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
                 .exchange(uriBuilder.toUriString(), HttpMethod.PUT, null, JSONObject.class)
-                .getBody();
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+                .getBody());
     }
 
     public ResponseData<JSONObject> deleteAdmission(int admissionId) {
@@ -106,19 +78,9 @@ public class DiseaseService {
                         Constants.medicalRecordManagementModuleBaseUrl + api)
                 .queryParam(Constants.diseaseAdmissionId, admissionId);
 
-        JSONObject apiRes = restTemplate
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
                 .exchange(uriBuilder.toUriString(), HttpMethod.DELETE, null, JSONObject.class)
-                .getBody();
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+                .getBody());
     }
 
     public ResponseData<JSONObject> getCaseChecks(Integer caseCheckId, String caseCheckKeyword) {
@@ -129,17 +91,8 @@ public class DiseaseService {
                 .queryParam(Constants.caseCheckId, caseCheckId)
                 .queryParam(Constants.caseCheckKeyword, caseCheckKeyword);
 
-        JSONObject apiRes = restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class);
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+        return ResponseHelper.forwardResponseDataDirectly(
+                restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
     }
 
     public ResponseData<JSONObject> addCaseCheck(
@@ -151,18 +104,8 @@ public class DiseaseService {
         requestEntity.add(Constants.caseCheckPhoto, caseCheckPhoto);
         requestEntity.add(Constants.caseCheckVideo, caseCheckVideo);
 
-        JSONObject apiRes = restTemplate.postForObject(
-                Constants.medicalRecordManagementModuleBaseUrl + api, requestEntity, JSONObject.class);
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate.postForObject(
+                Constants.medicalRecordManagementModuleBaseUrl + api, requestEntity, JSONObject.class));
     }
 
     public ResponseData<JSONObject> updateCaseCheck(
@@ -176,19 +119,9 @@ public class DiseaseService {
                 .queryParam(Constants.caseCheckPhoto, caseCheckPhoto)
                 .queryParam(Constants.caseCheckVideo, caseCheckVideo);
 
-        JSONObject apiRes = restTemplate
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
                 .exchange(uriBuilder.toUriString(), HttpMethod.PUT, null, JSONObject.class)
-                .getBody();
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+                .getBody());
     }
 
     public ResponseData<JSONObject> deleteCaseCheck(int caseCheckId) {
@@ -198,19 +131,9 @@ public class DiseaseService {
                         Constants.medicalRecordManagementModuleBaseUrl + api)
                 .queryParam(Constants.caseCheckId, caseCheckId);
 
-        JSONObject apiRes = restTemplate
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
                 .exchange(uriBuilder.toUriString(), HttpMethod.DELETE, null, JSONObject.class)
-                .getBody();
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+                .getBody());
     }
 
     public ResponseData<JSONObject> getDiagnosticResults(Integer diagnosticResultId, String diagnosticResultKeyword) {
@@ -221,17 +144,8 @@ public class DiseaseService {
                 .queryParam(Constants.diagnosticResultId, diagnosticResultId)
                 .queryParam(Constants.diagnosticResultKeyword, diagnosticResultKeyword);
 
-        JSONObject apiRes = restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class);
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+        return ResponseHelper.forwardResponseDataDirectly(
+                restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
     }
 
     public ResponseData<JSONObject> addDiagnosticResult(
@@ -243,18 +157,8 @@ public class DiseaseService {
         requestEntity.add(Constants.diagnosticResultPhoto, diagnosticResultPhoto);
         requestEntity.add(Constants.diagnosticResultVideo, diagnosticResultVideo);
 
-        JSONObject apiRes = restTemplate.postForObject(
-                Constants.medicalRecordManagementModuleBaseUrl + api, requestEntity, JSONObject.class);
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate.postForObject(
+                Constants.medicalRecordManagementModuleBaseUrl + api, requestEntity, JSONObject.class));
     }
 
     public ResponseData<JSONObject> updateDiagnosticResult(
@@ -271,19 +175,9 @@ public class DiseaseService {
                 .queryParam(Constants.diagnosticResultPhoto, diagnosticResultPhoto)
                 .queryParam(Constants.diagnosticResultVideo, diagnosticResultVideo);
 
-        JSONObject apiRes = restTemplate
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
                 .exchange(uriBuilder.toUriString(), HttpMethod.PUT, null, JSONObject.class)
-                .getBody();
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+                .getBody());
     }
 
     public ResponseData<JSONObject> deleteDiagnosticResult(int diagnosticResultId) {
@@ -293,19 +187,9 @@ public class DiseaseService {
                         Constants.medicalRecordManagementModuleBaseUrl + api)
                 .queryParam(Constants.diagnosticResultId, diagnosticResultId);
 
-        JSONObject apiRes = restTemplate
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
                 .exchange(uriBuilder.toUriString(), HttpMethod.DELETE, null, JSONObject.class)
-                .getBody();
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+                .getBody());
     }
 
     public ResponseData<JSONObject> getTreatmentPrograms(Integer treatmentProgramId, String treatmentProgramKeyword) {
@@ -316,17 +200,8 @@ public class DiseaseService {
                 .queryParam(Constants.treatmentProgramId, treatmentProgramId)
                 .queryParam(Constants.treatmentProgramKeyword, treatmentProgramKeyword);
 
-        JSONObject apiRes = restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class);
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+        return ResponseHelper.forwardResponseDataDirectly(
+                restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
     }
 
     public ResponseData<JSONObject> addTreatmentProgram(
@@ -338,18 +213,8 @@ public class DiseaseService {
         requestEntity.add(Constants.treatmentProgramPhoto, treatmentProgramPhoto);
         requestEntity.add(Constants.treatmentProgramVideo, treatmentProgramVideo);
 
-        JSONObject apiRes = restTemplate.postForObject(
-                Constants.medicalRecordManagementModuleBaseUrl + api, requestEntity, JSONObject.class);
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate.postForObject(
+                Constants.medicalRecordManagementModuleBaseUrl + api, requestEntity, JSONObject.class));
     }
 
     public ResponseData<JSONObject> updateTreatmentProgram(
@@ -366,19 +231,9 @@ public class DiseaseService {
                 .queryParam(Constants.treatmentProgramPhoto, treatmentProgramPhoto)
                 .queryParam(Constants.treatmentProgramVideo, treatmentProgramVideo);
 
-        JSONObject apiRes = restTemplate
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
                 .exchange(uriBuilder.toUriString(), HttpMethod.PUT, null, JSONObject.class)
-                .getBody();
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+                .getBody());
     }
 
     public ResponseData<JSONObject> deleteTreatmentProgram(int treatmentProgramId) {
@@ -388,19 +243,9 @@ public class DiseaseService {
                         Constants.medicalRecordManagementModuleBaseUrl + api)
                 .queryParam(Constants.treatmentProgramId, treatmentProgramId);
 
-        JSONObject apiRes = restTemplate
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
                 .exchange(uriBuilder.toUriString(), HttpMethod.DELETE, null, JSONObject.class)
-                .getBody();
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+                .getBody());
     }
 
     public ResponseData<JSONObject> getDiseaseNames(
@@ -413,17 +258,8 @@ public class DiseaseService {
                 .queryParam(Constants.diseaseNameKeyword, diseaseNameKeyword)
                 .queryParam(Constants.diseaseNameCategory, diseaseNameCategory);
 
-        JSONObject apiRes = restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class);
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+        return ResponseHelper.forwardResponseDataDirectly(
+                restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
     }
 
     public ResponseData<JSONObject> addDiseaseName(
@@ -436,18 +272,8 @@ public class DiseaseService {
         requestEntity.add(Constants.diseaseNameVideo, diseaseNameVideo);
         requestEntity.add(Constants.diseaseNameCategory, diseaseNameCategory);
 
-        JSONObject apiRes = restTemplate.postForObject(
-                Constants.medicalRecordManagementModuleBaseUrl + api, requestEntity, JSONObject.class);
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate.postForObject(
+                Constants.medicalRecordManagementModuleBaseUrl + api, requestEntity, JSONObject.class));
     }
 
     public ResponseData<JSONObject> updateDiseaseName(
@@ -466,19 +292,9 @@ public class DiseaseService {
                 .queryParam(Constants.diseaseNameVideo, diseaseNameVideo)
                 .queryParam(Constants.diseaseNameCategory, diseaseNameCategory);
 
-        JSONObject apiRes = restTemplate
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
                 .exchange(uriBuilder.toUriString(), HttpMethod.PUT, null, JSONObject.class)
-                .getBody();
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+                .getBody());
     }
 
     public ResponseData<JSONObject> deleteDiseaseName(int diseaseNameId) {
@@ -488,19 +304,9 @@ public class DiseaseService {
                         Constants.medicalRecordManagementModuleBaseUrl + api)
                 .queryParam(Constants.diseaseNameId, diseaseNameId);
 
-        JSONObject apiRes = restTemplate
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
                 .exchange(uriBuilder.toUriString(), HttpMethod.DELETE, null, JSONObject.class)
-                .getBody();
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+                .getBody());
     }
 
     public ResponseData<JSONObject> getMedicalCases(
@@ -521,17 +327,8 @@ public class DiseaseService {
                 .queryParam(Constants.diseaseNameId, diseaseNameId)
                 .queryParam(Constants.treatmentProgramId, treatmentProgramId);
 
-        JSONObject apiRes = restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class);
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+        return ResponseHelper.forwardResponseDataDirectly(
+                restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
     }
 
     public ResponseData<JSONObject> addMedicalCase(
@@ -545,18 +342,8 @@ public class DiseaseService {
         requestEntity.add(Constants.diseaseNameId, String.valueOf(diseaseNameId));
         requestEntity.add(Constants.treatmentProgramId, String.valueOf(treatmentProgramId));
 
-        JSONObject apiRes = restTemplate.postForObject(
-                Constants.medicalRecordManagementModuleBaseUrl + api, requestEntity, JSONObject.class);
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate.postForObject(
+                Constants.medicalRecordManagementModuleBaseUrl + api, requestEntity, JSONObject.class));
     }
 
     public ResponseData<JSONObject> updateMedicalCase(
@@ -577,19 +364,9 @@ public class DiseaseService {
                 .queryParam(Constants.diseaseNameId, diseaseNameId)
                 .queryParam(Constants.treatmentProgramId, treatmentProgramId);
 
-        JSONObject apiRes = restTemplate
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
                 .exchange(uriBuilder.toUriString(), HttpMethod.PUT, null, JSONObject.class)
-                .getBody();
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+                .getBody());
     }
 
     public ResponseData<JSONObject> deleteMedicalCase(int medicalCaseId) {
@@ -599,19 +376,9 @@ public class DiseaseService {
                         Constants.medicalRecordManagementModuleBaseUrl + api)
                 .queryParam(Constants.medicalCaseId, medicalCaseId);
 
-        JSONObject apiRes = restTemplate
+        return ResponseHelper.forwardResponseDataDirectly(restTemplate
                 .exchange(uriBuilder.toUriString(), HttpMethod.DELETE, null, JSONObject.class)
-                .getBody();
-
-        if (apiRes == null) {
-            return ResponseData.error(EnumCode.REQUEST_ERROR);
-        }
-
-        if (Objects.equals(apiRes.getInteger(Constants.code), EnumCode.SUCCESS.getCode())) {
-            return ResponseData.success(apiRes.getJSONObject(Constants.data));
-        } else {
-            return ResponseData.error(EnumCode.getEnumCodeType(apiRes.getInteger(Constants.code)));
-        }
+                .getBody());
     }
 
     public ResponseData<JSONObject> getMedicalCaseAutomatically(

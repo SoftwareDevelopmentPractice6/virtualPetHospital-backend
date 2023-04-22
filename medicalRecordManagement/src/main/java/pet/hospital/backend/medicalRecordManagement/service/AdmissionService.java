@@ -15,7 +15,7 @@ import pet.hospital.backend.medicalRecordManagement.entity.Admission;
 @Service
 public class AdmissionService {
     @Autowired
-    AdmissionRepository admissionRepository;
+    private AdmissionRepository admissionRepository;
 
     public JSONObject getAdmission(Integer admissionId, String admissionKeyword) {
         JSONObject res = new JSONObject();
