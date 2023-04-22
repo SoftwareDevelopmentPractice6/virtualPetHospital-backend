@@ -44,10 +44,15 @@ public class FileService {
             List<String> filePathList = new ArrayList<>();
 
             filePaths.filter(Files::isRegularFile).forEach(filePath -> {
-                filePathList.add(filePath.toString()
-                        .substring(filePath.toString().lastIndexOf(projectDirectoryPath)
-                                + projectDirectoryPath.length()
-                                + 1));
+                String sourceFormatName =
+                        filePath.toString().substring(filePath.toString().lastIndexOf(".") + 1);
+                if (Constants.supportedPictureFormat.contains(sourceFormatName)
+                        || Constants.supportedVideoFormat.contains(sourceFormatName)) {
+                    filePathList.add(filePath.toString()
+                            .substring(filePath.toString().lastIndexOf(projectDirectoryPath)
+                                    + projectDirectoryPath.length()
+                                    + 1));
+                }
             });
 
             JSONObject res = new JSONObject();
