@@ -2616,7 +2616,118 @@ INSERT
         '单选',
         4
     );
-
+INSERT
+INTO
+    QUESTION(
+    question_id,
+    question_content,
+    question_type,
+    category_id
+)
+VALUES(
+          13,
+          '宠物需要驱虫吗？ A.会 B.不会',
+          '单选',
+          4
+      );
+INSERT
+INTO
+    QUESTION(
+    question_id,
+    question_content,
+    question_type,
+    category_id
+)
+VALUES(
+          14,
+          '宠物有必要绝育吗？ A.需要 B.不一定',
+          '单选',
+          4
+      );
+INSERT
+INTO
+    QUESTION(
+    question_id,
+    question_content,
+    question_type,
+    category_id
+)
+VALUES(
+          15,
+          '宠物要打疫苗吗？ A.要 B.不要',
+          '单选',
+          4
+      );
+INSERT
+INTO
+    QUESTION(
+    question_id,
+    question_content,
+    question_type,
+    category_id
+)
+VALUES(
+          16,
+          '被咬后要打狂犬疫苗吗？ A.要 B.不要',
+          '单选',
+          4
+      );
+INSERT
+INTO
+    QUESTION(
+    question_id,
+    question_content,
+    question_type,
+    category_id
+)
+VALUES(
+          17,
+          '仓鼠会得肥胖症吗？ A.会 B.不会',
+          '单选',
+          4
+      );
+INSERT
+INTO
+    QUESTION(
+    question_id,
+    question_content,
+    question_type,
+    category_id
+)
+VALUES(
+          18,
+          '宠物会得胰腺炎吗？ A.会 B.不会',
+          '单选',
+          4
+      );
+INSERT
+INTO
+    QUESTION(
+    question_id,
+    question_content,
+    question_type,
+    category_id
+)
+VALUES(
+          19,
+          '宠物需要陪伴吗？ A.会 B.不会',
+          '单选',
+          4
+      );
+INSERT
+INTO
+    QUESTION(
+    question_id,
+    question_content,
+    question_type,
+    category_id
+)
+VALUES(
+          20,
+          '狗能吃巧克力吗？ A.能 B.不能',
+          '单选',
+          1
+      );
 INSERT
     INTO
         EXAM(
@@ -2832,3 +2943,371 @@ INSERT
         2,
         2
     );
+
+INSERT
+INTO
+    EXAM(
+    exam_id,
+    exam_name
+)
+VALUES(
+          3,
+          '宠物医院实习生测试3'
+      );
+
+INSERT
+INTO
+    PAPER(
+    paper_id,
+    paper_name,
+    exam_id,
+    duration,
+    total_score
+)
+VALUES(
+          3,
+          '宠物医院实习生测试卷3',
+          3,
+          '60分钟',
+          '100分'
+      );
+
+INSERT
+INTO
+    EXAMSESSION(
+    session_id,
+    paper_id,
+    start_time,
+    end_time
+)
+VALUES(
+          3,
+          3,
+          '2023-04-14 10:00:00',
+          '2023-04-14 11:00:00'
+      );
+
+INSERT
+INTO
+    STUDENTRESULT(
+    result_id,
+    session_id,
+    student_id,
+    score
+)
+VALUES(
+          3,
+          3,
+          2,
+          95
+      );
+
+INSERT
+INTO
+    QUESTIONSINPAPER(
+    question_in_paper_id,
+    points,
+    paper_id,
+    question_id
+)
+VALUES(
+          5,
+          5,
+          3,
+          7
+      ),
+      (
+          6,
+          10,
+          3,
+          6
+      ),
+      (
+          7,
+          15,
+          3,
+          12
+      ),
+      (
+          8,
+          20,
+          3,
+          13
+      );
+
+INSERT
+INTO
+    EXAM(
+    exam_id,
+    exam_name
+)
+VALUES(
+          4,
+          '宠物医院实习生测试4'
+      );
+
+INSERT
+INTO
+    PAPER(
+    paper_id,
+    paper_name,
+    exam_id,
+    duration,
+    total_score
+)
+VALUES(
+          4,
+          '宠物医院实习生测试卷4',
+          4,
+          '60分钟',
+          '100分'
+      );
+
+INSERT
+INTO
+    EXAMSESSION(
+    session_id,
+    paper_id,
+    start_time,
+    end_time
+)
+VALUES(
+          4,
+          4,
+          '2023-04-13 10:00:00',
+          '2023-04-13 11:00:00'
+      );
+
+INSERT
+INTO
+    STUDENTRESULT(
+    result_id,
+    session_id,
+    student_id,
+    score
+)
+VALUES(
+          4,
+          4,
+          4,
+          95
+      );
+
+INSERT
+INTO
+    QUESTIONSINPAPER(
+    question_in_paper_id,
+    points,
+    paper_id,
+    question_id
+)
+VALUES(
+          5,
+          5,
+          4,
+          4
+      ),
+      (
+          6,
+          10,
+          4,
+          17
+      ),
+      (
+          7,
+          15,
+          4,
+          15
+      ),
+      (
+          8,
+          20,
+          4,
+          19
+      );
+
+INSERT
+INTO
+    EXAM(
+    exam_id,
+    exam_name
+)
+VALUES(
+          5,
+          '宠物医院实习生测试5'
+      );
+
+INSERT
+INTO
+    PAPER(
+    paper_id,
+    paper_name,
+    exam_id,
+    duration,
+    total_score
+)
+VALUES(
+          5,
+          '宠物医院实习生测试卷5',
+          5,
+          '60分钟',
+          '100分'
+      );
+
+INSERT
+INTO
+    EXAMSESSION(
+    session_id,
+    paper_id,
+    start_time,
+    end_time
+)
+VALUES(
+          5,
+          5,
+          '2023-04-16 10:00:00',
+          '2023-04-16 11:00:00'
+      );
+
+INSERT
+INTO
+    STUDENTRESULT(
+    result_id,
+    session_id,
+    student_id,
+    score
+)
+VALUES(
+          5,
+          5,
+          2,
+          95
+      );
+
+INSERT
+INTO
+    QUESTIONSINPAPER(
+    question_in_paper_id,
+    points,
+    paper_id,
+    question_id
+)
+VALUES(
+          5,
+          5,
+          5,
+          20
+      ),
+      (
+          6,
+          10,
+          5,
+          6
+      ),
+      (
+          7,
+          15,
+          5,
+          13
+      ),
+      (
+          8,
+          20,
+          5,
+          11
+      );
+
+
+
+INSERT
+INTO
+    EXAM(
+    exam_id,
+    exam_name
+)
+VALUES(
+          6,
+          '宠物医院实习生测试6'
+      );
+
+INSERT
+INTO
+    PAPER(
+    paper_id,
+    paper_name,
+    exam_id,
+    duration,
+    total_score
+)
+VALUES(
+          6,
+          '宠物医院实习生测试卷6',
+          6,
+          '60分钟',
+          '100分'
+      );
+
+INSERT
+INTO
+    EXAMSESSION(
+    session_id,
+    paper_id,
+    start_time,
+    end_time
+)
+VALUES(
+          6,
+          6,
+          '2023-04-18 10:00:00',
+          '2023-04-18 11:00:00'
+      );
+
+INSERT
+INTO
+    STUDENTRESULT(
+    result_id,
+    session_id,
+    student_id,
+    score
+)
+VALUES(
+          2,
+          2,
+          2,
+          95
+      );
+
+INSERT
+INTO
+    QUESTIONSINPAPER(
+    question_in_paper_id,
+    points,
+    paper_id,
+    question_id
+)
+VALUES(
+          5,
+          5,
+          6,
+          6
+      ),
+      (
+          6,
+          10,
+          6,
+          3
+      ),
+      (
+          7,
+          15,
+          6,
+          13
+      ),
+      (
+          8,
+          20,
+          6,
+          14
+      );
+
+
