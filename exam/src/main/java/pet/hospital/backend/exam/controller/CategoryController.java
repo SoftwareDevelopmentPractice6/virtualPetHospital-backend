@@ -33,7 +33,7 @@ import pet.hospital.backend.exam.service.CategoryService;
 public class CategoryController {
 
     @Autowired
-    CategoryService categoryService;
+    private CategoryService categoryService;
 
     @Operation(summary = "获取问题类别接口")
     @GetMapping(value = "/get")

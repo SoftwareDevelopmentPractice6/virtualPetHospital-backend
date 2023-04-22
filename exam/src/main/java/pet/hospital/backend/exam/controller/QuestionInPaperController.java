@@ -31,7 +31,7 @@ import pet.hospital.backend.exam.service.QuestionInPaperService;
 public class QuestionInPaperController {
 
     @Autowired
-    QuestionInPaperService questionInPaperService;
+    private QuestionInPaperService questionInPaperService;
 
     @Operation(summary = "获取试卷中问题接口")
     @GetMapping(value = "/get")

@@ -23,7 +23,7 @@ import pet.hospital.backend.exam.service.StudentResultService;
 public class StudentResultController {
 
     @Autowired
-    StudentResultService studentResultService;
+    private StudentResultService studentResultService;
 
     @Operation(summary = "获取学生考试结果接口")
     @GetMapping(value = "/get")

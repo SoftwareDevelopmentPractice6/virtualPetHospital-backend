@@ -8,8 +8,8 @@
  */
 package pet.hospital.backend.exam.service;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson2.JSON;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,13 +30,13 @@ import pet.hospital.backend.exam.entity.QuestionInPaper;
 public class QuestionInPaperService {
 
     @Autowired
-    QuestionInPaperRepository questionInPaperRepository;
+    private QuestionInPaperRepository questionInPaperRepository;
 
     @Autowired
-    QuestionRepository questionRepository;
+    private QuestionRepository questionRepository;
 
     @Autowired
-    PaperRepository paperRepository;
+    private PaperRepository paperRepository;
 
     public JSONObject getQuestionInPapers(Integer questionPoint, Integer paperId, Integer questionId) {
         JSONObject res = new JSONObject();

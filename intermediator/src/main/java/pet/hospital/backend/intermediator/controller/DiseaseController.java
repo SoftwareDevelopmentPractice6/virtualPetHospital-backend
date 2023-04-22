@@ -41,7 +41,7 @@ import pet.hospital.backend.intermediator.service.DiseaseService;
         produces = {"application/json;charset=UTF-8"})
 public class DiseaseController {
     @Autowired
-    DiseaseService diseaseService;
+    private DiseaseService diseaseService;
 
     @Operation(summary = "获取疾病信息列表接口")
     @ApiResponses(

@@ -24,7 +24,7 @@ import pet.hospital.backend.medicalRecordManagement.service.TreatmentProgramServ
         produces = {"application/json;charset=UTF-8"})
 public class TreatmentProgramController {
     @Autowired
-    TreatmentProgramService treatmentProgramService;
+    private TreatmentProgramService treatmentProgramService;
 
     @Operation(summary = "获取治疗方案接口")
     @GetMapping(value = "/get")

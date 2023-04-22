@@ -33,7 +33,7 @@ import pet.hospital.backend.exam.service.PaperService;
 public class PaperController {
 
     @Autowired
-    PaperService paperService;
+    private PaperService paperService;
 
     @Operation(summary = "获取考卷接口")
     @GetMapping(value = "/get")

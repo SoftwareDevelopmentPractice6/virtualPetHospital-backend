@@ -41,7 +41,7 @@ import pet.hospital.backend.system.service.ArchiveService;
         produces = {"application/json;charset=UTF-8"})
 public class ArchiveController {
     @Autowired
-    ArchiveService archiveService;
+    private ArchiveService archiveService;
 
     @Operation(summary = "获取档案信息接口")
     @GetMapping(value = "/get")

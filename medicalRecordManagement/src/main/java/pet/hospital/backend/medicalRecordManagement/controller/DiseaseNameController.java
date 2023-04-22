@@ -24,7 +24,7 @@ import pet.hospital.backend.medicalRecordManagement.service.DiseaseNameService;
         produces = {"application/json;charset=UTF-8"})
 public class DiseaseNameController {
     @Autowired
-    DiseaseNameService diseaseNameService;
+    private DiseaseNameService diseaseNameService;
 
     @Operation(summary = "获取疾病名称接口")
     @GetMapping(value = "/get")

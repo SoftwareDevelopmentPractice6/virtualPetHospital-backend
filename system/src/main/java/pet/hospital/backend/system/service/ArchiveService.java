@@ -8,8 +8,8 @@
  */
 package pet.hospital.backend.system.service;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson2.JSON;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -27,7 +27,7 @@ import pet.hospital.backend.system.entity.Archive;
 public class ArchiveService {
 
     @Autowired
-    ArchiveRepository archiveRepository;
+    private ArchiveRepository archiveRepository;
 
     public JSONObject getArchive(
             Date storeTime, String diseaseType, String petType, String petName, Character petSex, String ownerTel) {

@@ -32,7 +32,7 @@ import pet.hospital.backend.system.service.ChargeService;
         produces = {"application/json;charset=UTF-8"})
 public class ChargeController {
     @Autowired
-    ChargeService chargeService;
+    private ChargeService chargeService;
 
     @Operation(summary = "获取收费信息接口")
     @GetMapping(value = "/get")

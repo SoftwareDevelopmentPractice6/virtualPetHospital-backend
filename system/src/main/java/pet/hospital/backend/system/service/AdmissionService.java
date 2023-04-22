@@ -8,8 +8,8 @@
  */
 package pet.hospital.backend.system.service;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson2.JSON;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -27,10 +27,10 @@ import pet.hospital.backend.system.entity.Room;
 @Service
 public class AdmissionService {
     @Autowired
-    AdmissionRepository admissionRepository;
+    private AdmissionRepository admissionRepository;
 
     @Autowired
-    RoomRepository roomRepository;
+    private RoomRepository roomRepository;
 
     public JSONObject getAdmission(
             String roomStandard, String careLevel, String remark, Double carePrice, String roomName) {

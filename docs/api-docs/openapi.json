@@ -7,7 +7,7 @@
     },
     "servers": [
         {
-            "url": "http://localhost:8090",
+            "url": "http://pikapikpinoimac:8090",
             "description": "Generated server url"
         }
     ],
@@ -136,6 +136,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -147,17 +158,6 @@
                                         "roomName": "Prepare 2"
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -222,17 +222,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -253,6 +242,17 @@
                                         ]
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -502,6 +502,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -522,17 +533,6 @@
                                         "funcVideo": "a"
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -702,17 +702,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -729,6 +718,17 @@
                                         "examinePrice": 123.12
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -758,6 +758,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -774,17 +785,6 @@
                                         "examinePrice": 13.12
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -868,17 +868,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -891,6 +880,17 @@
                                         "chargePrice": 123.12
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -919,17 +919,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -942,6 +931,17 @@
                                         "chargePrice": 13.12
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1077,6 +1077,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1093,17 +1104,6 @@
                                         "archiveId": 1
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1136,6 +1136,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1152,17 +1163,6 @@
                                         "archiveId": 2
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1226,17 +1226,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1270,6 +1259,17 @@
                                         ]
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1676,6 +1676,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1703,17 +1714,6 @@
                                         "studentResultId": 2
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -1871,17 +1871,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -1937,6 +1926,17 @@
                                         }
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -2195,17 +2195,6 @@
                     "required": true
                 },
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -2222,6 +2211,17 @@
                                         "questionType": "tttt type"
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -2549,17 +2549,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -2586,6 +2575,17 @@
                                         ]
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -2732,6 +2732,17 @@
                 "summary": "获取问题类别列表接口",
                 "operationId": "getCategories",
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -2755,17 +2766,6 @@
                                         ]
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -2843,6 +2843,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -2854,17 +2865,6 @@
                                         "categoryId": 6
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -3018,6 +3018,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -3059,17 +3070,6 @@
                                         }
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -3258,6 +3258,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -3272,17 +3283,6 @@
                                         "diseaseNameVideo": "disease/diseaseName/e158e5aa-0ade-48f3-89ff-31966ab5a5c0/video"
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -3414,6 +3414,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -3427,17 +3438,6 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -3467,6 +3467,17 @@
                     "required": true
                 },
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -3480,17 +3491,6 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -3578,17 +3578,6 @@
                             }
                         }
                     },
-                    "430": {
-                        "description": "File transfer failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 430,
-                                    "message": "File transfer error"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -3596,6 +3585,17 @@
                                 "example": {
                                     "code": 200,
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "430": {
+                        "description": "File transfer failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 430,
+                                    "message": "File transfer error"
                                 }
                             }
                         }
@@ -3669,23 +3669,6 @@
                     "required": true
                 },
                 "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 200,
-                                    "message": "ok",
-                                    "data": {
-                                        "userPassword": "admin",
-                                        "userName": "admin@admin.com",
-                                        "userAuthority": 1,
-                                        "userId": 1
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "401": {
                         "description": "Unauthorized",
                         "content": {
@@ -3704,6 +3687,23 @@
                                 "example": {
                                     "code": 515,
                                     "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "message": "ok",
+                                    "data": {
+                                        "userPassword": "admin",
+                                        "userName": "admin@admin.com",
+                                        "userAuthority": 1,
+                                        "userId": 1
+                                    }
                                 }
                             }
                         }
@@ -3838,17 +3838,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -3867,6 +3856,71 @@
                                                 "manufacturer": "aa"
                                             }
                                         ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/medicine/sys/{id}": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "根据ID获取药品信息接口",
+                "operationId": "getMedicineById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "medicineCategory": "抗生素",
+                                        "isVaccine": 0,
+                                        "medicinePrice": 12.5,
+                                        "medicineId": 61,
+                                        "specification": "250mg*24片/盒",
+                                        "medicineName": "阿莫西林",
+                                        "manufacturer": "上海默沙东制药有限公司"
                                     },
                                     "message": "ok"
                                 }
@@ -3982,6 +4036,64 @@
                 }
             }
         },
+        "/api/system/feature/sys/{id}": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "根据ID获取功能信息接口",
+                "operationId": "getFeatureById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "funcDescription": "为宠物提供生活护理服务，如喂食、喂水等",
+                                        "funcName": "护理",
+                                        "featureRoom": {
+                                            "roomRole": "医助",
+                                            "roomName": "护理室"
+                                        },
+                                        "funcFlow": "1.准备喂食用具和食物 2.为宠物喂食和喂水",
+                                        "funcRole": "医助",
+                                        "funcTool": "喂食器具、食物、水",
+                                        "funcId": 61,
+                                        "funcVideo": "system/feature/b910097e-51b8-50e1-7eaf-d750f4a80429/video"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/system/examine/{examineName}": {
             "get": {
                 "tags": [
@@ -4067,6 +4179,60 @@
                 }
             }
         },
+        "/api/system/examine/sys/{id}": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "根据ID获取化验信息接口",
+                "operationId": "getExamineById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "examineName": "疫苗注射",
+                                        "examineRoom": {
+                                            "roomRole": "医师，医助",
+                                            "roomName": "疫苗接种室"
+                                        },
+                                        "examineId": 64,
+                                        "examinePrice": 100
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/system/charge/{itemName}": {
             "get": {
                 "tags": [
@@ -4130,6 +4296,166 @@
                 }
             }
         },
+        "/api/system/charge/sys/{id}": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "根据ID获取收费信息接口",
+                "operationId": "getChargeById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "itemName": "挂号费",
+                                        "chargeId": 61,
+                                        "chargePrice": 10
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/archive/sys/{id}": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "根据ID获取档案信息接口",
+                "operationId": "getArchiveById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "petName": "小黑",
+                                        "petSex": "M",
+                                        "petType": "猫",
+                                        "storeTime": "2022-01-01 16:30:00",
+                                        "ownerTel": "13512345678",
+                                        "diseaseType": "感冒",
+                                        "archiveId": 61
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/system/admission/sys/{id}": {
+            "get": {
+                "tags": [
+                    "系统管理模块"
+                ],
+                "summary": "根据ID获取入院信息接口",
+                "operationId": "getAdmissionById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "careLevel": "this is a test",
+                                        "admissionId": 1,
+                                        "remark": "oxjoq",
+                                        "carePrice": 1.0,
+                                        "admissionRoom": {
+                                            "roomRole": "this is a test",
+                                            "roomName": "testroom"
+                                        },
+                                        "roomStandard": "testroom"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/file/files-list": {
             "get": {
                 "tags": [
@@ -4161,6 +4487,164 @@
                                             "test/testId/testName/fd1da84e-eac5-41bc-b9f2-823f7d86f41f/WallPaper_KirbyDiscovery_1920_1080.jpg",
                                             "test/testId/testName/fd1da84e-eac5-41bc-b9f2-823f7d86f41f/WallPaper_KirbyDiscovery_1920_1080.png"
                                         ]
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/student-result/sys/{id}": {
+            "get": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "根据ID获取学生考试结果信息接口",
+                "operationId": "getStudentResultById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "studentResultStudentId": 2,
+                                        "studentResultExamSession": {
+                                            "examSessionId": 3,
+                                            "examSessionPaper": {
+                                                "paperDuration": "60分钟",
+                                                "paperTotalScore": "100分",
+                                                "paperExam": {
+                                                    "examName": "宠物医院实习生测试3",
+                                                    "examId": 3
+                                                },
+                                                "paperName": "宠物医院实习生测试卷3",
+                                                "paperId": 3
+                                            },
+                                            "examSessionEndTime": "2023-04-14 19:00:00",
+                                            "examSessionStartTime": "2023-04-14 18:00:00"
+                                        },
+                                        "studentResultScore": 95,
+                                        "studentResultId": 3
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/student-answer/sys/{id}": {
+            "get": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "根据学生单一问题作答信息接口",
+                "operationId": "getStudentAnswerById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "studentAnswerContent": "Answer 1",
+                                        "studentAnswerId": 1,
+                                        "studentAnswerPoint": 0,
+                                        "studentAnswerStudentResult": {
+                                            "studentResultStudentId": 1,
+                                            "studentResultExamSession": {
+                                                "examSessionId": 1,
+                                                "examSessionPaper": {
+                                                    "paperDuration": "2 hours",
+                                                    "paperTotalScore": "100",
+                                                    "paperExam": {
+                                                        "examName": "Math Exam",
+                                                        "examId": 1
+                                                    },
+                                                    "paperName": "Math Paper",
+                                                    "paperId": 1
+                                                },
+                                                "examSessionEndTime": "2023-03-16 20:00:00",
+                                                "examSessionStartTime": "2023-03-16 18:00:00"
+                                            },
+                                            "studentResultScore": 90,
+                                            "studentResultId": 1
+                                        },
+                                        "studentAnswerQuestionInPaper": {
+                                            "questionInPaperPaper": {
+                                                "paperDuration": "2 hours",
+                                                "paperTotalScore": "100",
+                                                "paperExam": {
+                                                    "examName": "Math Exam",
+                                                    "examId": 1
+                                                },
+                                                "paperName": "Math Paper",
+                                                "paperId": 1
+                                            },
+                                            "questionPoint": 2,
+                                            "questionInPaperQuestion": {
+                                                "questionContent": "What is the value of x in the equation x + 5 = 10?",
+                                                "questionId": 1,
+                                                "questionCategory": {
+                                                    "categoryName": "Algebra",
+                                                    "categoryId": 1
+                                                },
+                                                "questionType": "Multiple Choice"
+                                            },
+                                            "questionInPaperId": 1
+                                        }
                                     },
                                     "message": "ok"
                                 }
@@ -4266,6 +4750,188 @@
                 }
             }
         },
+        "/api/exam/question/sys/{id}": {
+            "get": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "根据问题信息接口",
+                "operationId": "getQuestionById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "questionContent": "猫咪为什么会打喷嚏？ A.因为感冒 B.因为过敏 C.因为异物刺激 D.其他",
+                                        "questionId": 2,
+                                        "questionCategory": {
+                                            "categoryName": "猫",
+                                            "categoryId": 2
+                                        },
+                                        "questionType": "单选"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/question-in-paper/sys/{id}": {
+            "get": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "根据试卷中问题信息接口",
+                "operationId": "getQuestionInPaperById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "questionInPaperPaper": {
+                                            "paperDuration": "60分钟",
+                                            "paperTotalScore": "100分",
+                                            "paperExam": {
+                                                "examName": "宠物医院实习生测试2",
+                                                "examId": 2
+                                            },
+                                            "paperName": "宠物医院实习生测试卷2",
+                                            "paperId": 2
+                                        },
+                                        "questionPoint": 15,
+                                        "questionInPaperQuestion": {
+                                            "questionContent": "半夜突然听到宠物在呕吐声，应该怎么办？ A.立刻喂水 B.观察一段时间再决定是否送医 C.在网上找解决方案 D.带宠物到宠物医院",
+                                            "questionId": 5,
+                                            "questionCategory": {
+                                                "categoryName": "其他",
+                                                "categoryId": 4
+                                            },
+                                            "questionType": "多选"
+                                        },
+                                        "questionInPaperId": 7
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exam/exam-session/sys/{id}": {
+            "get": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "根据ID获取考试信息接口",
+                "operationId": "getExamSessionById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "examSessionId": 6,
+                                        "examSessionPaper": {
+                                            "paperDuration": "60分钟",
+                                            "paperTotalScore": "100分",
+                                            "paperExam": {
+                                                "examName": "宠物医院实习生测试6",
+                                                "examId": 6
+                                            },
+                                            "paperName": "宠物医院实习生测试卷6",
+                                            "paperId": 6
+                                        },
+                                        "examSessionEndTime": "2023-04-18 19:00:00",
+                                        "examSessionStartTime": "2023-04-18 18:00:00"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/exam/category/{categoryNameKeyword}": {
             "get": {
                 "tags": [
@@ -4285,6 +4951,17 @@
                     }
                 ],
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -4311,6 +4988,44 @@
                                 }
                             }
                         }
+                    }
+                }
+            }
+        },
+        "/api/exam/category/sys/{id}": {
+            "get": {
+                "tags": [
+                    "测验模块"
+                ],
+                "summary": "根据ID获取问题类别信息接口",
+                "operationId": "getCategoryById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "categoryName": "猫",
+                                        "categoryId": 2
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
                     },
                     "515": {
                         "description": "Request failed",
@@ -4319,6 +5034,85 @@
                                 "example": {
                                     "code": 515,
                                     "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/disease/medical-case/sys/{id}": {
+            "get": {
+                "tags": [
+                    "病例模块"
+                ],
+                "summary": "根据ID获取病例信息接口",
+                "operationId": "getMedicalCaseById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "medicalCaseAdmission": {
+                                            "admissionVideo": "disease/admission/1a8af183-172f-e834-94f8-6be6ab62589f/video",
+                                            "admissionId": 12,
+                                            "admissionPhoto": "disease/admission/1a8af183-172f-e834-94f8-6be6ab62589f/photo",
+                                            "admissionContent": "患者反复出现腹痛、恶心、呕吐等症状，就诊"
+                                        },
+                                        "medicalCaseDiagnosticResult": {
+                                            "diagnosticResultPhoto": "disease/diagnosticResult/1a8af183-172f-e834-94f8-6be6ab62589f/photo",
+                                            "diagnosticResultId": 12,
+                                            "diagnosticResultVideo": "disease/diagnosticResult/1a8af183-172f-e834-94f8-6be6ab62589f/video",
+                                            "diagnosticResultContent": "胃部压痛明显，胃镜检查显示胃体部位存在浅表性胃炎病变"
+                                        },
+                                        "medicalCaseDiseaseName": {
+                                            "diseaseNameContent": "胃炎",
+                                            "diseaseNameCategory": "消化系统疾病",
+                                            "diseaseNameId": 12,
+                                            "diseaseNamePhoto": "disease/diseaseName/ecb4009c-2da5-059c-36eb-4550c93b39ff/photo",
+                                            "diseaseNameVideo": "disease/diseaseName/ecb4009c-2da5-059c-36eb-4550c93b39ff/video"
+                                        },
+                                        "medicalCaseTreatmentProgram": {
+                                            "treatmentProgramPhoto": "disease/treatmentProgram/1a8af183-172f-e834-94f8-6be6ab62589f/photo",
+                                            "treatmentProgramVideo": "disease/treatmentProgram/1a8af183-172f-e834-94f8-6be6ab62589f/video",
+                                            "treatmentProgramId": 12,
+                                            "treatmentProgramContent": "通过规律饮食、注意休息、避免吸烟饮酒等方式调理胃肠功能，同时根据病情选择口服药物或其他治疗方式"
+                                        },
+                                        "medicalCaseId": 12,
+                                        "medicalCaseCaseCheck": {
+                                            "caseCheckId": 12,
+                                            "caseCheckContent": "患者血常规、肝功能、肾功能、电解质等检查均正常，胃镜检查显示胃体部位存在浅表性胃炎病变",
+                                            "caseCheckVideo": "disease/caseCheck/1a8af183-172f-e834-94f8-6be6ab62589f/video",
+                                            "caseCheckPhoto": "disease/caseCheck/1a8af183-172f-e834-94f8-6be6ab62589f/photo"
+                                        }
+                                    },
+                                    "message": "ok"
                                 }
                             }
                         }
@@ -4411,6 +5205,58 @@
                 }
             }
         },
+        "/api/disease/disease/sys/{id}": {
+            "get": {
+                "tags": [
+                    "病例模块"
+                ],
+                "summary": "根据ID获取疾病信息接口",
+                "operationId": "getDiseaseById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "diseaseNameContent": "胃炎",
+                                        "diseaseNameCategory": "消化系统疾病",
+                                        "diseaseNameId": 12,
+                                        "diseaseNamePhoto": "disease/diseaseName/ecb4009c-2da5-059c-36eb-4550c93b39ff/photo",
+                                        "diseaseNameVideo": "disease/diseaseName/ecb4009c-2da5-059c-36eb-4550c93b39ff/video"
+                                    },
+                                    "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/auth/user/{userNameKeyword}": {
             "get": {
                 "tags": [
@@ -4463,6 +5309,57 @@
                                             }
                                         ]
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/user/sys/{id}": {
+            "get": {
+                "tags": [
+                    "鉴权模块"
+                ],
+                "summary": "根据ID获取用户信息接口",
+                "operationId": "getUserById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 200,
+                                    "data": {
+                                        "userPassword": "123",
+                                        "userAuthority": 1,
+                                        "userName": "student",
+                                        "userId": 2
+                                    },
+                                    "message": "ok"
                                 }
                             }
                         }
@@ -4700,17 +5597,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -4723,6 +5609,17 @@
                                         "chargePrice": 13.12
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -4750,6 +5647,17 @@
                     }
                 ],
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -4766,17 +5674,6 @@
                                         "archiveId": 2
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -4856,6 +5753,17 @@
                     }
                 ],
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -4886,17 +5794,6 @@
                                 }
                             }
                         }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
                     }
                 }
             }
@@ -4921,17 +5818,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -4990,6 +5876,17 @@
                                 }
                             }
                         }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -5014,17 +5911,6 @@
                     }
                 ],
                 "responses": {
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
-                                }
-                            }
-                        }
-                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -5041,6 +5927,17 @@
                                         "questionType": "tttt type"
                                     },
                                     "message": "ok"
+                                }
+                            }
+                        }
+                    },
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -5196,6 +6093,17 @@
                     }
                 ],
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -5207,17 +6115,6 @@
                                         "categoryId": 6
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -5245,6 +6142,17 @@
                     }
                 ],
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -5286,17 +6194,6 @@
                                         }
                                     },
                                     "message": "ok"
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }
@@ -5376,6 +6273,17 @@
                     }
                 ],
                 "responses": {
+                    "515": {
+                        "description": "Request failed",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "code": 515,
+                                    "message": "Request failed"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -5389,17 +6297,6 @@
                                         "userAuthority": 1,
                                         "userId": 1
                                     }
-                                }
-                            }
-                        }
-                    },
-                    "515": {
-                        "description": "Request failed",
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "code": 515,
-                                    "message": "Request failed"
                                 }
                             }
                         }

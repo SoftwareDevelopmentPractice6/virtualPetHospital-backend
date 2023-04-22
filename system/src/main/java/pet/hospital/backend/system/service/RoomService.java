@@ -2,7 +2,7 @@
  * @Author: dafenqi-11 diaozehao@163.com
  * @Date: 2023-03-22 14:27:24
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-03-26 01:44:34
+ * @LastEditTime: 2023-04-22 21:33:40
  * @FilePath: \virtualPetHospital-backend\system\src\main\java\pet\hospital\backend\system\service\RoomService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -16,8 +16,8 @@
  */
 package pet.hospital.backend.system.service;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson2.JSON;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -34,10 +34,10 @@ import pet.hospital.backend.system.entity.Room;
 @Service
 public class RoomService {
     @Autowired
-    RoomRepository roomRepository;
+    private RoomRepository roomRepository;
 
     @Autowired
-    FeatureRepository featureRepository;
+    private FeatureRepository featureRepository;
 
     public JSONObject getRoom(String roomKeyword, String roomRole) {
         JSONObject res = new JSONObject();
