@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-21 23:30:50
+ * @LastEditTime: 2023-04-23 15:13:01
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -18,6 +18,7 @@
     - [便捷的启动方式](#便捷的启动方式)
   - [Docker 打包](#docker-打包)
   - [文档](#文档)
+    - [项目信息与常见运行问题](#项目信息与常见运行问题)
     - [后端开发人员用文档](#后端开发人员用文档)
     - [前端接口文档](#前端接口文档)
   - [说明](#说明)
@@ -118,11 +119,15 @@ chmod 755 run_backend.sh
 
 ## 文档
 
-### 后端开发人员用文档
+### 项目信息与常见运行问题
 
 - [项目相关信息](./docs/ProjectInfo.md)
-- [规范与开发教程](./docs/StandardInstruction.md)
 - [各类问题](./docs/QA.md)
+
+### 后端开发人员用文档
+
+- [项目设计文档](./docs/ProjectArchitecture.md)
+- [规范与开发教程](./docs/StandardInstruction.md)
 - [TODO](./docs/TODO.md)
 
 ### 前端接口文档

@@ -22,6 +22,7 @@
       - [构建子模块的项目结构](#构建子模块的项目结构)
       - [注册子模块到eureka](#注册子模块到eureka)
       - [添加子模块到测试集成模块，用于测试报告生成](#添加子模块到测试集成模块用于测试报告生成)
+      - [添加子模块到父模块`pom.xml`中：](#添加子模块到父模块pomxml中)
       - [子模块连接数据库](#子模块连接数据库)
     - [后端子模块开发](#后端子模块开发)
       - [entity层](#entity层)
@@ -162,6 +163,21 @@
     <artifactId></artifactId> <!-- 子模块artifactId -->
     <version>${project.version}</version>
 </dependency>
+```
+
+#### 添加子模块到父模块`pom.xml`中：
+
+```xml
+<modules>
+    <module>eureka</module>
+    <module>common</module>
+    <module>jacoco-report</module>
+    <module>login</module>
+    <module>medicalRecordManagement</module>
+    <module>system</module>
+    <module>exam</module>
+    <module>intermediator</module>
+</modules>
 ```
 
 #### 子模块连接数据库

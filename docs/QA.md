@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-17 02:08:53
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-21 22:52:34
+ * @LastEditTime: 2023-04-23 15:02:04
  * @FilePath: /virtualPetHospital-backend/docs/QA.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -21,6 +21,20 @@
     - [项目正常运行且接口映射正确，但接口404](#项目正常运行且接口映射正确但接口404)
 
 ## 常见报错
+
+大部分报错可以先尝试通过以下方式解决：
+
+```bash
+# Windows
+# .\mvnw.cmd clean install -D skipTests -N
+# .\mvnw.cmd clean install -D skipTests
+
+# MacOS & Linux
+./mvnw clean install -D skipTests -N
+./mvnw clean install -D skipTests
+```
+
+如果未能解决，请继续在后文中查找。
 
 ### `non-resolvable parent pom for ···`
 
