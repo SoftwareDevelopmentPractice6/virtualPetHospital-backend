@@ -28,10 +28,14 @@ springdoc:
 
 application:
   login:
-    url: http://host.docker.internal:8086/
+    url: http://LOGIN-SERVICE/
+    default-url: http://host.docker.internal:8086/
   medicalRecordManagement:
-    url: http://host.docker.internal:8088/
+    url: http://MEDICALRECORDMANAGEMENT-SERVICE/
+    default-url: http://host.docker.internal:8088/
   system:
-    url: http://host.docker.internal:8087/
+    url: http://SYSTEM-SERVICE/
+    default-url: http://host.docker.internal:8087/
   exam:
-    url: http://host.docker.internal:8089/
+    url: http://EXAM-SERVICE/
+    default-url: http://host.docker.internal:8089/

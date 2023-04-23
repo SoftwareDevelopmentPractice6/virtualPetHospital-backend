@@ -28,10 +28,14 @@ springdoc:
 
 application:
   login:
-    url: http://localhost:8086/
+    url: http://LOGIN-SERVICE/
+    default-url: http://localhost:8086/
   medicalRecordManagement:
-    url: http://localhost:8088/
+    url: http://MEDICALRECORDMANAGEMENT-SERVICE/
+    default-url: http://localhost:8088/
   system:
-    url: http://localhost:8087/
+    url: http://SYSTEM-SERVICE/
+    default-url: http://localhost:8087/
   exam:
-    url: http://localhost:8089/
+    url: http://EXAM-SERVICE/
+    default-url: http://localhost:8089/
