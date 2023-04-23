@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-01 22:42:27
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-23 15:13:01
+ * @LastEditTime: 2023-04-23 15:21:13
  * @FilePath: /virtualPetHospital-backend/README.md
  * @Description: 项目后端部分简介文件
 -->
@@ -16,7 +16,6 @@
   - [配置数据库](#配置数据库)
   - [运行项目](#运行项目)
     - [便捷的启动方式](#便捷的启动方式)
-  - [Docker 打包](#docker-打包)
   - [文档](#文档)
     - [项目信息与常见运行问题](#项目信息与常见运行问题)
     - [后端开发人员用文档](#后端开发人员用文档)
@@ -31,24 +30,12 @@
 
 ## 配置数据库
 
-1. 使用MySQL数据库（版本：8），数据库需要一个满足以下条件的用户
+使用MySQL数据库，数据库需要一个满足以下条件的用户：
 
-   - 权限：All
-   - 端口：`3306`
-   - 账号：`virtualPetHospital`
-   - 密码：`virtualPetHospital`
-
-    SQL:
-
-    ```sql
-    DROP USER if EXISTS `virtualPetHospital`;
-
-    CREATE USER `virtualPetHospital`@`localhost` IDENTIFIED WITH mysql_native_password BY 'virtualPetHospital' PASSWORD EXPIRE NEVER;
-
-    GRANT Alter, Alter Routine, Create, Create Routine, Create Temporary Tables, Create User, Create View, Delete, Drop, Event, Execute, File, Grant Option, Index, Insert, Lock Tables, Process, References, Reload, Replication Client, Replication Slave, Select, Show Databases, Show View, Shutdown, Super, Trigger, Update ON *.* TO `virtualPetHospital`@`localhost`;
-    ```
-
-2. 初始化数据库：运行`database/createTable.sql`
+- 权限：All
+- 端口：`3306`
+- 账号：`virtualPetHospital`
+- 密码：`virtualPetHospital`
 
 ## 运行项目
 
@@ -75,53 +62,12 @@ chmod 755 run_backend.sh
 | start         | 启动项目（dev环境） | 启动项目（prod环境） |
 | stop          | 停止项目（dev环境） | 停止项目（prod环境） |
 
-## Docker 打包
-
-按顺序执行以下命令：
-
-1. 项目下载依赖：
-
-    ```bash
-    # Windows
-    # .\mvnw.cmd clean install -D skipTests -N
-    # .\mvnw.cmd clean install -D skipTests
-
-    # MacOS & Linux
-    ./mvnw clean install -D skipTests -N
-    ./mvnw clean install -D skipTests
-    ```
-
-2. 项目打成jar包：
-
-    ```bash
-    # Windows
-    # .\mvnw.cmd clean package -D skipTests -P docker
-
-    # MacOS & Linux
-    ./mvnw clean package -D skipTests -P docker
-    ```
-
-3. docker build：
-
-    ```bash
-    docker build -t virtual-pet-hospital .
-    ```
-
-4. docker run：
-
-    ```bash
-    docker run -p 8085:8085 -p 8086:8086 -p 8087:8087 -p 8088:8088 -p 8089:8089 -p 8090:8090 --name virtual-pet-hospital-backend virtual-pet-hospital
-    ```
-
-    或者可以使用Docker Desktop GUI进行配置，具体如下：
-
-    ![Picture](./docs/deploy_docker.png)
-
 ## 文档
 
 ### 项目信息与常见运行问题
 
 - [项目相关信息](./docs/ProjectInfo.md)
+- [项目部署说明文档](./docs/ProjectDeployInstruction.md)
 - [各类问题](./docs/QA.md)
 
 ### 后端开发人员用文档
