@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-04-19 13:38:14
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-23 15:20:15
+ * @LastEditTime: 2023-04-23 15:39:40
  * @FilePath: /结项/部署说明文档.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%
 -->
@@ -14,6 +14,7 @@
   - [目录](#目录)
   - [配置数据库](#配置数据库)
   - [Docker 打包](#docker-打包)
+  - [部署时需要示例数据](#部署时需要示例数据)
 
 ## 配置数据库
 
@@ -79,3 +80,33 @@
     或者可以使用Docker Desktop GUI进行配置，具体如下：
 
     ![Picture](deploy_docker.png)
+
+## 部署时需要示例数据
+
+如果需要向数据库里导入示例数据，需要进行以下操作：
+
+1. 在MySQL数据库中，运行`database/insertData.sql`，以向数据库中导入示例数据。
+2. 在进行Docker打包相关操作前，将根目录的Dockerfile替换为以下内容：
+
+    ```Dockerfile
+    FROM openjdk:17-oracle
+    
+    WORKDIR /docker
+    COPY /example-data/ /docker/
+
+    WORKDIR /docker/virtualPetHospital/build
+
+    COPY /target/eureka-?.?.?-SNAPSHOT.jar /docker/virtualPetHospital/build/eureka.jar
+    COPY /target/login-?.?.?-SNAPSHOT.jar /docker/virtualPetHospital/build/login.jar
+    COPY /target/system-?.?.?-SNAPSHOT.jar /docker/virtualPetHospital/build/system.jar
+    COPY /target/medicalRecordManagement-?.?.?-SNAPSHOT.jar /docker/virtualPetHospital/build/medicalRecordManagement.jar
+    COPY /target/exam-?.?.?-SNAPSHOT.jar /docker/virtualPetHospital/build/exam.jar
+    COPY /target/intermediator-?.?.?-SNAPSHOT.jar /docker/virtualPetHospital/build/intermediator.jar
+
+    COPY /run_jar.sh /docker/virtualPetHospital/build
+
+    RUN chmod 755 run_jar.sh
+    EXPOSE 8085-8090
+
+    ENTRYPOINT ["./run_jar.sh", "start"]
+    ```
