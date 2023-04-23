@@ -1,8 +1,8 @@
 /*
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-15 23:30:24
- * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-14 07:58:16
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-04-23 14:32:37
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/IntermediatorApplication.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
@@ -28,6 +29,7 @@ import org.springframework.web.client.RestTemplate;
 public class IntermediatorApplication {
 
     @Bean
+    @LoadBalanced
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }

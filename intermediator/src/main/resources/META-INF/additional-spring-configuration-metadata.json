@@ -1,0 +1,46 @@
+{"properties": [
+  {
+    "name": "application.login.url",
+    "type": "java.lang.String",
+    "defaultValue": "http://LOGIN-SERVICE/",
+    "description": "The url restTemplate requests from login-service with application name in eureka."
+  },
+  {
+    "name": "application.login.default-url",
+    "type": "java.lang.String",
+    "description": "The url for login-service including ip:port in eureka."
+  },
+  {
+    "name": "application.medicalRecordManagement.url",
+    "type": "java.lang.String",
+    "defaultValue": "http://MEDICALRECORDMANAGEMENT-SERVICE/",
+    "description": "The url restTemplate requests from medicalRecordManagement-service with application name in eureka."
+  },
+  {
+    "name": "application.medicalRecordManagement.default-url",
+    "type": "java.lang.String",
+    "description": "The url for medicalRecordManagement-service including ip:port in eureka."
+  },
+  {
+    "name": "application.system.url",
+    "type": "java.lang.String",
+    "defaultValue": "http://SYSTEM-SERVICE/",
+    "description": "The url restTemplate requests from system-service with application name in eureka."
+  },
+  {
+    "name": "application.system.default-url",
+    "type": "java.lang.String",
+    "description": "The url for system-service including ip:port in eureka."
+  },
+  {
+    "name": "application.exam.url",
+    "type": "java.lang.String",
+    "defaultValue": "http://EXAM-SERVICE/",
+    "description": "The url restTemplate requests from exam-service with application name in eureka."
+  },
+  {
+    "name": "application.exam.default-url",
+    "type": "java.lang.String",
+    "description": "The url for exam-service including ip:port in eureka."
+  }
+]}
