@@ -5600,7 +5600,7 @@ INSERT
         50
     );
 
-use exam;
+USE exam;
 
 DELETE
 FROM
