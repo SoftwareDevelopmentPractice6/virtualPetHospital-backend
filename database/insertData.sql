@@ -888,6 +888,111 @@ INSERT
 
 INSERT
     INTO
+        FEATURE(
+            func_name,
+            func_description,
+            func_flow,
+            func_video,
+            room_name,
+            func_role,
+            func_tool
+        )
+    VALUES(
+        '接待挂号',
+        '为患者进行挂号流程的接待工作',
+        '1.迎接患者 2.核对患者信息 3.安排挂号流程 4.提供相应服务和解答疑问 5.记录挂号情况',
+        'system/feature/9349f945-c37c-6010-b9b0-b2ba049178ws/video',
+        '前台',
+        '前台',
+        '接待台、电脑、挂号系统等'
+    );
+
+INSERT
+    INTO
+        FEATURE(
+            func_name,
+            func_description,
+            func_flow,
+            func_video,
+            room_name,
+            func_role,
+            func_tool
+        )
+    VALUES(
+        '导医咨询',
+        '为患者提供医疗服务的咨询和指导工作',
+        '1.接待患者并了解其需求 2.提供医疗咨询和指导 3.解答患者疑问 4.记录咨询情况',
+        'system/feature/d5d69505-1254-27df-37bd-7dxv456ca439/video',
+        '前台',
+        '前台',
+        '医疗咨询台、电脑、电话、病历系统等'
+    );
+
+INSERT
+    INTO
+        FEATURE(
+            func_name,
+            func_description,
+            func_flow,
+            func_video,
+            room_name,
+            func_role,
+            func_tool
+        )
+    VALUES(
+        '病例档案收发',
+        '负责医疗机构内外病例档案的收发工作',
+        '1.接收来自内外部的病例档案 2.核对病例档案信息 3.记录档案移交情况 4.进行病例档案的分发和交接',
+        'system/feature/d5d69505-1254-27df-37bd-99ic716ca439/video',
+        '前台',
+        '前台',
+        '病例档案接收和发放系统、电脑、病历系统等'
+    );
+
+INSERT
+    INTO
+        FEATURE(
+            func_name,
+            func_description,
+            func_flow,
+            func_video,
+            room_name,
+            func_role,
+            func_tool
+        )
+    VALUES(
+        '收费',
+        '负责患者就诊费用的收费和记录工作',
+        '1.核对患者身份和费用信息 2.收取患者就诊费用 3.记录费用收取情况 4.发放相关费用票据',
+        'system/feature/d5ee9c05-1254-27df-37bd-99ic716ca439/video',
+        '前台',
+        '前台',
+        '收费系统、现金/POS机、票据打印机等'
+    );
+
+INSERT
+    INTO
+        FEATURE(
+            func_name,
+            func_description,
+            func_flow,
+            func_video,
+            room_name,
+            func_role,
+            func_tool
+        )
+    VALUES(
+        '档案保存',
+        '负责医疗机构内外病历档案的保存和管理工作',
+        '1.接收来自内外部的病历档案 2.核对病历档案信息 3.按照规定的流程进行病历档案的保存和管理 4.定期进行病历档案的整理和归档',
+        'system/feature/c5d333e1-3b14-9aa0-8a72-e2cbd5329fe3/video',
+        '前台',
+        '前台',
+        '病历档案保存系统、文件柜、电脑等'
+    );
+
+INSERT
+    INTO
         MEDICINE(
             medicine_name,
             medicine_price,
