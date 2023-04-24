@@ -5839,6 +5839,126 @@ INSERT
 
 INSERT
     INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        13,
+        '宠物需要驱虫吗？ A.会 B.不会',
+        '单选',
+        4
+    );
+
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        14,
+        '宠物有必要绝育吗？ A.需要 B.不一定',
+        '单选',
+        4
+    );
+
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        15,
+        '宠物要打疫苗吗？ A.要 B.不要',
+        '单选',
+        4
+    );
+
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        16,
+        '被咬后要打狂犬疫苗吗？ A.要 B.不要',
+        '单选',
+        4
+    );
+
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        17,
+        '仓鼠会得肥胖症吗？ A.会 B.不会',
+        '单选',
+        4
+    );
+
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        18,
+        '宠物会得胰腺炎吗？ A.会 B.不会',
+        '单选',
+        4
+    );
+
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        19,
+        '宠物需要陪伴吗？ A.会 B.不会',
+        '单选',
+        4
+    );
+
+INSERT
+    INTO
+        QUESTION(
+            question_id,
+            question_content,
+            question_type,
+            category_id
+        )
+    VALUES(
+        20,
+        '狗能吃巧克力吗？ A.能 B.不能',
+        '单选',
+        1
+    );
+
+INSERT
+    INTO
         EXAM(
             exam_id,
             exam_name
