@@ -23,7 +23,7 @@ import org.springframework.web.client.RestTemplate;
         info =
                 @Info(
                         title = "中间层模块",
-                        version = "1.1.0-SNAPSHOT",
+                        version = "1.2.0-SNAPSHOT",
                         description =
                                 "虚拟宠物医院API文档，前端用。字段默认值：int为-1，String为'This field is currently Empty.'，Date为null，应该会表现为空字符串。"))
 public class IntermediatorApplication {
