@@ -2228,7 +2228,7 @@ INSERT
         '重症糖尿病',
         'disease/diseaseName/bcacf9f8-aefb-ca21-e561-ecbe7670cfe5/photo',
         'disease/diseaseName/bcacf9f8-aefb-ca21-e561-ecbe7670cfe5/video',
-        '内分泌代谢疾病'
+        '内分泌疾病'
     );
 
 INSERT
@@ -2487,23 +2487,6 @@ INSERT
 
 INSERT
     INTO
-        DISEASENAME(
-            disease_name_id,
-            content,
-            photo,
-            video,
-            category
-        )
-    VALUES(
-        13,
-        '糖尿病',
-        'disease/diseaseName/98e2d0f6-70c7-4b1c-9a55-6783bf3e1c20/photo',
-        'disease/diseaseName/98e2d0f6-70c7-4b1c-9a55-6783bf3e1c20/video',
-        '内分泌疾病'
-    );
-
-INSERT
-    INTO
         DIAGNOSTICRESULT(
             diagnostic_result_id,
             content,
@@ -2574,7 +2557,7 @@ INSERT
         )
     VALUES(
         13,
-        13,
+        3,
         13,
         13,
         13,
@@ -2653,7 +2636,7 @@ INSERT
         )
     VALUES(
         14,
-        13,
+        3,
         14,
         14,
         14,
