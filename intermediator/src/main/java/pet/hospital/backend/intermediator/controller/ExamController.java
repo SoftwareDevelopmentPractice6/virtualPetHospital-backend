@@ -919,7 +919,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"questionContent\":\"test new question\",\"questionId\":7,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"tttt type\"},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"questionContent\":\"test new question\",\"questionAnswer\": \"test answer\", \"questionId\":7,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"tttt type\"},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -942,12 +942,13 @@ public class ExamController {
                                     @Schema(
                                             type = "json",
                                             example =
-                                                    "{\"questionContent\": \"test question\", \"questionType\": \"tttt type\", \"categoryId\": 2}"))
+                                                    "{\"questionContent\": \"test question\", \"questionAnswer\": \"test answer\", \"questionType\": \"tttt type\", \"categoryId\": 2}"))
                     @RequestBody
                     JSONObject newQuestionInfo) {
         return examService
                 .addQuestion(
                         newQuestionInfo.getString(Constants.questionContent),
+                        newQuestionInfo.getString(Constants.questionAnswer),
                         newQuestionInfo.getString(Constants.questionType),
                         newQuestionInfo.getInteger(Constants.categoryId))
                 .toResponseEntity();
@@ -964,7 +965,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"questionContent\":\"test question\",\"questionId\":3,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"tttt type\"},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"questionContent\":\"test question\",\"questionAnswer\": \"test answer\",\"questionId\":3,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"tttt type\"},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -987,13 +988,14 @@ public class ExamController {
                                     @Schema(
                                             type = "json",
                                             example =
-                                                    "{\"questionId\": 2, \"questionContent\": \"test question\", \"questionType\": \"tttt type\", \"categoryId\": 2}"))
+                                                    "{\"questionId\": 2, \"questionContent\": \"test question\", \"questionAnswer\": \"test answer\", \"questionType\": \"tttt type\", \"categoryId\": 2}"))
                     @RequestBody
                     JSONObject newQuestionInfo) {
         return examService
                 .updateQuestion(
                         newQuestionInfo.getInteger(Constants.questionId),
                         newQuestionInfo.getString(Constants.questionContent),
+                        newQuestionInfo.getString(Constants.questionAnswer),
                         newQuestionInfo.getString(Constants.questionType),
                         newQuestionInfo.getInteger(Constants.categoryId))
                 .toResponseEntity();
@@ -1010,7 +1012,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"questionContent\":\"test new question\",\"questionId\":7,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"tttt type\"},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"questionContent\":\"test new question\",\"questionAnswer\": \"test answer\",\"questionId\":7,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"tttt type\"},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -1041,7 +1043,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"questionList\":[{\"questionContent\":\"What is the value of x in the equation x + 5 = 10?\",\"questionId\":1,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"Multiple Choice\"},{\"questionContent\":\"cafdqfds\",\"questionId\":3,\"questionCategory\":{\"categoryName\":\"testCategory2\",\"categoryId\":3},\"questionType\":\"aaaaaa\"}]},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"questionList\":[{\"questionContent\":\"What is the value of x in the equation x + 5 = 10?\",\"questionAnswer\": \"5\", \"questionId\":1,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"Multiple Choice\"},{\"questionContent\":\"cafdqfds\",\"questionAnswer\": \"test answer\", \"questionId\":3,\"questionCategory\":{\"categoryName\":\"testCategory2\",\"categoryId\":3},\"questionType\":\"aaaaaa\"}]},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -1059,10 +1061,11 @@ public class ExamController {
     @GetMapping(value = "/question/{questionContentKeyword}")
     public ResponseEntity<JSONObject> getQuestionsByKeyword(
             @Parameter(description = "问题内容关键字，支持模糊查询") @PathVariable String questionContentKeyword,
+            @Parameter(description = "问题答案，支持模糊查询") @RequestParam(required = false) String questionAnswerKeyword,
             @Parameter(description = "问题种类") @RequestParam(required = false) String questionType,
             @Parameter(description = "问题类别Id") @RequestParam(required = false) Integer categoryId) {
         return examService
-                .getQuestions(questionContentKeyword, questionType, categoryId)
+                .getQuestions(questionContentKeyword, questionAnswerKeyword, questionType, categoryId)
                 .toResponseEntity();
     }
 
@@ -1077,7 +1080,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"questionList\":[{\"questionContent\":\"What is the value of x in the equation x + 5 = 10?\",\"questionId\":1,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"Multiple Choice\"},{\"questionContent\":\"cafdqfds\",\"questionId\":3,\"questionCategory\":{\"categoryName\":\"testCategory2\",\"categoryId\":3},\"questionType\":\"aaaaaa\"}]},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"questionList\":[{\"questionContent\":\"What is the value of x in the equation x + 5 = 10?\",\"questionAnswer\": \"test 5\", \"questionId\":1,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"Multiple Choice\"},{\"questionContent\":\"cafdqfds\",\"questionAnswer\": \"test answer\",\"questionId\":3,\"questionCategory\":{\"categoryName\":\"testCategory2\",\"categoryId\":3},\"questionType\":\"aaaaaa\"}]},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -1094,9 +1097,12 @@ public class ExamController {
             })
     @GetMapping(value = "/question")
     public ResponseEntity<JSONObject> getQuestions(
+            @Parameter(description = "问题答案，支持模糊查询") @RequestParam(required = false) String questionAnswerKeyword,
             @Parameter(description = "问题种类") @RequestParam(required = false) String questionType,
             @Parameter(description = "问题类别Id") @RequestParam(required = false) Integer categoryId) {
-        return examService.getQuestions(null, questionType, categoryId).toResponseEntity();
+        return examService
+                .getQuestions(null, questionAnswerKeyword, questionType, categoryId)
+                .toResponseEntity();
     }
 
     @Operation(summary = "新增试卷中问题接口")
@@ -1110,7 +1116,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"questionInPaperPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"questionPoint\":3,\"questionInPaperQuestion\":{\"questionContent\":\"new question 3\",\"questionId\":8,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"type1\"},\"questionInPaperId\":3},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"questionInPaperPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"questionPoint\":3,\"questionInPaperQuestion\":{\"questionContent\":\"new question 3\",\"questionAnswer\": \"test answer\",\"questionId\":8,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"type1\"},\"questionInPaperId\":3},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -1154,7 +1160,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"questionInPaperPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"questionPoint\":8,\"questionInPaperQuestion\":{\"questionContent\":\"new question 3\",\"questionId\":8,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"type1\"},\"questionInPaperId\":3},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"questionInPaperPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"questionPoint\":8,\"questionInPaperQuestion\":{\"questionContent\":\"new question 3\",\"questionAnswer\": \"test answer\",\"questionId\":8,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"type1\"},\"questionInPaperId\":3},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -1200,7 +1206,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"questionInPaperPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"questionPoint\":8,\"questionInPaperQuestion\":{\"questionContent\":\"new question 3\",\"questionId\":8,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"type1\"},\"questionInPaperId\":3},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"questionInPaperPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"questionPoint\":8,\"questionInPaperQuestion\":{\"questionContent\":\"new question 3\",\"questionAnswer\": \"test answer\",\"questionId\":8,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"type1\"},\"questionInPaperId\":3},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -1232,7 +1238,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"questionInPaperList\":[{\"questionInPaperPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"questionPoint\":3,\"questionInPaperQuestion\":{\"questionContent\":\"test new\",\"questionId\":2,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"qa\"},\"questionInPaperId\":2},{\"questionInPaperPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"questionPoint\":3,\"questionInPaperQuestion\":{\"questionContent\":\"new question 3\",\"questionId\":8,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"type1\"},\"questionInPaperId\":3}]},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"questionInPaperList\":[{\"questionInPaperPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"questionPoint\":3,\"questionInPaperQuestion\":{\"questionContent\":\"test new\",\"questionAnswer\": \"test answer\",\"questionId\":2,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"qa\"},\"questionInPaperId\":2},{\"questionInPaperPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"questionPoint\":3,\"questionInPaperQuestion\":{\"questionContent\":\"new question 3\",\"questionAnswer\": \"test answer\",\"questionId\":8,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"type1\"},\"questionInPaperId\":3}]},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -1268,7 +1274,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"studentAnswerContent\":\"Test Answer 2\",\"studentAnswerId\":2,\"studentAnswerPoint\":0,\"studentAnswerStudentResult\":{\"studentResultStudentId\":1,\"studentResultExamSession\":{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"examSessionEndTime\":\"2023-03-16 20:00:00\",\"examSessionStartTime\":\"2023-03-16 18:00:00\"},\"studentResultScore\":90,\"studentResultId\":1},\"studentAnswerQuestionInPaper\":{\"questionInPaperPaper\":{\"paperDuration\":\"tt hours\",\"paperTotalScore\":\"ttt\",\"paperExam\":{\"examName\":\"test Exam\",\"examId\":2},\"paperName\":\"test paper\",\"paperId\":2},\"questionPoint\":40,\"questionInPaperQuestion\":{\"questionContent\":\"What is the value of x in the equation x + 5 = 10?\",\"questionId\":1,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"Multiple Choice\"},\"questionInPaperId\":4}},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"studentAnswerContent\":\"Test Answer 2\",\"studentAnswerId\":2,\"studentAnswerPoint\":0,\"studentAnswerStudentResult\":{\"studentResultStudentId\":1,\"studentResultExamSession\":{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"examSessionEndTime\":\"2023-03-16 20:00:00\",\"examSessionStartTime\":\"2023-03-16 18:00:00\"},\"studentResultScore\":90,\"studentResultId\":1},\"studentAnswerQuestionInPaper\":{\"questionInPaperPaper\":{\"paperDuration\":\"tt hours\",\"paperTotalScore\":\"ttt\",\"paperExam\":{\"examName\":\"test Exam\",\"examId\":2},\"paperName\":\"test paper\",\"paperId\":2},\"questionPoint\":40,\"questionInPaperQuestion\":{\"questionContent\":\"What is the value of x in the equation x + 5 = 10?\",\"questionAnswer\": \"test answer\",\"questionId\":1,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"Multiple Choice\"},\"questionInPaperId\":4}},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -1314,7 +1320,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"studentAnswerContent\":\"Test Answer 3\",\"studentAnswerId\":2,\"studentAnswerPoint\":4,\"studentAnswerStudentResult\":{\"studentResultStudentId\":1,\"studentResultExamSession\":{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"examSessionEndTime\":\"2023-03-16 20:00:00\",\"examSessionStartTime\":\"2023-03-16 18:00:00\"},\"studentResultScore\":90,\"studentResultId\":1},\"studentAnswerQuestionInPaper\":{\"questionInPaperPaper\":{\"paperDuration\":\"tt hours\",\"paperTotalScore\":\"ttt\",\"paperExam\":{\"examName\":\"test Exam\",\"examId\":2},\"paperName\":\"test paper\",\"paperId\":2},\"questionPoint\":40,\"questionInPaperQuestion\":{\"questionContent\":\"What is the value of x in the equation x + 5 = 10?\",\"questionId\":1,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"Multiple Choice\"},\"questionInPaperId\":4}},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"studentAnswerContent\":\"Test Answer 3\",\"studentAnswerId\":2,\"studentAnswerPoint\":4,\"studentAnswerStudentResult\":{\"studentResultStudentId\":1,\"studentResultExamSession\":{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"examSessionEndTime\":\"2023-03-16 20:00:00\",\"examSessionStartTime\":\"2023-03-16 18:00:00\"},\"studentResultScore\":90,\"studentResultId\":1},\"studentAnswerQuestionInPaper\":{\"questionInPaperPaper\":{\"paperDuration\":\"tt hours\",\"paperTotalScore\":\"ttt\",\"paperExam\":{\"examName\":\"test Exam\",\"examId\":2},\"paperName\":\"test paper\",\"paperId\":2},\"questionPoint\":40,\"questionInPaperQuestion\":{\"questionContent\":\"What is the value of x in the equation x + 5 = 10?\",\"questionAnswer\": \"test answer\",\"questionId\":1,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"Multiple Choice\"},\"questionInPaperId\":4}},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -1361,7 +1367,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"studentAnswerContent\":\"Test Answer 3\",\"studentAnswerId\":2,\"studentAnswerPoint\":4,\"studentAnswerStudentResult\":{\"studentResultStudentId\":1,\"studentResultExamSession\":{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"examSessionEndTime\":\"2023-03-16 20:00:00\",\"examSessionStartTime\":\"2023-03-16 18:00:00\"},\"studentResultScore\":90,\"studentResultId\":1},\"studentAnswerQuestionInPaper\":{\"questionInPaperPaper\":{\"paperDuration\":\"tt hours\",\"paperTotalScore\":\"ttt\",\"paperExam\":{\"examName\":\"test Exam\",\"examId\":2},\"paperName\":\"test paper\",\"paperId\":2},\"questionPoint\":40,\"questionInPaperQuestion\":{\"questionContent\":\"What is the value of x in the equation x + 5 = 10?\",\"questionId\":1,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"Multiple Choice\"},\"questionInPaperId\":4}},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"studentAnswerContent\":\"Test Answer 3\",\"studentAnswerId\":2,\"studentAnswerPoint\":4,\"studentAnswerStudentResult\":{\"studentResultStudentId\":1,\"studentResultExamSession\":{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"examSessionEndTime\":\"2023-03-16 20:00:00\",\"examSessionStartTime\":\"2023-03-16 18:00:00\"},\"studentResultScore\":90,\"studentResultId\":1},\"studentAnswerQuestionInPaper\":{\"questionInPaperPaper\":{\"paperDuration\":\"tt hours\",\"paperTotalScore\":\"ttt\",\"paperExam\":{\"examName\":\"test Exam\",\"examId\":2},\"paperName\":\"test paper\",\"paperId\":2},\"questionPoint\":40,\"questionInPaperQuestion\":{\"questionContent\":\"What is the value of x in the equation x + 5 = 10?\",\"questionAnswer\": \"test answer\",\"questionId\":1,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"Multiple Choice\"},\"questionInPaperId\":4}},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(
@@ -1393,7 +1399,7 @@ public class ExamController {
                                             @ExampleObject(
                                                     description = "Success message.",
                                                     value =
-                                                            "{\"code\":200,\"data\":{\"studentAnswerList\":[{\"studentAnswerContent\":\"Test Answer 3\",\"studentAnswerId\":2,\"studentAnswerPoint\":4,\"studentAnswerStudentResult\":{\"studentResultStudentId\":1,\"studentResultExamSession\":{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"examSessionEndTime\":\"2023-03-16 20:00:00\",\"examSessionStartTime\":\"2023-03-16 18:00:00\"},\"studentResultScore\":90,\"studentResultId\":1},\"studentAnswerQuestionInPaper\":{\"questionInPaperPaper\":{\"paperDuration\":\"tt hours\",\"paperTotalScore\":\"ttt\",\"paperExam\":{\"examName\":\"test Exam\",\"examId\":2},\"paperName\":\"test paper\",\"paperId\":2},\"questionPoint\":40,\"questionInPaperQuestion\":{\"questionContent\":\"What is the value of x in the equation x + 5 = 10?\",\"questionId\":1,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"Multiple Choice\"},\"questionInPaperId\":4}}]},\"message\":\"ok\"}")
+                                                            "{\"code\":200,\"data\":{\"studentAnswerList\":[{\"studentAnswerContent\":\"Test Answer 3\",\"studentAnswerId\":2,\"studentAnswerPoint\":4,\"studentAnswerStudentResult\":{\"studentResultStudentId\":1,\"studentResultExamSession\":{\"examSessionId\":1,\"examSessionPaper\":{\"paperDuration\":\"2 hours\",\"paperTotalScore\":\"100\",\"paperExam\":{\"examName\":\"Math Exam\",\"examId\":1},\"paperName\":\"Math Paper\",\"paperId\":1},\"examSessionEndTime\":\"2023-03-16 20:00:00\",\"examSessionStartTime\":\"2023-03-16 18:00:00\"},\"studentResultScore\":90,\"studentResultId\":1},\"studentAnswerQuestionInPaper\":{\"questionInPaperPaper\":{\"paperDuration\":\"tt hours\",\"paperTotalScore\":\"ttt\",\"paperExam\":{\"examName\":\"test Exam\",\"examId\":2},\"paperName\":\"test paper\",\"paperId\":2},\"questionPoint\":40,\"questionInPaperQuestion\":{\"questionContent\":\"What is the value of x in the equation x + 5 = 10?\",\"questionAnswer\": \"test answer\",\"questionId\":1,\"questionCategory\":{\"categoryName\":\"Algebra\",\"categoryId\":1},\"questionType\":\"Multiple Choice\"},\"questionInPaperId\":4}}]},\"message\":\"ok\"}")
                                         },
                                         mediaType = MediaType.APPLICATION_JSON_VALUE)),
                 @ApiResponse(

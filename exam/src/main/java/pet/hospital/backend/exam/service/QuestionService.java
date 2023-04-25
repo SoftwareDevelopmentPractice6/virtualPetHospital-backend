@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-19 19:31:04
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-22 21:08:49
+ * @LastEditTime: 2023-04-25 20:30:00
  * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/service/QuestionService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -33,22 +33,24 @@ public class QuestionService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    public JSONObject getQuestions(String questionKeyword, String questionType, Integer categoryId) {
+    public JSONObject getQuestions(
+            String questionKeyword, String questionAnswerKeyword, String questionType, Integer categoryId) {
         JSONObject res = new JSONObject();
         res.put(
                 Constants.questionList,
                 JSONObject.parseArray(JSON.toJSONString(questionRepository.findAll().stream()
-                        .filter(question ->
-                                SearchJudgeHelper.softIncludes(questionKeyword, question.getQuestionContent())
-                                        && SearchJudgeHelper.softEquals(questionType, question.getQuestionType())
-                                        && SearchJudgeHelper.softEquals(
-                                                categoryId,
-                                                question.getQuestionCategory().getCategoryId()))
+                        .filter(question -> SearchJudgeHelper.softIncludes(
+                                        questionKeyword, question.getQuestionContent())
+                                && SearchJudgeHelper.softIncludes(questionAnswerKeyword, question.getQuestionAnswer())
+                                && SearchJudgeHelper.softEquals(questionType, question.getQuestionType())
+                                && SearchJudgeHelper.softEquals(
+                                        categoryId,
+                                        question.getQuestionCategory().getCategoryId()))
                         .collect(Collectors.toList()))));
         return ResponseHelper.constructSuccessResponse(res);
     }
 
-    public JSONObject addQuestion(String questionContent, String questionType, int categoryId) {
+    public JSONObject addQuestion(String questionContent, String questionAnswer, String questionType, int categoryId) {
         List<Question> targetQuestionList = questionRepository.findAll().stream()
                 .filter(question -> Objects.equals(question.getQuestionContent(), questionContent))
                 .collect(Collectors.toList());
@@ -60,6 +62,7 @@ public class QuestionService {
             } else {
                 Question newQuestion = new Question();
                 newQuestion.setQuestionContent(questionContent);
+                newQuestion.setQuestionAnswer(questionAnswer);
                 newQuestion.setQuestionType(questionType);
                 newQuestion.setQuestionCategory(targetCategoryOptional.get());
 
@@ -72,7 +75,8 @@ public class QuestionService {
         }
     }
 
-    public JSONObject updateQuestion(int questionId, String questionContent, String questionType, int categoryId) {
+    public JSONObject updateQuestion(
+            int questionId, String questionContent, String questionAnswer, String questionType, int categoryId) {
         Optional<Question> targetQuestionOptional = questionRepository.findById(questionId);
 
         if (targetQuestionOptional.isEmpty()) {
@@ -90,6 +94,7 @@ public class QuestionService {
             } else {
                 Question targetQuestion = targetQuestionOptional.get();
                 targetQuestion.setQuestionContent(questionContent);
+                targetQuestion.setQuestionAnswer(questionAnswer);
                 targetQuestion.setQuestionType(questionType);
                 targetQuestion.setQuestionCategory(targetCategoryOptional.get());
 
