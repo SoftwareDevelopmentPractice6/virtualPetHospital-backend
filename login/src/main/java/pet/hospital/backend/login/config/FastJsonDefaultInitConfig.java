@@ -1,4 +1,4 @@
-package pet.hospital.backend.config;
+package pet.hospital.backend.login.config;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
