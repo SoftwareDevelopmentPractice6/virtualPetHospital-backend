@@ -2,7 +2,7 @@
  * @Author: pikapikapikaori pikapikapi_kaori@icloud.com
  * @Date: 2023-03-19 20:34:15
  * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-22 21:08:15
+ * @LastEditTime: 2023-04-25 20:32:14
  * @FilePath: /virtualPetHospital-backend/exam/src/main/java/pet/hospital/backend/exam/controller/QuestionController.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -39,21 +39,24 @@ public class QuestionController {
     @GetMapping(value = "/get")
     public JSONObject getQuestions(
             @Parameter(description = "问题内容关键字，支持模糊查询") @RequestParam(required = false) String questionKeyword,
+            @Parameter(description = "问题答案关键字，支持模糊查询") @RequestParam(required = false) String questionAnswerKeyword,
             @Parameter(description = "问题种类") @RequestParam(required = false) String questionType,
             @Parameter(description = "问题类别Id") @RequestParam(required = false) Integer categoryId)
             throws UnsupportedEncodingException {
-        return questionService.getQuestions(questionKeyword, questionType, categoryId);
+        return questionService.getQuestions(questionKeyword, questionAnswerKeyword, questionType, categoryId);
     }
 
     @Operation(summary = "新增问题接口")
     @PostMapping(value = "/add")
     public JSONObject addQuestion(
             @Parameter(description = "问题内容") @RequestParam String questionContent,
+            @Parameter(description = "问题答案") @RequestParam String questionAnswer,
             @Parameter(description = "问题种类") @RequestParam String questionType,
             @Parameter(description = "问题类别Id") @RequestParam int categoryId)
             throws UnsupportedEncodingException {
         return questionService.addQuestion(
                 URLDecoder.decode(questionContent, Constants.UTF8),
+                URLDecoder.decode(questionAnswer, Constants.UTF8),
                 URLDecoder.decode(questionType, Constants.UTF8),
                 categoryId);
     }
@@ -63,12 +66,14 @@ public class QuestionController {
     public JSONObject updateQuestion(
             @Parameter(description = "问题Id") @RequestParam int questionId,
             @Parameter(description = "问题内容") @RequestParam String questionContent,
+            @Parameter(description = "问题答案") @RequestParam String questionAnswer,
             @Parameter(description = "问题种类") @RequestParam String questionType,
             @Parameter(description = "问题类别Id") @RequestParam int categoryId)
             throws UnsupportedEncodingException {
         return questionService.updateQuestion(
                 questionId,
                 URLDecoder.decode(questionContent, Constants.UTF8),
+                URLDecoder.decode(questionAnswer, Constants.UTF8),
                 URLDecoder.decode(questionType, Constants.UTF8),
                 categoryId);
     }

@@ -90,12 +90,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         1,
         'What is the value of x in the equation x + 5 = 10?',
+        '5',
         'Multiple Choice',
         1
     );

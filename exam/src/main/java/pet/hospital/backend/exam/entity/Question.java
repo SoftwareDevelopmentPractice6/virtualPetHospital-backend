@@ -23,6 +23,9 @@ public class Question {
     @Column(name = "question_content")
     String questionContent;
 
+    @Column(name = "question_answer")
+    String questionAnswer;
+
     @Column(name = "question_type")
     String questionType;
 

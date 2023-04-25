@@ -308,6 +308,7 @@ CREATE
         IF NOT EXISTS QUESTION(
             question_id INT PRIMARY KEY AUTO_INCREMENT,
             question_content TEXT,
+            question_answer TEXT,
             question_type VARCHAR(255),
             category_id INT,
             FOREIGN KEY(category_id) REFERENCES CATEGORY(category_id) ON

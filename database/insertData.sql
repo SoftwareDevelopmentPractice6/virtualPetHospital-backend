@@ -5750,12 +5750,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         1,
         '你知道什么是犬瘟热吗？ A.狗得的病 B.猫得的病',
+        'A',
         '单选',
         1
     );
@@ -5765,12 +5767,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         2,
         '猫咪为什么会打喷嚏？ A.因为感冒 B.因为过敏 C.因为异物刺激 D.其他',
+        'C',
         '单选',
         2
     );
@@ -5780,12 +5784,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         3,
         '什么是宠物药品的过敏反应？ A.肚子疼 B.呼吸急促 C.皮肤瘙痒 D.其他',
+        'BC',
         '多选',
         4
     );
@@ -5795,12 +5801,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         4,
         '什么情况下需要紧急送宠物去医院？ A.突然晕倒 B.呼吸急促 C.严重呕吐 D.其他',
+        'ABC',
         '多选',
         4
     );
@@ -5810,12 +5818,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         5,
         '半夜突然听到宠物在呕吐声，应该怎么办？ A.立刻喂水 B.观察一段时间再决定是否送医 C.在网上找解决方案 D.带宠物到宠物医院',
+        'B',
         '多选',
         4
     );
@@ -5825,12 +5835,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         6,
         '宠物是否需要接种疫苗？ A.是 B.不是',
+        'A',
         '单选',
         1
     );
@@ -5840,12 +5852,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         7,
         '狗的牙齿保健有哪些方法？ A.刷牙 B.磨牙棒 C.口腔喷雾 D.生骨头',
+        'AB',
         '多选',
         1
     );
@@ -5855,12 +5869,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         8,
         '猫的牙齿保健有哪些方法？ A.刷牙 B.磨牙棒 C.口腔喷雾 D.生鱼肉',
+        'ABCD',
         '多选',
         2
     );
@@ -5870,12 +5886,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         9,
         '宠物发烧了应该怎么办？ A.给宠物喝药 B.让宠物多休息 C.打冰敷 D.立刻带宠物去医院',
+        'ABD',
         '单选',
         4
     );
@@ -5885,12 +5903,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         10,
         '宠物是否需要剪指甲？ A.是 B.不是',
+        'A',
         '单选',
         4
     );
@@ -5900,12 +5920,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         11,
         '宠物为什么会打呼噜？ A.因为它睡得太香了 B.因为它有呼吸道疾病 C.因为它太胖了 D.因为它心情好',
+        'B',
         '单选',
         4
     );
@@ -5915,12 +5937,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         12,
         '宠物会得肥胖症吗？ A.会 B.不会',
+        'A',
         '单选',
         4
     );
@@ -5930,12 +5954,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         13,
         '宠物需要驱虫吗？ A.会 B.不会',
+        'A',
         '单选',
         4
     );
@@ -5945,12 +5971,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         14,
         '宠物有必要绝育吗？ A.需要 B.不一定',
+        'B',
         '单选',
         4
     );
@@ -5960,12 +5988,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         15,
         '宠物要打疫苗吗？ A.要 B.不要',
+        'A',
         '单选',
         4
     );
@@ -5975,12 +6005,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         16,
         '被咬后要打狂犬疫苗吗？ A.要 B.不要',
+        'A',
         '单选',
         4
     );
@@ -5990,12 +6022,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         17,
         '仓鼠会得肥胖症吗？ A.会 B.不会',
+        'A',
         '单选',
         4
     );
@@ -6005,12 +6039,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         18,
         '宠物会得胰腺炎吗？ A.会 B.不会',
+        'A',
         '单选',
         4
     );
@@ -6020,12 +6056,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         19,
         '宠物需要陪伴吗？ A.会 B.不会',
+        'A',
         '单选',
         4
     );
@@ -6035,12 +6073,14 @@ INSERT
         QUESTION(
             question_id,
             question_content,
+            question_answer,
             question_type,
             category_id
         )
     VALUES(
         20,
         '狗能吃巧克力吗？ A.能 B.不能',
+        'B',
         '单选',
         1
     );

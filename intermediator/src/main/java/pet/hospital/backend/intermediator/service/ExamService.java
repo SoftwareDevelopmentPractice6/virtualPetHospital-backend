@@ -1,8 +1,8 @@
 /*
  * @Author: pikapikapi pikapikapi_kaori@icloud.com
  * @Date: 2023-03-22 14:01:53
- * @LastEditors: pikapikapi pikapikapi_kaori@icloud.com
- * @LastEditTime: 2023-04-21 09:34:27
+ * @LastEditors: pikapikapikaori pikapikapi_kaori@icloud.com
+ * @LastEditTime: 2023-04-25 20:40:36
  * @FilePath: /virtualPetHospital-backend/intermediator/src/main/java/pet/hospital/backend/intermediator/service/ExamService.java
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -273,11 +273,13 @@ public class ExamService {
                 restTemplate.getForObject(uriBuilder.toUriString(), JSONObject.class));
     }
 
-    public ResponseData<JSONObject> addQuestion(String questionContent, String questionType, int categoryId) {
+    public ResponseData<JSONObject> addQuestion(
+            String questionContent, String questionAnswer, String questionType, int categoryId) {
         String api = "api/exam/question/add";
 
         MultiValueMap<String, String> requestEntity = new LinkedMultiValueMap<>();
         requestEntity.add(Constants.questionContent, questionContent);
+        requestEntity.add(Constants.questionAnswer, questionAnswer);
         requestEntity.add(Constants.questionType, questionType);
         requestEntity.add(Constants.categoryId, String.valueOf(categoryId));
 
@@ -286,12 +288,13 @@ public class ExamService {
     }
 
     public ResponseData<JSONObject> updateQuestion(
-            int questionId, String questionContent, String questionType, int categoryId) {
+            int questionId, String questionContent, String questionAnswer, String questionType, int categoryId) {
         String api = "api/exam/question/update";
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
                 .queryParam(Constants.questionId, questionId)
                 .queryParam(Constants.questionContent, questionContent)
+                .queryParam(Constants.questionAnswer, questionAnswer)
                 .queryParam(Constants.questionType, questionType)
                 .queryParam(Constants.categoryId, categoryId);
 
@@ -312,11 +315,12 @@ public class ExamService {
     }
 
     public ResponseData<JSONObject> getQuestions(
-            String questionContentKeyword, String questionType, Integer categoryId) {
+            String questionContentKeyword, String questionAnswerKeyword, String questionType, Integer categoryId) {
         String api = "api/exam/question/get";
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.examModuleBaseUrl + api)
                 .queryParam(Constants.questionContentKeyword, questionContentKeyword)
+                .queryParam(Constants.questionAnswerKeyword, questionAnswerKeyword)
                 .queryParam(Constants.questionType, questionType)
                 .queryParam(Constants.categoryId, categoryId);
 
