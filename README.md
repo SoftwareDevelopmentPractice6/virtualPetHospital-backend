@@ -92,3 +92,4 @@ chmod 755 run_backend.sh
 
 1. 以`master`分支为主分支。如果要进行开发等改动，请创建新分支进行修改，完成后提交pr，**不要自己merge**。
 2. 本文件只作为整个后端的文档，各个模块的细致说明等文档放在各个子模块的目录下即可。
+3. 一些[总结与感想](https://pikapikapikaori.github.io/pikapikapi-blog/#/ITtech/SoftwareDevelopementInsights-20230428)，Copyright: © 2023 - 李亦杨 - All Rights Reserved.
